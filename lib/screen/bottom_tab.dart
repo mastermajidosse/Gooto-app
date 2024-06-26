@@ -31,6 +31,7 @@ class _BottomTabBarrState extends State<BottomTabBarr> {
   static List _widgetOptions = [
     HomeScreen(),
     SaveScreen(),
+    Container(),
     SettingScreen(),
   ];
   var provider;
@@ -53,6 +54,7 @@ class _BottomTabBarrState extends State<BottomTabBarr> {
               children: <Widget>[
                 costumcollum(Icons.home, Icons.home_outlined, 0),
                 costumcollum(Icons.favorite, Icons.favorite_outline, 1),
+                costumcollum(Icons.explore, Icons.explore_outlined, 1),
                 costumcollum(Icons.person, Icons.person_outline, 2),
               ],
             ),

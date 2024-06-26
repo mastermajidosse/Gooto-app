@@ -18,6 +18,7 @@ class _ShopScreenState extends State<ShopScreen> {
     // TODO: implement initState
     BlocProvider.of<StoreCubit>(context).getAllProducts();
     super.initState();
+    print("fhdjfdjs");
   }
 
   // List
@@ -62,46 +63,37 @@ class _ShopScreenState extends State<ShopScreen> {
                           child: state.products == null
                               ? Container()
                               : GridView.builder(
-                                  gridDelegate:
-                                      const SliverGridDelegateWithFixedCrossAxisCount(
+                                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                                     crossAxisCount: 2,
                                     crossAxisSpacing: 12,
                                     mainAxisSpacing: 12,
                                     childAspectRatio: 4 / 5,
                                   ),
-                                  itemCount: state.products!.products!
-                                      .length, // ClothModel.test.length,
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 8, vertical: 16),
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
+                                  itemCount:
+                                      state.products!.products!.length, // ClothModel.test.length,
+                                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                                  itemBuilder: (BuildContext context, int index) {
                                     return InkWell(
                                       onTap: () async {
                                         await launchUrlString(""); // wtsp
                                       },
                                       child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
                                         children: [
                                           Expanded(
                                             child: Container(
                                               width: 200,
                                               height: 200,
-                                              decoration:
-                                                  MyStyle.storedecoration(
-                                                image: state.products!
-                                                    .products![index].image,
+                                              decoration: MyStyle.storedecoration(
+                                                image: state.products!.products![index].image,
                                               ).copyWith(color: Colors.white),
                                               padding: EdgeInsets.all(24),
                                               child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(20),
+                                                borderRadius: BorderRadius.circular(20),
                                                 child: Image(
                                                   image: NetworkImage(
-                                                    state.products!
-                                                        .products![index].image
+                                                    state.products!.products![index].image
                                                         .toString(),
                                                   ),
                                                   fit: BoxFit.cover,
@@ -111,12 +103,9 @@ class _ShopScreenState extends State<ShopScreen> {
                                           ),
                                           SizedBox(height: 12),
                                           Padding(
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 12),
+                                            padding: EdgeInsets.symmetric(horizontal: 12),
                                             child: Text(
-                                              state.products!.products![index]
-                                                  .name
-                                                  .toString(),
+                                              state.products!.products![index].name.toString(),
                                               maxLines: 2,
                                               textAlign: TextAlign.center,
                                               style: MyStyle.blackCatTextStyle,
@@ -124,8 +113,7 @@ class _ShopScreenState extends State<ShopScreen> {
                                           ),
                                           SizedBox(height: 4),
                                           Padding(
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 12),
+                                            padding: EdgeInsets.symmetric(horizontal: 12),
                                             child: Text(
                                               " ${state.products!.products![index].price} DHs ",
                                               textDirection: TextDirection.ltr,

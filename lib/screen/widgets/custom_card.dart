@@ -11,9 +11,12 @@ class CustomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(
               children: [
@@ -56,45 +59,57 @@ class CustomCard extends StatelessWidget {
             ),
           ],
         ),
-        Gap(15),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Myconos Bluelake',
-              style: MyStyle.buttwhtieTextStyle,
-              // style: MyStyle.blackalarmTextStyle,
-            ),
-            Gap(15),
-            Text(
-              "200\$",
-              style: MyStyle.buttwhtieTextStyle,
-            ),
-          ],
+        // Gap(15),
+        Padding(
+          padding: const EdgeInsets.only(left: 26.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                // 'Akchour',
+                card.productName,
+                style: MyStyle.buttwhtieTextStyle,
+
+                // style: MyStyle.blackalarmTextStyle,
+              ),
+              // Gap(15),
+              // Text(
+              //   "200\$",
+              //   style: MyStyle.buttwhtieTextStyle,
+              // ),
+            ],
+          ),
         ),
-        Gap(15),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                Image.asset(
-                  'assets/images/location.png',
-                ),
-                Gap(6),
-                Text(
-                  'Switzerland',
-                  style: MyStyle.regular12TextStyle,
-                  // style: MyStyle.blackalarmTextStyle,
-                ),
-              ],
-            ),
-            Gap(15),
-            Text(
-              "/person",
-              style: MyStyle.regular12TextStyle,
-            ),
-          ],
+        Gap(10),
+        Padding(
+          padding: const EdgeInsets.only(left: 22.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset(
+                    'assets/images/location.png',
+                  ),
+                  Gap(6),
+                  Text(
+                    'Morocco',
+                    style: MyStyle.regular12TextStyle,
+                    // style: MyStyle.blackalarmTextStyle,
+                  ),
+                ],
+              ),
+              // Gap(15),
+              // Text(
+              //   "/person",
+              //   style: MyStyle.regular12TextStyle,
+              // ),
+            ],
+          ),
         ),
       ],
     );

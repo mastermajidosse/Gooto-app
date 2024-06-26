@@ -18,11 +18,9 @@ class RulesScreen extends StatelessWidget {
                 children: [
                   Text(
                     "رؤية ".toUpperCase(),
-                    style:
-                        TextStyle(fontSize: 24.0, fontWeight: FontWeight.w600),
+                    style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w600),
                   ),
-                  Directionality(
-                      textDirection: TextDirection.ltr, child: BackButton()),
+                  Directionality(textDirection: TextDirection.ltr, child: BackButton()),
                 ],
               ),
               SizedBox(height: 16.0),

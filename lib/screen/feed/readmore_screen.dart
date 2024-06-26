@@ -1,25 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:gooto/models/blog_model.dart';
-import 'package:gooto/models/post_model.dart';
 import 'package:gooto/utils/mystyle.dart';
 import 'package:readmore/readmore.dart';
-import 'package:audioplayers/audioplayers.dart';
-
-import '../widgets/audio_player.dart'; // Import audioplayers package
 
 class MoreScreen extends StatefulWidget {
-  final BlogModel post;
-  const MoreScreen(this.post, {super.key});
+  // final BlogModel post;
+  // const MoreScreen(this.post, {super.key});
 
   @override
   State<MoreScreen> createState() => _MoreScreenState();
 }
 
 class _MoreScreenState extends State<MoreScreen> {
-  AudioPlayer audioPlayer = AudioPlayer(); // Create an AudioPlayer instance
-  String audioUrl =
-      "https://example.com/audio.mp3"; // Replace with your audio URL
+  String audioUrl = "https://example.com/audio.mp3"; // Replace with your audio URL
   String overviewText =
       "Scattered along Scotland's west coast, this chain of isles is one of the country's most beautiful places to visit. Think shimmering white-sand beaches, sparkling seas and crowd-free hinterlands – it's one of the UK's last remaining secrets, and for good reason.";
   @override
@@ -158,9 +151,6 @@ class _MoreScreenState extends State<MoreScreen> {
                       ),
                     ),
                     Gap(30),
-                    AudioPlayerWidget(
-                      audioUrl: 'audio/test.mp3',
-                    )
                   ],
                 ),
               ),

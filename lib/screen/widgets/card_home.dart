@@ -22,8 +22,7 @@ class CardHome extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 12),
       child: InkWell(
         onTap: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (_) => MoreScreen(post)));
+          Navigator.push(context, MaterialPageRoute(builder: (_) => MoreScreen()));
         },
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 16),

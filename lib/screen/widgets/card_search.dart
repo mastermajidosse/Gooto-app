@@ -17,7 +17,7 @@ class CardSearch extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (_) => MoreScreen(post),
+            builder: (_) => MoreScreen(),
           ),
         );
       },

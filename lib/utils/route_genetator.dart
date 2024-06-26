@@ -6,8 +6,8 @@ import 'package:gooto/screen/auth/splash_screen.dart';
 import 'package:gooto/screen/bottom_tab.dart';
 import 'package:gooto/screen/profile/setting_screen.dart';
 
-// String initialRoute = SplashScreen.routeName;
-String initialRoute = AppStartScreen.routeName;
+String initialRoute = SplashScreen.routeName;
+// String initialRoute = AppStartScreen.routeName;
 
 class RoutGenerator {
   static Route<dynamic> generateRout(RouteSettings settings) {
