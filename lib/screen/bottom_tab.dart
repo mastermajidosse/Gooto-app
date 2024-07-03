@@ -5,6 +5,7 @@ import 'package:gooto/screen/feed/home_screen.dart';
 import 'package:gooto/screen/feed/save_screen.dart';
 import 'package:gooto/screen/others/store_screen.dart';
 import 'package:gooto/screen/profile/setting_screen.dart';
+import 'package:gooto/screen/stories/allstories_screen.dart';
 import 'package:gooto/screen/videos/videos_screen.dart';
 import 'package:gooto/utils/MyStyle.dart';
 
@@ -30,8 +31,9 @@ class _BottomTabBarrState extends State<BottomTabBarr> {
 
   static List _widgetOptions = [
     HomeScreen(),
+    VideosScreen(),
     SaveScreen(),
-    Container(),
+    AllStoriesScreen(),
     SettingScreen(),
   ];
   var provider;
@@ -53,9 +55,10 @@ class _BottomTabBarrState extends State<BottomTabBarr> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 costumcollum(Icons.home, Icons.home_outlined, 0),
-                costumcollum(Icons.favorite, Icons.favorite_outline, 1),
-                costumcollum(Icons.explore, Icons.explore_outlined, 1),
-                costumcollum(Icons.person, Icons.person_outline, 2),
+                costumcollum(FontAwesomeIcons.youtube, FontAwesomeIcons.youtube, 1),
+                costumcollum(Icons.favorite, Icons.favorite_outline, 2),
+                costumcollum(Icons.explore, Icons.explore_outlined, 3),
+                costumcollum(Icons.person, Icons.person_outline, 4),
               ],
             ),
           ),

@@ -10,7 +10,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gooto/bloc/profile/profile_cubit.dart';
 import 'package:gooto/screen/profile/edit_profile_screen.dart';
 import 'package:gooto/screen/profile/signup_profile_screen.dart';
+import 'package:gooto/services/app_config.dart';
 import 'package:gooto/services/service/auth_service.dart';
+import 'package:gooto/utils/imageWidget.dart';
 import 'package:gooto/utils/img_bigger.dart';
 import 'package:gooto/utils/MyStyle.dart';
 import 'package:path_provider/path_provider.dart';
@@ -24,10 +26,8 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
-  var image =
-      "https://i0.wp.com/rouelibrenmaine.fr/wp-content/uploads/2018/10/empty-avatar.png";
-  String sh =
-      "مرحبا بكم في تطبيق التراس حيت نشارك جميع معلومات وقصص واخبار اللتراس المغرب ";
+  var image = "https://i0.wp.com/rouelibrenmaine.fr/wp-content/uploads/2018/10/empty-avatar.png";
+  String sh = "مرحبا بكم في تطبيق التراس حيت نشارك جميع معلومات وقصص واخبار اللتراس المغرب ";
   Future<bool> csac() async {
     return false;
   }
@@ -36,286 +36,220 @@ class _SettingScreenState extends State<SettingScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-
-    BlocProvider.of<ProfileCubit>(context).profile();
   }
 
   var scaffoldKey = GlobalKey<ScaffoldState>();
-
-  List<String> stop = [
-    'stop',
-    'please stop',
-    'get some help',
-    'stooooop',
-    'common man',
-    'keep going you gonna win big',
-  ];
-
   @override
   Widget build(BuildContext context) {
-    // print(SmilesRepo().user!.uid);
-    return BlocBuilder<ProfileCubit, ProfileState>(builder: (context, state) {
-      return state is ProfileLoaded
-          ? Scaffold(
-              key: scaffoldKey,
-              appBar: AppBar(
-                backgroundColor: Colors.white,
-                elevation: 0,
-                centerTitle: true,
-                // leading: BackButton(color: Colors.black),
-                title: Text(
-                  "الحساب",
-                  style: MyStyle.regularTextStyle,
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          'Profile',
+          style: MyStyle.blackalarmTextStyle,
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
+      body: Column(
+        children: [
+          // profile photo
+          SizedBox(height: 55.h),
+
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Icon(Icons.favorite_outline, color: Colors.transparent, size: 46),
+                //Image.memory(widget.imageBytes!),
+                UserImageWidget(
+                  // AppConfig.defaultImg,
+                  "https://media.licdn.com/dms/image/D4E03AQFxhq6guuqHHw/profile-displayphoto-shrink_800_800/0/1719602654033?e=1725494400&v=beta&t=c3aLOv9EwGUhG30Y9IkZxwQdNF8c_zGEb79G-E4IXuk",
+                  ScreenUtil().setHeight(110),
+                ),
+                Icon(Icons.favorite_outline, color: Colors.transparent, size: 46),
+              ],
+            ),
+          ),
+          SizedBox(height: 15.h),
+
+          // username
+          Center(
+            child: Text(
+              'Othman el majid',
+              style: MyStyle.dashTextStyle,
+            ),
+          ),
+
+          SizedBox(height: 18.h),
+
+          // InkWell(
+          //   onTap: () {
+          //     // Navigator.pushNamed(context, );
+          //     // Navigator.push(context,
+          //     //     MaterialPageRoute(builder: (_) => EditProfileScreen(state.myuser)));
+          //   },
+          //   child: Container(
+          //     decoration: MyStyle.cardhome(),
+          //     // width: ,
+          //     height: 47,
+          //     alignment: Alignment.center,
+          //     child: Text(
+          //       "Edit Profile",
+          //       style: MyStyle.dash13TextStyle,
+          //     ),
+          //   ),
+          // ),
+          SizedBox(height: 55.h),
+
+          Container(
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  color: Colors.grey[200]!,
                 ),
               ),
-              backgroundColor: Colors.white,
-              body: Directionality(
-                textDirection: TextDirection.rtl,
-                child: Column(
-                  children: [
-                    Container(
-                      width: double.infinity,
-                      child: Column(
-                        children: [
-                          SizedBox(height: ScreenUtil().setHeight(30)),
-                          InkWell(
-                            // onDoubleTap: () {
-                            //   if (state is ProfileLoaded)
-                            //     showsmile(context, state.myuser.imgurl);
-                            // },
-                            // onTap: () {
-                            //   if (state is ProfileLoaded)
-                            //     showsmile(context, state.myuser.imgurl);
-                            // },
-                            child: CachedNetworkImage(
-                              height: ScreenUtil().setHeight(155),
-                              width: ScreenUtil().setHeight(155),
-                              placeholder: (context, url) => Center(
-                                child: CircularProgressIndicator(
-                                  color: Colors.white,
-                                ),
-                              ),
-                              errorWidget: (context, url, error) => Container(
-                                width: double.infinity,
-                                height: ScreenUtil().setHeight(300),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(100),
-                                  border: Border.all(
-                                      color: Colors.black54, width: 2),
-                                  image: DecorationImage(
-                                    image: NetworkImage(image),
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                              imageUrl: state.myuser.imgurl ??
-                                  "https://i0.wp.com/rouelibrenmaine.fr/wp-content/uploads/2018/10/empty-avatar.png",
-                              imageBuilder: (context, imageProvider) =>
-                                  Container(
-                                width: double.infinity,
-                                height: ScreenUtil().setHeight(300),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(100),
-                                  border: Border.all(
-                                      color: Colors.black54, width: 2),
-                                  image: DecorationImage(
-                                    image: imageProvider,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: ScreenUtil().setHeight(25)),
-                          InkWell(
-                            onTap: () {},
-                            child: Container(
-                              child: Text(
-                                state.myuser.firstname!,
-                                style: MyStyle.dashTextcoloStyle,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+              color: Colors.white,
+            ),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: ListTile(
+                  onTap: () {
+                    Share.share(sh);
+                  },
+                  title: Padding(
+                    padding: EdgeInsets.only(left: 16),
+                    child: Text(
+                      "Edit profile",
+                      style: MyStyle.regularTextStyle,
                     ),
-                    SizedBox(height: ScreenUtil().setHeight(35)),
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(
-                            color: Colors.grey[200]!,
-                          ),
-                        ),
-                        color: Colors.white,
-                      ),
-                      child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 16),
-                        child: ListTile(
-                          onTap: () {
-                            state is ProfileLoaded
-                                ? Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (_) =>
-                                            EditProfileScreen(state.myuser)))
-                                : print("err");
-                          },
-                          title: Padding(
-                            padding: EdgeInsets.only(left: 16),
-                            child: Text(
-                              "المعلومات الشخصية",
-                              style: MyStyle.regularTextStyle,
-                            ),
-                          ),
-                          trailing: Icon(Icons.keyboard_arrow_left_sharp),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(
-                            color: Colors.grey[200]!,
-                          ),
-                        ),
-                        color: Colors.white,
-                      ),
-                      child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 16),
-                        child: ListTile(
-                            onTap: () {
-                              Share.share(sh);
-                            },
-                            title: Padding(
-                              padding: EdgeInsets.only(left: 16),
-                              child: Text(
-                                "مشاركة التطبيق",
-                                style: MyStyle.regularTextStyle,
-                              ),
-                            ),
-                            trailing: Icon(Icons.keyboard_arrow_left_sharp)),
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(
-                            color: Colors.grey[200]!,
-                          ),
-                        ),
-                        color: Colors.white,
-                      ),
-                      child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 16),
-                        child: ListTile(
-                          onTap: () async {
-                            // Navigator.of(context).push(MaterialPageRoute(
-                            //     builder: (_) => RulesScreen()));
-                            final Email email = Email(
-                              body: "",
-                              subject: '',
-                              recipients: ['mastermajidosse@gmail.com'],
-                              isHTML: false,
-                            );
-
-                            await FlutterEmailSender.send(email);
-                          },
-                          title: Padding(
-                            padding: EdgeInsets.only(left: 16),
-                            child: Text(
-                              "تواصل معنا",
-                              style: MyStyle.regularTextStyle,
-                            ),
-                          ),
-                          trailing: Icon(Icons.keyboard_arrow_left_sharp),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: ScreenUtil().setHeight(25)),
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(
-                            color: Colors.grey[200]!,
-                          ),
-                        ),
-                        color: Colors.white,
-                      ),
-                      child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 16),
-                        child: ListTile(
-                          onTap: () {
-                            // ProfileCubit().
-                            UserRepository().signOut().then((value) {
-                              Phoenix.rebirth(context);
-                            });
-                          },
-                          title: Padding(
-                            padding: EdgeInsets.only(left: 16),
-                            child: Text(
-                              "خروج",
-                              style: MyStyle.regularTextStyle,
-                            ),
-                          ),
-                          trailing: Icon(Icons.keyboard_arrow_left_sharp),
-                        ),
-                      ),
-                    ),
-                    Spacer(),
-                    Container(
-                      alignment: Alignment.center,
-                      width: double.infinity,
-                      height: 50,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          // Container(
-                          //     height: 60.w,
-                          //     width: 60.w,
-                          //     decoration: BoxDecoration(
-                          //       color: Colors.transparent,
-                          //       image: DecorationImage(
-                          //         image: AssetImage("assets/logonocircle.png"),
-                          //         fit: BoxFit.cover,
-                          //       ),
-                          //     )),
-                          Text(
-                            "التراس",
-                            style: MyStyle.buttTextStyle,
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: ScreenUtil().setHeight(15)),
-                  ],
+                  ),
+                  trailing: Icon(Icons.keyboard_arrow_right_sharp)),
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  color: Colors.grey[200]!,
                 ),
               ),
-            )
-          : state is ProfileError
-              ? SignupProfileScreen('الحساب')
-              : Center(child: CircularProgressIndicator());
-    });
-  }
+              color: Colors.white,
+            ),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: ListTile(
+                  onTap: () {
+                    Share.share(sh);
+                  },
+                  title: Padding(
+                    padding: EdgeInsets.only(left: 16),
+                    child: Text(
+                      "Invite Friends",
+                      style: MyStyle.regularTextStyle,
+                    ),
+                  ),
+                  trailing: Icon(Icons.keyboard_arrow_right_sharp)),
+            ),
+          ),
 
-  Future<String> writeImageToStorage(Uint8List feedbackScreenshot) async {
-    final Directory output = await getTemporaryDirectory();
-    final String screenshotFilePath = '${output.path}/feedback.png';
-    final File screenshotFile = File(screenshotFilePath);
-    await screenshotFile.writeAsBytes(feedbackScreenshot);
-    return screenshotFilePath;
-  }
+          Container(
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  color: Colors.grey[200]!,
+                ),
+              ),
+              color: Colors.white,
+            ),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: ListTile(
+                onTap: () async {
+                  // Navigator.of(context).push(MaterialPageRoute(
+                  //     builder: (_) => RulesScreen()));
+                  final Email email = Email(
+                    body: "",
+                    subject: '',
+                    recipients: ['mastermajidosse@gmail.com'],
+                    isHTML: false,
+                  );
 
-  showsmile(context, smile) {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return ImageBigger.imagePop(
-            MyStyle.isNullEmptyFalseOrZero(smile!) ? image : smile!,
-          );
-        });
+                  await FlutterEmailSender.send(email);
+                },
+                title: Padding(
+                  padding: EdgeInsets.only(left: 16),
+                  child: Text(
+                    "Contact us",
+                    style: MyStyle.regularTextStyle,
+                  ),
+                ),
+                trailing: Icon(Icons.keyboard_arrow_right_sharp),
+              ),
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  color: Colors.grey[200]!,
+                ),
+              ),
+              color: Colors.white,
+            ),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: ListTile(
+                onTap: () {
+                  // ProfileCubit().
+                  UserRepository().signOut().then((value) {
+                    Phoenix.rebirth(context);
+                  });
+                },
+                title: Padding(
+                  padding: EdgeInsets.only(left: 16),
+                  child: Text(
+                    "Logout",
+                    style: MyStyle.regularTextStyle,
+                  ),
+                ),
+                trailing: Icon(Icons.keyboard_arrow_right_sharp),
+              ),
+            ),
+          ),
+          // SizedBox(height: 25),
+          Spacer(),
+          Container(
+            alignment: Alignment.center,
+            width: double.infinity,
+            height: 50,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                    height: 60.w,
+                    width: 60.w,
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      image: DecorationImage(
+                        image: AssetImage("assets/icon.png"),
+                        fit: BoxFit.cover,
+                      ),
+                    )),
+                Text(
+                  "Gooto",
+                  style: MyStyle.buttTextStyle,
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: ScreenUtil().setHeight(25)),
+        ],
+      ),
+    );
   }
-
-  int clicks = 0;
 }

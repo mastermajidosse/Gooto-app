@@ -6,11 +6,12 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 class MyStyle {
   // static const Color primarycolo = Color.fromARGB(255, 23, 49, 17); // #b30e35
   // static const Color primarycolo = Color.fromARGB(255, 85, 6, 6); // #b30e35
-  static const Color primarycolo = Color(0xFF1ea1e1);
-  // static const Color primarycolo = Color(0xFF008aae);
+  // static const Color primarycolo = Color(0xFF1ea1e1);
   // static const Color primarycolo = Color.fromARGB(255, 225, 225, 225); // #b30e35
+  static const Color primarycolo = Color(0xFF249cc6);
+  static const Color secondarycolo = Color(0xFF99d2e0); //#f3e9df
   static const Color logocolo = Colors.black; // #b30e35
-  static const Color secondarycolo = Color(0xFFf3e9df); //#f3e9df
+  // static const Color secondarycolo = Color(0xFFf3e9df); //#f3e9df
   static const Color secondcolo = Color.fromARGB(255, 181, 220, 230); //#f3e9df
   static const Color pinkcolor = Color(0xFFfc7979);
   static const Color reddcolor = Color(0xFFff3131);
@@ -231,7 +232,7 @@ class MyStyle {
         fontSize: 17,
         color: textcolor.withOpacity(.39),
       ),
-      fillColor: textgreycolor,
+      fillColor: Colors.grey[100],
       enabledBorder: UnderlineInputBorder(
         borderRadius: BorderRadius.circular(5),
         borderSide: BorderSide(color: textgreycolor),
@@ -248,7 +249,7 @@ class MyStyle {
       filled: true,
       prefixIcon: oneicon,
       // labelText: hint,
-      contentPadding: const EdgeInsets.symmetric(horizontal: 24.0),
+      // contentPadding: const EdgeInsets.symmetric(horizontal: 24.0),
       // labelStyle: TextStyle(
       //   fontSize: 17,
       //   color: textcolor.withOpacity(.39),

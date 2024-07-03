@@ -59,18 +59,18 @@ class BlogModel {
     });
   }
 
-  BlogModel b1 = BlogModel(
-    id: 1,
-    title: "taghazout",
-    imgurl: "",
-    desc: "",
-  );
-  BlogModel b2 = BlogModel(
-    id: 2,
-    title: "taghazout",
-    imgurl: "",
-    desc: "",
-  );
+  // BlogModel b1 = BlogModel(
+  //   id: 1,
+  //   title: "taghazout",
+  //   imgurl: "",
+  //   desc: "",
+  // );
+  // BlogModel b2 = BlogModel(
+  //   id: 2,
+  //   title: "taghazout",
+  //   imgurl: "",
+  //   desc: "",
+  // );
 }
 
 class Comments {

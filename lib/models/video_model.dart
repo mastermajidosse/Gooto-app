@@ -2,12 +2,12 @@ class VideoModel {
   int? id;
   String? name;
   String? url;
-  String? thumbnail;
+  String? channelImg;
   String? channelName;
   // String? country;
 
   VideoModel({
-    this.thumbnail,
+    this.channelImg,
     this.id,
     this.name,
     this.url,
@@ -18,7 +18,7 @@ class VideoModel {
     print(map['tags'].toString());
     return VideoModel(
       id: map['id'],
-      thumbnail: map['thumbnail'].toString(),
+      channelImg: map['channelImg'].toString(),
       name: map['name'].toString(),
       url: map['url'].toString(),
       channelName: map['channelName'],
@@ -28,7 +28,7 @@ class VideoModel {
   Map<String, dynamic> toJson() {
     return {
       // 'id': id,
-      'thumbnail': thumbnail,
+      'channelImg': channelImg,
       "name": name,
       "image": url,
     };

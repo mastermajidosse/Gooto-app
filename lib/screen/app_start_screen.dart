@@ -32,20 +32,21 @@ class _AppStartScreenState extends State<AppStartScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocListener<AuthCubit, AuthState>(
-      listener: (context, state) {
-        // if (state is Unauthenticated || state is Uninitialized) {
+        listener: (context, state) {
+          // if (state is Unauthenticated || state is Uninitialized) {
 
-        //   Navigator.pushReplacementNamed(context, SplashScreen.routeName);
-        // } else if (state is Authenticated) {
-        //   Navigator.pushReplacementNamed(context, SplashScreen.routeName);
-        // }
-      },
-      child: Scaffold(
-        backgroundColor: MyStyle.primarycolo,
-        body: Center(
-          child: CircularProgressIndicator(),
-        ),
-      ),
-    );
+          //   Navigator.pushReplacementNamed(context, SplashScreen.routeName);
+          // } else if (state is Authenticated) {
+          //   Navigator.pushReplacementNamed(context, SplashScreen.routeName);
+          // }
+        },
+        child: SplashScreen(radius: 50.5));
+    //   Scaffold(
+    //     backgroundColor: MyStyle.primarycolo,
+    //     body: Center(
+    //       child: CircularProgressIndicator(),
+    //     ),
+    //   ),
+    // );
   }
 }
