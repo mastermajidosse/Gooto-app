@@ -16,6 +16,20 @@ class BlogModel {
     this.comments,
   });
   BlogModel.fromData(Map<String, dynamic> json) {
+    id = json['id'];
+    title = json['title'];
+    imgurl = json['imgurl'];
+    desc = json['desc'];
+  }
+  // if (json['comments'] != null) {
+  //   comments = <Comments>[];
+  //   json['comments'].forEach((v) {
+  //     comments!.add(Comments.fromData(v));
+  //   });
+  // } else {
+  //   comments = <Comments>[];
+  // }
+  BlogModel.fromData2(Map<String, dynamic> json) {
     if (json['comments'] != null) {
       comments = <Comments>[];
       json['comments'].forEach((v) {
@@ -58,19 +72,6 @@ class BlogModel {
           "https://colourlex.com/wp-content/uploads/2021/02/vine-black-painted-swatch-300x300.jpg",
     });
   }
-
-  // BlogModel b1 = BlogModel(
-  //   id: 1,
-  //   title: "taghazout",
-  //   imgurl: "",
-  //   desc: "",
-  // );
-  // BlogModel b2 = BlogModel(
-  //   id: 2,
-  //   title: "taghazout",
-  //   imgurl: "",
-  //   desc: "",
-  // );
 }
 
 class Comments {

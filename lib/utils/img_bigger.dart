@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:photo_view/photo_view.dart';
+import 'dart:ui';
 
 class ImageBigger {
   // static Dialog imagePop(String img) {
@@ -50,19 +51,46 @@ class ImageBigger {
     );
   }
 
-  static Dialog imagePopAssNet(String img) {
+  static imagePopAssNet(String img, context) {
     return Dialog(
+      backgroundColor: Colors.transparent,
+      insetPadding: EdgeInsets.only(bottom: 10),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      child: InteractiveViewer(
-        panEnabled: false, // Set it to false
-        boundaryMargin: EdgeInsets.all(100),
-        minScale: 0.5,
-        maxScale: 2,
-        child: PhotoView(
-          imageProvider: NetworkImage(
-            img,
+      child: Stack(
+        children: [
+          BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10), // Adjust the blur intensity
+            child: Container(
+              color: Colors.white
+                  .withOpacity(0.0), // Adjust the opacity to control the background darkness
+            ),
           ),
-        ),
+          InteractiveViewer(
+            panEnabled: false,
+            boundaryMargin: EdgeInsets.all(100),
+            minScale: 0.5,
+            maxScale: 2,
+            child: PhotoView(
+              imageProvider: NetworkImage(img),
+              backgroundDecoration: BoxDecoration(
+                color: Colors.transparent,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 10,
+            right: 10,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+              child: CircleAvatar(
+                backgroundColor: Colors.black.withOpacity(0.5),
+                child: Icon(Icons.close, color: Colors.white),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

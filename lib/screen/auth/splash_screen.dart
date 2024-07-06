@@ -111,8 +111,8 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
     if (widget.radius != 50.5)
       Future.delayed(Duration(seconds: 5)).then((_) {
-        Navigator.pushReplacementNamed(context, LoginPage.routeName);
-        // Navigator.pushReplacementNamed(context, BottomTabBarr.routeName);
+        // Navigator.pushReplacementNamed(context, LoginPage.routeName);
+        Navigator.pushReplacementNamed(context, BottomTabBarr.routeName);
         // BlocProvider.of<SystemsCubit>(context).clear(context);
 
         // BlocProvider.of<SystemsCubit>(context).initiateit(context);

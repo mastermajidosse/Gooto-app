@@ -6,16 +6,16 @@ import 'package:gooto/models/blog_model.dart';
 import 'package:gooto/utils/mystyle.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 
-class StoriesScreen extends StatefulWidget {
+class DetailsExplore extends StatefulWidget {
   BlogModel blogModel;
-  StoriesScreen(this.blogModel);
+  DetailsExplore(this.blogModel);
 
   @override
-  State<StoriesScreen> createState() => _StoriesScreenState(blogModel);
+  State<DetailsExplore> createState() => _DetailsExploreState(blogModel);
 }
 
-class _StoriesScreenState extends State<StoriesScreen> {
-  _StoriesScreenState(this.blogModel);
+class _DetailsExploreState extends State<DetailsExplore> {
+  _DetailsExploreState(this.blogModel);
   BlogModel blogModel;
 
   @override
@@ -32,6 +32,7 @@ class _StoriesScreenState extends State<StoriesScreen> {
       body: ListView(
         children: [
           Container(
+            height: 300.w,
             color: Colors.black,
             child: CachedNetworkImage(
               placeholder: (context, url) => Center(
@@ -55,8 +56,8 @@ class _StoriesScreenState extends State<StoriesScreen> {
                     ),
                   ],
                   image: DecorationImage(
-                    image: NetworkImage(blogModel.imgurl.toString()),
-                    //  imageProvider,
+                    // image: NetworkImage(blogModel.imgurl.toString()),
+                    image: imageProvider,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -75,9 +76,10 @@ class _StoriesScreenState extends State<StoriesScreen> {
                         child: BackButton(color: Colors.white),
                       ),
                     ),
+                    Spacer(),
                     Container(
-                      alignment: Alignment.bottomRight,
-                      height: 200.w,
+                      height: 150,
+                      alignment: Alignment.bottomLeft,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           begin: Alignment.bottomCenter,
@@ -91,7 +93,7 @@ class _StoriesScreenState extends State<StoriesScreen> {
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(16.0),
                         child: Text(
                           blogModel.title.toString(),
                           style: TextStyle(
@@ -108,37 +110,34 @@ class _StoriesScreenState extends State<StoriesScreen> {
               ),
             ),
           ),
-          Directionality(
-            textDirection: TextDirection.rtl,
-            child: Padding(
-              padding: const EdgeInsets.all(24.0),
-              // child: blog.id == 10
-              child: HtmlWidget(
-                blogModel.desc.toString(),
-                renderMode: RenderMode.column,
+          Padding(
+            padding: const EdgeInsets.all(24.0),
+            // child: blog.id == 10
+            child: HtmlWidget(
+              blogModel.desc.toString(),
+              renderMode: RenderMode.column,
 
-                // set the default styling for text
-                textStyle: TextStyle(fontSize: 14),
+              // set the default styling for text
+              textStyle: TextStyle(fontSize: 14),
 
-                // style: {
-                //   "br": Style(
-                //     height: 0,
-                //     margin: EdgeInsets.zero,
-                //     padding: EdgeInsets.zero,
-                //   ),
-                //   "p": Style(
-                //     // height: 0,
-                //     margin: EdgeInsets.zero,
-                //     padding: EdgeInsets.zero,
-                //   ),
-                // },
-              ),
-              //     : Text(blog.desc.toString()),
-              // child: Text(
-              //   blogModel.desc.toString(),
-              //   style: Mystyle.blackCatTextStyle,
-              // ),
+              // style: {
+              //   "br": Style(
+              //     height: 0,
+              //     margin: EdgeInsets.zero,
+              //     padding: EdgeInsets.zero,
+              //   ),
+              //   "p": Style(
+              //     // height: 0,
+              //     margin: EdgeInsets.zero,
+              //     padding: EdgeInsets.zero,
+              //   ),
+              // },
             ),
+            //     : Text(blog.desc.toString()),
+            // child: Text(
+            //   blogModel.desc.toString(),
+            //   style: Mystyle.blackCatTextStyle,
+            // ),
           ),
         ],
       ),

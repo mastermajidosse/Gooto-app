@@ -96,28 +96,28 @@ class _VideosScreenState extends State<VideosScreen> {
       url: "https://youtu.be/FFyaqbAn-cA",
     ),
     VideoModel(
-      id: 1,
+      id: 3,
       channelImg:
-          "https://yt3.ggpht.com/tzio1KXXxly4DP9BRmiwZaU2MQy5iCgbOwL0DcgLkrG4ZbWK5Z7JDgkqg9WpRu79yiEUWfn9eyc=s88-c-k-c0x00ffffff-no-rj",
-      name: "tesintttttt",
-      channelName: "testinggg",
-      url: "https://youtu.be/ue1VwEZvQHQ",
+          "https://yt3.ggpht.com/kXn5Ebjvia9adabHc7xyDuH46u5yR5dHXzfMqaXPANiFOumq0Vx3Q2fAmtvtBeID0cutBKdDzZM=s88-c-k-c0x00ffffff-no-rj",
+      name: "The King of Moroccan Street Food 🇲🇦 Crazy Casablanca Food Tour!! ",
+      channelName: "Bohemian Kitchen",
+      url: "https://youtu.be/J4dzI-Yk9ok",
     ),
     VideoModel(
-      id: 1,
+      id: 4,
       channelImg:
-          "https://yt3.ggpht.com/tzio1KXXxly4DP9BRmiwZaU2MQy5iCgbOwL0DcgLkrG4ZbWK5Z7JDgkqg9WpRu79yiEUWfn9eyc=s88-c-k-c0x00ffffff-no-rj",
-      name: "tesintttttt",
-      channelName: "testinggg",
-      url: "https://youtu.be/ue1VwEZvQHQ",
+          "https://yt3.ggpht.com/J0nU49t0OW684dcdz4DO-oaanVAqR0qaS3N8QIThsR2AODPoYbj8lO4gYxPlYeN8FREi03ZCYQ=s88-c-k-c0x00ffffff-no-rj",
+      name: " We are off to a New Continent! (Ferry from Spain to Morocco) ",
+      channelName: "The Buddymoon",
+      url: "https://youtu.be/_avcZBIfr6s",
     ),
     VideoModel(
-      id: 1,
+      id: 5,
       channelImg:
-          "https://yt3.ggpht.com/tzio1KXXxly4DP9BRmiwZaU2MQy5iCgbOwL0DcgLkrG4ZbWK5Z7JDgkqg9WpRu79yiEUWfn9eyc=s88-c-k-c0x00ffffff-no-rj",
-      name: "tesintttttt",
-      channelName: "testinggg",
-      url: "https://youtu.be/ue1VwEZvQHQ",
+          "https://yt3.ggpht.com/ytc/AIdro_lw8fvBaeIbYNuXAEWmVOMlxuMBBh6Es9pONrsGE0F_zaw=s88-c-k-c0x00ffffff-no-rj",
+      name: " 10 Beautiful Places to Visit in Morocco 🇲🇦 | Must See Morocco Travel Guide ",
+      channelName: "Lifestyle Hal",
+      url: "https://youtu.be/HRzLiATNRNc",
     ),
   ];
 }

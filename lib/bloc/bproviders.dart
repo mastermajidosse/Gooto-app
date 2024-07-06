@@ -14,9 +14,9 @@ List<BlocProvider> bproviders = [
   BlocProvider<AuthCubit>(
     create: (BuildContext context) => AuthCubit(),
   ),
-  // BlocProvider<BlogCubit>(
-  //   create: (BuildContext context) => BlogCubit()..initBlog(),
-  // ),
+  BlocProvider<BlogCubit>(
+    create: (BuildContext context) => BlogCubit()..initBlog(),
+  ),
   BlocProvider<LoginCubit>(
     create: (BuildContext context) => LoginCubit(),
   ),
@@ -34,9 +34,6 @@ List<BlocProvider> bproviders = [
   ),
   BlocProvider<StoreCubit>(
     create: (BuildContext context) => StoreCubit(),
-  ),
-  BlocProvider<BlogCubit>(
-    create: (BuildContext context) => BlogCubit(),
   ),
   BlocProvider<VideoCubit>(
     create: (BuildContext context) => VideoCubit(),
