@@ -1,12 +1,16 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:gooto/config/save.dart';
 import 'package:gooto/models/card.dart';
 import 'package:gooto/widgets/custm_card.dart';
+import 'package:gooto/widgets/popular_activities.dart';
 
 import '../../config/demo.dart';
 import '../../utils/MyStyle.dart';
-import '../widgets/custom_card_two.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,6 +20,35 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List<String> cities = [];
+  Future<void> _addCity(String city) async {
+    setState(() {
+      cities.add(city);
+    });
+    await Save.saveCities(cities);
+  }
+
+  Future<void> _removeCity(String city) async {
+    setState(() {
+      cities.remove(city);
+    });
+    await Save.saveCities(cities);
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _loadCities();
+  }
+
+  Future<void> _loadCities() async {
+    List<String> loadedCities = await Save.getCities();
+    setState(() {
+      cities = loadedCities;
+    });
+  }
+
   final List<String> items = [];
 
   @override
@@ -75,10 +108,28 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            // containerRow(),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Popular Places',
+                    style: MyStyle.blackalarmTextStyle,
+                  ),
+                  Container(),
+                  // InkWell(
+                  //   child: Text(
+                  //     'View More',
+                  //     style: MyStyle.buttTextStyle,
+                  //   ),
+                  // ),
+                ],
+              ),
+            ),
             Gap(10),
             Container(
-              height: 350.h,
+              height: 380.h,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: cardsList.length,
@@ -86,65 +137,45 @@ class _HomeScreenState extends State<HomeScreen> {
                   final CardModule card = cardsList[index];
                   // return CustomCard(card: card);
                   return CustomCards(
+                    cities.contains(card.productName),
                     imageUrl: card.productImg,
                     title: card.productName,
-                    description: card.price.toString(),
+                    description: card.location.toString(),
                     onTap: () {
-                      print('Icon button tapped!');
+                      if (cities.contains(card.productName)) {
+                        _removeCity(card.productName);
+                      } else {
+                        _addCity(card.productName);
+                      }
                     },
                   );
                 },
               ),
             ),
             Gap(15),
-            containerRow(),
-            Gap(15),
-            // Container(
-            //   height: 350,
-            //   child: ListView.builder(
-            //     itemCount: 2,
-            //     itemBuilder: (context, index) {
-            //       final CardModule card = cardsList[index];
-            //       return CustomCardTwo(card: card);
-            //     },
-            //   ),
-            // ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Container containerRow() {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            'Popular Places',
-            style: MyStyle.blackalarmTextStyle,
-          ),
-          InkWell(
-            child: Text(
-              'View More',
-              style: MyStyle.buttTextStyle,
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Best activities',
+                    style: MyStyle.blackalarmTextStyle,
+                  ),
+                  // InkWell(
+                  //   child: Text(
+                  //     'View More',
+                  //     style: MyStyle.buttTextStyle,
+                  //   ),
+                  // ),
+                  Container(),
+                ],
+              ),
             ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  containerWid(text, onTap) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.all(20),
-        child: Text(
-          text,
-          style: MyStyle.regularwhiteTextStyle,
-          overflow: TextOverflow.clip, // Truncate if needed
+            SizedBox(height: 10),
+            PopularActivities(),
+            SizedBox(height: 20),
+          ],
         ),
       ),
     );

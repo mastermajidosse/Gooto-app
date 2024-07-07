@@ -79,7 +79,7 @@ class _BottomTabBarrState extends State<BottomTabBarr> {
         // width: ScreenUtil().screenWidth / 3,
         child: Icon(
           _selectedIndex == numb ? ico : txt,
-          size: _selectedIndex == numb ? 28 : 23,
+          size: _selectedIndex == numb ? 32 : 28,
           color: _selectedIndex == numb ? MyStyle.primarycolo : Colors.black54,
           // color: MyStyle.primarycolo,
         ),

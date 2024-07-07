@@ -6,8 +6,10 @@ class CustomCards extends StatelessWidget {
   final String title;
   final String description;
   final Function onTap;
+  bool isFavorite = false;
 
-  CustomCards({
+  CustomCards(
+    this.isFavorite, {
     required this.imageUrl,
     required this.title,
     required this.description,
@@ -17,8 +19,8 @@ class CustomCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
-      width: 200,
+      height: 360.h,
+      width: 200.w,
       margin: EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -64,7 +66,7 @@ class CustomCards extends StatelessWidget {
                       ],
                     ),
                     padding: EdgeInsets.all(8),
-                    child: Icon(Icons.favorite, color: Colors.red),
+                    child: Icon(Icons.favorite, color: isFavorite ? Colors.red : Colors.grey),
                   ),
                 ),
               ),
@@ -91,7 +93,7 @@ class CustomCards extends StatelessWidget {
                 color: Colors.black54,
                 height: 1.5,
               ),
-              maxLines: 3,
+              maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
           ),

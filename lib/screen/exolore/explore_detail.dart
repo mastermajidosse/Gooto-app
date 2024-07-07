@@ -118,7 +118,7 @@ class _DetailsExploreState extends State<DetailsExplore> {
               renderMode: RenderMode.column,
 
               // set the default styling for text
-              textStyle: TextStyle(fontSize: 14),
+              textStyle: TextStyle(fontSize: 18.sp, height: 1.3),
 
               // style: {
               //   "br": Style(

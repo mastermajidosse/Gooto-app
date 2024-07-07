@@ -5,6 +5,7 @@ class BlogModel {
   String? title;
   String? imgurl;
   String? desc;
+  String? price;
   List<Comments>? comments;
   // String? desc;
 
@@ -12,6 +13,7 @@ class BlogModel {
     this.desc,
     this.id,
     this.title,
+    this.price,
     this.imgurl,
     this.comments,
   });

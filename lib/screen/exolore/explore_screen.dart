@@ -82,7 +82,7 @@ class _ExplloreScreenState extends State<ExplloreScreen> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Container(
-                              height: 150.h,
+                              height: 200.h,
                               width: ScreenUtil().screenWidth - 50,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(16),

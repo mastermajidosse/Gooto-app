@@ -59,7 +59,7 @@ class OneVid extends StatelessWidget {
           },
           child: CachedNetworkImage(
             width: double.infinity,
-            height: 200,
+            height: 300.h,
             placeholder: (context, url) => Center(
               child: CircularProgressIndicator(
                 color: Colors.white,
