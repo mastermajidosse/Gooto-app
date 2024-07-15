@@ -188,7 +188,8 @@ class MyStyle {
 
   //
 
-  static BoxDecoration storedecoration({Color colo = Colors.white, String? image}) {
+  static BoxDecoration storedecoration(
+      {Color colo = Colors.white, String? image}) {
     return BoxDecoration(
       color: colo,
       // image: DecorationImage(
@@ -225,7 +226,8 @@ class MyStyle {
   //   );
   // }
 
-  static InputDecoration inputregular(String hint, {Icon? icon, Icon? oneicon}) {
+  static InputDecoration inputregular(String hint,
+      {Icon? icon, Icon? oneicon}) {
     return InputDecoration(
       hintText: hint,
       hintStyle: TextStyle(
@@ -293,7 +295,8 @@ class MyStyle {
       labelStyle: TextStyle(color: MyStyle.textgreycolor),
       errorStyle: TextStyle(color: MyStyle.pinkcolor),
       hintStyle: TextStyle(color: MyStyle.textgreycolor),
-      contentPadding: EdgeInsets.only(bottom: 9.w, top: 9.w, left: 28.0, right: 18.0),
+      contentPadding:
+          EdgeInsets.only(bottom: 9.w, top: 9.w, left: 28.0, right: 18.0),
       enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(radius),
           borderSide: BorderSide(
@@ -373,9 +376,11 @@ class MyStyle {
       return o.toString();
   }
 
-  static bool isNullEmptyOrFalse(Object? o) => o == null || false == o || "" == o;
+  static bool isNullEmptyOrFalse(Object? o) =>
+      o == null || false == o || "" == o;
 
-  static bool isNullEmptyFalseOrZero(Object? o) => o == null || false == o || 0 == o || "" == o;
+  static bool isNullEmptyFalseOrZero(Object? o) =>
+      o == null || false == o || 0 == o || "" == o;
 
   static String capitalize(String s) => s[0].toUpperCase() + s.substring(1);
   DateTime now = DateTime.now();
@@ -391,7 +396,8 @@ class MyStyle {
 
     // print("${user.lastsmileDate!.day} .. ${now.day - 1}");
     if ((user.lastsmileDate!.month == now.month) &&
-        (user.lastsmileDate!.day == now.day - 1 || user.lastsmileDate!.day == now.day)) {
+        (user.lastsmileDate!.day == now.day - 1 ||
+            user.lastsmileDate!.day == now.day)) {
       return true;
     } else {
       return false;
@@ -402,7 +408,8 @@ class MyStyle {
     DateTime now = DateTime.now();
 
     // print("${date.lastsmileDate!.day} .. ${now.day - 1}");
-    if ((date!.month == now.month) && (date!.day == now.day - 1 || date!.day == now.day)) {
+    if ((date!.month == now.month) &&
+        (date!.day == now.day - 1 || date!.day == now.day)) {
       return true;
     } else {
       return false;
@@ -413,7 +420,8 @@ class MyStyle {
     DateTime now = DateTime.now();
 
     // print("${user.lastsmileDate!.day} .. ${now.day - 1}");
-    if ((date!.month == now.month) && (date!.day == now.day - 1 && date!.day != now.day)) {
+    if ((date!.month == now.month) &&
+        (date!.day == now.day - 1 && date!.day != now.day)) {
       return true;
     } else {
       return false;

@@ -118,25 +118,18 @@ class _DetailsExploreState extends State<DetailsExplore> {
               renderMode: RenderMode.column,
 
               // set the default styling for text
-              textStyle: TextStyle(fontSize: 18.sp, height: 1.3),
-
-              // style: {
-              //   "br": Style(
-              //     height: 0,
-              //     margin: EdgeInsets.zero,
-              //     padding: EdgeInsets.zero,
-              //   ),
-              //   "p": Style(
-              //     // height: 0,
-              //     margin: EdgeInsets.zero,
-              //     padding: EdgeInsets.zero,
-              //   ),
-              // },
+              textStyle: TextStyle(fontSize: 19.sp, height: 1.3),
             ),
-            //     : Text(blog.desc.toString()),
+            //  child : Text(blog.desc.toString()),
             // child: Text(
-            //   blogModel.desc.toString(),
-            //   style: Mystyle.blackCatTextStyle,
+            //   // blogModel.desc.toString(),
+            //   "Located in the south of Morocco, Dakhla is a small part of paradise, lost between the waters of the Atlantic and the sands of the Sahara. It gives you a complete change of scenery. Kilometres of beaches expand from one side of the town to the other : an opportunity to relax, and indulge in all kinds of water activities.These shores are one of the most beautiful ones in Morocco. These pearls are an absolute haven of peace ; an ideal place to bask in the 25-degree sun all year round.In the surroundings, the PK25 and Foum El Bouir beaches are particularly famous. While PK25 is a perfect place for relaxation, where to swim quietly in the calm and crystalline waters of the lagoon, the atmosphere of Foum El Bouir is more lively.Being the perfect places for sliding sports : Surfers, kitesurfers and windsurfers, whether amateurs or professionals, meet here to experience thrilling challenges with waves and winds. « Pointe de Dragon » is another internationally renowned spot : waves are impressive and the most famous surfers have come in droves to these spectacular tubes that run for hundreds of metres.Leading to sub-Saharan Africa, Dakhla is a gateway to a never-ending array of thrilling and exciting activities ! ",
+            //   style: TextStyle(
+            //       fontSize: 19.sp,
+            //       height: 1.3,
+            //       color: Colors.black.withOpacity(.7)),
+            //   textAlign: TextAlign.justify,
+            //   // style: Mystyle.blackCatTextStyle,
             // ),
           ),
         ],
