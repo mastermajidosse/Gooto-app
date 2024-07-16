@@ -5,6 +5,7 @@ import 'package:gooto/screen/auth/register_screen.dart';
 import 'package:gooto/screen/auth/splash_screen.dart';
 import 'package:gooto/screen/bottom_tab.dart';
 import 'package:gooto/screen/profile/setting_screen.dart';
+import 'package:gooto/widgets/all_activities_screen.dart';
 
 String initialRoute = SplashScreen.routeName;
 // String initialRoute = AppStartScreen.routeName;
@@ -14,6 +15,7 @@ class RoutGenerator {
     switch (settings.name) {
       case BottomTabBarr.routeName:
         return MaterialPageRoute(builder: (_) => BottomTabBarr());
+      // return MaterialPageRoute(builder: (_) => AllActivitiesScreen());
       case RegisterScreen.routeName:
         return MaterialPageRoute(builder: (_) => RegisterScreen());
       case LoginPage.routeName:
@@ -66,8 +68,10 @@ class SlideRightRoute extends PageRouteBuilder {
               Animation<double> secondaryAnimation) {
             return widget;
           },
-          transitionsBuilder: (BuildContext context, Animation<double> animation,
-              Animation<double> secondaryAnimation, Widget child) {
+          transitionsBuilder: (BuildContext context,
+              Animation<double> animation,
+              Animation<double> secondaryAnimation,
+              Widget child) {
             return new SlideTransition(
               position: new Tween<Offset>(
                 begin: const Offset(1.0, 0.0),

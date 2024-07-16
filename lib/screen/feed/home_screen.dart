@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:gooto/config/save.dart';
 import 'package:gooto/models/card.dart';
+import 'package:gooto/widgets/all_activities_screen.dart';
 import 'package:gooto/widgets/custm_card.dart';
 import 'package:gooto/widgets/popular_activities.dart';
 
@@ -118,12 +119,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: MyStyle.blackalarmTextStyle,
                   ),
                   Container(),
-                  // InkWell(
-                  //   child: Text(
-                  //     'View More',
-                  //     style: MyStyle.buttTextStyle,
-                  //   ),
-                  // ),
+                  InkWell(
+                    onTap: () {
+                      print("view more");
+                    },
+                    child: Text(
+                      'View More',
+                      style: MyStyle.buttTextStyle,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -162,18 +166,25 @@ class _HomeScreenState extends State<HomeScreen> {
                     'Best activities',
                     style: MyStyle.blackalarmTextStyle,
                   ),
-                  // InkWell(
-                  //   child: Text(
-                  //     'View More',
-                  //     style: MyStyle.buttTextStyle,
-                  //   ),
-                  // ),
-                  Container(),
+                  // Container(),
                 ],
               ),
             ),
             SizedBox(height: 10),
             PopularActivities(),
+            SizedBox(height: 20),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => AllActivitiesScreen()));
+              },
+              child: Text(
+                'View More',
+                style: MyStyle.buttTextStyle,
+              ),
+            ),
             SizedBox(height: 20),
           ],
         ),
