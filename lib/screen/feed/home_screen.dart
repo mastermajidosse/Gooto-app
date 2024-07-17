@@ -4,7 +4,9 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:gooto/config/save.dart';
+import 'package:gooto/models/blog_model.dart';
 import 'package:gooto/models/card.dart';
+import 'package:gooto/screen/feed/popular_details.dart';
 import 'package:gooto/widgets/custm_card.dart';
 import 'package:gooto/widgets/popular_activities.dart';
 
@@ -134,20 +136,31 @@ class _HomeScreenState extends State<HomeScreen> {
                 scrollDirection: Axis.horizontal,
                 itemCount: cardsList.length,
                 itemBuilder: (context, index) {
-                  final CardModule card = cardsList[index];
+                  final BlogModel card = cardsList[index];
                   // return CustomCard(card: card);
-                  return CustomCards(
-                    cities.contains(card.productName),
-                    imageUrl: card.productImg,
-                    title: card.productName,
-                    description: card.location.toString(),
+                  return InkWell(
                     onTap: () {
-                      if (cities.contains(card.productName)) {
-                        _removeCity(card.productName);
-                      } else {
-                        _addCity(card.productName);
-                      }
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => PopularDetails(card),
+                        ),
+                      );
                     },
+                    //
+                    child: CustomCards(
+                      cities.contains(card.title),
+                      imageUrl: card.imgurl.toString(),
+                      title: card.title.toString(),
+                      description: card.location.toString(),
+                      onTap: () {
+                        if (cities.contains(card.title.toString())) {
+                          _removeCity(card.title.toString());
+                        } else {
+                          _addCity(card.title.toString());
+                        }
+                      },
+                    ),
                   );
                 },
               ),

@@ -56,7 +56,13 @@ class ActivityCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network(activity.imgurl.toString(), fit: BoxFit.cover),
+            Container(
+              width: double.infinity,
+              child: Image.network(
+                activity.imgurl.toString(),
+                fit: BoxFit.cover,
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(

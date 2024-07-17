@@ -48,28 +48,28 @@ class CustomCards extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              Positioned(
-                top: 10,
-                right: 10,
-                child: InkWell(
-                  onTap: () => onTap(),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.3),
-                          spreadRadius: 2,
-                          blurRadius: 10,
-                        ),
-                      ],
-                    ),
-                    padding: EdgeInsets.all(8),
-                    child: Icon(Icons.favorite, color: isFavorite ? Colors.red : Colors.grey),
-                  ),
-                ),
-              ),
+              // Positioned(
+              //   top: 10,
+              //   right: 10,
+              //   child: InkWell(
+              //     onTap: () => onTap(),
+              //     child: Container(
+              //       decoration: BoxDecoration(
+              //         color: Colors.white,
+              //         shape: BoxShape.circle,
+              //         boxShadow: [
+              //           BoxShadow(
+              //             color: Colors.black.withOpacity(0.3),
+              //             spreadRadius: 2,
+              //             blurRadius: 10,
+              //           ),
+              //         ],
+              //       ),
+              //       padding: EdgeInsets.all(8),
+              //       child: Icon(Icons.favorite, color: isFavorite ? Colors.red : Colors.grey),
+              //     ),
+              //   ),
+              // ),
             ],
           ),
           Padding(

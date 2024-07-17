@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,13 +25,9 @@ class _ExplloreScreenState extends State<ExplloreScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    BlocProvider.of<BlogCubit>(context).initBlog();
+    // BlocProvider.of<BlogCubit>(context)..initBlog(context);
     // blogs =  fetchall();
   }
-
-//  fetchall() async {
-//     blogs = await Getdata().fetchQuestions();
-//   }
 
   @override
   Widget build(BuildContext context) {
@@ -81,38 +78,68 @@ class _ExplloreScreenState extends State<ExplloreScreen> {
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Container(
-                              height: 200.h,
-                              width: ScreenUtil().screenWidth - 50,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(16),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey.withOpacity(0.3),
-                                    spreadRadius: 0,
-                                    blurRadius: 10,
-                                    offset: Offset(0, 3),
-                                  ),
-                                ],
-                                image: DecorationImage(
-                                  image: NetworkImage(state.stories![indexx].imgurl.toString()),
-                                  fit: BoxFit.cover,
+                            CachedNetworkImage(
+                              placeholder: (context, url) => Center(
+                                child: CircularProgressIndicator(
+                                  color: Colors.white,
                                 ),
                               ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(16),
-                                child: Container(
-                                  alignment: Alignment.bottomCenter,
-                                  decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                      begin: Alignment.bottomCenter,
-                                      end: Alignment.topCenter,
-                                      colors: [
-                                        Colors.black,
-                                        Colors.black.withOpacity(.3),
-                                        Colors.black.withOpacity(.1),
-                                        Colors.transparent,
-                                      ],
+                              errorWidget: (context, url, error) => Center(
+                                child: Icon(Icons.image_not_supported_sharp, size: 50.sp),
+                              ),
+                              imageUrl: state.stories![indexx].imgurl.toString(),
+                              imageBuilder: (context, imageProvider) => Container(
+                                height: 200.h,
+                                width: ScreenUtil().screenWidth - 50,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(16),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.withOpacity(0.3),
+                                      spreadRadius: 0,
+                                      blurRadius: 10,
+                                      offset: Offset(0, 3),
+                                    ),
+                                  ],
+                                  image: DecorationImage(
+                                    // image: NetworkImage(blogModel.imgurl.toString()),
+                                    image: imageProvider,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                // Container(
+                                //   height: 200.h,
+                                //   width: ScreenUtil().screenWidth - 50,
+                                //   decoration: BoxDecoration(
+                                //     borderRadius: BorderRadius.circular(16),
+                                //     boxShadow: [
+                                //       BoxShadow(
+                                //         color: Colors.grey.withOpacity(0.3),
+                                //         spreadRadius: 0,
+                                //         blurRadius: 10,
+                                //         offset: Offset(0, 3),
+                                //       ),
+                                //     ],
+                                //     // image: DecorationImage(
+                                //     //   image: NetworkImage(state.stories![indexx].imgurl.toString()),
+                                //     //   fit: BoxFit.cover,
+                                //     // ),
+                                //   ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(16),
+                                  child: Container(
+                                    alignment: Alignment.bottomCenter,
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        begin: Alignment.bottomCenter,
+                                        end: Alignment.topCenter,
+                                        colors: [
+                                          Colors.black,
+                                          Colors.black.withOpacity(.3),
+                                          Colors.black.withOpacity(.1),
+                                          Colors.transparent,
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -141,7 +168,7 @@ class _ExplloreScreenState extends State<ExplloreScreen> {
                                   color: Colors.black54,
                                   height: 1.5,
                                 ),
-                                maxLines: 5,
+                                maxLines: 3,
                                 overflow: TextOverflow.ellipsis,
                               ),
                             ),
