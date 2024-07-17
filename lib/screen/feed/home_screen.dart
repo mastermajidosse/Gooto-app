@@ -174,9 +174,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 10.h),
             PopularActivities(),
-            SizedBox(height: 20),
+            SizedBox(height: 20.h),
             InkWell(
               onTap: () {
                 Navigator.push(
