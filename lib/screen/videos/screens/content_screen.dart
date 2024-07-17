@@ -75,16 +75,10 @@ class _ContentScreenState extends State<ContentScreen> {
                   });
                 },
                 child: 
-                 _videoPlayerController.value.isInitialized
-          ? AspectRatio(
-              aspectRatio: _videoPlayerController.value.aspectRatio,
-              child: VideoPlayer(_videoPlayerController),
-            ):CircularProgressIndicator()
                 
-              
-                // Chewie(
-                //   controller: _chewieController!,
-                // ),
+                Chewie(
+                  controller: _chewieController!,
+                ),
               )
             : Column(
                 mainAxisAlignment: MainAxisAlignment.center,
