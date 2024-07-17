@@ -2,6 +2,13 @@ import '../models/card.dart';
 
 List<CardModule> cardsList = const [
   CardModule(
+    id: 6,
+    price: 65.99,
+    location: 'Essaouira',
+    productImg: 'assets/popular/essaouira.png',
+    productName: 'Essaouira',
+  ),
+  CardModule(
     id: 1,
     price: 30,
     location: 'Akchour , Chefchaouen',

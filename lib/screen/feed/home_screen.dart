@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:gooto/config/save.dart';
 import 'package:gooto/models/card.dart';
+import 'package:gooto/screen/allPopular_screen.dart';
 import 'package:gooto/widgets/all_activities_screen.dart';
 import 'package:gooto/widgets/custm_card.dart';
 import 'package:gooto/widgets/popular_activities.dart';
@@ -121,7 +122,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   Container(),
                   InkWell(
                     onTap: () {
-                      print("view more");
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PopularPlacesScreen()));
                     },
                     child: Text(
                       'View More',
@@ -136,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 380.h,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: cardsList.length,
+                itemCount: 5,
                 itemBuilder: (context, index) {
                   final CardModule card = cardsList[index];
                   // return CustomCard(card: card);
