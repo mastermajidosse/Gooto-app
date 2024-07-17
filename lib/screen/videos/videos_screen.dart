@@ -1,9 +1,12 @@
+import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:gooto/bloc/feed/feed_cubit.dart';
 import 'package:gooto/models/video_model.dart';
+import 'package:gooto/screen/videos/screens/content_screen.dart';
+import 'package:gooto/screen/videos/screens/home_page.dart';
 import 'package:gooto/screen/videos/video_more.dart';
 import 'package:gooto/utils/MyStyle.dart';
 
@@ -15,24 +18,45 @@ class VideosScreen extends StatefulWidget {
 }
 
 class _VideosScreenState extends State<VideosScreen> {
+  //  final List<String> videos = [
+  //   'https://assets.mixkit.co/videos/preview/mixkit-taking-photos-from-different-angles-of-a-model-34421-large.mp4',
+  //   'https://assets.mixkit.co/videos/preview/mixkit-young-mother-with-her-little-daughter-decorating-a-christmas-tree-39745-large.mp4',
+  //   'https://assets.mixkit.co/videos/preview/mixkit-mother-with-her-little-daughter-eating-a-marshmallow-in-nature-39764-large.mp4',
+  //   'https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4',
+  //   'https://assets.mixkit.co/videos/preview/mixkit-winter-fashion-cold-looking-woman-concept-video-39874-large.mp4',
+  //   'https://assets.mixkit.co/videos/preview/mixkit-womans-feet-splashing-in-the-pool-1261-large.mp4',
+  //   'https://assets.mixkit.co/videos/preview/mixkit-a-girl-blowing-a-bubble-gum-at-an-amusement-park-1226-large.mp4'
+  // ];
+    final List<String> videos = [
+    'assets/vedio/akchoure.mp4',
+    'assets/vedio/Essaouira.mp4',
+    'assets/vedio/Lharba.mp4',
+    'assets/vedio/Marzouga.mp4',
+    'assets/vedio/Taghazoute2.mp4',
+    'assets/vedio/travelmoroco.mp4',
+    'assets/vedio/casablanca.mp4',
+    'assets/vedio/document.mp4',
+    'assets/vedio/10days.mp4',
+    "assets/vedio/Dakhla"
+  ];
   var scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         appBar: PreferredSize(
           preferredSize: Size(MediaQuery.of(context).size.width, 60.h),
           child: Container(
             decoration: BoxDecoration(
-              color: Color(0xFF008aae),
+              color: Color.fromARGB(255, 0, 174, 113),
             ),
-            height: 60.h,
+            height: 30.h,
             width: double.infinity,
             alignment: Alignment.center,
             child: Text(
-              "Videos",
+              "This Week Videos",
               style: MyStyle.dashTextStyle.copyWith(
                 fontSize: ScreenUtil().setSp(18),
                 fontFamily: "arial",
@@ -42,17 +66,42 @@ class _VideosScreenState extends State<VideosScreen> {
             ),
           ),
         ),
-        body: ListView(
-          children: [
+        body:
+      Container(
+          child: Stack(
+            children: [
+  //               SizedBox(height: 12.h),
+  //           Padding(
+  //             padding: EdgeInsets.symmetric(horizontal: 16),
+  //             child: Center(
+  //               child: Text(
+  //               "This Week Videos",
+  //               style:TextStyle(
+  //   color: Colors.white,
+  //   fontWeight: FontWeight.bold,
+  //   fontSize: ScreenUtil().setSp(20),
+  // )
+  //             ), 
+              
+  //             )
+             
+  //           ),
             SizedBox(height: 12.h),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                "This Week Videos",
-                style: MyStyle.subtitleTextStyle,
+              //We need swiper for every content
+              Swiper(
+                itemBuilder: (BuildContext context, int index) {
+                  return ContentScreen(
+                    src: videos![index],
+                    //slide: videoss![index].name,
+                  );
+                },
+                itemCount: videos.length,
+                scrollDirection: Axis.vertical,
               ),
-            ),
-            SizedBox(height: 12.h),
+            ],
+          ),
+        ),
+          
             // Padding(
             //   padding: EdgeInsets.symmetric(horizontal: 16),
             //   child: Text(
@@ -61,63 +110,57 @@ class _VideosScreenState extends State<VideosScreen> {
             //   ),
             // ),
             // VideoDetails(),
-            ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              primary: true,
-              itemCount: videos!.length,
-              itemBuilder: (BuildContext context, int index) {
-                return OneVid(videos![index]);
-              },
-            ),
-            SizedBox(height: 16),
-          ],
-        ),
+            // ListView.builder(
+            //   physics: NeverScrollableScrollPhysics(),
+            //   shrinkWrap: true,
+            //   primary: true,
+            //   itemCount: videos!.length,
+            //   itemBuilder: (BuildContext context, int index) {
+            //     return OneVid(videos![index]);
+            //   },
+            // ),
+            //SizedBox(height: 16),
+            //HomePage()
+       
         // ),
       ),
     );
   }
 
-  List<VideoModel>? videos = [
+  List<VideoModel>? videoss = [
     VideoModel(
       id: 1,
-      channelImg:
-          "https://yt3.ggpht.com/tzio1KXXxly4DP9BRmiwZaU2MQy5iCgbOwL0DcgLkrG4ZbWK5Z7JDgkqg9WpRu79yiEUWfn9eyc=s88-c-k-c0x00ffffff-no-rj",
-      name: " I Can't Believe This Happened To Me in Morocco (Shocked) ",
-      channelName: "More Kenny",
-      url: "https://youtu.be/ue1VwEZvQHQ",
+
+      name: " I Can't Believe This Happened To Me in Akchour ",
+      url: 'assets/vedio/akchoure.mp4',
     ),
     VideoModel(
       id: 1,
-      channelImg:
-          "https://yt3.ggpht.com/JG3fCUW0JA7Kzw5kvFJQjD6L-Awzd7o335X5yDzcuxsrgSY1Ppw6vz_FmMzy0JCNIy0jRXXqRtQ=s88-c-k-c0x00ffffff-no-rj",
+     
       name: " MOROCCO TRAVEL DOCUMENTARY | The Grand Moroccan Roadtrip ",
-      channelName: "Lucas T jahn",
-      url: "https://youtu.be/FFyaqbAn-cA",
+   
+      url: "assets/vedio/travelmoroco.mp4",
     ),
     VideoModel(
       id: 3,
-      channelImg:
-          "https://yt3.ggpht.com/kXn5Ebjvia9adabHc7xyDuH46u5yR5dHXzfMqaXPANiFOumq0Vx3Q2fAmtvtBeID0cutBKdDzZM=s88-c-k-c0x00ffffff-no-rj",
+
       name: "The King of Moroccan Street Food 🇲🇦 Crazy Casablanca Food Tour!! ",
-      channelName: "Bohemian Kitchen",
-      url: "https://youtu.be/J4dzI-Yk9ok",
+
+      url: "assets/vedio/casablanca.mp4",
     ),
     VideoModel(
       id: 4,
-      channelImg:
-          "https://yt3.ggpht.com/J0nU49t0OW684dcdz4DO-oaanVAqR0qaS3N8QIThsR2AODPoYbj8lO4gYxPlYeN8FREi03ZCYQ=s88-c-k-c0x00ffffff-no-rj",
+
       name: " We are off to a New Continent! (Ferry from Spain to Morocco) ",
-      channelName: "The Buddymoon",
-      url: "https://youtu.be/_avcZBIfr6s",
+     
+      url: "assets/vedio/document.mp4",
     ),
     VideoModel(
       id: 5,
-      channelImg:
-          "https://yt3.ggpht.com/ytc/AIdro_lw8fvBaeIbYNuXAEWmVOMlxuMBBh6Es9pONrsGE0F_zaw=s88-c-k-c0x00ffffff-no-rj",
+
       name: " 10 Beautiful Places to Visit in Morocco 🇲🇦 | Must See Morocco Travel Guide ",
-      channelName: "Lifestyle Hal",
-      url: "https://youtu.be/HRzLiATNRNc",
+   
+      url: "assets/vedio/",
     ),
   ];
 }
