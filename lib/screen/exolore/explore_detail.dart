@@ -25,6 +25,11 @@ class _DetailsExploreState extends State<DetailsExplore> {
     super.initState();
   }
 
+  String addStyles(String txt) {
+    return txt.replaceAll(
+        "<p>", "<p style=\"color: #444; text-align: justify;\">");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,7 +119,7 @@ class _DetailsExploreState extends State<DetailsExplore> {
             padding: const EdgeInsets.all(24.0),
             // child: blog.id == 10
             child: HtmlWidget(
-              blogModel.desc.toString(),
+              addStyles(blogModel.desc.toString()),
               renderMode: RenderMode.column,
 
               // set the default styling for text
