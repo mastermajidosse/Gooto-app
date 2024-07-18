@@ -2,33 +2,33 @@ class VideoModel {
   int? id;
   String? name;
   String? url;
-  String? channelImg;
-  String? channelName;
+  // String? channelImg;
+  // String? channelName;
   // String? country;
 
   VideoModel({
-    this.channelImg,
+    //this.channelImg,
     this.id,
     this.name,
     this.url,
     // this.country,
-    this.channelName,
+   // this.channelName,
   });
   static VideoModel fromData(map) {
     print(map['tags'].toString());
     return VideoModel(
       id: map['id'],
-      channelImg: map['channelImg'].toString(),
+     // channelImg: map['channelImg'].toString(),
       name: map['name'].toString(),
       url: map['url'].toString(),
-      channelName: map['channelName'],
+      //channelName: map['channelName'],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
       // 'id': id,
-      'channelImg': channelImg,
+     // 'channelImg': channelImg,
       "name": name,
       "image": url,
     };

@@ -93,7 +93,7 @@ class OneVid extends StatelessWidget {
             CircleAvatar(
               backgroundColor: Colors.white,
               // foregroundImage: AssetImage("assets/icon.png"),
-              foregroundImage: NetworkImage(posts.channelImg.toString()),
+            //  foregroundImage: NetworkImage(posts.channelImg.toString()),
             ),
             SizedBox(width: 16),
             Container(
