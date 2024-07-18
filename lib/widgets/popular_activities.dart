@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gooto/models/blog_model.dart';
 import 'package:gooto/screen/exolore/explore_detail.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PopularActivities extends StatelessWidget {
   final List<BlogModel> activities = [
@@ -21,11 +22,6 @@ class PopularActivities extends StatelessWidget {
     </div>
 </body>
 """,
-      // """Surf lessons are a great way for beginners to learn the basics of surfing and improve their skills. Most surf lessons include both on-land and on-water instruction, and will cover topics such as surfboard and wetsuit selection, wave theory, paddling technique, and standing up on the board.
-
-      // If you’re a complete beginner, it’s generally recommended to start with a beginner lesson In order to discover surfing, which will cover the basics of the sport and give you a good foundation to build on. Once you have a solid understanding of the basics, you can then progress to intermediate lessons to continue improving your skills.
-
-      // Surf lessons can be a fun and rewarding way to learn a new sport, and can provide a sense of accomplishment and enjoyment for people of all ages and abilities.""",
       imgurl:
           'https://surfariessaouira.com/wp-content/uploads/bb-plugin/cache/image-40-600x400-circle.jpg',
     ),
@@ -71,11 +67,16 @@ class ActivityCard extends StatelessWidget {
       // height: 300,
       width: double.infinity,
       child: Card(
+        elevation: 0,
         margin: EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network(activity.imgurl.toString(), fit: BoxFit.cover),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.network(activity.imgurl.toString(),
+                  width: double.infinity, height: 280.h, fit: BoxFit.cover),
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
