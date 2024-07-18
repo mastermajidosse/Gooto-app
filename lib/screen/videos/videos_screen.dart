@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,16 +31,21 @@ class _VideosScreenState extends State<VideosScreen> {
   // ];
     final List<String> videos = [
     'assets/vedio/akchoure.mp4',
+    'assets/vedio/travelmoroco.mp4',
     'assets/vedio/Essaouira.mp4',
     'assets/vedio/Lharba.mp4',
     'assets/vedio/Marzouga.mp4',
     'assets/vedio/Taghazoute2.mp4',
-    'assets/vedio/travelmoroco.mp4',
+    
     'assets/vedio/casablanca.mp4',
     'assets/vedio/document.mp4',
     'assets/vedio/10days.mp4',
     "assets/vedio/Dakhla"
+        "assets/vedio/Tagine.mp4",
+    "assets/vedio/Marrakech.mp4" 
   ];
+
+  
   var scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -88,11 +95,14 @@ class _VideosScreenState extends State<VideosScreen> {
   //           ),
             SizedBox(height: 12.h),
               //We need swiper for every content
+             
               Swiper(
                 itemBuilder: (BuildContext context, int index) {
+                 // int randomIndex = Random().nextInt(videoss!.length);
+             //  videoss?.shuffle();
                   return ContentScreen(
-                    src: videos![index],
-                    //slide: videoss![index].name,
+                    src: videoss![index].url,
+                    slide: videoss![index].name,
                   );
                 },
                 itemCount: videos.length,
@@ -144,9 +154,9 @@ class _VideosScreenState extends State<VideosScreen> {
     VideoModel(
       id: 3,
 
-      name: "The King of Moroccan Street Food 🇲🇦 Crazy Casablanca Food Tour!! ",
+      name: "The King of Moroccan Tagine Food 🇲🇦 Crazy Casablanca Food Tour!! ",
 
-      url: "assets/vedio/casablanca.mp4",
+      url: "assets/vedio/tagine.mp4",
     ),
     VideoModel(
       id: 4,
@@ -158,9 +168,58 @@ class _VideosScreenState extends State<VideosScreen> {
     VideoModel(
       id: 5,
 
-      name: " 10 Beautiful Places to Visit in Morocco 🇲🇦 | Must See Morocco Travel Guide ",
+      name: "10 Beautiful Places to Visit in Morocco 🇲🇦 | Must See Morocco Travel Guide ",
    
-      url: "assets/vedio/",
+      url: "assets/vedio/10days.mp4",
+    ),
+      VideoModel(
+      id: 5,
+
+      name: "Beautiful Places to Visit in Dakhla 🇲🇦 | Must See Morocco Travel Guide ",
+   
+      url: "assets/vedio/Dakhla.mp4",
+    ),
+    //   VideoModel(
+    //   id: 5,
+
+    //   name: "Beautiful Tagine in Morocco 🇲🇦 | Must See Morocco Travel Guide ",
+   
+    //   url: "assets/vedio/agine.mp4",
+    // ),
+      VideoModel(
+      id: 5,
+
+      name: "Beautiful Places to Visit in casablanca 🇲🇦 | Must See Morocco Travel Guide ",
+   
+      url: "assets/vedio/casablanca.mp4",
+    ),
+      VideoModel(
+      id: 5,
+
+      name: "Beautiful Places to Visit in Marrakech 🇲🇦 | Must See Morocco Travel Guide ",
+   
+      url: "assets/vedio/Marrakech.mp4",
+    ),
+      VideoModel(
+      id: 5,
+
+      name: "Beautiful Places to Visit in Marzouga 🇲🇦 | Must See Morocco Travel Guide ",
+   
+      url: "assets/vedio/Marzouga.mp4",
+    ),
+      VideoModel(
+      id: 5,
+
+      name: " Beautiful Places to Visit in Morocco 🇲🇦 | Must See Morocco Travel Guide ",
+   
+      url: "assets/vedio/Lharba.mp4",
+    ),
+      VideoModel(
+      id: 5,
+
+      name: "Beautiful Places to Visit in Essaouira 🇲🇦 | Must See Morocco Travel Guide ",
+   
+      url: "assets/vedio/Essaouira.mp4",
     ),
   ];
 }

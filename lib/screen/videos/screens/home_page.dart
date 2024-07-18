@@ -8,10 +8,10 @@ class HomePage extends StatelessWidget {
   final List<String> videos = [
     'assets/vedio/akchoure.mp4',
     'assets/vedio/Essaouira.mp4',
-    'assets/vedio/Ifrane.mp4',
+    'assets/vedio/Lharba.mp4',
     'assets/vedio/Marzouga.mp4',
-    'assets/vedio/Taghazoute.mp4',
     'assets/vedio/Taghazoute2.mp4',
+  
 
   ];
   @override

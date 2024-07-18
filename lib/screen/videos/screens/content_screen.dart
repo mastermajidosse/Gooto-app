@@ -110,7 +110,7 @@ class _ContentScreenState extends State<ContentScreen> {
           //             ),
           //           ),
           //         ),
-      // OptionsScreen(  titles: widget.slide! ,)
+       OptionsScreen(  titles: widget.slide! ,)
       ],
     );
   }

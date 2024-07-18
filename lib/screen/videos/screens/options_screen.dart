@@ -45,8 +45,9 @@ class OptionsScreen extends StatelessWidget {
                         children: [
                          modeText(title:''),
                           modeText(
-                              title:titles
-                             // '🌟${}🌟',
+                              title:
+                              
+                              '🌟${titles}🌟',
                               ),
                         ],
                       ),
