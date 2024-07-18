@@ -43,6 +43,7 @@ class _VideosScreenState extends State<VideosScreen> {
     "assets/vedio/Dakhla"
         "assets/vedio/Tagine.mp4",
     "assets/vedio/Marrakech.mp4" 
+    "assets/"
   ];
 
   
