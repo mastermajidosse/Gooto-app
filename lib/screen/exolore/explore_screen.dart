@@ -32,6 +32,19 @@ class _ExplloreScreenState extends State<ExplloreScreen> {
 //     blogs = await Getdata().fetchQuestions();
 //   }
 
+  String removeHtmlTags(String htmlText) {
+    // Regular expression to match HTML tags
+    RegExp tagExp = RegExp(r"<[^>]*>", multiLine: true, caseSensitive: true);
+
+    // Replace all HTML tags with an empty string
+    String cleanedText = htmlText.replaceAll(tagExp, '');
+
+    // Replace multiple whitespaces with a single space and trim the string
+    cleanedText = cleanedText.replaceAll(RegExp(r'\s+'), ' ').trim();
+
+    return cleanedText.trim();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -74,7 +87,8 @@ class _ExplloreScreenState extends State<ExplloreScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => DetailsExplore(state.stories![indexx]),
+                              builder: (_) =>
+                                  DetailsExplore(state.stories![indexx]),
                             ),
                           );
                         },
@@ -95,7 +109,8 @@ class _ExplloreScreenState extends State<ExplloreScreen> {
                                   ),
                                 ],
                                 image: DecorationImage(
-                                  image: NetworkImage(state.stories![indexx].imgurl.toString()),
+                                  image: NetworkImage(
+                                      state.stories![indexx].imgurl.toString()),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -120,7 +135,8 @@ class _ExplloreScreenState extends State<ExplloreScreen> {
                             ),
                             Container(
                               width: ScreenUtil().screenWidth - 50,
-                              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 16, vertical: 8),
                               child: Text(
                                 state.stories![indexx].title.toString(),
                                 style: TextStyle(
@@ -135,7 +151,9 @@ class _ExplloreScreenState extends State<ExplloreScreen> {
                               width: ScreenUtil().screenWidth - 50,
                               padding: EdgeInsets.symmetric(horizontal: 16),
                               child: Text(
-                                state.stories![indexx].desc.toString(),
+                                removeHtmlTags(
+                                        state.stories![indexx].desc.toString())
+                                    .substring(0, 98),
                                 style: TextStyle(
                                   fontSize: 14.sp,
                                   color: Colors.black54,
