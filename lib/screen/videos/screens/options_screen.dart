@@ -33,26 +33,33 @@ class OptionsScreen extends StatelessWidget {
                   SizedBox(height: 150),
                   //SizedBox(height: 90),
 
-                   //Text('Flutter is beautiful and fast 💙❤💛 ..'),
-                        Container(
-                    alignment: Alignment.center,
-                    color: Colors.transparent,
-                    height: 45,
-                    width: double.infinity,
-                    child: ShakeWidget(
-                      child: Row(
+                   Text(titles,style:TextStyle(
+    fontWeight: FontWeight.w700,
+    fontSize: 12,
+    fontFamily: "Urbanist",
+    color: Colors.white,
+    fontStyle: FontStyle.normal,
+    height: 0.8,
+  ), ),
+                  //       Container(
+                  //   alignment: Alignment.center,
+                  //   color: Colors.transparent,
+                  //   height: 45,
+                  //   width: double.infinity,
+                  //   child: ShakeWidget(
+                  //     child: Row(
                         
-                        children: [
-                         modeText(title:''),
-                          modeText(
-                              title:
+                  //       children: [
+                  //        modeText(title:''),
+                  //         modeText(
+                  //             title:
                               
-                              '🌟${titles}🌟',
-                              ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  //             '🌟${titles}🌟',
+                  //             ),
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
                   
               
                 ],
