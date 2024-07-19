@@ -6,6 +6,7 @@ import 'package:gooto/screen/auth/splash_screen.dart';
 import 'package:gooto/screen/bottom_tab.dart';
 import 'package:gooto/screen/profile/setting_screen.dart';
 import 'package:gooto/widgets/all_activities_screen.dart';
+import 'package:gooto/screen/allPopular_screen.dart';
 
 String initialRoute = SplashScreen.routeName;
 // String initialRoute = AppStartScreen.routeName;
