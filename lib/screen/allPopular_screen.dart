@@ -12,7 +12,39 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gooto/widgets/custm_card.dart';
 
-class PopularPlacesScreen extends StatelessWidget {
+class PopularPlacesScreen extends StatefulWidget {
+  const PopularPlacesScreen({super.key});
+
+  @override
+  State<PopularPlacesScreen> createState() => _PopularPlacesScreenState();
+}
+
+class _PopularPlacesScreenState extends State<PopularPlacesScreen> {
+  TextEditingController _searchController = TextEditingController();
+  List<CardModule> _filteredItems = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _filteredItems = cardsList;
+    _searchController.addListener(_filterItems);
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  void _filterItems() {
+    String query = _searchController.text.toLowerCase();
+    setState(() {
+      _filteredItems = cardsList.where((item) {
+        return item.location.toLowerCase().contains(query);
+      }).toList();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +62,7 @@ class PopularPlacesScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(10),
             child: TextField(
+              controller: _searchController,
               decoration: InputDecoration(
                 hintText: 'Search',
                 prefixIcon: Icon(Icons.search),
@@ -52,9 +85,9 @@ class PopularPlacesScreen extends StatelessWidget {
               gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
               ),
-              itemCount: cardsList.length,
+              itemCount: _filteredItems.length,
               itemBuilder: (context, index) {
-                final CardModule card = cardsList[index];
+                final CardModule card = _filteredItems[index];
                 return PlaceCard(place: card);
               },
             ),
@@ -94,8 +127,7 @@ class PlaceCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(place.productName,
-                      style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text(place.productName, style: TextStyle(fontWeight: FontWeight.bold)),
                   Text(place.location.toString(), style: TextStyle()),
                 ],
               ),
