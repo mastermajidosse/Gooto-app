@@ -33,7 +33,7 @@ dependencies:
   card_swiper: null
   country_icons: ^2.0.2
   cupertino_icons: ^1.0.6
-  easy_localization: ^3.0.7
+  # easy_localization: ^3.0.7
   equatable: ^2.0.0
   flutter:
     sdk: flutter
@@ -97,6 +97,7 @@ flutter:
     - assets/resto/
     - assets/popular/
     - assets/vedio/
+    - assets/icons/
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

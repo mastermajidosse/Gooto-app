@@ -26,8 +26,7 @@ class _DetailsExploreState extends State<DetailsExplore> {
   }
 
   String addStyles(String txt) {
-    return txt.replaceAll(
-        "<p>", "<p style=\"color: #444; text-align: justify;\">");
+    return txt.replaceAll("<p>", "<p style=\"color: #444; text-align: justify;\">");
   }
 
   @override

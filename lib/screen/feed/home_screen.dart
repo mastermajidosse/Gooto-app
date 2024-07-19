@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFf4f4f4),
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -123,9 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   InkWell(
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => PopularPlacesScreen()));
+                          context, MaterialPageRoute(builder: (context) => PopularPlacesScreen()));
                     },
                     child: Text(
                       'View More',
@@ -180,9 +178,7 @@ class _HomeScreenState extends State<HomeScreen> {
             InkWell(
               onTap: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => AllActivitiesScreen()));
+                    context, MaterialPageRoute(builder: (context) => AllActivitiesScreen()));
               },
               child: Text(
                 'View More',
