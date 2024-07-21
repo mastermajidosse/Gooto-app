@@ -127,8 +127,7 @@ class PlaceCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(place.productName,
-                      style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text(place.productName, style: TextStyle(fontWeight: FontWeight.bold)),
                   Text(place.location.toString(), style: TextStyle()),
                 ],
               ),
