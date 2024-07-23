@@ -15,7 +15,7 @@ class RoutGenerator {
   static Route<dynamic> generateRout(RouteSettings settings) {
     switch (settings.name) {
       case BottomTabBarr.routeName:
-        return MaterialPageRoute(builder: (_) => BottomTabBarr());
+        return MaterialPageRoute(builder: (_) => AllActivitiesScreen());
       case RegisterScreen.routeName:
         return MaterialPageRoute(builder: (_) => RegisterScreen());
       case LoginPage.routeName:
