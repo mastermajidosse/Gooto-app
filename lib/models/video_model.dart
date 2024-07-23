@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class VideoModel {
   int? id;
   String? name;
@@ -12,26 +14,34 @@ class VideoModel {
     this.name,
     this.url,
     // this.country,
-   // this.channelName,
+    // this.channelName,
   });
   static VideoModel fromData(map) {
     print(map['tags'].toString());
     return VideoModel(
       id: map['id'],
-     // channelImg: map['channelImg'].toString(),
       name: map['name'].toString(),
       url: map['url'].toString(),
-      //channelName: map['channelName'],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
       // 'id': id,
-     // 'channelImg': channelImg,
+      // 'channelImg': channelImg,
       "name": name,
       "image": url,
     };
+  }
+
+  // Create a Video object from Firestore data
+  factory VideoModel.fromFirestore(DocumentSnapshot doc) {
+    Map data = doc.data() as Map;
+    return VideoModel(
+      id: data['id'],
+      name: data['name'] ?? '',
+      url: data['url'] ?? '',
+    );
   }
 }
 
