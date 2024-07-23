@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gooto/screen/videos/screens/shakewidget.dart';
-
-
 class OptionsScreen extends StatelessWidget {
   final String titles;
   OptionsScreen( {required this.titles});
