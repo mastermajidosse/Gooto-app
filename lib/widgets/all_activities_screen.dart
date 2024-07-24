@@ -203,7 +203,8 @@ class AllActivitiesScreen extends StatelessWidget {
             SizedBox(height: 60.h),
           ],
         ),
-      )),
+      )
+      ),
     );
   }
 }

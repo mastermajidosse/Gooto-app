@@ -38,7 +38,8 @@ class OptionsScreen extends StatelessWidget {
     color: Colors.white,
     fontStyle: FontStyle.normal,
     height: 0.8,
-  ), ),
+  ),
+   ),
                   //       Container(
                   //   alignment: Alignment.center,
                   //   color: Colors.transparent,

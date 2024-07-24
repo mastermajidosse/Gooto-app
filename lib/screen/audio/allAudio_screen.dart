@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gooto/config/demo.dart';
+import 'package:gooto/models/audio_model.dart';
 import 'package:gooto/models/card.dart';
 import 'package:gooto/screen/app_start_screen.dart';
+import 'package:gooto/screen/audio/audio.dart';
 import 'package:gooto/screen/auth/login_screen.dart';
 import 'package:gooto/screen/auth/register_screen.dart';
 import 'package:gooto/screen/auth/splash_screen.dart';
@@ -12,21 +14,21 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gooto/widgets/custm_card.dart';
 
-class PopularPlacesScreen extends StatefulWidget {
-  const PopularPlacesScreen({super.key});
+class AllaudioScreen extends StatefulWidget {
+  const AllaudioScreen({super.key});
 
   @override
-  State<PopularPlacesScreen> createState() => _PopularPlacesScreenState();
+  State<AllaudioScreen> createState() => _AllaudioScreenState();
 }
 
-class _PopularPlacesScreenState extends State<PopularPlacesScreen> {
+class _AllaudioScreenState extends State<AllaudioScreen> {
   TextEditingController _searchController = TextEditingController();
-  List<CardModule> _filteredItems = [];
+  List<AudioModel> _filteredItems = [];
 
   @override
   void initState() {
     super.initState();
-    _filteredItems = cardsList;
+    _filteredItems = audio;
     _searchController.addListener(_filterItems);
   }
 
@@ -39,8 +41,8 @@ class _PopularPlacesScreenState extends State<PopularPlacesScreen> {
   void _filterItems() {
     String query = _searchController.text.toLowerCase();
     setState(() {
-      _filteredItems = cardsList.where((item) {
-        return item.location.toLowerCase().contains(query);
+      _filteredItems = audio.where((item) {
+        return item.name.toLowerCase().contains(query);
       }).toList();
     });
   }
@@ -55,7 +57,7 @@ class _PopularPlacesScreenState extends State<PopularPlacesScreen> {
         //   icon: Icon(Icons.arrow_back, color: Colors.black),
         //   onPressed: () {},
         // ),
-        title: Text("Popular Destination"),
+        title: Text("All Audio"),
       ),
       body: SingleChildScrollView(
         child: Column(children: [
@@ -76,7 +78,6 @@ class _PopularPlacesScreenState extends State<PopularPlacesScreen> {
               ),
             ),
           ),
-          
           Padding(
             padding: const EdgeInsets.all(0),
             child: MasonryGridView.builder(
@@ -88,8 +89,8 @@ class _PopularPlacesScreenState extends State<PopularPlacesScreen> {
               ),
               itemCount: _filteredItems.length,
               itemBuilder: (context, index) {
-                final CardModule card = _filteredItems[index];
-                return PlaceCard(place: card);
+                final AudioModel card = _filteredItems[index];
+                return PlaceCard(audio: card);
               },
             ),
           )
@@ -100,13 +101,15 @@ class _PopularPlacesScreenState extends State<PopularPlacesScreen> {
 }
 
 class PlaceCard extends StatelessWidget {
-  final CardModule place;
+  final AudioModel audio;
 
-  PlaceCard({required this.place});
+  PlaceCard({required this.audio});
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return GestureDetector(
+      onTap: ()=>Navigator.push(context,MaterialPageRoute(builder: (context)=>AudioPlayerScreen(audio.photos,audio.name,audio.audio))),
+      child: Card(
       elevation: 10,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Padding(
@@ -117,7 +120,7 @@ class PlaceCard extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(16),
               child: Image.asset(
-                place.productImg,
+                audio.logo,
                 width: double.infinity,
                 height: 200.h,
                 fit: BoxFit.cover,
@@ -128,14 +131,16 @@ class PlaceCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(place.productName, style: TextStyle(fontWeight: FontWeight.bold)),
-                  Text(place.location.toString(), style: TextStyle()),
+                  Text(audio.name, style: TextStyle(fontWeight: FontWeight.bold)),
+                  // Text(place.location.toString(), style: TextStyle()),
                 ],
               ),
             ),
           ],
         ),
       ),
+    ) ,
     );
+    
   }
 }

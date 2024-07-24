@@ -4,8 +4,11 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:gooto/config/save.dart';
+import 'package:gooto/models/audio_model.dart';
 import 'package:gooto/models/card.dart';
 import 'package:gooto/screen/allPopular_screen.dart';
+import 'package:gooto/screen/audio/allAudio_screen.dart';
+import 'package:gooto/screen/audio/audio.dart';
 import 'package:gooto/widgets/all_activities_screen.dart';
 import 'package:gooto/widgets/custm_card.dart';
 import 'package:gooto/widgets/popular_activities.dart';
@@ -186,6 +189,163 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             SizedBox(height: 20),
+             Container(
+              margin: EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Discovery Your Favorites Places',
+                    style: TextStyle(
+    fontWeight: FontWeight.bold,
+    fontSize: ScreenUtil().setSp(17),
+    color: Colors.black87,
+                      )  //MyStyle.blackalarmTextStyle,
+                  ),
+                  Container(),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context, MaterialPageRoute(builder: (context) => AllaudioScreen()));
+                    },
+                    child: Text(
+                      'View More',
+                      style: MyStyle.buttTextStyle,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+               Container(
+              height: 380.h,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 3,
+                itemBuilder: (context, index) {
+                  final AudioModel card = audio[index];
+                  // return CustomCard(card: card);
+                  return 
+                  Container(
+      height: 360.h,
+      width: 200.w,
+      margin: EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.3),
+            spreadRadius: 2,
+            blurRadius: 10,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Stack(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: Image.asset(
+                  card.logo,
+                  width: double.infinity,
+                  height: 200.h,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Positioned(
+                top: 10,
+                right: 10,
+                child: InkWell(
+                  onTap: () => {
+                     //     if (cities.contains(card.name)) {
+                  //       _removeCity(card.name);
+                  //     } else {
+                  //       _addCity(card.name);
+                  //     }
+                  //   },
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.3),
+                          spreadRadius: 2,
+                          blurRadius: 10,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: EdgeInsets.all(16),
+            child: Text(
+              card.name,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 13.sp,
+                color: Colors.black87,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Text(
+              card.desc,
+              style: TextStyle(
+                fontSize: 14.sp,
+                color: Colors.black54,
+                height: 1.5,
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+          Row(
+            children: [
+              SizedBox(height: 40,width: 110,),
+              GestureDetector(
+               onTap: (){
+                Navigator.push(context,MaterialPageRoute(builder: (context)=>AudioPlayerScreen(card.photos,card.name,card.audio)));
+               },
+                child: Icon(Icons.play_arrow_rounded,color: Colors.black,), 
+              ),
+             
+              Text("Play now",style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.normal
+              ),
+              )
+            ],
+          )
+        
+        ],
+      ),
+    );
+                  // CustomCards(
+                  //   cities.contains(card.name),
+                  //   imageUrl: card.logo,
+                  //   title: card.name,
+                  //   description: card.desc,
+                  //   onTap: () {
+                  //     if (cities.contains(card.name)) {
+                  //       _removeCity(card.name);
+                  //     } else {
+                  //       _addCity(card.name);
+                  //     }
+                  //   },
+                  // );
+                },
+              ),
+            ),
           ],
         ),
       ),

@@ -142,3 +142,4 @@ List<CardModule> cardsList = const [
     productName: 'Ifrane',
   ),
 ];
+
