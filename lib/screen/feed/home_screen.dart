@@ -309,21 +309,41 @@ class _HomeScreenState extends State<HomeScreen> {
               overflow: TextOverflow.ellipsis,
             ),
           ),
+          SizedBox(height: 10,),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SizedBox(height: 40,width: 110,),
+              SizedBox(height: 40,width: 60,),
               GestureDetector(
                onTap: (){
                 Navigator.push(context,MaterialPageRoute(builder: (context)=>AudioPlayerScreen(card.photos,card.name,card.audio)));
                },
-                child: Icon(Icons.play_arrow_rounded,color: Colors.black,), 
-              ),
-             
-              Text("Play now",style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.normal
-              ),
+                child: Container(
+  decoration: BoxDecoration(
+    color: Colors.black,
+    borderRadius: BorderRadius.circular(16.0),
+  ),
+  padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+  child: Row(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      Icon(
+        Icons.music_note_outlined,
+        color: Colors.white,
+      ),
+      SizedBox(width: 8.0),
+      Text(
+        "Play now",
+        style: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.normal,
+        ),
+      ),
+    ],
+  ),
+)
               )
+                
             ],
           )
         

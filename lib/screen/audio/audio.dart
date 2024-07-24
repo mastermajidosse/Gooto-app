@@ -215,6 +215,7 @@ Widget PlaceCard(String img){
           Text(widget.text,style:
            TextStyle(
             fontSize: 24,
+            fontStyle:FontStyle.italic,
             //fontWeight: FontWeight.bold,
             fontFamily: 'RobotoMono'
           ),
@@ -254,6 +255,7 @@ Widget PlaceCard(String img){
              ],
              ) ,
              ),
+             SizedBox(height: 20,),
              Container(
               
               decoration: BoxDecoration(
