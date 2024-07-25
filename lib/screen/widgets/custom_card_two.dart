@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:gap/gap.dart';
+// import 'package:gap/gap.dart';
 import '../../models/card.dart';
 import '../../utils/mystyle.dart';
 
@@ -38,7 +38,7 @@ class CustomCardTwo extends StatelessWidget {
                     'Greeblue Lake',
                     style: MyStyle.dash13TextStyle,
                   ),
-                  Gap(7),
+                  SizedBox(height: 7,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -47,7 +47,7 @@ class CustomCardTwo extends StatelessWidget {
                           Image.asset(
                             'assets/images/location.png',
                           ),
-                          Gap(6),
+                          SizedBox(height: 6,),
                           Text(
                             'Switzerland',
                             style: MyStyle.regular12TextStyle,
@@ -56,14 +56,14 @@ class CustomCardTwo extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Gap(7),
+                 SizedBox(height: 7,),
                   Row(
                     children: [
                       Text(
                         "200\$",
                         style: MyStyle.linkTextStyle,
                       ),
-                      Gap(8),
+                      SizedBox(height: 8,),
                       Text(
                         "/person",
                         style: MyStyle.regular12TextStyle,

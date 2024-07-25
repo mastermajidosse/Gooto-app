@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gap/gap.dart';
+// import 'package:gap/gap.dart';
 import 'package:gooto/config/save.dart';
 import 'package:gooto/models/audio_model.dart';
 import 'package:gooto/models/card.dart';
@@ -136,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            Gap(10),
+            SizedBox(height: 10,),
             Container(
               height: 380.h,
               child: ListView.builder(
@@ -339,7 +339,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
-            Gap(15),
+            SizedBox(height: 10,),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
               child: Row(
