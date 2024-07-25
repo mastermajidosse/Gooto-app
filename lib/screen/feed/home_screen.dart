@@ -161,34 +161,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
-            Gap(15),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Best activities',
-                    style: MyStyle.blackalarmTextStyle,
-                  ),
-                  // Container(),
-                ],
-              ),
-            ),
-            SizedBox(height: 10.h),
-            PopularActivities(),
-            SizedBox(height: 20.h),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => AllActivitiesScreen()));
-              },
-              child: Text(
-                'View More',
-                style: MyStyle.buttTextStyle,
-              ),
-            ),
-            SizedBox(height: 20),
              Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
               child: Row(
@@ -299,7 +271,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: Text(
-              card.desc,
+              card.flagname,
               style: TextStyle(
                 fontSize: 14.sp,
                 color: Colors.black54,
@@ -313,10 +285,10 @@ class _HomeScreenState extends State<HomeScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SizedBox(height: 40,width: 60,),
+            
               GestureDetector(
                onTap: (){
-                Navigator.push(context,MaterialPageRoute(builder: (context)=>AudioPlayerScreen(card.photos,card.name,card.audio)));
+                Navigator.push(context,MaterialPageRoute(builder: (context)=>AudioPlayerScreen(card.photos,card.name,card.audio,card.desc)));
                },
                 child: Container(
   decoration: BoxDecoration(
@@ -366,6 +338,35 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
+            Gap(15),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Best activities',
+                    style: MyStyle.blackalarmTextStyle,
+                  ),
+                  // Container(),
+                ],
+              ),
+            ),
+            SizedBox(height: 10.h),
+            PopularActivities(),
+            SizedBox(height: 20.h),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => AllActivitiesScreen()));
+              },
+              child: Text(
+                'View More',
+                style: MyStyle.buttTextStyle,
+              ),
+            ),
+            SizedBox(height: 20),
+            
           ],
         ),
       ),
