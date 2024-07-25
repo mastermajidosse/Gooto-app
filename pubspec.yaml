@@ -36,7 +36,9 @@ dependencies:
   cupertino_icons: ^1.0.6
   # easy_localization: ^3.0.7
   equatable: ^2.0.0
+  firebase_app_check: ^0.3.0+3
   firebase_core: ^3.2.0
+  firebase_storage: ^12.1.1
   flutter:
     sdk: flutter
   flutter_bloc: ^7.3.1
@@ -98,7 +100,7 @@ flutter:
     - assets/audio/
     - assets/resto/
     - assets/popular/
-    - assets/vedio/
+    - assets/video/
     - assets/icons/
   # assets:
   #   - images/a_dot_burr.jpeg

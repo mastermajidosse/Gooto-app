@@ -5,37 +5,36 @@ import 'package:gooto/screen/videos/screens/options_screen.dart';
 
 import 'package:video_player/video_player.dart';
 
+import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:video_player/video_player.dart';
+
 class ContentScreen extends StatefulWidget {
-  final String? src;
+  final String src;
   final String? slide;
-  const ContentScreen({Key? key, this.src, this.slide}) : super(key: key);
+  const ContentScreen({Key? key, required this.src, this.slide})
+      : super(key: key);
 
   @override
   _ContentScreenState createState() => _ContentScreenState();
 }
 
 class _ContentScreenState extends State<ContentScreen> {
-  late VideoPlayerController _videoPlayerController;
-  ChewieController? _chewieController;
   bool _liked = false;
+  late VideoPlayerController _controller;
 
   @override
   void initState() {
     super.initState();
-
-    initializePlayer();
-  }
-
-  Future initializePlayer() async {
     try {
-      _videoPlayerController = VideoPlayerController.asset(widget.src!);
-      await _videoPlayerController.initialize();
-      _chewieController = ChewieController(
-        videoPlayerController: _videoPlayerController,
-        autoPlay: true,
-        showControls: false,
-        looping: true,
-      );
+      _controller = VideoPlayerController.networkUrl(Uri.parse(widget.src))
+        ..initialize().then((_) {
+          // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
+          setState(() {});
+        })
+        ..setLooping(true)
+        ..play();
     } catch (e) {
       print('Error playing asset video: $e');
       // Handle the error, e.g., display an error message to the user
@@ -45,13 +44,19 @@ class _ContentScreenState extends State<ContentScreen> {
         ),
       );
     }
-    setState(() {});
   }
+
+  Future<String> getVideoUrl(String videoPath) async {
+    final ref = FirebaseStorage.instance.ref().child(videoPath);
+    String url = await ref.getDownloadURL();
+    return url;
+  }
+
+  bool videoPaused = false;
 
   @override
   void dispose() {
-    _videoPlayerController.dispose();
-    _chewieController!.dispose();
+    _controller.dispose();
     super.dispose();
   }
 
@@ -60,47 +65,34 @@ class _ContentScreenState extends State<ContentScreen> {
     return Stack(
       fit: StackFit.expand,
       children: [
-        _chewieController != null && _chewieController!.videoPlayerController.value.isInitialized
-            ? GestureDetector(
-                onDoubleTap: () {
-                  setState(() {
-                    _liked = !_liked;
-                  });
-                },
-                child: Chewie(
-                  controller: _chewieController!,
-                ),
-              )
-            : Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircularProgressIndicator(),
-                  SizedBox(height: 10),
-                  Text("Loading...")
-                  //
-                ],
-              ),
+        Center(
+          child: _controller.value.isInitialized
+              ? InkWell(
+                  onDoubleTap: () {
+                    setState(() {
+                      _liked = !_liked;
+                    });
+                  },
+                  onTap: () {
+                    if (videoPaused) {
+                      _controller.play();
+                      videoPaused = false;
+                    } else {
+                      _controller.pause();
+                      videoPaused = true;
+                    }
+                  },
+                  child: AspectRatio(
+                    aspectRatio: _controller.value.aspectRatio,
+                    child: VideoPlayer(_controller),
+                  ),
+                )
+              : Container(),
+        ),
         if (_liked)
           Center(
             child: LikeIcon(),
           ),
-        // SizedBox(height: 100,),
-        // Container(
-        //           alignment: Alignment.center,
-        //           color: Colors.black,
-        //           height: 45,
-        //           width: double.infinity,
-        //           child: ShakeWidget(
-        //             child: Row(
-
-        //               children: [
-        //                modeText(title:''),
-        //                 modeText(
-        //                     title:'🌟${'No Theme'}🌟',),
-        //               ],
-        //             ),
-        //           ),
-        //         ),
         OptionsScreen(
           titles: widget.slide!,
         )

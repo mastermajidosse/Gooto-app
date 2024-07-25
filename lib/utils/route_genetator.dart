@@ -6,6 +6,8 @@ import 'package:gooto/screen/auth/register_screen.dart';
 import 'package:gooto/screen/auth/splash_screen.dart';
 import 'package:gooto/screen/bottom_tab.dart';
 import 'package:gooto/screen/profile/setting_screen.dart';
+import 'package:gooto/screen/videos/screens/content_screen.dart';
+import 'package:gooto/screen/videos/videos_screen.dart';
 import 'package:gooto/services/service/firestore_service.dart';
 import 'package:gooto/widgets/all_activities_screen.dart';
 import 'package:gooto/screen/allPopular_screen.dart';
@@ -35,7 +37,8 @@ class _VideoDataScreenState extends State<VideoDataScreen> {
           ElevatedButton(
             onPressed: () async {
               List<VideoModel> videos = [
-                VideoModel(id: 1, name: "vid1", url: "https://www.google.com")
+                VideoModel(
+                    id: 2, name: "video2", url: "https://www.google2.com")
               ];
 
               await _firestoreService.addVideos(videos);
@@ -95,7 +98,7 @@ class RoutGenerator {
   static Route<dynamic> generateRout(RouteSettings settings) {
     switch (settings.name) {
       case BottomTabBarr.routeName:
-        return MaterialPageRoute(builder: (_) => VideoDataScreen());
+        return MaterialPageRoute(builder: (_) => BottomAppBar());
       case RegisterScreen.routeName:
         return MaterialPageRoute(builder: (_) => RegisterScreen());
       case LoginPage.routeName:

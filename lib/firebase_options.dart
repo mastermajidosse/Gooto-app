@@ -50,19 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCQ7DLOSYJpuT8LVIZONFbTZ-4nW1LXnBo',
-    appId: '1:434383149403:android:1aae6da32a679b39f8a27e',
-    messagingSenderId: '434383149403',
-    projectId: 'baby-tracker-25827',
-    storageBucket: 'baby-tracker-25827.appspot.com',
+    apiKey: 'AIzaSyBbR6g_ReawVtWt2iMiYaEM6GVg2hMmd-U',
+    appId: '1:972471203701:android:a086529eb896c1b73ac53c',
+    messagingSenderId: '972471203701',
+    projectId: 'gooto-80b74',
+    storageBucket: 'gooto-80b74.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBIpUZCC-WjinDtgnWoqT222w1wHvxPggE',
-    appId: '1:434383149403:ios:460484f1eeaa1af7f8a27e',
-    messagingSenderId: '434383149403',
-    projectId: 'baby-tracker-25827',
-    storageBucket: 'baby-tracker-25827.appspot.com',
+    apiKey: 'AIzaSyArncEZWXuPS4eL7NIirDf1NX_gP12D_z8',
+    appId: '1:972471203701:ios:eecda4bdd73c12df3ac53c',
+    messagingSenderId: '972471203701',
+    projectId: 'gooto-80b74',
+    storageBucket: 'gooto-80b74.appspot.com',
     iosBundleId: 'com.otot.gooto',
   );
+
 }

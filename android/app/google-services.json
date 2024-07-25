@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "434383149403",
-    "project_id": "baby-tracker-25827",
-    "storage_bucket": "baby-tracker-25827.appspot.com"
+    "project_number": "972471203701",
+    "project_id": "gooto-80b74",
+    "storage_bucket": "gooto-80b74.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:434383149403:android:1aae6da32a679b39f8a27e",
+        "mobilesdk_app_id": "1:972471203701:android:a086529eb896c1b73ac53c",
         "android_client_info": {
           "package_name": "com.otot.gooto"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCQ7DLOSYJpuT8LVIZONFbTZ-4nW1LXnBo"
+          "current_key": "AIzaSyBbR6g_ReawVtWt2iMiYaEM6GVg2hMmd-U"
         }
       ],
       "services": {

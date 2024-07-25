@@ -123,7 +123,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   InkWell(
                     onTap: () {
                       Navigator.push(
-                          context, MaterialPageRoute(builder: (context) => PopularPlacesScreen()));
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PopularPlacesScreen()));
                     },
                     child: Text(
                       'View More',
@@ -178,7 +180,9 @@ class _HomeScreenState extends State<HomeScreen> {
             InkWell(
               onTap: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => AllActivitiesScreen()));
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => AllActivitiesScreen()));
               },
               child: Text(
                 'View More',
