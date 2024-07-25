@@ -283,9 +283,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           SizedBox(height: 10,),
           Row(
+            
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-            
+              SizedBox(width: 10,),
               GestureDetector(
                onTap: (){
                 Navigator.push(context,MaterialPageRoute(builder: (context)=>AudioPlayerScreen(card.photos,card.name,card.audio,card.desc)));
