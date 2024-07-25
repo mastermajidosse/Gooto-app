@@ -4,7 +4,7 @@ import 'dart:typed_data';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_email_sender/flutter_email_sender.dart';
+// import 'package:flutter_email_sender/flutter_email_sender.dart';
 // import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gooto/bloc/profile/profile_cubit.dart';
@@ -171,14 +171,14 @@ class _SettingScreenState extends State<SettingScreen> {
                 onTap: () async {
                   // Navigator.of(context).push(MaterialPageRoute(
                   //     builder: (_) => RulesScreen()));
-                  final Email email = Email(
-                    body: "",
-                    subject: '',
-                    recipients: ['mastermajidosse@gmail.com'],
-                    isHTML: false,
-                  );
+                  // final Email email = Email(
+                  //   body: "",
+                  //   subject: '',
+                  //   recipients: ['mastermajidosse@gmail.com'],
+                  //   isHTML: false,
+                  // );
 
-                  await FlutterEmailSender.send(email);
+                  // await FlutterEmailSender.send(email);
                 },
                 title: Padding(
                   padding: EdgeInsets.only(left: 16),
