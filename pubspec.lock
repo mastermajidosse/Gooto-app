@@ -233,22 +233,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.18.0"
-  country_icons:
-    dependency: "direct main"
-    description:
-      name: country_icons
-      sha256: "836435012b42c7dcc6d585d1420ce2310d70396569ef70cf5d74c740919f7320"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.2"
-  cross_file:
-    dependency: transitive
-    description:
-      name: cross_file
-      sha256: "55d7b444feb71301ef6b8838dbc1ae02e63dd48c8773f3810ff53bb1e2945b32"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.3.4+1"
   crypto:
     dependency: transitive
     description:
@@ -313,38 +297,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.0"
-  file_selector_linux:
-    dependency: transitive
-    description:
-      name: file_selector_linux
-      sha256: "045d372bf19b02aeb69cacf8b4009555fb5f6f0b7ad8016e5f46dd1387ddd492"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.9.2+1"
-  file_selector_macos:
-    dependency: transitive
-    description:
-      name: file_selector_macos
-      sha256: f42eacb83b318e183b1ae24eead1373ab1334084404c8c16e0354f9a3e55d385
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.9.4"
-  file_selector_platform_interface:
-    dependency: transitive
-    description:
-      name: file_selector_platform_interface
-      sha256: a3994c26f10378a039faa11de174d7b78eb8f79e4dd0af2a451410c1a5c3f66b
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.6.2"
-  file_selector_windows:
-    dependency: transitive
-    description:
-      name: file_selector_windows
-      sha256: d3547240c20cabf205c7c7f01a50ecdbc413755814d6677f3cb366f04abcead0
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.9.3+1"
   fixnum:
     dependency: transitive
     description:
@@ -398,22 +350,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.0"
-  flutter_phoenix:
-    dependency: "direct main"
-    description:
-      name: flutter_phoenix
-      sha256: "39589dac934ea476d0e43fb60c1ddfba58f14960743640c8250dea11c4333378"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.1"
-  flutter_plugin_android_lifecycle:
-    dependency: transitive
-    description:
-      name: flutter_plugin_android_lifecycle
-      sha256: "8cf40eebf5dec866a6d1956ad7b4f7016e6c0cc69847ab946833b7d43743809f"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.19"
   flutter_rating_bar:
     dependency: transitive
     description:
@@ -480,14 +416,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.15.1"
-  font_awesome_flutter:
-    dependency: "direct main"
-    description:
-      name: font_awesome_flutter
-      sha256: "1f93e5799f0e6c882819e8393a05c6ca5226010f289190f2242ec19f3f0fdba5"
-      url: "https://pub.dev"
-    source: hosted
-    version: "9.2.0"
   fwfh_cached_network_image:
     dependency: transitive
     description:
@@ -536,14 +464,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.15.1"
-  gap:
-    dependency: "direct main"
-    description:
-      name: gap
-      sha256: f19387d4e32f849394758b91377f9153a1b41d79513ef7668c088c77dbc6955d
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.1"
   html:
     dependency: transitive
     description:
@@ -576,78 +496,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.2.0"
-  image_picker:
-    dependency: "direct main"
-    description:
-      name: image_picker
-      sha256: b6951e25b795d053a6ba03af5f710069c99349de9341af95155d52665cb4607c
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.8.9"
-  image_picker_android:
-    dependency: transitive
-    description:
-      name: image_picker_android
-      sha256: "0f57fee1e8bfadf8cc41818bbcd7f72e53bb768a54d9496355d5e8a5681a19f1"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.8.12+1"
-  image_picker_for_web:
-    dependency: transitive
-    description:
-      name: image_picker_for_web
-      sha256: "869fe8a64771b7afbc99fc433a5f7be2fea4d1cb3d7c11a48b6b579eb9c797f0"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.2.0"
-  image_picker_ios:
-    dependency: transitive
-    description:
-      name: image_picker_ios
-      sha256: "6703696ad49f5c3c8356d576d7ace84d1faf459afb07accbb0fae780753ff447"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.8.12"
-  image_picker_linux:
-    dependency: transitive
-    description:
-      name: image_picker_linux
-      sha256: "4ed1d9bb36f7cd60aa6e6cd479779cc56a4cb4e4de8f49d487b1aaad831300fa"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.1+1"
-  image_picker_macos:
-    dependency: transitive
-    description:
-      name: image_picker_macos
-      sha256: "3f5ad1e8112a9a6111c46d0b57a7be2286a9a07fc6e1976fdf5be2bd31d4ff62"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.1+1"
-  image_picker_platform_interface:
-    dependency: transitive
-    description:
-      name: image_picker_platform_interface
-      sha256: "9ec26d410ff46f483c5519c29c02ef0e02e13a543f882b152d4bfd2f06802f80"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.10.0"
-  image_picker_windows:
-    dependency: transitive
-    description:
-      name: image_picker_windows
-      sha256: "6ad07afc4eb1bc25f3a01084d28520496c4a3bb0cb13685435838167c9dcedeb"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.1+1"
-  internet_connection_checker:
-    dependency: "direct main"
-    description:
-      name: internet_connection_checker
-      sha256: "1c683e63e89c9ac66a40748b1b20889fd9804980da732bf2b58d6d5456c8e876"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.0+1"
   intl:
     dependency: "direct main"
     description:
@@ -1014,7 +862,7 @@ packages:
     source: hosted
     version: "7.0.0"
   sqflite:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: sqflite
       sha256: a43e5a27235518c03ca238e7b4732cf35eabe863a369ceba6cbefa537a66f16d

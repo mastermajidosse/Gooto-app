@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
+// import 'package:gap/gap.dart';
 import '../../models/card.dart';
 import '../../utils/mystyle.dart';
 
@@ -81,7 +81,7 @@ class CustomCard extends StatelessWidget {
             ],
           ),
         ),
-        Gap(10),
+       SizedBox(height: 10,),
         Padding(
           padding: const EdgeInsets.only(left: 22.0),
           child: Row(
@@ -95,7 +95,7 @@ class CustomCard extends StatelessWidget {
                   Image.asset(
                     'assets/images/location.png',
                   ),
-                  Gap(6),
+                 SizedBox(height: 6,),
                   Text(
                     'Morocco',
                     style: MyStyle.regular12TextStyle,

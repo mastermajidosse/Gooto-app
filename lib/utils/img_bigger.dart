@@ -2,7 +2,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
+// import 'package:image_picker/image_picker.dart';
 import 'package:photo_view/photo_view.dart';
 import 'dart:ui';
 
@@ -95,27 +95,27 @@ class ImageBigger {
     );
   }
 
-  static Dialog imagePop(XFile img) {
-    return Dialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      child: InteractiveViewer(
-        panEnabled: false, // Set it to false
-        boundaryMargin: EdgeInsets.all(100),
-        minScale: 0.5,
-        maxScale: 2,
-        child: Container(
-            height: 500,
-            width: 500,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-              image: FileImage(
-                File(img.path),
-              ),
-              fit: BoxFit.cover,
-            ))),
-      ),
-    );
-  }
+  // static Dialog imagePop(XFile img) {
+  //   return Dialog(
+  //     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+  //     child: InteractiveViewer(
+  //       panEnabled: false, // Set it to false
+  //       boundaryMargin: EdgeInsets.all(100),
+  //       minScale: 0.5,
+  //       maxScale: 2,
+  //       child: Container(
+  //           height: 500,
+  //           width: 500,
+  //           decoration: BoxDecoration(
+  //               image: DecorationImage(
+  //             image: FileImage(
+  //               File(img.path),
+  //             ),
+  //             fit: BoxFit.cover,
+  //           ))),
+  //     ),
+  //   );
+  // }
 
   static Dialog imagePopImage(Image img) {
     return Dialog(

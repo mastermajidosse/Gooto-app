@@ -172,7 +172,7 @@ Widget PlaceCard(String img){
     );
   }).toList(),
   options: CarouselOptions(
-    height: 350,
+    height: 200,
     enlargeCenterPage: true,
     autoPlay: true,
     aspectRatio: 16 / 9,
@@ -233,7 +233,7 @@ Widget PlaceCard(String img){
            CarouselSlider(
   items: widget.listdesc.map((e) {
     return Container(
-      width: 200,
+      width: 100,
       height: 150,
       color: Colors.transparent,
       margin: EdgeInsets.symmetric(horizontal: 8.0),

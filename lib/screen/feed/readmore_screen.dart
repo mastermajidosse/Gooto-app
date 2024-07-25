@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
+// import 'package:gap/gap.dart';
 import 'package:gooto/utils/mystyle.dart';
 import 'package:readmore/readmore.dart';
 
@@ -64,7 +64,8 @@ class _MoreScreenState extends State<MoreScreen> {
                         ),
                       ],
                     ),
-                    Gap(20),
+                    // Gap(20),
+                    SizedBox(height: 20,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -72,7 +73,8 @@ class _MoreScreenState extends State<MoreScreen> {
                         Text('/person', style: MyStyle.blacksmallTextStyle),
                       ],
                     ),
-                    Gap(30),
+                    // Gap(30),
+                    SizedBox(height: 20,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -123,7 +125,7 @@ class _MoreScreenState extends State<MoreScreen> {
                         ),
                       ],
                     ),
-                    Gap(30),
+                    SizedBox(height: 30,),
                     Row(
                       children: [
                         Text(
@@ -136,7 +138,7 @@ class _MoreScreenState extends State<MoreScreen> {
                         ),
                       ],
                     ),
-                    Gap(20),
+                  SizedBox(height: 20,),
                     ReadMoreText(
                       overviewText,
                       trimMode: TrimMode.Line,
@@ -150,7 +152,7 @@ class _MoreScreenState extends State<MoreScreen> {
                         color: MyStyle.primarycolo,
                       ),
                     ),
-                    Gap(30),
+                   SizedBox(height: 30,),
                   ],
                 ),
               ),
