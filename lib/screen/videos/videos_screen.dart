@@ -8,7 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gooto/bloc/feed/feed_cubit.dart';
 import 'package:gooto/models/video_model.dart';
 import 'package:gooto/screen/videos/screens/content_screen.dart';
-import 'package:gooto/screen/videos/screens/home_page.dart';
+
 import 'package:gooto/screen/videos/video_more.dart';
 import 'package:gooto/utils/MyStyle.dart';
 
