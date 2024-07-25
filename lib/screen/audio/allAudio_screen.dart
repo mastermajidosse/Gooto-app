@@ -108,7 +108,7 @@ class PlaceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: ()=>Navigator.push(context,MaterialPageRoute(builder: (context)=>AudioPlayerScreen(audio.photos,audio.name,audio.audio))),
+      onTap: ()=>Navigator.push(context,MaterialPageRoute(builder: (context)=>AudioPlayerScreen(audio.photos,audio.name,audio.audio,audio.desc))),
       child: Card(
       elevation: 10,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),

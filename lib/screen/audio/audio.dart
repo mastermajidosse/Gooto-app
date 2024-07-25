@@ -12,10 +12,12 @@ class AudioPlayerScreen extends StatefulWidget {
   List<String> listphoto;
   String text;
   String audio;
+  List<String> listdesc;
   AudioPlayerScreen(
     this.listphoto,
     this.text,
-    this.audio
+    this.audio,
+    this.listdesc
   ) ;
    @override
   _AudioPlayerScreenState createState() => _AudioPlayerScreenState();
@@ -142,6 +144,7 @@ Widget PlaceCard(String img){
         borderRadius: BorderRadius.circular(20),
         child: Stack(
           children: [
+          
             Image.asset(
               e,
               width: double.infinity,
@@ -211,7 +214,7 @@ Widget PlaceCard(String img){
             // ),
           ),
          
-          SizedBox(height: 32,),
+          SizedBox(height: 10,),
           Text(widget.text,style:
            TextStyle(
             fontSize: 24,
@@ -226,6 +229,67 @@ Widget PlaceCard(String img){
           Text('Create by GOOTO',
           style: TextStyle(fontSize: 18,color: Colors.grey),
           ),
+          SizedBox(height: 10,),
+           CarouselSlider(
+  items: widget.listdesc.map((e) {
+    return Container(
+      width: 200,
+      height: 150,
+      color: Colors.transparent,
+      margin: EdgeInsets.symmetric(horizontal: 8.0),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: Stack(
+          children: [
+               Center(
+          child: Text(
+            e,
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.black
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ),
+            // Image.asset(
+            //   e,
+            //   width: double.infinity,
+            //   height: 350,
+            //   fit: BoxFit.cover,
+            // ),
+            Positioned.fill(
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.white.withOpacity(0.3),
+                      spreadRadius: 5,
+                      blurRadius: 12,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }).toList(),
+  options: CarouselOptions(
+    height: 200,
+    enlargeCenterPage: true,
+    autoPlay: isPlaying,
+    aspectRatio: 16 / 9,
+    autoPlayCurve: Curves.fastOutSlowIn,
+    enableInfiniteScroll: true,
+    autoPlayAnimationDuration: Duration(milliseconds: 6000),
+    viewportFraction: 0.8,
+    scrollDirection: Axis.vertical,
+  ),
+),
           Slider(
             min: 0,
             max: duration.inSeconds.toDouble(),
