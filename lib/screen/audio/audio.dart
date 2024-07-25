@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 // import 'package:just_audio/just_audio.dart';
 // import 'package:assets_audio_player/assets_audio_player.dart';
@@ -116,7 +117,7 @@ Widget PlaceCard(String img){
               child: Image.asset(
                 img,
                 width: double.infinity,
-                height: 100,
+                height: 100.h,
                 fit: BoxFit.cover,
               ),
             ),
@@ -148,7 +149,7 @@ Widget PlaceCard(String img){
             Image.asset(
               e,
               width: double.infinity,
-              height: 350,
+              height: 350.h,
               fit: BoxFit.cover,
             ),
             Positioned.fill(
@@ -158,8 +159,8 @@ Widget PlaceCard(String img){
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.3),
-                      spreadRadius: 5,
-                      blurRadius: 12,
+                      spreadRadius: 5.h,
+                      blurRadius: 12.w,
                       offset: Offset(0, 3),
                     ),
                   ],
@@ -214,7 +215,7 @@ Widget PlaceCard(String img){
             // ),
           ),
          
-          SizedBox(height: 10,),
+          SizedBox(height: 10.h,),
           Text(widget.text,style:
            TextStyle(
             fontSize: 24,
@@ -224,7 +225,7 @@ Widget PlaceCard(String img){
           ),
           ),
           SizedBox(
-            height: 4,
+            height: 4.h,
           ),
           Text('Create by GOOTO',
           style: TextStyle(fontSize: 18,color: Colors.grey),
@@ -233,8 +234,8 @@ Widget PlaceCard(String img){
            CarouselSlider(
   items: widget.listdesc.map((e) {
     return Container(
-      width: 100,
-      height: 150,
+      width: 100.w,
+      height: 150.h,
       color: Colors.transparent,
       margin: EdgeInsets.symmetric(horizontal: 8.0),
       child: ClipRRect(
@@ -245,7 +246,7 @@ Widget PlaceCard(String img){
           child: Text(
             e,
             style: TextStyle(
-              fontSize: 18,
+              fontSize: 18.sp,
               fontWeight: FontWeight.bold,
               color: Colors.black
             ),
@@ -279,7 +280,7 @@ Widget PlaceCard(String img){
     );
   }).toList(),
   options: CarouselOptions(
-    height: 200,
+    height: 200.h,
     enlargeCenterPage: true,
     autoPlay: isPlaying,
     aspectRatio: 16 / 9,
@@ -319,7 +320,7 @@ Widget PlaceCard(String img){
              ],
              ) ,
              ),
-             SizedBox(height: 20,),
+             SizedBox(height: 20.h,),
              Container(
               
               decoration: BoxDecoration(
@@ -344,9 +345,9 @@ child:   Padding(
 
                   CircleAvatar(
                   backgroundColor: Colors.transparent,
-              radius: 25,
+              radius: 25.r,
               child: IconButton(icon: Icon(Icons.repeat_outlined,color: Colors.black,),
-              iconSize: 30,
+              iconSize: 30.r,
               onPressed: ()async{
                         //       final newDuration = duration + Duration(seconds: 10);
                         //       final newpostion =position+Duration(seconds: 10);
@@ -363,7 +364,7 @@ child:   Padding(
                  
                  CircleAvatar(
                   backgroundColor: Colors.transparent,
-              radius: 25,
+              radius: 25.r,
               child: IconButton(icon: Icon(Icons.forward_10,color: Colors.black,),
               iconSize: 30,
               onPressed: ()async{
@@ -394,10 +395,10 @@ child:   Padding(
               },),
              ),
               CircleAvatar(
-              radius: 25,
+              radius: 25.r,
               backgroundColor: Colors.transparent,
               child: IconButton(icon: Icon(Icons.replay_10,color: Colors.black,),
-              iconSize: 30,
+              iconSize: 30.r,
               onPressed: ()async{
                           final newDuration = duration - Duration(seconds: 10);
                               final newpostion =position-Duration(seconds: 10);
@@ -413,7 +414,7 @@ child:   Padding(
 
                    CircleAvatar(
                   backgroundColor: Colors.transparent,
-              radius: 25,
+              radius: 25.r,
              
               child: IconButton(icon: Icon(Icons.brightness_2,color: Colors.black,),
               iconSize: 30,
