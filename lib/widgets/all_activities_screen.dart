@@ -7,10 +7,16 @@ import 'package:gooto/screen/exolore/explore_detail.dart';
 import 'package:gooto/widgets/custm_card.dart';
 import 'package:gooto/widgets/popular_activities.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gooto/widgets/search_box.dart';
 
-class AllActivitiesScreen extends StatelessWidget {
-  AllActivitiesScreen({super.key});
+class AllActivitiesScreen extends StatefulWidget {
+  const AllActivitiesScreen({super.key});
 
+  @override
+  State<AllActivitiesScreen> createState() => _AllActivitiesScreenState();
+}
+
+class _AllActivitiesScreenState extends State<AllActivitiesScreen> {
   final List<BlogModel> activities = [
     BlogModel(
       title: 'Essaouira: 3-hour surf lesson with local',
@@ -135,6 +141,29 @@ class AllActivitiesScreen extends StatelessWidget {
           'https://i.pinimg.com/564x/3e/75/b0/3e75b0f6f6bc04521240428a363f61fd.jpg',
     ),
   ];
+  TextEditingController _searchController = TextEditingController();
+  List<BlogModel> _filteredItems = [];
+  @override
+  void initState() {
+    super.initState();
+    _filteredItems = activities;
+    _searchController.addListener(_filterItems);
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  void _filterItems() {
+    String query = _searchController.text.toLowerCase();
+    setState(() {
+      _filteredItems = activities.where((item) {
+        return item.title!.toLowerCase().contains(query);
+      }).toList();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -143,17 +172,21 @@ class AllActivitiesScreen extends StatelessWidget {
         centerTitle: true,
         title: Text("Activities"),
         actions: [
-          IconButton(
-              onPressed: () {
-                print("search");
-              },
-              icon: Icon(Icons.search))
+          // IconButton(
+          //     onPressed: () {
+          //       print("search");
+          //     },
+          //     icon: Icon(Icons.search))
         ],
       ),
       body: SingleChildScrollView(
           child: SafeArea(
         child: Column(
           children: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              child: SearchBox(controller: _searchController),
+            ),
             Container(
               // color: Colors.red,
               height: 160.h,
@@ -164,7 +197,7 @@ class AllActivitiesScreen extends StatelessWidget {
                 mainAxisSpacing: 6,
                 crossAxisCount: 1,
                 scrollDirection: Axis.horizontal,
-                children: activities.reversed.map((activity) {
+                children: _filteredItems.reversed.map((activity) {
                   return InkWell(
                     onTap: () {
                       Navigator.push(
@@ -176,29 +209,30 @@ class AllActivitiesScreen extends StatelessWidget {
                     },
                     child: Container(
                       decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(14.r),
-                          image: DecorationImage(
-                            image: NetworkImage(activity.imgurl.toString()),
-                            fit: BoxFit.cover,
-                          )),
+                        color: Colors.grey,
+                        borderRadius: BorderRadius.circular(14.r),
+                        image: DecorationImage(
+                          image: NetworkImage(activity.imgurl.toString()),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
                   );
                 }).toList(),
               ),
             ),
             ...List.generate(
-              activities.length,
+              _filteredItems.length,
               (index) => InkWell(
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (_) => DetailsExplore(activities[index]),
+                        builder: (_) => DetailsExplore(_filteredItems[index]),
                       ),
                     );
                   },
-                  child: ActivityCard(activity: activities[index])),
+                  child: ActivityCard(activity: _filteredItems[index])),
             ).toList(),
             SizedBox(height: 60.h),
           ],
