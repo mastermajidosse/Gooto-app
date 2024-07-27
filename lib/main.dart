@@ -40,7 +40,9 @@ class _MyAppState extends State<MyApp> {
       providers: bproviders,
       child: ScreenUtilInit(
         designSize: Size(375, 812),
-        builder: (context, _) {
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context, child) {
           return MaterialApp(
             title: 'Gooto',
             theme: ThemeData(

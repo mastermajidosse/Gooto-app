@@ -15,7 +15,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  final _scaffoldKey = GlobalKey<ScaffoldState>();
+  //final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -49,12 +49,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
     //Grab a refernce to the bloc using bloc provider
 
     return Scaffold(
-        key: _scaffoldKey,
+        // key: _scaffoldKey,
         backgroundColor: Colors.white,
         body: BlocConsumer<SignupCubit, SignupState>(
           listener: (context, state) {
             if (state is SignupError) {
-              return MyStyle.err(ScaffoldMessenger.of(context).showSnackBar, state.message);
+              // return MyStyle.err(ScaffoldMessenger.of(context).showSnackBar, state.message);
             } else if (state is SignupSuccess) {
               print("brace you gonna login");
               Navigator.pushReplacementNamed(context, AppStartScreen.routeName);

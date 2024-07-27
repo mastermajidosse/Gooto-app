@@ -6,15 +6,12 @@ import 'package:gooto/screen/videos/screens/options_screen.dart';
 import 'package:video_player/video_player.dart';
 
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:video_player/video_player.dart';
 
 class ContentScreen extends StatefulWidget {
   final String src;
   final String? slide;
-  const ContentScreen({Key? key, required this.src, this.slide})
-      : super(key: key);
+  const ContentScreen({Key? key, required this.src, this.slide}) : super(key: key);
 
   @override
   _ContentScreenState createState() => _ContentScreenState();
@@ -44,12 +41,6 @@ class _ContentScreenState extends State<ContentScreen> {
         ),
       );
     }
-  }
-
-  Future<String> getVideoUrl(String videoPath) async {
-    final ref = FirebaseStorage.instance.ref().child(videoPath);
-    String url = await ref.getDownloadURL();
-    return url;
   }
 
   bool videoPaused = false;

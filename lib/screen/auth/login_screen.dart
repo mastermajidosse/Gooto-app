@@ -15,7 +15,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _scaffoldKey = GlobalKey<ScaffoldState>();
+  // //final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -30,12 +30,12 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
+      // key: _scaffoldKey,
       backgroundColor: Colors.white,
       body: BlocConsumer<LoginCubit, LoginState>(
         listener: (context, state) {
           if (state is LoginError) {
-            return MyStyle.err(ScaffoldMessenger.of(context).showSnackBar, state.message);
+            // return MyStyle.err(ScaffoldMessenger.of(context).showSnackBar, state.message);
           } else if (state is LoginSuccess) {
             print("brace you gonna login");
             Navigator.pushReplacementNamed(context, AppStartScreen.routeName);

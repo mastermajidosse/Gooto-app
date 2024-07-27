@@ -26,7 +26,7 @@ class VideosScreen extends StatefulWidget {
 }
 
 class _VideosScreenState extends State<VideosScreen> {
-  var scaffoldKey = GlobalKey<ScaffoldState>();
+  // var scaffoldKey = GlobalKey<ScaffoldState>();
 
   // FirestoreService instance
   final FirestoreService _firestoreService = FirestoreService();
@@ -36,7 +36,7 @@ class _VideosScreenState extends State<VideosScreen> {
     List<VideoModel> videos = _firestoreService.getVideos();
     return SafeArea(
       child: Scaffold(
-          key: scaffoldKey,
+          // key: scaffoldKey,
           backgroundColor: Colors.black,
           appBar: PreferredSize(
             preferredSize: Size(MediaQuery.of(context).size.width, 60.h),

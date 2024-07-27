@@ -26,13 +26,12 @@ class AddCubit extends Cubit<AddState> {
       emit(Addarticledone());
       Navigator.pushNamed(context, BottomTabBarr.routeName);
     } catch (e) {
-      MyStyle.err(sc, e.toString());
+      // MyStyle.err(sc, e.toString());
       emit(AddarticleError(e.toString()));
     }
   }
 
-  Future submitPostArticles(
-      BuildContext context, sc, BlogModel myarticle) async {
+  Future submitPostArticles(BuildContext context, sc, BlogModel myarticle) async {
     emit(AddarticleLoading());
     print("------submit myarticle----");
 

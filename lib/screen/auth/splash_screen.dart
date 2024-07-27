@@ -1,81 +1,3 @@
-// import 'package:flutter/material.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:internet_connection_checker/internet_connection_checker.dart';
-// // import 'package:internet_connection_checker/internet_connection_checker/art';
-// import 'package:gooto/bloc/feed/feed_cubit.dart';
-// import 'package:gooto/utils/MyStyle.dart';
-
-// class SplashScreencreen extends StatefulWidget {
-//   static const routeName = 'Splash';
-
-//   const SplashScreencreen({Key? key}) : super(key: key);
-
-//   @override
-//   _SplashScreencreenState createState() => _SplashScreencreenState();
-// }
-
-// class _SplashScreencreenState extends State<SplashScreencreen> {
-//   @override
-//   void initState() {
-//     // gettt(context);
-
-//     super.initState();
-//   }
-
-//   gettt(context) async {
-//     Future.delayed((Duration(seconds: 10)))
-//         .then((value) => Navigator.pushReplacementNamed(context, BottomTabBarr.routeName));
-//     // bool result = await InternetConnectionChecker().hasConnection;
-//     // if (result == true) {
-//     //   BlocProvider.of<FeedCubit>(context).topPosts().then((value) {
-//     //     print("delayed,,,,,,");
-//     //     Navigator.pushReplacementNamed(context, BottomTabBarr.routeName);
-//     //   }).timeout((Duration(seconds: 10)), onTimeout: () {
-//     //     print("delayed,,,,,,");
-//     //     Navigator.pushReplacementNamed(context, BottomTabBarr.routeName);
-//     //   });
-//     // } else {
-//     //   print('No internet :( Reason:');
-//     //   print(InternetConnectionChecker().connectionStatus);
-//     // }
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return SafeArea(
-//       child: Scaffold(
-//         backgroundColor: Colors.white,
-//         body: Container(
-//           height: double.infinity,
-//           width: double.infinity,
-//           color: Colors.white,
-//           child: Column(
-//             mainAxisAlignment: MainAxisAlignment.center,
-//             children: [
-//               Column(
-//                 mainAxisAlignment: MainAxisAlignment.center,
-//                 children: [
-//                   Container(
-//                     height: 200,
-//                     width: 200,
-//                     decoration: BoxDecoration(
-//                         borderRadius: BorderRadius.circular(100),
-//                         image: DecorationImage(
-//                           image: AssetImage("assets/icon.png"),
-//                           fit: BoxFit.cover,
-//                         )),
-//                   ),
-//                 ],
-//               ),
-//               MyStyle.loadingWidget3(colo: Colors.white)
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -113,10 +35,12 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     if (widget.radius != 50.5)
       Future.delayed(Duration(seconds: 5)).then((_) {
         // Navigator.pushReplacementNamed(context, LoginPage.routeName);
-        Navigator.pushReplacementNamed(context, BottomTabBarr.routeName);
-        // BlocProvider.of<SystemsCubit>(context).clear(context);
+        // Navigator.pushReplacementNamed(context, BottomTabBarr.routeName);
 
-        // BlocProvider.of<SystemsCubit>(context).initiateit(context);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => BottomTabBarr()),
+        );
       });
 
     controller = AnimationController(

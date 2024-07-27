@@ -16,7 +16,7 @@ class ExplloreScreen extends StatefulWidget {
 }
 
 class _ExplloreScreenState extends State<ExplloreScreen> {
-  var scaffoldKey = GlobalKey<ScaffoldState>();
+  // var scaffoldKey = GlobalKey<ScaffoldState>();
   // List<BlogModel> blogs = [];
   // late var data;
 
@@ -49,7 +49,7 @@ class _ExplloreScreenState extends State<ExplloreScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      key: scaffoldKey,
+      // key: scaffoldKey,
       backgroundColor: Colors.white,
       appBar: PreferredSize(
         preferredSize: Size(MediaQuery.of(context).size.width, 60.h),
@@ -87,8 +87,7 @@ class _ExplloreScreenState extends State<ExplloreScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) =>
-                                  DetailsExplore(state.stories![indexx]),
+                              builder: (_) => DetailsExplore(state.stories![indexx]),
                             ),
                           );
                         },
@@ -109,8 +108,7 @@ class _ExplloreScreenState extends State<ExplloreScreen> {
                                   ),
                                 ],
                                 image: DecorationImage(
-                                  image: NetworkImage(
-                                      state.stories![indexx].imgurl.toString()),
+                                  image: NetworkImage(state.stories![indexx].imgurl.toString()),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -135,8 +133,7 @@ class _ExplloreScreenState extends State<ExplloreScreen> {
                             ),
                             Container(
                               width: ScreenUtil().screenWidth - 50,
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 16, vertical: 8),
+                              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                               child: Text(
                                 state.stories![indexx].title.toString(),
                                 style: TextStyle(
@@ -151,8 +148,7 @@ class _ExplloreScreenState extends State<ExplloreScreen> {
                               width: ScreenUtil().screenWidth - 50,
                               padding: EdgeInsets.symmetric(horizontal: 16),
                               child: Text(
-                                removeHtmlTags(
-                                        state.stories![indexx].desc.toString())
+                                removeHtmlTags(state.stories![indexx].desc.toString())
                                     .substring(0, 98),
                                 style: TextStyle(
                                   fontSize: 14.sp,
