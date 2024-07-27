@@ -11,6 +11,7 @@ import 'package:gooto/widgets/all_activities_screen.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gooto/widgets/custm_card.dart';
+import 'package:gooto/widgets/search_box.dart';
 
 class PopularPlacesScreen extends StatefulWidget {
   const PopularPlacesScreen({super.key});
@@ -61,21 +62,9 @@ class _PopularPlacesScreenState extends State<PopularPlacesScreen> {
         child: Column(children: [
           Padding(
             padding: const EdgeInsets.all(10),
-            child: TextField(
-              controller: _searchController,
-              decoration: InputDecoration(
-                hintText: 'Search',
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(50.0),
-                  borderSide: BorderSide.none,
-                ),
-                filled: true,
-                contentPadding: EdgeInsets.zero,
-                fillColor: Colors.grey[200],
-              ),
-            ),
+            child: SearchBox(controller: _searchController),
           ),
+          
           Padding(
             padding: const EdgeInsets.all(0),
             child: MasonryGridView.builder(

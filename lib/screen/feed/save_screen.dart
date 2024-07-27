@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gap/gap.dart';
+// import 'package:gap/gap.dart';
 import 'package:gooto/utils/mystyle.dart';
 // import 'package:audioplayers/audioplayers.dart';
 import 'package:readmore/readmore.dart';
@@ -75,7 +75,7 @@ class _SaveScreenState extends State<SaveScreen> {
                 ],
               ),
             ),
-            Gap(10),
+           SizedBox(height: 10,),
             Container(
               height: 45,
               width: 322,
@@ -119,7 +119,7 @@ class _SaveScreenState extends State<SaveScreen> {
                 ),
               ),
             ),
-            Gap(30),
+            SizedBox(height: 30,),
             Column(
               children: [
                 Container(

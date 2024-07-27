@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:gooto/screen/audio/AudioGeneral.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gooto/screen/feed/home_screen.dart';
 import 'package:gooto/screen/feed/save_screen.dart';
 import 'package:gooto/screen/others/image_screen.dart';
@@ -33,7 +34,8 @@ class _BottomTabBarrState extends State<BottomTabBarr> {
   static List _widgetOptions = [
     HomeScreen(),
     VideosScreen(),
-    ImageScreen(),
+    PodcastDiscoveryScreen(),
+    //ImageScreen(),
     ExplloreScreen(),
   ];
   var provider;

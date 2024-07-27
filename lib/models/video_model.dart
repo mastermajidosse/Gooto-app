@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 
 class VideoModel {
   int? id;
@@ -35,14 +35,14 @@ class VideoModel {
   }
 
   // Create a Video object from Firestore data
-  factory VideoModel.fromFirestore(DocumentSnapshot doc) {
-    Map data = doc.data() as Map;
-    return VideoModel(
-      id: data['id'],
-      name: data['name'] ?? '',
-      url: data['url'] ?? '',
-    );
-  }
+  // factory VideoModel.fromFirestore(DocumentSnapshot doc) {
+  //   Map data = doc.data() as Map;
+  //   return VideoModel(
+  //     id: data['id'],
+  //     name: data['name'] ?? '',
+  //     url: data['url'] ?? '',
+  //   );
+  // }
 }
 
 class AllVideosModel {

@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
+// import 'package:image_picker/image_picker.dart';
 import 'package:gooto/models/user_model.dart';
 import 'package:gooto/screen/bottom_tab.dart';
 import 'package:gooto/services/service/auth_service.dart';
@@ -31,7 +31,7 @@ class ProfileCubit extends Cubit<ProfileState> {
   Future changeName(x) async {}
 
   File? image;
-  var picker = ImagePicker();
+  // var picker = ImagePicker();
   var downloadUrlimage = "";
 
   UserRepository userRepository = UserRepository();

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gooto/screen/videos/screens/shakewidget.dart';
-
-
 class OptionsScreen extends StatelessWidget {
   final String titles;
   OptionsScreen( {required this.titles});
@@ -35,12 +33,13 @@ class OptionsScreen extends StatelessWidget {
 
                    Text(titles,style:TextStyle(
     fontWeight: FontWeight.w700,
-    fontSize: 10,
+    fontSize: 12,
     fontFamily: "Urbanist",
     color: Colors.white,
     fontStyle: FontStyle.normal,
     height: 0.8,
-  ), ),
+  ),
+   ),
                   //       Container(
                   //   alignment: Alignment.center,
                   //   color: Colors.transparent,
