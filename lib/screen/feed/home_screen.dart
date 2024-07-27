@@ -169,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Discovery Your Favorites Places',
+                    'Listen',
                     style: TextStyle(
     fontWeight: FontWeight.bold,
     fontSize: ScreenUtil().setSp(17),
