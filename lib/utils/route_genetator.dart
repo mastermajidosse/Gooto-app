@@ -4,6 +4,7 @@ import 'package:gooto/screen/auth/login_screen.dart';
 import 'package:gooto/screen/auth/register_screen.dart';
 import 'package:gooto/screen/auth/splash_screen.dart';
 import 'package:gooto/screen/bottom_tab.dart';
+import 'package:gooto/screen/feed/home_screen.dart';
 import 'package:gooto/screen/profile/setting_screen.dart';
 import 'package:gooto/widgets/all_activities_screen.dart';
 import 'package:gooto/screen/allPopular_screen.dart';
@@ -15,7 +16,7 @@ class RoutGenerator {
   static Route<dynamic> generateRout(RouteSettings settings) {
     switch (settings.name) {
       case BottomTabBarr.routeName:
-        return MaterialPageRoute(builder: (_) => AllActivitiesScreen());
+        return MaterialPageRoute(builder: (_) => BottomTabBarr());
       case RegisterScreen.routeName:
         return MaterialPageRoute(builder: (_) => RegisterScreen());
       case LoginPage.routeName:

@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class AudioModel {
   String audio;
   int? id;
@@ -6,6 +8,9 @@ class AudioModel {
   List<String> desc;
   List<String> photos;
   String flagname;
+  String duration;
+  String imagecover;
+  Color color;
 
   AudioModel({
     required this.audio,
@@ -15,6 +20,9 @@ class AudioModel {
     required this.logo,
     required this.flagname,
     required this.photos,
+    required this.duration,
+    required this.imagecover,
+    required this.color,
   });
   static AudioModel fromData(map) {
     print(map['tags'].toString());
@@ -25,7 +33,11 @@ class AudioModel {
       flagname: map['country']['flagname'].toString(),
       logo: map['images'][0].toString(),
       photos: map['photo'],
-       audio: '',
+      audio: map['audio'], 
+      duration: map['duration'],
+      imagecover: map['imagecover'],
+      color: map['color'],
+
     );
   }
 
@@ -40,6 +52,9 @@ class AudioModel {
 }
 List<AudioModel> audio=[
   AudioModel(
+    color:Color(0xFFFF914D),
+    imagecover: 'assets/hassane.png',
+    duration: "🎙️Audio 2 m 23s",
     audio: 'Rabat.mp3',
     flagname: "Create By GooTo",
     desc:["Rabat, the stunning capital city of Morocco, is a captivating blend of ancient history and modern sophistication,",
@@ -58,9 +73,12 @@ List<AudioModel> audio=[
     " Overall, Rabat is a captivating destination that offers a unique blend of ancient history, cultural richness, and modern urban life." ],
     id:1 ,
     logo:"assets/popular/rabat.jpeg" ,
-    name: "Rabat,CapitalHistory",
+    name: "Rabat\nCapitalHistory",
     photos: ["assets/Rabat.webp","assets/theatreRabat.jpeg","assets/rabatcapitale.jpg","assets/popular/rabat.jpeg"]),
      AudioModel(
+      color:Color(0xFF9d8191),
+       imagecover: 'assets/agadircover.png',
+      duration: "🎙️Audio 2 m 23s",
     audio: 'agadir.wav',
     flagname: "Create By GooTo",
     desc:["In the south of the country, bordered by the waves of the Atlantic,",
@@ -76,9 +94,12 @@ List<AudioModel> audio=[
     " Agadir is an active city where it is good to relax."] ,
     id:1 ,
     logo:"assets/popular/Agadire.jpeg" ,
-    name: "Agadir,Bride of the South ",
+    name: "Agadir \nBride of the South",
     photos: ["assets/popular/agadire2.jpeg","assets/popular/agadire3.jpeg","assets/popular/agadire4.jpeg","assets/popular/Agadirs-beach.webp"]),
      AudioModel(
+      color:Colors.blue,
+       imagecover: 'assets/chefchouencover.png',
+      duration: "🎙️Audio 2 m 23s",
     audio: 'chaoun.wav',
     flagname: "Create By GooTo",
     desc:["Built on a mountainside, chefchaouen is a city with a special vibes.", 
@@ -96,7 +117,7 @@ List<AudioModel> audio=[
      " Make the most of your stay in the picture -perfect blue city."] ,
     id:1 ,
     logo:"assets/popular/chefchaouen.jpeg" ,
-    name: "chefchaouen,Blue city",
+    name: "Chefchaouen,\nBlue city",
     photos: ["assets/popular/chefchaouen1.jpeg","assets/popular/chefchaouen2.jpeg","assets/popular/chefchaouen3.jpeg","assets/popular/chefchaouen.jpeg"]),
     //  AudioModel(
     // audio: 'test.mp3',

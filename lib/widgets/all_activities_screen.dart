@@ -232,7 +232,8 @@ class _AllActivitiesScreenState extends State<AllActivitiesScreen> {
                       ),
                     );
                   },
-                  child: ActivityCard(activity: _filteredItems[index])),
+                  child: ActivityCard(activity: _filteredItems[index])
+                  ),
             ).toList(),
             SizedBox(height: 60.h),
           ],
