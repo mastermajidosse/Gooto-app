@@ -41,9 +41,7 @@ class _VideosScreenState extends State<VideosScreen> {
           appBar: PreferredSize(
             preferredSize: Size(MediaQuery.of(context).size.width, 60.h),
             child: Container(
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 0, 174, 113),
-              ),
+              color: const Color.fromARGB(255, 56, 55, 55),
               height: 30.h,
               width: double.infinity,
               alignment: Alignment.center,
