@@ -170,11 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Text(
                     'Listen',
-                    style: TextStyle(
-    fontWeight: FontWeight.bold,
-    fontSize: ScreenUtil().setSp(17),
-    color: Colors.black87,
-                      )  //MyStyle.blackalarmTextStyle,
+                    style:   MyStyle.blackalarmTextStyle,
                   ),
                   Container(),
                   InkWell(
