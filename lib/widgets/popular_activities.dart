@@ -63,7 +63,8 @@ class ActivityCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return 
+    Container(
       // height: 300,
       width: double.infinity,
       child: Card(

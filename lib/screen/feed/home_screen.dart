@@ -170,11 +170,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Text(
                     'Listen',
-                    style: TextStyle(
-    fontWeight: FontWeight.bold,
-    fontSize: ScreenUtil().setSp(17),
-    color: Colors.black87,
-                      )  //MyStyle.blackalarmTextStyle,
+                    style:MyStyle.blackalarmTextStyle
+    //                  TextStyle(
+    // fontWeight: FontWeight.bold,
+    // fontSize: ScreenUtil().setSp(17),
+    // color: Colors.black87,
+    //                   )  //MyStyle.blackalarmTextStyle,
                   ),
                   Container(),
                   InkWell(
@@ -191,7 +192,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
                Container(
-              height: 380.h,
+              height: 320.h,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 3,
@@ -200,7 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   // return CustomCard(card: card);
                   return 
                   Container(
-      height: 360.h,
+      height: 320.h,
       width: 200.w,
       margin: EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -225,7 +226,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Image.asset(
                   card.logo,
                   width: double.infinity,
-                  height: 200.h,
+                  height: 120.h,
                   fit: BoxFit.cover,
                 ),
               ),
