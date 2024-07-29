@@ -126,9 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   InkWell(
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => PopularPlacesScreen()));
+                          context, MaterialPageRoute(builder: (context) => PopularPlacesScreen()));
                     },
                     child: Text(
                       'View More',
@@ -138,7 +136,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Container(
               height: 380.h,
               child: ListView.builder(
@@ -163,15 +163,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
-             Container(
+            Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Listen',
-                    style:   MyStyle.blackalarmTextStyle,
-                  ),
+                  Text('Listen', style: MyStyle.blackalarmTextStyle
+                      //                  TextStyle(
+                      // fontWeight: FontWeight.bold,
+                      // fontSize: ScreenUtil().setSp(17),
+                      // color: Colors.black87,
+                      //                   )  //MyStyle.blackalarmTextStyle,
+                      ),
                   Container(),
                   InkWell(
                     onTap: () {
@@ -186,141 +189,144 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-               Container(
-              height: 380.h,
+            Container(
+              height: 320.h,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 3,
                 itemBuilder: (context, index) {
                   final AudioModel card = audio[index];
                   // return CustomCard(card: card);
-                  return 
-                  Container(
-      height: 360.h,
-      width: 200.w,
-      margin: EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
-            spreadRadius: 2,
-            blurRadius: 10,
-            offset: Offset(0, 3),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Stack(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.asset(
-                  card.logo,
-                  width: double.infinity,
-                  height: 200.h,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Positioned(
-                top: 10,
-                right: 10,
-                child: InkWell(
-                  onTap: () => {
-                     //     if (cities.contains(card.name)) {
-                  //       _removeCity(card.name);
-                  //     } else {
-                  //       _addCity(card.name);
-                  //     }
-                  //   },
-                  },
-                  child: Container(
+                  return Container(
+                    height: 320.h,
+                    width: 200.w,
+                    margin: EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      shape: BoxShape.circle,
+                      borderRadius: BorderRadius.circular(16),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.3),
+                          color: Colors.grey.withOpacity(0.3),
                           spreadRadius: 2,
                           blurRadius: 10,
+                          offset: Offset(0, 3),
                         ),
                       ],
                     ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Padding(
-            padding: EdgeInsets.all(16),
-            child: Text(
-              card.name,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 13.sp,
-                color: Colors.black87,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Text(
-              card.flagname,
-              style: TextStyle(
-                fontSize: 14.sp,
-                color: Colors.black54,
-                height: 1.5,
-              ),
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-            ),
-          ),
-          SizedBox(height: 10,),
-          Row(
-            
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(width: 10,),
-              GestureDetector(
-               onTap: (){
-                Navigator.push(context,MaterialPageRoute(builder: (context)=>AudioPlayerScreen(card.photos,card.name,card.audio,card.desc)));
-               },
-                child: Container(
-  decoration: BoxDecoration(
-    color: Colors.black,
-    borderRadius: BorderRadius.circular(16.0),
-  ),
-  padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-  child: Row(
-    mainAxisSize: MainAxisSize.min,
-    children: [
-      Icon(
-        Icons.music_note_outlined,
-        color: Colors.white,
-      ),
-      SizedBox(width: 8.0),
-      Text(
-        "Play now",
-        style: TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.normal,
-        ),
-      ),
-    ],
-  ),
-)
-              )
-                
-            ],
-          )
-        
-        ],
-      ),
-    );
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Stack(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(16),
+                              child: Image.asset(
+                                card.logo,
+                                width: double.infinity,
+                                height: 120.h,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Positioned(
+                              top: 10,
+                              right: 10,
+                              child: InkWell(
+                                onTap: () => {
+                                  //     if (cities.contains(card.name)) {
+                                  //       _removeCity(card.name);
+                                  //     } else {
+                                  //       _addCity(card.name);
+                                  //     }
+                                  //   },
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    shape: BoxShape.circle,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.3),
+                                        spreadRadius: 2,
+                                        blurRadius: 10,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(16),
+                          child: Text(
+                            card.name,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 13.sp,
+                              color: Colors.black87,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          child: Text(
+                            card.flagname,
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                              color: Colors.black54,
+                              height: 1.5,
+                            ),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SizedBox(
+                              width: 10,
+                            ),
+                            GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => AudioPlayerScreen(
+                                              card.photos, card.name, card.audio, card.desc)));
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.black,
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Icon(
+                                        Icons.music_note_outlined,
+                                        color: Colors.white,
+                                      ),
+                                      SizedBox(width: 8.0),
+                                      Text(
+                                        "Play now",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ))
+                          ],
+                        )
+                      ],
+                    ),
+                  );
                   // CustomCards(
                   //   cities.contains(card.name),
                   //   imageUrl: card.logo,
@@ -337,7 +343,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
               child: Row(
@@ -357,9 +365,7 @@ class _HomeScreenState extends State<HomeScreen> {
             InkWell(
               onTap: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => AllActivitiesScreen()));
+                    context, MaterialPageRoute(builder: (context) => AllActivitiesScreen()));
               },
               child: Text(
                 'View More',
@@ -367,7 +373,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             SizedBox(height: 20),
-            
           ],
         ),
       ),

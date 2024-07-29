@@ -285,7 +285,7 @@ Widget PlaceCard(String img){
     aspectRatio: 16 / 9,
     autoPlayCurve: Curves.fastOutSlowIn,
     enableInfiniteScroll: true,
-    autoPlayAnimationDuration: Duration(milliseconds: 6000),
+    autoPlayAnimationDuration: Duration(milliseconds: 10000),
     viewportFraction: 0.8,
     scrollDirection: Axis.vertical,
   ),
