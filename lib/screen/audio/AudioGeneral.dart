@@ -15,6 +15,28 @@ class PodcastDiscoveryScreen extends StatefulWidget {
 
 class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
   TextEditingController _searchController = TextEditingController();
+  List<AudioModel> _filteredItems = [];
+   @override
+  void initState() {
+    super.initState();
+    _filteredItems = audio;
+    _searchController.addListener(_filterItems);
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  void _filterItems() {
+    String query = _searchController.text.toLowerCase();
+    setState(() {
+      _filteredItems = audio.where((item) {
+        return item.name.toLowerCase().contains(query);
+      }).toList();
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -398,9 +420,9 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
       mainAxisSpacing: 16.0,
       childAspectRatio: 1.0, // Adjust the aspect ratio as needed
     ),
-    itemCount: audio.length,
+    itemCount: _filteredItems.length,
     itemBuilder: (context, index) {
-      final AudioModel card = audio[index];
+      final AudioModel card = _filteredItems[index];
       return InkWell(
         onTap: () {
           Navigator.push(
