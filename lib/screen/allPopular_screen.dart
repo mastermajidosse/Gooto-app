@@ -6,6 +6,7 @@ import 'package:gooto/screen/auth/login_screen.dart';
 import 'package:gooto/screen/auth/register_screen.dart';
 import 'package:gooto/screen/auth/splash_screen.dart';
 import 'package:gooto/screen/bottom_tab.dart';
+import 'package:gooto/screen/popular_details_screen.dart';
 import 'package:gooto/screen/profile/setting_screen.dart';
 import 'package:gooto/widgets/all_activities_screen.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -64,7 +65,6 @@ class _PopularPlacesScreenState extends State<PopularPlacesScreen> {
             padding: const EdgeInsets.all(10),
             child: SearchBox(controller: _searchController),
           ),
-          
           Padding(
             padding: const EdgeInsets.all(0),
             child: MasonryGridView.builder(
@@ -94,35 +94,47 @@ class PlaceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 10,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      child: Padding(
-        padding: const EdgeInsets.all(3.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: Image.asset(
-                place.productImg,
-                width: double.infinity,
-                height: 200.h,
-                fit: BoxFit.cover,
-              ),
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => PopularDetailsScreen(
+              place: place,
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(place.productName,
-                      style: TextStyle(fontWeight: FontWeight.bold)),
-                  Text(place.location.toString(), style: TextStyle()),
-                ],
+          ),
+        );
+      },
+      child: Card(
+        elevation: 10,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        child: Padding(
+          padding: const EdgeInsets.all(3.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: Image.asset(
+                  place.productImg,
+                  width: double.infinity,
+                  height: 200.h,
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(place.productName,
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    Text(place.location.toString(), style: TextStyle()),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

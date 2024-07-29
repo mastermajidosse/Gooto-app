@@ -65,7 +65,7 @@ class _VideosScreenState extends State<VideosScreen> {
                 Swiper(
                   itemBuilder: (BuildContext context, int index) {
                     return videos.isEmpty
-                        ? CircularProgressIndicator()
+                        ? CircularProgressIndicator(color: Colors.white)
                         // : VideoApp(url: videos.first.url!);
                         : ContentScreen(
                             src: videos[index].url!,
