@@ -1,11 +1,14 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
+import 'package:gooto/screen/ai/const.dart';
 import 'package:gooto/services/app_config.dart';
 import 'main.dart';
 import 'package:flutter/services.dart';
 
 void main() async {
+  Gemini.init(apiKey: GEMINI_API_KEY);
   WidgetsFlutterBinding.ensureInitialized();
 
   HttpOverrides.global = MyHttpOverrides();

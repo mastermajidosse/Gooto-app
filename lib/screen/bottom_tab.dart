@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gooto/screen/ai/chatai.dart';
 import 'package:gooto/screen/audio/AudioGeneral.dart';
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gooto/screen/feed/home_screen.dart';
@@ -37,6 +38,7 @@ class _BottomTabBarrState extends State<BottomTabBarr> {
     PodcastDiscoveryScreen(),
     //ImageScreen(),
     ExplloreScreen(),
+    AiChat()
   ];
   var provider;
 
@@ -60,6 +62,7 @@ class _BottomTabBarrState extends State<BottomTabBarr> {
                 costumcollum("assets/icons/reels.png", "assets/icons/reels.png", 1),
                 costumcollum("assets/icons/audio.png", "assets/icons/audio.png", 2),
                 costumcollum("assets/icons/news.png", "assets/icons/news.png", 3),
+                costumcollum("assets/icons/news.png", "assets/icons/news.png", 4),
                 // costumcollum(Icons.person, Icons.person_outline, 4),
               ],
             ),
