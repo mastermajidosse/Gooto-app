@@ -58,7 +58,7 @@ class _BottomTabBarrState extends State<BottomTabBarr> {
               children: <Widget>[
                 costumcollum("assets/icons/home.png", "assets/icons/home.png", 0),
                 costumcollum("assets/icons/reels.png", "assets/icons/reels.png", 1),
-                costumcollum("assets/icons/imagegallery.png", "assets/icons/imagegallery.png", 2),
+                costumcollum("assets/icons/audio.png", "assets/icons/audio.png", 2),
                 costumcollum("assets/icons/news.png", "assets/icons/news.png", 3),
                 // costumcollum(Icons.person, Icons.person_outline, 4),
               ],
