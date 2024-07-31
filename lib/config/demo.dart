@@ -1,4 +1,37 @@
+import 'package:gooto/models/hotel_model.dart';
+
 import '../models/card.dart';
+
+List<HotelModel> hotels = [
+  HotelModel(
+      title: "Eden Andalou",
+      img:
+          "https://cf.bstatic.com/xdata/images/hotel/square600/538663555.webp?k=3ef2ac64d443fa9695d61b3b1945899a1e3521d2d87f585c4f093608af8092d8&o=",
+      price: "MAD 500",
+      rating: "4.3",
+      location: "Km 4 road of Amizmiz, 40000 Marrakech"),
+  HotelModel(
+      title: "Savoy Le Grand",
+      img:
+          "https://cf.bstatic.com/xdata/images/hotel/max1024x768/474656748.jpg?k=3f511d8a7de370ec912d62ffc0f9666b0995d5a97b556a81b2492a07d2ae84af&o=&hp=1",
+      price: "MAD 1200",
+      rating: "4.4",
+      location: "Avenue de la ménara BP 528, Marrakech"),
+  HotelModel(
+      title: "Mazagan Beach",
+      img:
+          "https://cf.bstatic.com/xdata/images/hotel/max1024x768/582102204.jpg?k=d651128c152cc4920d081a8983bf7c283d248601117e29eb20e98e6654faec36&o=&hp=1",
+      price: "MAD 1350",
+      rating: "4.1",
+      location: "El Haouzia, 24000 El Jadida"),
+  HotelModel(
+      title: "Hivernage Hotel & Spa",
+      img:
+          "https://cf.bstatic.com/xdata/images/hotel/max1024x768/60787753.jpg?k=cbd0ee7912d5c7f49429ad7a3c5a32c296456e74f3b99d39a2b8ee4f2c005340&o=&hp=1",
+      price: "MAD 1740",
+      rating: "4.2",
+      location: "Rue Des Temples, Hivernage"),
+];
 
 List<CardModule> cardsList = const [
   CardModule(
