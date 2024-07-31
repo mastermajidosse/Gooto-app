@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gooto/models/blog_model.dart';
 import 'package:gooto/utils/mystyle.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+import 'package:insta_image_viewer/insta_image_viewer.dart';
 
 class DetailsExplore extends StatefulWidget {
   BlogModel blogModel;
@@ -125,6 +126,7 @@ class _DetailsExploreState extends State<DetailsExplore> {
             padding: EdgeInsets.all(14.r),
             // child: blog.id == 10
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
@@ -182,6 +184,37 @@ class _DetailsExploreState extends State<DetailsExplore> {
                   // set the default styling for text
                   textStyle: TextStyle(fontSize: 17.sp, height: 1.3),
                 ),
+                // SizedBox(height: 20.h),
+                // Text(
+                //   "Preview",
+                //   style: TextStyle(fontSize: 18.sp),
+                // ),
+                SizedBox(height: 30.h),
+                Container(
+                  // color: Colors.red,
+                  height: 100.h,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: blogModel.previewImgs!.length,
+                      itemBuilder: (context, i) => Container(
+                            margin: EdgeInsets.only(right: 10.w),
+                            height: 100.h,
+                            // width: 180.w,
+                            clipBehavior: Clip.hardEdge,
+                            child: InstaImageViewer(
+                              child: Image(
+                                image: AssetImage(
+                                  blogModel.previewImgs![i],
+                                ),
+                                // fit: BoxFit.cover,
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                                color: Colors.grey[300],
+                                borderRadius: BorderRadius.circular(10.r)),
+                          )),
+                ),
+                SizedBox(height: 40.h),
               ],
             ),
             //  child : Text(blog.desc.toString()),
