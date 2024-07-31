@@ -221,25 +221,24 @@ class _AllActivitiesScreenState extends State<AllActivitiesScreen> {
                 }).toList(),
               ),
             ),
-            ...List.generate(
-              _filteredItems.length,
-              (index) => InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => DetailsExplore(_filteredItems[index]),
-                      ),
-                    );
-                  },
-                  child: ActivityCard(activity: _filteredItems[index])
-                  ),
-            ).toList(),
+            // ...List.generate(
+            //   _filteredItems.length,
+            //   (index) => InkWell(
+            //       onTap: () {
+            //         Navigator.push(
+            //           context,
+            //           MaterialPageRoute(
+            //             builder: (_) => DetailsExplore(_filteredItems[index]),
+            //           ),
+            //         );
+            //       },
+            //       child: ActivityCard(activity: _filteredItems[index])
+            //       ),
+            // ).toList(),
             SizedBox(height: 60.h),
           ],
         ),
-      )
-      ),
+      )),
     );
   }
 }

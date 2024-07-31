@@ -126,7 +126,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   InkWell(
                     onTap: () {
                       Navigator.push(
-                          context, MaterialPageRoute(builder: (context) => PopularPlacesScreen()));
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PopularPlacesScreen()));
                     },
                     child: Text(
                       'View More',
@@ -179,7 +181,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   InkWell(
                     onTap: () {
                       Navigator.push(
-                          context, MaterialPageRoute(builder: (context) => AllaudioScreen()));
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AllaudioScreen()));
                     },
                     child: Text(
                       'View More',
@@ -295,15 +299,20 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => AudioPlayerScreen(
-                                              card.photos, card.name, card.audio, card.desc)));
+                                          builder: (context) =>
+                                              AudioPlayerScreen(
+                                                  card.photos,
+                                                  card.name,
+                                                  card.audio,
+                                                  card.desc)));
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
                                     color: Colors.black,
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
-                                  padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 16.0, vertical: 8.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
@@ -365,7 +374,9 @@ class _HomeScreenState extends State<HomeScreen> {
             InkWell(
               onTap: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => AllActivitiesScreen()));
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => AllActivitiesScreen()));
               },
               child: Text(
                 'View More',

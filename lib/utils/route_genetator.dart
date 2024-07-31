@@ -5,6 +5,7 @@ import 'package:gooto/screen/auth/register_screen.dart';
 import 'package:gooto/screen/auth/splash_screen.dart';
 import 'package:gooto/screen/bottom_tab.dart';
 import 'package:gooto/screen/profile/setting_screen.dart';
+import 'package:gooto/widgets/all_activities_screen.dart';
 
 String initialRoute = SplashScreen.routeName;
 // String initialRoute = AppStartScreen.routeName;
@@ -21,7 +22,8 @@ class RoutGenerator {
       case AppStartScreen.routeName:
         return MaterialPageRoute(builder: (_) => AppStartScreen());
       case SplashScreen.routeName:
-        return MaterialPageRoute(builder: (_) => SplashScreen());
+        return MaterialPageRoute(builder: (_) => AllActivitiesScreen());
+      // return MaterialPageRoute(builder: (_) => SplashScreen());
       case SettingScreen.routeName:
         return MaterialPageRoute(builder: (_) => SettingScreen());
       // case MoreScreen.routeName:
