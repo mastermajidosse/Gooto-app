@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:gooto/models/hotel_model.dart';
 import 'package:gooto/utils/mystyle.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class FullScreenPop extends StatelessWidget {
   HotelModel hotel;
@@ -64,7 +65,11 @@ class FullScreenPop extends StatelessWidget {
             SizedBox(height: 50),
             Center(
               child: InkWell(
-                onTap: () {},
+                onTap: () async {
+                  if (!await launchUrl(Uri.parse(hotel.url))) {
+                    throw Exception('Could not launch ${hotel.url}');
+                  }
+                },
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 child: Container(
