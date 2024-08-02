@@ -30,7 +30,7 @@ def keystoreProperties = new Properties()
 
    android {
     namespace "com.otot.gooto"
-    compileSdk flutter.compileSdkVersion
+    compileSdk 34
     ndkVersion flutter.ndkVersion
 
     compileOptions {
