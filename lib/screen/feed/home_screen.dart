@@ -128,9 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   InkWell(
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => PopularPlacesScreen()));
+                          context, MaterialPageRoute(builder: (context) => PopularPlacesScreen()));
                     },
                     child: Text(
                       'View More',
@@ -365,28 +363,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     InkWell(
                       onTap: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => AllaudioScreen()));
+                            context, MaterialPageRoute(builder: (context) => AllaudioScreen()));
                       },
                       child: Text(
                         'View More',
                         style: MyStyle.buttTextStyle,
                       ),
-<<<<<<< HEAD
-                  Container(),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => AllaudioScreen()));
-                    },
-                    child: Text(
-                      'View More',
-                      style: MyStyle.buttTextStyle,
-=======
->>>>>>> origin/booknow
                     ),
                   ],
                 ),
@@ -429,8 +411,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 color: Colors.grey[300],
                                 borderRadius: BorderRadius.circular(22.r),
                                 image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: NetworkImage(hotel.img))),
+                                    fit: BoxFit.cover, image: NetworkImage(hotel.img))),
                           ),
                           SizedBox(height: 10.h),
                           Row(
@@ -438,9 +419,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               Text(
                                 hotel.title,
-                                style: TextStyle(
-                                    fontSize: 17.sp,
-                                    fontWeight: FontWeight.w600),
+                                style: TextStyle(fontSize: 17.sp, fontWeight: FontWeight.w600),
                               ),
                               Text(
                                 hotel.price + "/night",
@@ -448,72 +427,18 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ],
                           ),
-<<<<<<< HEAD
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SizedBox(
-                              width: 10,
-                            ),
-                            GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              AudioPlayerScreen(
-                                                  card.photos,
-                                                  card.name,
-                                                  card.audio,
-                                                  card.desc)));
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.black,
-                                    borderRadius: BorderRadius.circular(16.0),
-                                  ),
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 16.0, vertical: 8.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Icon(
-                                        Icons.music_note_outlined,
-                                        color: Colors.white,
-                                      ),
-                                      SizedBox(width: 8.0),
-                                      Text(
-                                        "Play now",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ))
-                          ],
-                        )
-                      ],
-=======
                           SizedBox(height: 6.h),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Row(
                                 children: [
-                                  Icon(Icons.location_on_sharp,
-                                      color: Colors.redAccent),
+                                  Icon(Icons.location_on_sharp, color: Colors.redAccent),
                                   Container(
                                     width: 170.w,
                                     child: Text(
                                       hotel.location,
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 12.sp),
+                                      style: TextStyle(color: Colors.grey, fontSize: 12.sp),
                                     ),
                                   )
                                 ],
@@ -531,7 +456,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                       ),
->>>>>>> origin/booknow
                     ),
                   );
                   // CustomCards(
@@ -572,9 +496,7 @@ class _HomeScreenState extends State<HomeScreen> {
             InkWell(
               onTap: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => AllActivitiesScreen()));
+                    context, MaterialPageRoute(builder: (context) => AllActivitiesScreen()));
               },
               child: Text(
                 'View More',
