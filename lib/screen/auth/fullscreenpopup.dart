@@ -1,8 +1,27 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:gooto/models/hotel_model.dart';
 import 'package:gooto/utils/mystyle.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class FullScreenPop extends StatelessWidget {
-  const FullScreenPop({super.key});
+  HotelModel hotel;
+  FullScreenPop({super.key, required this.hotel});
+
+  List<Color> colors = [
+    Color.fromARGB(255, 21, 161, 149),
+    Color.fromARGB(255, 161, 21, 54),
+    Color.fromARGB(255, 185, 182, 38),
+    Color.fromARGB(255, 185, 38, 129),
+    Color.fromARGB(255, 168, 38, 185),
+    Color.fromARGB(255, 38, 185, 92),
+  ];
+
+  Color getColor() {
+    int randIndex = Random().nextInt(colors.length);
+    return colors[randIndex];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -10,9 +29,7 @@ class FullScreenPop extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(
-              "assets/images/daressalam_marrakeck.png",
-            ),
+            image: NetworkImage(hotel.img),
             fit: BoxFit.cover,
           ),
         ),
@@ -25,7 +42,7 @@ class FullScreenPop extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 26.0),
               child: Text(
-                "Amazing restaurant",
+                "Amazing Hotel",
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.normal,
@@ -37,7 +54,7 @@ class FullScreenPop extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 26.0),
               child: Text(
-                "Dar Essalam \nMarrakech",
+                hotel.title,
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -48,13 +65,17 @@ class FullScreenPop extends StatelessWidget {
             SizedBox(height: 50),
             Center(
               child: InkWell(
-                onTap: () {},
+                onTap: () async {
+                  if (!await launchUrl(Uri.parse(hotel.url))) {
+                    throw Exception('Could not launch ${hotel.url}');
+                  }
+                },
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
-                    color: Color.fromARGB(255, 185, 182, 38),
+                    color: getColor(),
                   ),
                   width: 350,
                   height: 45,

@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gooto/config/save.dart';
 import 'package:gooto/models/audio_model.dart';
 import 'package:gooto/models/card.dart';
+import 'package:gooto/models/hotel_model.dart';
 import 'package:gooto/screen/allPopular_screen.dart';
 import 'package:gooto/screen/audio/allAudio_screen.dart';
 import 'package:gooto/screen/audio/audio.dart';
@@ -128,9 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   InkWell(
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => PopularPlacesScreen()));
+                          context, MaterialPageRoute(builder: (context) => PopularPlacesScreen()));
                     },
                     child: Text(
                       'View More',
@@ -167,7 +166,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
-
             // Container(
             //   margin: EdgeInsets.symmetric(horizontal: 10),
             //   child: Row(
@@ -378,9 +376,7 @@ class _HomeScreenState extends State<HomeScreen> {
             InkWell(
               onTap: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => AllActivitiesScreen()));
+                    context, MaterialPageRoute(builder: (context) => AllActivitiesScreen()));
               },
               child: Text(
                 'View More',
