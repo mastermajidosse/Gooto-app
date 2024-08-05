@@ -27,6 +27,7 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
 
   //     if (isWithinRange1 || isWithinRange2 || isWithinRange3) {
   //       Notififcation(name);
+  //        timer.cancel();
   //     }
   //   });
   // }
@@ -52,6 +53,7 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
   void Notififcation(name) {
     AwesomeNotifications().createNotification(
         content: NotificationContent(
+            
             id: 10,
             channelKey: 'basic_channel',
             title: 'Name: $name ',
@@ -113,11 +115,11 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
         };
       }).toList();
 
-      if (restaurants.isNotEmpty) {
+     // if (restaurants.isNotEmpty) {
         int random = Random().nextInt(restaurants.length);
-        //_startNotificationScheduler(restaurants[random]['name']);
+       // _startNotificationScheduler(restaurants[random]['name']);
         Notififcation(restaurants[random]['name']);
-      }
+      //}
       // Print the results
       for (var restaurant in restaurants) {
         String photoUrl =
@@ -130,7 +132,7 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
       setState(() {
         restaurantse = restaurants;
       });
-      // print("listadzab${restaurantse}");
+      
     } else {
       print('Error: ${response.statusCode}, ${response.body}');
     }
@@ -138,7 +140,6 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
 
   @override
   Widget build(BuildContext context) {
-    print("listadzab$restaurantse");
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
       child: Column(
@@ -155,7 +156,7 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
             height: 16.h,
           ),
           Container(
-            height: 200.h,
+            height: 250.h,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: restaurantse.length,

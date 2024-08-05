@@ -9,7 +9,9 @@ import 'package:gooto/screen/allPopular_screen.dart';
 import 'package:gooto/screen/audio/allAudio_screen.dart';
 import 'package:gooto/screen/audio/audio.dart';
 import 'package:gooto/screen/auth/fullscreenpopup.dart';
+import 'package:gooto/screen/feed/places_near_me.dart';
 import 'package:gooto/screen/hotel/Allhotel.dart';
+import 'package:gooto/screen/popular_details_screen.dart';
 import 'package:gooto/widgets/all_activities_screen.dart';
 import 'package:gooto/widgets/custm_card.dart';
 import 'package:gooto/widgets/popular_activities.dart';
@@ -92,28 +94,29 @@ class _HomeScreenState extends State<HomeScreen> {
             //     ),
             //   ],
             // ),
-            Container(
-              alignment: Alignment.bottomLeft,
-              margin: EdgeInsets.symmetric(horizontal: 8),
-              child: Text(
-                'the Moroccan Switzerland :',
-                style: MyStyle.buttwhtieTextStyle,
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.all(8),
-              width: double.infinity,
-              height: 200,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                image: DecorationImage(
-                  image: AssetImage(
-                    "assets/ifran.jpg",
-                  ),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
+            PlacesNearMe(),
+            // Container(
+            //   alignment: Alignment.bottomLeft,
+            //   margin: EdgeInsets.symmetric(horizontal: 8),
+            //   child: Text(
+            //     'the Moroccan Switzerland :',
+            //     style: MyStyle.buttwhtieTextStyle,
+            //   ),
+            // ),
+            // Container(
+            //   margin: EdgeInsets.all(8),
+            //   width: double.infinity,
+            //   height: 200,
+            //   decoration: BoxDecoration(
+            //     borderRadius: BorderRadius.circular(15),
+            //     image: DecorationImage(
+            //       image: AssetImage(
+            //         "assets/ifran.jpg",
+            //       ),
+            //       fit: BoxFit.cover,
+            //     ),
+            //   ),
+            // ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
               child: Row(
@@ -152,11 +155,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     title: card.productName,
                     description: card.location.toString(),
                     onTap: () {
-                      if (cities.contains(card.productName)) {
-                        _removeCity(card.productName);
-                      } else {
-                        _addCity(card.productName);
-                      }
+                        
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => PopularDetailsScreen(
+              place: card,
+            ),
+          ),
+        );
+      
+                      // if (cities.contains(card.productName)) {
+                      //   _removeCity(card.productName);
+                      // } else {
+                      //   _addCity(card.productName);
+                      // }
                     },
                   );
                 },
