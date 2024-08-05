@@ -11,6 +11,7 @@ import 'package:gooto/screen/allPopular_screen.dart';
 import 'package:gooto/screen/audio/allAudio_screen.dart';
 import 'package:gooto/screen/audio/audio.dart';
 import 'package:gooto/screen/auth/fullscreenpopup.dart';
+import 'package:gooto/screen/hotel/Allhotel.dart';
 import 'package:gooto/widgets/all_activities_screen.dart';
 import 'package:gooto/widgets/custm_card.dart';
 import 'package:gooto/widgets/popular_activities.dart';
@@ -144,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 10,
             ),
             Container(
-              height: 380.h,
+              height: 340.h,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 5,
@@ -367,7 +368,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => AllaudioScreen()));
+                                builder: (context) => AllHotelScreen()));
                       },
                       child: Text(
                         'View More',
@@ -380,6 +381,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SizedBox(height: 10.h),
             Container(
+            
               height: 310.h,
               // color: Colors.green,
               child: ListView.builder(

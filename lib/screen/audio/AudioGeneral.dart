@@ -407,7 +407,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
               itemCount: _filteredItems.length,
               itemBuilder: (context, index) {
                 final AudioModel card = _filteredItems[index];
-                return InkWell(
+                return InkWell(  
                   onTap: () {
                     Navigator.push(
                       context,
@@ -422,7 +422,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                     children: [
                       Container(
                         width: double.infinity,
-                        height: 150,
+                        height: 110,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           image: DecorationImage(
