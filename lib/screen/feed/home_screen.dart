@@ -2,9 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-// import 'package:gap/gap.dart';
 import 'package:gooto/config/save.dart';
-import 'package:gooto/models/audio_model.dart';
 import 'package:gooto/models/card.dart';
 import 'package:gooto/models/hotel_model.dart';
 import 'package:gooto/screen/allPopular_screen.dart';
@@ -129,9 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   InkWell(
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => PopularPlacesScreen()));
+                          context, MaterialPageRoute(builder: (context) => PopularPlacesScreen()));
                     },
                     child: Text(
                       'View More',
@@ -141,9 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            SizedBox(
-              height: 10,
-            ),
+          
             Container(
               height: 340.h,
               child: ListView.builder(
@@ -507,9 +501,7 @@ class _HomeScreenState extends State<HomeScreen> {
             InkWell(
               onTap: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => AllActivitiesScreen()));
+                    context, MaterialPageRoute(builder: (context) => AllActivitiesScreen()));
               },
               child: Text(
                 'View More',

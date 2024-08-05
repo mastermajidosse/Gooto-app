@@ -7,6 +7,7 @@ class BlogModel {
   String? desc;
   String? price;
   List<Comments>? comments;
+  List<String>? previewImgs;
   // String? desc;
 
   BlogModel({
@@ -16,12 +17,14 @@ class BlogModel {
     this.price,
     this.imgurl,
     this.comments,
+    this.previewImgs,
   });
   BlogModel.fromData(Map<String, dynamic> json) {
     id = json['id'];
     title = json['title'];
     imgurl = json['imgurl'];
     desc = json['desc'];
+    previewImgs = json['previewImgs'];
   }
   // if (json['comments'] != null) {
   //   comments = <Comments>[];
@@ -45,6 +48,7 @@ class BlogModel {
       desc = json['content'];
       imgurl = json['image'];
       comments = <Comments>[];
+      previewImgs = json['previewImgs'];
     }
   }
 
