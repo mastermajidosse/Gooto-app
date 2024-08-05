@@ -11,7 +11,8 @@ import 'package:video_player/video_player.dart';
 class ContentScreen extends StatefulWidget {
   final String src;
   final String? slide;
-  const ContentScreen({Key? key, required this.src, this.slide}) : super(key: key);
+  const ContentScreen({Key? key, required this.src, this.slide})
+      : super(key: key);
 
   @override
   _ContentScreenState createState() => _ContentScreenState();
@@ -78,7 +79,7 @@ class _ContentScreenState extends State<ContentScreen> {
                     child: VideoPlayer(_controller),
                   ),
                 )
-              : Container(),
+              : CircularProgressIndicator(color: Colors.white),
         ),
         if (_liked)
           Center(
