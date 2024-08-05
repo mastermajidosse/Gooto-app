@@ -6,9 +6,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gooto/config/save.dart';
 import 'package:gooto/models/audio_model.dart';
 import 'package:gooto/models/card.dart';
+import 'package:gooto/models/hotel_model.dart';
 import 'package:gooto/screen/allPopular_screen.dart';
 import 'package:gooto/screen/audio/allAudio_screen.dart';
 import 'package:gooto/screen/audio/audio.dart';
+import 'package:gooto/screen/auth/fullscreenpopup.dart';
+import 'package:gooto/screen/hotel/Allhotel.dart';
 import 'package:gooto/widgets/all_activities_screen.dart';
 import 'package:gooto/widgets/custm_card.dart';
 import 'package:gooto/widgets/popular_activities.dart';
@@ -126,7 +129,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   InkWell(
                     onTap: () {
                       Navigator.push(
-                          context, MaterialPageRoute(builder: (context) => PopularPlacesScreen()));
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PopularPlacesScreen()));
                     },
                     child: Text(
                       'View More',
@@ -140,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 10,
             ),
             Container(
-              height: 380.h,
+              height: 340.h,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 5,
@@ -163,168 +168,305 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Listen', style: MyStyle.blackalarmTextStyle
-                      //                  TextStyle(
-                      // fontWeight: FontWeight.bold,
-                      // fontSize: ScreenUtil().setSp(17),
-                      // color: Colors.black87,
-                      //                   )  //MyStyle.blackalarmTextStyle,
+            // Container(
+            //   margin: EdgeInsets.symmetric(horizontal: 10),
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //     children: [
+            //       Text('Listen', style: MyStyle.blackalarmTextStyle
+            //           //                  TextStyle(
+            //           // fontWeight: FontWeight.bold,
+            //           // fontSize: ScreenUtil().setSp(17),
+            //           // color: Colors.black87,
+            //           //                   )  //MyStyle.blackalarmTextStyle,
+            //           ),
+            //       Container(),
+            //       InkWell(
+            //         onTap: () {
+            //           Navigator.push(
+            //               context, MaterialPageRoute(builder: (context) => AllaudioScreen()));
+            //         },
+            //         child: Text(
+            //           'View More',
+            //           style: MyStyle.buttTextStyle,
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            // Container(
+            //   height: 320.h,
+            //   child: ListView.builder(
+            //     scrollDirection: Axis.horizontal,
+            //     itemCount: 3,
+            //     itemBuilder: (context, index) {
+            //       final AudioModel card = audio[index];
+            //       // return CustomCard(card: card);
+            //       return Container(
+            //         height: 320.h,
+            //         width: 200.w,
+            //         margin: EdgeInsets.all(16),
+            //         decoration: BoxDecoration(
+            //           color: Colors.white,
+            //           borderRadius: BorderRadius.circular(16),
+            //           boxShadow: [
+            //             BoxShadow(
+            //               color: Colors.grey.withOpacity(0.3),
+            //               spreadRadius: 2,
+            //               blurRadius: 10,
+            //               offset: Offset(0, 3),
+            //             ),
+            //           ],
+            //         ),
+            //         child: Column(
+            //           crossAxisAlignment: CrossAxisAlignment.start,
+            //           children: [
+            //             Stack(
+            //               children: [
+            //                 ClipRRect(
+            //                   borderRadius: BorderRadius.circular(16),
+            //                   child: Image.asset(
+            //                     card.logo,
+            //                     width: double.infinity,
+            //                     height: 120.h,
+            //                     fit: BoxFit.cover,
+            //                   ),
+            //                 ),
+            //                 Positioned(
+            //                   top: 10,
+            //                   right: 10,
+            //                   child: InkWell(
+            //                     onTap: () => {
+            //                       //     if (cities.contains(card.name)) {
+            //                       //       _removeCity(card.name);
+            //                       //     } else {
+            //                       //       _addCity(card.name);
+            //                       //     }
+            //                       //   },
+            //                     },
+            //                     child: Container(
+            //                       decoration: BoxDecoration(
+            //                         color: Colors.white,
+            //                         shape: BoxShape.circle,
+            //                         boxShadow: [
+            //                           BoxShadow(
+            //                             color: Colors.black.withOpacity(0.3),
+            //                             spreadRadius: 2,
+            //                             blurRadius: 10,
+            //                           ),
+            //                         ],
+            //                       ),
+            //                     ),
+            //                   ),
+            //                 ),
+            //               ],
+            //             ),
+            //             Padding(
+            //               padding: EdgeInsets.all(16),
+            //               child: Text(
+            //                 card.name,
+            //                 style: TextStyle(
+            //                   fontWeight: FontWeight.bold,
+            //                   fontSize: 13.sp,
+            //                   color: Colors.black87,
+            //                   overflow: TextOverflow.ellipsis,
+            //                 ),
+            //               ),
+            //             ),
+            //             Padding(
+            //               padding: EdgeInsets.symmetric(horizontal: 16),
+            //               child: Text(
+            //                 card.flagname,
+            //                 style: TextStyle(
+            //                   fontSize: 14.sp,
+            //                   color: Colors.black54,
+            //                   height: 1.5,
+            //                 ),
+            //                 maxLines: 2,
+            //                 overflow: TextOverflow.ellipsis,
+            //               ),
+            //             ),
+            //             SizedBox(
+            //               height: 10,
+            //             ),
+            //             Row(
+            //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //               children: [
+            //                 SizedBox(
+            //                   width: 10,
+            //                 ),
+            //                 GestureDetector(
+            //                     onTap: () {
+            //                       Navigator.push(
+            //                           context,
+            //                           MaterialPageRoute(
+            //                               builder: (context) => AudioPlayerScreen(
+            //                                   card.photos, card.name, card.audio, card.desc)));
+            //                     },
+            //                     child: Container(
+            //                       decoration: BoxDecoration(
+            //                         color: Colors.black,
+            //                         borderRadius: BorderRadius.circular(16.0),
+            //                       ),
+            //                       padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            //                       child: Row(
+            //                         mainAxisSize: MainAxisSize.min,
+            //                         children: [
+            //                           Icon(
+            //                             Icons.music_note_outlined,
+            //                             color: Colors.white,
+            //                           ),
+            //                           SizedBox(width: 8.0),
+            //                           Text(
+            //                             "Play now",
+            //                             style: TextStyle(
+            //                               color: Colors.white,
+            //                               fontWeight: FontWeight.normal,
+            //                             ),
+            //                           ),
+            //                         ],
+            //                       ),
+            //                     ))
+            //               ],
+            //             )
+            //           ],
+            //         ),
+            //       );
+            //       // CustomCards(
+            //       //   cities.contains(card.name),
+            //       //   imageUrl: card.logo,
+            //       //   title: card.name,
+            //       //   description: card.desc,
+            //       //   onTap: () {
+            //       //     if (cities.contains(card.name)) {
+            //       //       _removeCity(card.name);
+            //       //     } else {
+            //       //       _addCity(card.name);
+            //       //     }
+            //       //   },
+            //       // );
+            //     },
+            //   ),
+            // ),
+            SizedBox(height: 10.h),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              child: Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Hotels', style: MyStyle.blackalarmTextStyle
+                        //                  TextStyle(
+                        // fontWeight: FontWeight.bold,
+                        // fontSize: ScreenUtil().setSp(17),
+                        // color: Colors.black87,
+                        //                   )  //MyStyle.blackalarmTextStyle,
+                        ),
+                    Container(),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AllHotelScreen()));
+                      },
+                      child: Text(
+                        'View More',
+                        style: MyStyle.buttTextStyle,
                       ),
-                  Container(),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context, MaterialPageRoute(builder: (context) => AllaudioScreen()));
-                    },
-                    child: Text(
-                      'View More',
-                      style: MyStyle.buttTextStyle,
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
+            SizedBox(height: 10.h),
             Container(
-              height: 320.h,
+            
+              height: 310.h,
+              // color: Colors.green,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 3,
+                itemCount: hotels.length,
                 itemBuilder: (context, index) {
-                  final AudioModel card = audio[index];
+                  final HotelModel hotel = hotels[index];
                   // return CustomCard(card: card);
-                  return Container(
-                    height: 320.h,
-                    width: 200.w,
-                    margin: EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(16),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.3),
-                          spreadRadius: 2,
-                          blurRadius: 10,
-                          offset: Offset(0, 3),
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Stack(
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(16),
-                              child: Image.asset(
-                                card.logo,
-                                width: double.infinity,
-                                height: 120.h,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            Positioned(
-                              top: 10,
-                              right: 10,
-                              child: InkWell(
-                                onTap: () => {
-                                  //     if (cities.contains(card.name)) {
-                                  //       _removeCity(card.name);
-                                  //     } else {
-                                  //       _addCity(card.name);
-                                  //     }
-                                  //   },
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    shape: BoxShape.circle,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(0.3),
-                                        spreadRadius: 2,
-                                        blurRadius: 10,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(16),
-                          child: Text(
-                            card.name,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 13.sp,
-                              color: Colors.black87,
-                              overflow: TextOverflow.ellipsis,
-                            ),
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => FullScreenPop(
+                                    hotel: hotel,
+                                  )));
+                    },
+                    child: Container(
+                      // height: 320.h,
+                      width: 300.w,
+                      padding: EdgeInsets.all(5.r),
+                      // padding: EdgeInsets.all(14.r),
+                      margin: EdgeInsets.only(right: 5.w, left: 14.w),
+                      decoration: BoxDecoration(
+                        // color: Colors.grey[100],
+                        borderRadius: BorderRadius.circular(22.r),
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 200.h,
+                            decoration: BoxDecoration(
+                                color: Colors.grey[300],
+                                borderRadius: BorderRadius.circular(22.r),
+                                image: DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: NetworkImage(hotel.img))),
                           ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 16),
-                          child: Text(
-                            card.flagname,
-                            style: TextStyle(
-                              fontSize: 14.sp,
-                              color: Colors.black54,
-                              height: 1.5,
-                            ),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
+                          SizedBox(height: 10.h),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                hotel.title,
+                                style: TextStyle(
+                                    fontSize: 17.sp,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              Text(
+                                hotel.price + "/night",
+                                style: TextStyle(fontSize: 14.sp),
+                              ),
+                            ],
                           ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SizedBox(
-                              width: 10,
-                            ),
-                            GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => AudioPlayerScreen(
-                                              card.photos, card.name, card.audio, card.desc)));
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.black,
-                                    borderRadius: BorderRadius.circular(16.0),
-                                  ),
-                                  padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Icon(
-                                        Icons.music_note_outlined,
-                                        color: Colors.white,
-                                      ),
-                                      SizedBox(width: 8.0),
-                                      Text(
-                                        "Play now",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ))
-                          ],
-                        )
-                      ],
+                          SizedBox(height: 6.h),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(Icons.location_on_sharp,
+                                      color: Colors.redAccent),
+                                  Container(
+                                    width: 170.w,
+                                    child: Text(
+                                      hotel.location,
+                                      style: TextStyle(
+                                          color: Colors.grey, fontSize: 12.sp),
+                                    ),
+                                  )
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Icon(Icons.star, color: Colors.amber),
+                                  Text(
+                                    hotel.rating.toString(),
+                                    style: TextStyle(color: Colors.grey),
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   );
                   // CustomCards(
@@ -365,7 +507,9 @@ class _HomeScreenState extends State<HomeScreen> {
             InkWell(
               onTap: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => AllActivitiesScreen()));
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => AllActivitiesScreen()));
               },
               child: Text(
                 'View More',

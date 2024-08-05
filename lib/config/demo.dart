@@ -1,4 +1,43 @@
+import 'package:gooto/models/hotel_model.dart';
+
 import '../models/card.dart';
+
+List<HotelModel> hotels = [
+  HotelModel(
+      title: "Eden Andalou",
+      img:
+          "https://cf.bstatic.com/xdata/images/hotel/square600/538663555.webp?k=3ef2ac64d443fa9695d61b3b1945899a1e3521d2d87f585c4f093608af8092d8&o=",
+      price: "MAD 500",
+      rating: "4.3",
+      location: "Km 4 road of Amizmiz, 40000 Marrakech",
+      url:
+          "https://www.booking.com/hotel/ma/eden-andalou-spa-resort.en-gb.html?aid=2311236&label=en-ma-booking-desktop-HFqwIxxzRAmHDiKj_ApqpgS652796016120%253Apl%253Ata%253Ap1%253Ap2%253Aac%253Aap%253Aneg%253Afi%253Atikwd-65526620%253Alp1009985%253Ali%253Adec%253Adm&sid=ec972651f7369da168f3d4d97321b0d1&age=1&all_sr_blocks=9874349_87788343_2_85_0&checkin=2025-05-02&checkout=2025-05-09&dest_id=-38833&dest_type=city&dist=0&group_adults=2&group_children=1&hapos=1&highlighted_blocks=9874349_87788343_2_85_0&hpos=1&matching_block_id=9874349_87788343_2_85_0&no_rooms=1&req_adults=2&req_age=1&req_children=1&room1=A%2CA%2C1&sb_price_type=total&sr_order=popularity&sr_pri_blocks=9874349_87788343_2_85_0__1540000&srepoch=1722338264&srpvid=dd784f67166a0253&type=total&ucfs=1&activeTab=main"),
+  HotelModel(
+      title: "Savoy Le Grand",
+      img:
+          "https://cf.bstatic.com/xdata/images/hotel/max1024x768/474656748.jpg?k=3f511d8a7de370ec912d62ffc0f9666b0995d5a97b556a81b2492a07d2ae84af&o=&hp=1",
+      price: "MAD 1200",
+      rating: "4.4",
+      location: "Avenue de la ménara BP 528, Marrakech",
+      url: "https://www.booking.com/hotel/ma/savoy-le-grand.en-gb.html"),
+  HotelModel(
+      title: "Mazagan Beach",
+      img:
+          "https://cf.bstatic.com/xdata/images/hotel/max1024x768/582102204.jpg?k=d651128c152cc4920d081a8983bf7c283d248601117e29eb20e98e6654faec36&o=&hp=1",
+      price: "MAD 1350",
+      rating: "4.1",
+      location: "El Haouzia, 24000 El Jadida",
+      url:
+          "https://www.booking.com/hotel/ma/mazagan-beach-resort.en-gb.html?aid=2311236&label=en-ma-booking-desktop-HFqwIxxzRAmHDiKj_ApqpgS652796016120%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-65526620%3Alp1009985%3Ali%3Adec%3Adm&sid=ec972651f7369da168f3d4d97321b0d1&checkin=2025-05-02;checkout=2025-05-09;dist=0;group_adults=2;group_children=0;hapos=1;hpos=1;no_rooms=1;req_adults=2;req_children=0;room1=A%2CA;sb_price_type=total;soh=1;sr_order=popularity;srepoch=1722340462;srpvid=f40553b3ba1e0122;type=total;ucfs=1&"),
+  HotelModel(
+      title: "Hivernage Hotel & Spa",
+      img:
+          "https://cf.bstatic.com/xdata/images/hotel/max1024x768/60787753.jpg?k=cbd0ee7912d5c7f49429ad7a3c5a32c296456e74f3b99d39a2b8ee4f2c005340&o=&hp=1",
+      price: "MAD 1740",
+      rating: "4.2",
+      location: "Rue Des Temples, Hivernage",
+      url: "https://www.booking.com/hotel/ma/hivernage-spa.en-gb.html"),
+];
 
 List<CardModule> cardsList = const [
   CardModule(
