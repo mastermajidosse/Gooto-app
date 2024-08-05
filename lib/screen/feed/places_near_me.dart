@@ -18,18 +18,19 @@ class PlacesNearMe extends StatefulWidget {
 
 class _PlacesNearMeState extends State<PlacesNearMe> {
   List<Map<String, dynamic>> restaurantse = [];
-  void _startNotificationScheduler(String name) {
-    Timer.periodic(const Duration(seconds: 1), (timer) {
-      final now = DateTime.now();
-      final isWithinRange1 = now.hour >= 8 && now.hour < 11;
-      final isWithinRange2 = now.hour >= 14 && now.hour < 18;
-      final isWithinRange3 = now.hour >= 19 && now.hour < 22;
+  // void _startNotificationScheduler(String name) {
+  //   Timer.periodic(const Duration(seconds: 1), (timer) {
+  //     final now = DateTime.now();
+  //     final isWithinRange1 = now.hour >= 8 && now.hour < 11;
+  //     final isWithinRange2 = now.hour >= 14 && now.hour < 18;
+  //     final isWithinRange3 = now.hour >= 19 && now.hour < 22;
 
-      if (isWithinRange1 || isWithinRange2 || isWithinRange3) {
-        Notififcation(name);
-      }
-    });
-  }
+  //     if (isWithinRange1 || isWithinRange2 || isWithinRange3) {
+  //       Notififcation(name);
+  //        timer.cancel();
+  //     }
+  //   });
+  // }
 
   String apiKey = 'AIzaSyAvQpJOpHxD5akNd5nIMvVKvSR2OKrLlKk';
   int radius = 1000;
@@ -52,6 +53,7 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
   void Notififcation(name) {
     AwesomeNotifications().createNotification(
         content: NotificationContent(
+            
             id: 10,
             channelKey: 'basic_channel',
             title: 'Name: $name ',
@@ -113,11 +115,11 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
         };
       }).toList();
 
-      if (restaurants.isNotEmpty) {
+     // if (restaurants.isNotEmpty) {
         int random = Random().nextInt(restaurants.length);
-        _startNotificationScheduler(restaurants[random]['name']);
+       // _startNotificationScheduler(restaurants[random]['name']);
         Notififcation(restaurants[random]['name']);
-      }
+      //}
       // Print the results
       for (var restaurant in restaurants) {
         String photoUrl =
@@ -130,7 +132,7 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
       setState(() {
         restaurantse = restaurants;
       });
-      // print("listadzab${restaurantse}");
+      
     } else {
       print('Error: ${response.statusCode}, ${response.body}');
     }
@@ -138,7 +140,6 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
 
   @override
   Widget build(BuildContext context) {
-    print("listadzab$restaurantse");
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
       child: Column(
