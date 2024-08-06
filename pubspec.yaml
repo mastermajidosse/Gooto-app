@@ -28,20 +28,23 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  flutter:
-    sdk: flutter
-  # country_icons: ^2.0.2
-
   audio_video_progress_bar: ^2.0.3
+  audioplayers: ^6.0.0
   cached_network_image: ^3.1.0
   card_swiper: ^3.0.1
+  carousel_slider: ^4.2.1
   cupertino_icons: ^1.0.6
+  dash_chat_2: ^0.0.21
   equatable: ^2.0.0
+  flutter:
+    sdk: flutter
   flutter_bloc: ^7.3.1
+  flutter_gemini: ^2.0.4
   flutter_screenutil: ^5.9.3
   flutter_spinkit: ^5.0.0
   flutter_staggered_grid_view: ^0.7.0
   flutter_widget_from_html: ^0.15.1
+  insta_image_viewer: ^1.0.4
   intl: ^0.19.0
   just_audio: ^0.9.38
   just_audio_background: ^0.0.1-beta.12
@@ -52,12 +55,6 @@ dependencies:
   shared_preferences: ^2.0.15
   url_launcher: ^6.2.1
   video_player: ^2.8.3
-  audioplayers: ^6.0.0
-  carousel_slider: ^4.2.1
-  insta_image_viewer: ^1.0.4
-  flutter_gemini: ^2.0.4
-  # //image_picker: ^1.1.2
-  dash_chat_2: ^0.0.21
 
 dev_dependencies:
   flutter_launcher_icons: "^0.13.1"
@@ -70,6 +67,7 @@ dev_dependencies:
   flutter_native_splash: ^2.3.0
   flutter_test:
     sdk: flutter
+
 
 flutter_launcher_icons:
   android: "ic_launcher"

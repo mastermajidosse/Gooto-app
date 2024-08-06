@@ -64,7 +64,7 @@ class _AiChatState extends State<AiChat> {
     responseStream.listen((event) {
   if (messages.first.user.id == geminiUser.id) {
     setState(() {
-      messages.first.text += event.content!.parts!.fold(
+      String messageText = messages.first.text += event.content!.parts!.fold(
         '',
         (previousValue, element) => previousValue + element.toString()
       );
