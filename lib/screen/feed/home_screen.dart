@@ -94,29 +94,36 @@ class _HomeScreenState extends State<HomeScreen> {
             //     ),
             //   ],
             // ),
-            PlacesNearMe(),
-            // Container(
-            //   alignment: Alignment.bottomLeft,
-            //   margin: EdgeInsets.symmetric(horizontal: 8),
-            //   child: Text(
-            //     'the Moroccan Switzerland :',
-            //     style: MyStyle.buttwhtieTextStyle,
-            //   ),
-            // ),
-            // Container(
-            //   margin: EdgeInsets.all(8),
-            //   width: double.infinity,
-            //   height: 200,
-            //   decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(15),
-            //     image: DecorationImage(
-            //       image: AssetImage(
-            //         "assets/ifran.jpg",
-            //       ),
-            //       fit: BoxFit.cover,
-            //     ),
-            //   ),
-            // ),
+           // PlacesNearMe(),
+            Container(
+              alignment: Alignment.bottomLeft,
+              margin: EdgeInsets.symmetric(horizontal: 8),
+              child: Text(
+                'Suggestion Ai',
+                style: MyStyle.blackalarmTextStyle,
+              ),
+            ),
+            SizedBox(height: 10,),
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>PlacesNearMe()));
+              },
+child:  Container(
+              margin: EdgeInsets.all(8),
+              width: double.infinity,
+              height: 200,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                image: DecorationImage(
+                  image: AssetImage(
+                    "assets/AI.png",
+                  ),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            ),
+            SizedBox(height: 20,),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
               child: Row(
