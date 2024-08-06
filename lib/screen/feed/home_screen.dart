@@ -156,7 +156,25 @@ child:  Container(
                 itemBuilder: (context, index) {
                   final CardModule card = cardsList[index];
                   // return CustomCard(card: card);
-                  return CustomCards(
+                  return GestureDetector(
+                         onTap: () {
+                        
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => PopularDetailsScreen(
+              place: card,
+            ),
+          ),
+        );
+      
+                      // if (cities.contains(card.productName)) {
+                      //   _removeCity(card.productName);
+                      // } else {
+                      //   _addCity(card.productName);
+                      // }
+                    },
+                      child:  CustomCards(
                     cities.contains(card.productName),
                     imageUrl: card.productImg,
                     title: card.productName,
@@ -178,7 +196,9 @@ child:  Container(
                       //   _addCity(card.productName);
                       // }
                     },
+                  ),
                   );
+                 
                 },
               ),
             ),

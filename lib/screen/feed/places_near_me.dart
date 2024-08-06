@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:gooto/screen/auth/splash_screen.dart';
 //import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:gooto/utils/mystyle.dart';
 import 'package:http/http.dart' as http;
@@ -64,7 +65,7 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
 
   void resto() async {
     const apiKey = 'AIzaSyAvQpJOpHxD5akNd5nIMvVKvSR2OKrLlKk';
-    const radius = 900;
+    const radius = 1000;
     const type = 'restaurant';
     bool serviceEnabled;
     LocationPermission permission;
@@ -154,9 +155,15 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-        title: Text("Suggestion Ai"),
+        title: Align(
+          alignment: Alignment.center,
+          child: 
+        Text("Suggestion Ai",textAlign: TextAlign.center,),)
+        
       ),
-      body:  Container(
+      body:  restaurantse.isEmpty
+      ?SplashScreen(radius: 50.5)
+      :Container(
               //height: 310.h,
               // color: Colors.green,
               child: ListView.builder(
@@ -167,15 +174,15 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
                   // return CustomCard(card: card);
                   return GestureDetector(
                     onTap: ()async {
-                      var htmlData=restaurant['Link'];
-                          RegExp regex = RegExp(r'href="(.*?)"');
-    Match? match = regex.firstMatch(htmlData);
-    if (match != null) {
-      contributorUrl = match.group(1);
-    } else {
-      contributorUrl = null;
-    }
-                  if (!await launchUrl(Uri.parse(contributorUrl!))) {
+    //                   var htmlData=restaurant['Link'];
+    //                       RegExp regex = RegExp(r'href="(.*?)"');
+    // Match? match = regex.firstMatch(htmlData);
+    // if (match != null) {
+    //   contributorUrl = match.group(1);
+    // } else {
+    //   contributorUrl = null;
+    // }
+                  if (!await launchUrl(Uri.parse('https://www.google.com/maps?q=${restaurant['location']['lat']},${restaurant['location']['lng']}'))) {
                     throw Exception('Could not launch ${restaurant['Link']}');
                   }
                 
@@ -251,13 +258,15 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
   builder: (context, snapshot) {
     if (snapshot.hasData) {
       return Container(
-        width: 170.w,
+        width: 200.w,
         child: Text(
-          snapshot.data!,
+          '${snapshot.data!}',
           style: TextStyle(
             color: Colors.grey,
-            fontSize: 12.sp,
+            fontSize: 12.sp, 
           ),
+           maxLines: 2,
+              overflow: TextOverflow.ellipsis,
         ),
       );
     } else if (snapshot.hasError) {
