@@ -29,7 +29,6 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
     _searchController.dispose();
     super.dispose();
   }
-
   void _filterItems() {
     String query = _searchController.text.toLowerCase();
     setState(() {
@@ -38,7 +37,6 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
       }).toList();
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
