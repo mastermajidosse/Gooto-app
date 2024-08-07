@@ -37,6 +37,105 @@ List<HotelModel> hotels = [
       rating: "4.2",
       location: "Rue Des Temples, Hivernage",
       url: "https://www.booking.com/hotel/ma/hivernage-spa.en-gb.html"),
+  HotelModel(
+      title: "ONOMO Hotel",
+      img:
+          "https://cf.bstatic.com/xdata/images/hotel/max1280x900/311515187.jpg?k=b30a6e41828dc66588db62218051d365754954cbfd5280da7c215a251eded9c8&o=&hp=1",
+      price: "MAD 723",
+      rating: "4.3",
+      location: "2, rue Ghandi, Hassan, Hassan, 10000 Rabat",
+      url: "https://www.booking.com/hotel/ma/b-amp-b-rabat-ma-c-dina.fr.html"),
+  HotelModel(
+      title: "Le M Hôtel",
+      img:
+          "https://cf.bstatic.com/xdata/images/hotel/max1280x900/466960110.jpg?k=d063de57d215dd09497b949d3eb0c0cccaa4af9f314dc9e1e2e8284d536a0d9a&o=&hp=1",
+      price: "MAD 540",
+      rating: "4.2",
+      location: "7 Avenue Al Atlas, Agdal, 10000 Rabat",
+      url: "https://www.booking.com/hotel/ma/le-m.fr.html"),
+  HotelModel(
+      title: "Helnan Chellah Hotel",
+      img:
+          "https://cf.bstatic.com/xdata/images/hotel/max1024x768/399612707.jpg?k=d2eb374cbe38f1edcb064df8fe013541ec97de614166870e13baa29870a018a0&o=&hp=1",
+      price: "MAD 450",
+      rating: "4.2",
+      location: " Rue D Ifni, Quartier Administratif, 10000 Rabat",
+      url: "https://www.booking.com/hotel/ma/helnan-chellah.fr.html"),
+  HotelModel(
+      title: "Majliss Hotel",
+      img:
+          "https://cf.bstatic.com/xdata/images/hotel/max1280x900/554758710.jpg?k=83d3a0e1b5e48d324d067e90628a183a3f2bbdf414bf3b577ff37193dc784116&o=&hp=1",
+      price: "MAD 355",
+      rating: "4.1",
+      location: "6, Rue Zahla, 10000 Rabat",
+      url: "https://www.booking.com/hotel/ma/majliss.fr.html"),
+  HotelModel(
+      title: "Smarts Hotel",
+      img:
+          "https://cf.bstatic.com/xdata/images/hotel/max1280x900/80693053.jpg?k=af4036fd1ca3f48ac5ddddb90f726acb8ed5ee1dd1696f053e88056b5edd8601&o=&hp=1",
+      price: "MAD 1250",
+      rating: "4.4",
+      location: "35 Rue Azegza, Agdal, 10000 Rabat",
+      url: "https://www.booking.com/hotel/ma/smarts.fr.html"),
+  HotelModel(
+      title: "AZ hotel",
+      img:
+          "https://cf.bstatic.com/xdata/images/hotel/max1280x900/580164196.jpg?k=27a2f0801f6e23891d4e8cd1926e3cdff0c05ad67f123f5c31a2553dd22b5c6a&o=&hp=1",
+      price: "MAD 680",
+      rating: "4.2",
+      location: "57 Av. Allal Ben Abdellah, Hassan, 10020 Rabat",
+      url: "https://www.booking.com/hotel/ma/az-des-arts.fr.html"),
+  HotelModel(
+      title: "Stayhere Rabat",
+      img:
+          "https://cf.bstatic.com/xdata/images/hotel/max1024x768/306799156.jpg?k=ddbcdd1f6d660f965cbb93c7d1b294810d98db4ce49a6fccca3bdf7471622455&o=&hp=1",
+      price: "MAD 1760",
+      rating: "4.7",
+      location: "Rue Oued Fès, Agdal, Rabat",
+      url:
+          "https://www.booking.com/hotel/ma/stayhere-arribat-center-mall-agdal.fr.html"),
+  HotelModel(
+      title: "Annakhil Hotel",
+      img:
+          "https://cf.bstatic.com/xdata/images/hotel/max1024x768/130036704.jpg?k=a6ddb62bb3df2d30b3eaadb02b2ee28b9fbe451a8f07a8d1c206c17fc7c5ffd8&o=&hp=1",
+      price: "MAD 450",
+      rating: "4.2",
+      location: "23 Bis Rue D'Alger Hassan, Hassan, 10020 Rabat",
+      url: "https://www.booking.com/hotel/ma/annakhil-ouled-khellouf.fr.html"),
+  HotelModel(
+      title: "Makass Appart Hotel",
+      img:
+          "https://cf.bstatic.com/xdata/images/hotel/max1280x900/431491408.jpg?k=af10dd2462bcff19b542c31858b6e15a449a20a1393b17e2f93a2c97aad8fa58&o=&hp=1",
+      price: "MAD 790",
+      rating: "4.3",
+      location: "Résidence MAKASS, Rue Alfostok, Hay Riad, Rabat",
+      url: "https://www.booking.com/hotel/ma/makass-appart.fr.html"),
+  HotelModel(
+      title: "Stayhere Rabat - Agdal 4",
+      img:
+          "https://cf.bstatic.com/xdata/images/hotel/max1024x768/499934184.jpg?k=c9ce2ac7ce963ff299df73ee20b9a17a986d386b82177480c6766be0ec9e2f7c&o=&hp=1",
+      price: "MAD 929",
+      rating: "4.6",
+      location: "76 Rue Oued Moulouya, Agdal, 10200 Rabat",
+      url:
+          "https://www.booking.com/hotel/ma/stayhere-agdal-elegance-retreat.fr.html"),
+  HotelModel(
+      title: "Relax Hotel",
+      img:
+          "https://cf.bstatic.com/xdata/images/hotel/max1280x900/152062166.jpg?k=f7f57b808f0635a3f1dec0680a96d07f118ba74a9814367997aacb7fffa1d072&o=&hp=1",
+      price: "MAD 600",
+      rating: "4.7",
+      location: "Boulevard Ibn Tachfine , Roches Noires, 20070 Casablanca",
+      url: "https://www.booking.com/hotel/ma/iben-tachfine.html"),
+  HotelModel(
+      title: "Ibis Casa Voyageurs",
+      img:
+          "https://cf.bstatic.com/xdata/images/hotel/max1024x768/211310524.jpg?k=8c4ef85cd61ed45a5ca85541993109eb5ee02a1e13e6d43055482fa73e3e8cf6&o=&hp=1",
+      price: "MAD 700",
+      rating: "4.1",
+      location:
+          "oulevard Ba Hmad,Casa Voyageurs,Roches Noires, 20500 Casablanca",
+      url: "https://www.booking.com/hotel/ma/ibis-casa-voyageurs.html"),
 ];
 
 List<CardModule> cardsList = const [
