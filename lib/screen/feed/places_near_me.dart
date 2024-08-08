@@ -419,4 +419,103 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
     return 'Unable to get street address';
   }
 }
+Widget buildRestaurantCard(restaurant) {
+  return GestureDetector(
+    onTap: () async {
+      if (!await launchUrl(Uri.parse('https://www.google.com/maps?q=${restaurant['location']['lat']},${restaurant['location']['lng']}'))) {
+        throw Exception('Could not launch ${restaurant['Link']}');
+      }
+    },
+    child: Container(
+      width: 300.w,
+      padding: EdgeInsets.all(5.r),
+      margin: EdgeInsets.only(right: 5.w, left: 14.w),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(22.r),
+      ),
+      child: Column(
+        children: [
+          Container(
+            height: 200.h,
+            decoration: BoxDecoration(
+              color: Colors.grey[300],
+              borderRadius: BorderRadius.circular(22.r),
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: NetworkImage(
+                  'https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=${restaurant['photo']}&key=$apiKey',
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 10.h),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                restaurant['name'],
+                style: TextStyle(fontSize: 17.sp, fontWeight: FontWeight.w600),
+              ),
+              Row(
+                children: [
+                  Icon(Icons.star, color: Colors.amber),
+                  Text(
+                    restaurant['rating'].toString(),
+                    style: TextStyle(color: Colors.grey),
+                  )
+                ],
+              ),
+            ],
+          ),
+          SizedBox(height: 6.h),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Icon(Icons.location_on_sharp, color: Colors.redAccent),
+                  FutureBuilder<String>(
+                    future: getStreetAddress(restaurant['location']['lat'], restaurant['location']['lng']),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return Container(
+                          width: 200.w,
+                          child: Text(
+                            '${snapshot.data!}',
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 12.sp,
+                            ),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        );
+                      } else if (snapshot.hasError) {
+                        return Container(
+                          width: 170.w,
+                          child: Text(
+                            'Error getting address',
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 12.sp,
+                            ),
+                          ),
+                        );
+                      } else {
+                        return Container(
+                          width: 170.w,
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                    },
+                  )
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+    ),
+  );
+}
 }
