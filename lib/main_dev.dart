@@ -1,10 +1,13 @@
 import 'dart:io';
 
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:gooto/services/app_config.dart';
 import 'main.dart';
 import 'package:flutter/services.dart';
+
 // import 'package:awesome_notifications/awesome_notifications.dart';
+late List<CameraDescription> cameras;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,6 +18,8 @@ void main() async {
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
   AppConfig.env = Environment.DEV;
+
+  cameras = await availableCameras();
 
   // for notification
   // AwesomeNotifications().initialize(
