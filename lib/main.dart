@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:gooto/bloc/bproviders.dart';
 import 'package:gooto/config/save.dart';
 import 'package:gooto/models/blog_model.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
+  
     super.initState();
     shared();
   }

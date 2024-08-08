@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:gooto/screen/ai/chatai.dart';
 import 'package:gooto/screen/app_start_screen.dart';
 import 'package:gooto/screen/auth/login_screen.dart';
 import 'package:gooto/screen/auth/register_screen.dart';
 import 'package:gooto/screen/auth/splash_screen.dart';
 import 'package:gooto/screen/bottom_tab.dart';
 import 'package:gooto/screen/camera_screen.dart';
+import 'package:gooto/screen/feed/home_screen.dart';
 import 'package:gooto/screen/profile/setting_screen.dart';
 
 String initialRoute = SplashScreen.routeName;
@@ -22,7 +24,7 @@ class RoutGenerator {
       case AppStartScreen.routeName:
         return MaterialPageRoute(builder: (_) => AppStartScreen());
       case SplashScreen.routeName:
-        return MaterialPageRoute(builder: (_) => CameraScreen());
+        return MaterialPageRoute(builder: (_) => SplashScreen());
       case SettingScreen.routeName:
         return MaterialPageRoute(builder: (_) => SettingScreen());
       // case MoreScreen.routeName:

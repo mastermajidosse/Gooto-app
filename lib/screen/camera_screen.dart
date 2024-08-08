@@ -27,7 +27,7 @@ class _CameraScreenState extends State<CameraScreen> {
   void initState() {
     super.initState();
     _controller = CameraController(
-      cameras[1],
+      cameras[0],
       ResolutionPreset.high,
     );
     _initializeControllerFuture = _controller.initialize();
@@ -46,8 +46,8 @@ class _CameraScreenState extends State<CameraScreen> {
 
   loadit() async {
     // const prompt = 'describe this picture';
-    final prompt = TextPart("Describe this picture");
-
+    // final prompt = TextPart("Describe this picture");
+ final prompt = TextPart("Describe this monument historique from moroco inside this picture");
     // final content = [Content.text(prompt)];
     // final response = await model.generateContent(content);
     // try {
