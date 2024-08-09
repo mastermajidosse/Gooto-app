@@ -19,7 +19,7 @@ class CustomCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 360.h,
+      height: 350.h,
       width: 200.w,
       margin: EdgeInsets.all(16),
       decoration: BoxDecoration(

@@ -29,19 +29,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<String> cities = [];
-  Future<void> _addCity(String city) async {
-    setState(() {
-      cities.add(city);
-    });
-    await Save.saveCities(cities);
-  }
-
-  Future<void> _removeCity(String city) async {
-    setState(() {
-      cities.remove(city);
-    });
-    await Save.saveCities(cities);
-  }
 
   @override
   void initState() {
@@ -57,8 +44,6 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  final List<String> items = [];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,35 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 20),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //   children: [
-            //     Container(
-            //       // width: 45,
-            //       // height: 45,
-            //       margin: EdgeInsets.all(8),
-            //       child: Text(
-            //         'Discover',
-            //         style: MyStyle.blackalarmTextStyle,
-            //       ),
-            //     ),
-            //     Container(
-            //       margin: EdgeInsets.all(8),
-            //       width: 45,
-            //       height: 45,
-            //       child: IconButton(
-            //         color: Colors.black,
-            //         onPressed: () {},
-            //         icon: Icon(
-            //           Icons.search,
-            //         ),
-            //       ),
-
-            //     ),
-            //   ],
-            // ),
-            // PlacesNearMe(),
+            const SizedBox(height: 10),
             Container(
               alignment: Alignment.bottomLeft,
               margin: EdgeInsets.symmetric(horizontal: 8),
@@ -103,9 +60,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: MyStyle.blackalarmTextStyle,
               ),
             ),
-            SizedBox(
-              height: 10,
-            ),
             GestureDetector(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => PlacesNearMe()));
@@ -113,21 +67,20 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Container(
                 margin: EdgeInsets.all(8),
                 width: double.infinity,
-                height: 230,
+                height: 200.h,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   image: DecorationImage(
                     image: AssetImage(
                       "assets/ai.jpg",
                     ),
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fitWidth,
+                    alignment: Alignment(0.0, -0.38),
                   ),
                 ),
               ),
             ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 10),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
               child: Row(
@@ -151,15 +104,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-
             Container(
-              height: 330.h,
+              height: 350.h,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 5,
                 itemBuilder: (context, index) {
                   final CardModule card = cardsList[index];
-                  // return CustomCard(card: card);
+
                   return GestureDetector(
                     onTap: () {
                       Navigator.push(
@@ -170,12 +122,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       );
-
-                      // if (cities.contains(card.productName)) {
-                      //   _removeCity(card.productName);
-                      // } else {
-                      //   _addCity(card.productName);
-                      // }
                     },
                     child: CustomCards(
                       cities.contains(card.productName),
@@ -191,219 +137,20 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                         );
-
-                        // if (cities.contains(card.productName)) {
-                        //   _removeCity(card.productName);
-                        // } else {
-                        //   _addCity(card.productName);
-                        // }
                       },
                     ),
                   );
                 },
               ),
             ),
-            // Container(
-            //   margin: EdgeInsets.symmetric(horizontal: 10),
-            //   child: Row(
-            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //     children: [
-            //       Text('Listen', style: MyStyle.blackalarmTextStyle
-            //           //                  TextStyle(
-            //           // fontWeight: FontWeight.bold,
-            //           // fontSize: ScreenUtil().setSp(17),
-            //           // color: Colors.black87,
-            //           //                   )  //MyStyle.blackalarmTextStyle,
-            //           ),
-            //       Container(),
-            //       InkWell(
-            //         onTap: () {
-            //           Navigator.push(
-            //               context,
-            //               MaterialPageRoute(
-            //                   builder: (context) => AllaudioScreen()));
-            //         },
-            //         child: Text(
-            //           'View More',
-            //           style: MyStyle.buttTextStyle,
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-            // Container(
-            //   height: 320.h,
-            //   child: ListView.builder(
-            //     scrollDirection: Axis.horizontal,
-            //     itemCount: 3,
-            //     itemBuilder: (context, index) {
-            //       final AudioModel card = audio[index];
-            //       // return CustomCard(card: card);
-            //       return Container(
-            //         height: 320.h,
-            //         width: 200.w,
-            //         margin: EdgeInsets.all(16),
-            //         decoration: BoxDecoration(
-            //           color: Colors.white,
-            //           borderRadius: BorderRadius.circular(16),
-            //           boxShadow: [
-            //             BoxShadow(
-            //               color: Colors.grey.withOpacity(0.3),
-            //               spreadRadius: 2,
-            //               blurRadius: 10,
-            //               offset: Offset(0, 3),
-            //             ),
-            //           ],
-            //         ),
-            //         child: Column(
-            //           crossAxisAlignment: CrossAxisAlignment.start,
-            //           children: [
-            //             Stack(
-            //               children: [
-            //                 ClipRRect(
-            //                   borderRadius: BorderRadius.circular(16),
-            //                   child: Image.asset(
-            //                     card.logo,
-            //                     width: double.infinity,
-            //                     height: 120.h,
-            //                     fit: BoxFit.cover,
-            //                   ),
-            //                 ),
-            //                 Positioned(
-            //                   top: 10,
-            //                   right: 10,
-            //                   child: InkWell(
-            //                     onTap: () => {
-            //                       //     if (cities.contains(card.name)) {
-            //                       //       _removeCity(card.name);
-            //                       //     } else {
-            //                       //       _addCity(card.name);
-            //                       //     }
-            //                       //   },
-            //                     },
-            //                     child: Container(
-            //                       decoration: BoxDecoration(
-            //                         color: Colors.white,
-            //                         shape: BoxShape.circle,
-            //                         boxShadow: [
-            //                           BoxShadow(
-            //                             color: Colors.black.withOpacity(0.3),
-            //                             spreadRadius: 2,
-            //                             blurRadius: 10,
-            //                           ),
-            //                         ],
-            //                       ),
-            //                     ),
-            //                   ),
-            //                 ),
-            //               ],
-            //             ),
-            //             Padding(
-            //               padding: EdgeInsets.all(16),
-            //               child: Text(
-            //                 card.name,
-            //                 style: TextStyle(
-            //                   fontWeight: FontWeight.bold,
-            //                   fontSize: 13.sp,
-            //                   color: Colors.black87,
-            //                   overflow: TextOverflow.ellipsis,
-            //                 ),
-            //               ),
-            //             ),
-            //             Padding(
-            //               padding: EdgeInsets.symmetric(horizontal: 16),
-            //               child: Text(
-            //                 card.flagname,
-            //                 style: TextStyle(
-            //                   fontSize: 14.sp,
-            //                   color: Colors.black54,
-            //                   height: 1.5,
-            //                 ),
-            //                 maxLines: 2,
-            //                 overflow: TextOverflow.ellipsis,
-            //               ),
-            //             ),
-            //             SizedBox(
-            //               height: 10,
-            //             ),
-            //             Row(
-            //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //               children: [
-            //                 SizedBox(
-            //                   width: 10,
-            //                 ),
-            //                 GestureDetector(
-            //                     onTap: () {
-            //                       Navigator.push(
-            //                           context,
-            //                           MaterialPageRoute(
-            //                               builder: (context) =>
-            //                                   AudioPlayerScreen(
-            //                                       card.photos,
-            //                                       card.name,
-            //                                       card.audio,
-            //                                       card.desc)));
-            //                     },
-            //                     child: Container(
-            //                       decoration: BoxDecoration(
-            //                         color: Colors.black,
-            //                         borderRadius: BorderRadius.circular(16.0),
-            //                       ),
-            //                       padding: EdgeInsets.symmetric(
-            //                           horizontal: 16.0, vertical: 8.0),
-            //                       child: Row(
-            //                         mainAxisSize: MainAxisSize.min,
-            //                         children: [
-            //                           Icon(
-            //                             Icons.music_note_outlined,
-            //                             color: Colors.white,
-            //                           ),
-            //                           SizedBox(width: 8.0),
-            //                           Text(
-            //                             "Play now",
-            //                             style: TextStyle(
-            //                               color: Colors.white,
-            //                               fontWeight: FontWeight.normal,
-            //                             ),
-            //                           ),
-            //                         ],
-            //                       ),
-            //                     ))
-            //               ],
-            //             )
-            //           ],
-            //         ),
-            //       );
-            //       // CustomCards(
-            //       //   cities.contains(card.name),
-            //       //   imageUrl: card.logo,
-            //       //   title: card.name,
-            //       //   description: card.desc,
-            //       //   onTap: () {
-            //       //     if (cities.contains(card.name)) {
-            //       //       _removeCity(card.name);
-            //       //     } else {
-            //       //       _addCity(card.name);
-            //       //     }
-            //       //   },
-            //       // );
-            //     },
-            //   ),
-            // ),
-            SizedBox(height: 10.h),
+            const SizedBox(height: 10),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Hotels', style: MyStyle.blackalarmTextStyle
-                        //                  TextStyle(
-                        // fontWeight: FontWeight.bold,
-                        // fontSize: ScreenUtil().setSp(17),
-                        // color: Colors.black87,
-                        //                   )  //MyStyle.blackalarmTextStyle,
-                        ),
+                    Text('Best Hotels', style: MyStyle.blackalarmTextStyle),
                     Container(),
                     InkWell(
                       onTap: () {
@@ -419,16 +166,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 10.h),
+            const SizedBox(height: 10),
             Container(
               height: 310.h,
-              // color: Colors.green,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: hotels.length,
                 itemBuilder: (context, index) {
                   final HotelModel hotel = hotels[index];
-                  // return CustomCard(card: card);
                   return GestureDetector(
                     onTap: () {
                       Navigator.push(
@@ -439,13 +184,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                   )));
                     },
                     child: Container(
-                      // height: 320.h,
                       width: 300.w,
                       padding: EdgeInsets.all(5.r),
-                      // padding: EdgeInsets.all(14.r),
                       margin: EdgeInsets.only(right: 5.w, left: 14.w),
                       decoration: BoxDecoration(
-                        // color: Colors.grey[100],
                         borderRadius: BorderRadius.circular(22.r),
                       ),
                       child: Column(
@@ -458,7 +200,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 image: DecorationImage(
                                     fit: BoxFit.cover, image: NetworkImage(hotel.img))),
                           ),
-                          SizedBox(height: 10.h),
+                          const SizedBox(height: 10),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -503,25 +245,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   );
-                  // CustomCards(
-                  //   cities.contains(card.name),
-                  //   imageUrl: card.logo,
-                  //   title: card.name,
-                  //   description: card.desc,
-                  //   onTap: () {
-                  //     if (cities.contains(card.name)) {
-                  //       _removeCity(card.name);
-                  //     } else {
-                  //       _addCity(card.name);
-                  //     }
-                  //   },
-                  // );
                 },
               ),
             ),
-            SizedBox(
-              height: 10,
-            ),
+            const SizedBox(height: 10),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
               child: Row(
@@ -531,13 +258,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     'Best activities',
                     style: MyStyle.blackalarmTextStyle,
                   ),
-                  // Container(),
                 ],
               ),
             ),
-            SizedBox(height: 10.h),
+            const SizedBox(height: 10),
             PopularActivities(),
-            SizedBox(height: 20.h),
+            const SizedBox(height: 10),
             InkWell(
               onTap: () {
                 Navigator.push(
@@ -548,7 +274,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: MyStyle.buttTextStyle,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 10),
           ],
         ),
       ),

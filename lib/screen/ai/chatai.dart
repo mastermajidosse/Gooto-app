@@ -1,36 +1,3 @@
-// import 'package:flutter/material.dart';
-// import 'package:google_generative_ai/google_generative_ai.dart';
-// import 'package:gooto/main_dev.dart';
-
-// class Chatai extends StatefulWidget {
-//  Chatai({super.key});
-
-//   @override
-//   State<Chatai> createState() => _ChataiState();
-// }
-
-// class _ChataiState extends State<Chatai> {
-//   @override
-//   void initState() {
-//     chatai();
-//     super.initState();
-//   }
-//   void chatai()async{
-//       final chat = model.startChat(history: [
-//     Content.text('Hello, I have 2 dogs in my house.'),
-//     Content.model([TextPart('Great to meet you. What would you like to know?')])
-//   ]);
-//   var content = Content.text('How many paws are in my house?');
-//   var response = await chat.sendMessage(content);
-//   print(response.text);
-//   }
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Container(),
-//     );
-//   }
-// }
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -38,7 +5,6 @@ import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:gooto/main_dev.dart';
 import 'package:markdown_widget/widget/markdown_block.dart';
 import 'package:dash_chat_2/dash_chat_2.dart';
-
 
 class ChatAIScreen extends StatefulWidget {
   @override
@@ -49,18 +15,22 @@ class _ChatAIScreenState extends State<ChatAIScreen> {
   final TextEditingController _messageController = TextEditingController();
   final List<ChatMessage> _messages = [];
 
-
   @override
   void initState() {
     super.initState();
-  
+
     _startChat();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   void _startChat() async {
     final chat = model.startChat(history: [
-    Content.text("you're a moroccan guide, if user asks you about anything related to morocco culture monument or Moroccan food or clothes or transport answer as expert guide for morocco and use google "),
-
+      Content.text(
+          "you're a moroccan guide, if user asks you about anything related to morocco culture monument or Moroccan food or clothes or transport answer as expert guide for morocco and use google "),
     ]);
 
     // _addMessage(
@@ -81,7 +51,7 @@ class _ChatAIScreenState extends State<ChatAIScreen> {
 
   void _addMessage(ChatMessage message) {
     FocusScope.of(context).unfocus();
-      _messageController.clear();
+    _messageController.clear();
     setState(() {
       _messages.add(message);
     });
@@ -105,7 +75,7 @@ class _ChatAIScreenState extends State<ChatAIScreen> {
           isUserMessage: false,
         ),
       );
- FocusScope.of(context).unfocus();
+      FocusScope.of(context).unfocus();
       _messageController.clear();
     }
   }
@@ -123,38 +93,32 @@ class _ChatAIScreenState extends State<ChatAIScreen> {
               itemCount: _messages.length,
               itemBuilder: (context, index) {
                 final message = _messages[index];
-                return 
+                return Align(
+                    alignment: message.isUserMessage ? Alignment.centerRight : Alignment.centerLeft,
+                    child: Row(
+                      mainAxisAlignment:
+                          message.isUserMessage ? MainAxisAlignment.end : MainAxisAlignment.start,
+                      children: [
+                        if (!message.isUserMessage)
+                          CircleAvatar(
+                            backgroundImage: AssetImage('assets/avatar.jpeg'),
+                          ),
+                        Container(
+                            width: 320.w,
+                            padding: EdgeInsets.all(6),
+                            margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 2.0),
+                            decoration: BoxDecoration(
+                              color: message.isUserMessage ? Colors.blue[300] : Colors.grey[300],
+                              borderRadius: BorderRadius.circular(16.0),
+                            ),
+                            child: message == ""
+                                ? CircularProgressIndicator()
+                                : SingleChildScrollView(child: MarkdownBlock(data: message.text))
 
-                Align(
-                  alignment: message.isUserMessage ? Alignment.centerRight : Alignment.centerLeft,
-                  child: Row(
-                        mainAxisAlignment: message.isUserMessage ? MainAxisAlignment.end : MainAxisAlignment.start,
-                    children: [
-                      if (!message.isUserMessage)
-         CircleAvatar(
-            backgroundImage: AssetImage(
-              'assets/avatar.jpeg'
-            ),
-          ),
-        
-  Container(
-    width: 320.w,
-                    padding: EdgeInsets.all(6),
-                    margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 2.0),
-                    decoration: BoxDecoration(
-                      color: message.isUserMessage ? Colors.blue[300] : Colors.grey[300],
-                      borderRadius: BorderRadius.circular(16.0),
-                    ),
-                    child: message ==""
-                    ?CircularProgressIndicator()
-                    :SingleChildScrollView(child: 
-                    MarkdownBlock(data: message.text))
-                
-                    //Text(message.text),
-                  ),
-                  ],)
-                
-                );
+                            //Text(message.text),
+                            ),
+                      ],
+                    ));
               },
             ),
           ),
@@ -165,7 +129,6 @@ class _ChatAIScreenState extends State<ChatAIScreen> {
                 Expanded(
                   child: TextField(
                     controller: _messageController,
-                    
                     decoration: InputDecoration(
                       hintText: 'Type your message...',
                       border: OutlineInputBorder(),
@@ -186,7 +149,6 @@ class _ChatAIScreenState extends State<ChatAIScreen> {
   }
 }
 
-
 class ChatMessage {
   final String text;
   final bool isUserMessage;
@@ -200,10 +162,7 @@ class ChatMessage {
     return isUserMessage
         ? Content.text(text)
         : Content.model(
-          [TextPart(text)],
-          
-      
-           
+            [TextPart(text)],
           );
   }
 }

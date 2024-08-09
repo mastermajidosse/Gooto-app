@@ -85,35 +85,6 @@ class _DetailsExploreState extends State<DetailsExplore> {
                           child: BackButton(color: Colors.white),
                         ),
                       ),
-                      // Spacer(),
-                      // Container(
-                      //   height: 150,
-                      //   alignment: Alignment.bottomLeft,
-                      //   decoration: BoxDecoration(
-                      //     gradient: LinearGradient(
-                      //       begin: Alignment.bottomCenter,
-                      //       end: Alignment.topCenter,
-                      //       colors: [
-                      //         Colors.black,
-                      //         Colors.black.withOpacity(.3),
-                      //         Colors.black.withOpacity(.1),
-                      //         Colors.transparent,
-                      //       ],
-                      //     ),
-                      //   ),
-                      //   child: Padding(
-                      //     padding: const EdgeInsets.all(16.0),
-                      //     child: Text(
-                      //       blogModel.title.toString(),
-                      //       style: TextStyle(
-                      //         fontWeight: FontWeight.bold,
-                      //         fontSize: ScreenUtil().setSp(18),
-                      //         color: Colors.white,
-                      //         height: 1,
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
                     ],
                   ),
                 ),
@@ -122,7 +93,6 @@ class _DetailsExploreState extends State<DetailsExplore> {
           ),
           Padding(
             padding: EdgeInsets.all(14.r),
-            // child: blog.id == 10
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

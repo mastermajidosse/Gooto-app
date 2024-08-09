@@ -2,6 +2,7 @@ import 'dart:convert';
 
 class BlogModel {
   int? id;
+  int? rate;
   String? title;
   String? imgurl;
   String? desc;
@@ -13,6 +14,7 @@ class BlogModel {
   BlogModel({
     this.desc,
     this.id,
+    this.rate,
     this.title,
     this.price,
     this.imgurl,
@@ -24,6 +26,7 @@ class BlogModel {
     title = json['title'];
     imgurl = json['imgurl'];
     desc = json['desc'];
+    rate = json['rate'];
     previewImgs = json['previewImgs'];
   }
   // if (json['comments'] != null) {
