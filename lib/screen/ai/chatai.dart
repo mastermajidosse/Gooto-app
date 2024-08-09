@@ -59,7 +59,7 @@ class _ChatAIScreenState extends State<ChatAIScreen> {
 
   void _startChat() async {
     final chat = model.startChat(history: [
-    Content.text("you're a moroccan guide, if user asks you about anything related to morocco culture monument or Moroccan food or clothes or transport answer as expert guide for morocco and use google and user ask for how mush grand taxi  tell hime is between 6 dh and 25 dh "),
+    Content.text("you're a moroccan guide, if user asks you about anything related to morocco culture monument or Moroccan food or clothes or transport answer as expert guide for morocco and use google "),
 
     ]);
 
