@@ -27,8 +27,7 @@ class _DetailsExploreState extends State<DetailsExplore> {
   }
 
   String addStyles(String txt) {
-    return txt.replaceAll(
-        "<p>", "<p style=\"color: #444; text-align: justify;\">");
+    return txt.replaceAll("<p>", "<p style=\"color: #444; text-align: justify;\">");
   }
 
   @override
@@ -42,9 +41,8 @@ class _DetailsExploreState extends State<DetailsExplore> {
             child: Container(
               height: 330.h,
               clipBehavior: Clip.hardEdge,
-              decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(30.r)),
+              decoration:
+                  BoxDecoration(color: Colors.black, borderRadius: BorderRadius.circular(30.r)),
               child: CachedNetworkImage(
                 placeholder: (context, url) => Center(
                   child: CircularProgressIndicator(
@@ -131,16 +129,12 @@ class _DetailsExploreState extends State<DetailsExplore> {
                 Row(
                   children: [
                     Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+                      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
                       decoration: BoxDecoration(
                           color: Colors.grey.withOpacity(.1),
                           borderRadius: BorderRadius.circular(10.r)),
                       child: Row(
-                        children: [
-                          Icon(Icons.star, color: Colors.amber),
-                          Text("4.2")
-                        ],
+                        children: [Icon(Icons.star, color: Colors.amber), Text("4.2")],
                       ),
                     ),
                   ],
@@ -160,19 +154,20 @@ class _DetailsExploreState extends State<DetailsExplore> {
                 SizedBox(height: 10.h),
                 Row(
                   children: [
-                    Text(
-                      blogModel.price.toString(),
-                      style: TextStyle(fontSize: 15.sp, color: Colors.blue),
-                    ),
+                    blogModel.price != null
+                        ? Text(
+                            blogModel.price.toString(),
+                            style: TextStyle(fontSize: 15.sp, color: Colors.blue),
+                          )
+                        : Container()
                   ],
                 ),
-                SizedBox(height: 30.h),
+                SizedBox(height: 10.h),
                 Row(
                   children: [
                     Text(
                       "Overview:",
-                      style: TextStyle(
-                          fontSize: 18.sp, fontWeight: FontWeight.w600),
+                      style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),
@@ -195,7 +190,7 @@ class _DetailsExploreState extends State<DetailsExplore> {
                   height: 100.h,
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: blogModel.previewImgs!.length,
+                      itemCount: 0,
                       itemBuilder: (context, i) => Container(
                             margin: EdgeInsets.only(right: 10.w),
                             height: 100.h,
@@ -210,8 +205,7 @@ class _DetailsExploreState extends State<DetailsExplore> {
                               ),
                             ),
                             decoration: BoxDecoration(
-                                color: Colors.grey[300],
-                                borderRadius: BorderRadius.circular(10.r)),
+                                color: Colors.grey[300], borderRadius: BorderRadius.circular(10.r)),
                           )),
                 ),
                 SizedBox(height: 40.h),

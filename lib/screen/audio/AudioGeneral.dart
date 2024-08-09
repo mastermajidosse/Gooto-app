@@ -202,8 +202,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                                 height: 150.h,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
-                                    image: DecorationImage(
-                                        image: AssetImage(Audio.imagecover))),
+                                    image: DecorationImage(image: AssetImage(Audio.imagecover))),
                               )
                               // Image.asset(
                               //
@@ -216,10 +215,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => AudioPlayerScreen(
-                                      Audio.photos,
-                                      Audio.name,
-                                      Audio.audio,
-                                      Audio.desc)));
+                                      Audio.photos, Audio.name, Audio.audio, Audio.desc)));
                         },
                       );
                     })),
@@ -406,8 +402,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                 crossAxisCount: 2,
                 crossAxisSpacing: 16.0,
                 mainAxisSpacing: 16.0,
-                childAspectRatio:
-                    80.h / 100.w, // Adjust the aspect ratio as needed
+                childAspectRatio: 80.h / 100.w, // Adjust the aspect ratio as needed
               ),
               itemCount: _filteredItems.length,
               itemBuilder: (context, index) {
@@ -417,8 +412,8 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (_) => AudioPlayerScreen(
-                            card.photos, card.name, card.audio, card.desc),
+                        builder: (_) =>
+                            AudioPlayerScreen(card.photos, card.name, card.audio, card.desc),
                       ),
                     );
                   },
@@ -427,7 +422,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                     children: [
                       Container(
                         width: double.infinity,
-                        height: 150.h,
+                        height: 110,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20.r),
                           image: DecorationImage(

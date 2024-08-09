@@ -2,15 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-// import 'package:gap/gap.dart';
 import 'package:gooto/config/save.dart';
-import 'package:gooto/models/audio_model.dart';
 import 'package:gooto/models/card.dart';
 import 'package:gooto/models/hotel_model.dart';
 import 'package:gooto/screen/allPopular_screen.dart';
 import 'package:gooto/screen/audio/allAudio_screen.dart';
 import 'package:gooto/screen/audio/audio.dart';
+import 'package:gooto/screen/auth/fullscreenpopup.dart';
 import 'package:gooto/screen/feed/places_near_me.dart';
+import 'package:gooto/screen/hotel/Allhotel.dart';
+import 'package:gooto/screen/popular_details_screen.dart';
 import 'package:gooto/widgets/all_activities_screen.dart';
 import 'package:gooto/widgets/custm_card.dart';
 import 'package:gooto/widgets/popular_activities.dart';
@@ -93,29 +94,40 @@ class _HomeScreenState extends State<HomeScreen> {
             //     ),
             //   ],
             // ),
+            // PlacesNearMe(),
             Container(
               alignment: Alignment.bottomLeft,
               margin: EdgeInsets.symmetric(horizontal: 8),
               child: Text(
-                'the Moroccan Switzerland :',
-                style: MyStyle.buttwhtieTextStyle,
+                'Suggestion Ai',
+                style: MyStyle.blackalarmTextStyle,
               ),
             ),
-            Container(
-              margin: EdgeInsets.all(8),
-              width: double.infinity,
-              height: 200,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                image: DecorationImage(
-                  image: AssetImage(
-                    "assets/ifran.jpg",
+            SizedBox(
+              height: 10,
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => PlacesNearMe()));
+              },
+              child: Container(
+                margin: EdgeInsets.all(8),
+                width: double.infinity,
+                height: 230,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  image: DecorationImage(
+                    image: AssetImage(
+                      "assets/ai.jpg",
+                    ),
+                    fit: BoxFit.cover,
                   ),
-                  fit: BoxFit.cover,
                 ),
               ),
             ),
-
+            SizedBox(
+              height: 20,
+            ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
               child: Row(
@@ -139,29 +151,54 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            SizedBox(
-              height: 10,
-            ),
+
             Container(
-              height: 380.h,
+              height: 330.h,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 5,
                 itemBuilder: (context, index) {
                   final CardModule card = cardsList[index];
                   // return CustomCard(card: card);
-                  return CustomCards(
-                    cities.contains(card.productName),
-                    imageUrl: card.productImg,
-                    title: card.productName,
-                    description: card.location.toString(),
+                  return GestureDetector(
                     onTap: () {
-                      if (cities.contains(card.productName)) {
-                        _removeCity(card.productName);
-                      } else {
-                        _addCity(card.productName);
-                      }
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => PopularDetailsScreen(
+                            place: card,
+                          ),
+                        ),
+                      );
+
+                      // if (cities.contains(card.productName)) {
+                      //   _removeCity(card.productName);
+                      // } else {
+                      //   _addCity(card.productName);
+                      // }
                     },
+                    child: CustomCards(
+                      cities.contains(card.productName),
+                      imageUrl: card.productImg,
+                      title: card.productName,
+                      description: card.location.toString(),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => PopularDetailsScreen(
+                              place: card,
+                            ),
+                          ),
+                        );
+
+                        // if (cities.contains(card.productName)) {
+                        //   _removeCity(card.productName);
+                        // } else {
+                        //   _addCity(card.productName);
+                        // }
+                      },
+                    ),
                   );
                 },
               ),
@@ -353,7 +390,135 @@ class _HomeScreenState extends State<HomeScreen> {
             //     },
             //   ),
             // ),
-            PlacesNearMe(),
+            SizedBox(height: 10.h),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              child: Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Hotels', style: MyStyle.blackalarmTextStyle
+                        //                  TextStyle(
+                        // fontWeight: FontWeight.bold,
+                        // fontSize: ScreenUtil().setSp(17),
+                        // color: Colors.black87,
+                        //                   )  //MyStyle.blackalarmTextStyle,
+                        ),
+                    Container(),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context, MaterialPageRoute(builder: (context) => AllHotelScreen()));
+                      },
+                      child: Text(
+                        'View More',
+                        style: MyStyle.buttTextStyle,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 10.h),
+            Container(
+              height: 310.h,
+              // color: Colors.green,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: hotels.length,
+                itemBuilder: (context, index) {
+                  final HotelModel hotel = hotels[index];
+                  // return CustomCard(card: card);
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => FullScreenPop(
+                                    hotel: hotel,
+                                  )));
+                    },
+                    child: Container(
+                      // height: 320.h,
+                      width: 300.w,
+                      padding: EdgeInsets.all(5.r),
+                      // padding: EdgeInsets.all(14.r),
+                      margin: EdgeInsets.only(right: 5.w, left: 14.w),
+                      decoration: BoxDecoration(
+                        // color: Colors.grey[100],
+                        borderRadius: BorderRadius.circular(22.r),
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 200.h,
+                            decoration: BoxDecoration(
+                                color: Colors.grey[300],
+                                borderRadius: BorderRadius.circular(22.r),
+                                image: DecorationImage(
+                                    fit: BoxFit.cover, image: NetworkImage(hotel.img))),
+                          ),
+                          SizedBox(height: 10.h),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                hotel.title,
+                                style: TextStyle(fontSize: 17.sp, fontWeight: FontWeight.w600),
+                              ),
+                              Text(
+                                hotel.price + "/night",
+                                style: TextStyle(fontSize: 14.sp),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 6.h),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(Icons.location_on_sharp, color: Colors.redAccent),
+                                  Container(
+                                    width: 170.w,
+                                    child: Text(
+                                      hotel.location,
+                                      style: TextStyle(color: Colors.grey, fontSize: 12.sp),
+                                    ),
+                                  )
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Icon(Icons.star, color: Colors.amber),
+                                  Text(
+                                    hotel.rating.toString(),
+                                    style: TextStyle(color: Colors.grey),
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                  // CustomCards(
+                  //   cities.contains(card.name),
+                  //   imageUrl: card.logo,
+                  //   title: card.name,
+                  //   description: card.desc,
+                  //   onTap: () {
+                  //     if (cities.contains(card.name)) {
+                  //       _removeCity(card.name);
+                  //     } else {
+                  //       _addCity(card.name);
+                  //     }
+                  //   },
+                  // );
+                },
+              ),
+            ),
             SizedBox(
               height: 10,
             ),

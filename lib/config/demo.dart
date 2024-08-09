@@ -95,7 +95,7 @@ Beyond the lake, the surrounding area provides opportunities for hiking and expl
   CardModule(
       id: 4,
       price: 5.00,
-      location: 'Lalla Takerkoust is a town in Al Haouz Province, Marrakesh',
+      location: 'town in Al Haouz Province, Marrakesh',
       productImg: 'assets/popular/Lallatakerkoust.jpeg',
       productName: 'Lalla Takerkoust',
       rating: "4.8",

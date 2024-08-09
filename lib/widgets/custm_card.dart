@@ -93,7 +93,7 @@ class CustomCards extends StatelessWidget {
                 color: Colors.black54,
                 height: 1.5,
               ),
-              maxLines: 2,
+              maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
           ),

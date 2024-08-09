@@ -84,6 +84,7 @@ class _ExplloreScreenState extends State<ExplloreScreen> {
                       margin: EdgeInsets.symmetric(vertical: 12),
                       child: InkWell(
                         onTap: () {
+                          print("goto");
                           Navigator.push(
                             context,
                             MaterialPageRoute(
