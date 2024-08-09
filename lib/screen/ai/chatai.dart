@@ -32,10 +32,13 @@
 //   }
 // }
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:gooto/main_dev.dart';
 import 'package:markdown_widget/widget/markdown_block.dart';
+import 'package:dash_chat_2/dash_chat_2.dart';
+
 
 class ChatAIScreen extends StatefulWidget {
   @override
@@ -56,7 +59,7 @@ class _ChatAIScreenState extends State<ChatAIScreen> {
 
   void _startChat() async {
     final chat = model.startChat(history: [
-    Content.text("you're a moroccan guide, if user asks you about anything related to morocco culture monument or Moroccan food or clothes answer as expert guide for morocco "),
+    Content.text("you're a moroccan guide, if user asks you about anything related to morocco culture monument or Moroccan food or clothes or transport answer as expert guide for morocco and use google and user ask for how mush grand taxi  tell hime is between 6 dh and 25 dh "),
 
     ]);
 
@@ -77,7 +80,8 @@ class _ChatAIScreenState extends State<ChatAIScreen> {
   }
 
   void _addMessage(ChatMessage message) {
-   
+    FocusScope.of(context).unfocus();
+      _messageController.clear();
     setState(() {
       _messages.add(message);
     });
@@ -101,7 +105,7 @@ class _ChatAIScreenState extends State<ChatAIScreen> {
           isUserMessage: false,
         ),
       );
-
+ FocusScope.of(context).unfocus();
       _messageController.clear();
     }
   }
@@ -123,18 +127,33 @@ class _ChatAIScreenState extends State<ChatAIScreen> {
 
                 Align(
                   alignment: message.isUserMessage ? Alignment.centerRight : Alignment.centerLeft,
-                  child: Container(
-                    padding: EdgeInsets.all(12.0),
-                    margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                  child: Row(
+                        mainAxisAlignment: message.isUserMessage ? MainAxisAlignment.end : MainAxisAlignment.start,
+                    children: [
+                      if (!message.isUserMessage)
+         CircleAvatar(
+            backgroundImage: AssetImage(
+              'assets/avatar.jpeg'
+            ),
+          ),
+        
+  Container(
+    width: 320.w,
+                    padding: EdgeInsets.all(6),
+                    margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 2.0),
                     decoration: BoxDecoration(
                       color: message.isUserMessage ? Colors.blue[300] : Colors.grey[300],
                       borderRadius: BorderRadius.circular(16.0),
                     ),
-                    child: 
-                    SingleChildScrollView(child: MarkdownBlock(data: message.text))
+                    child: message ==""
+                    ?CircularProgressIndicator()
+                    :SingleChildScrollView(child: 
+                    MarkdownBlock(data: message.text))
                 
                     //Text(message.text),
                   ),
+                  ],)
+                
                 );
               },
             ),
@@ -146,6 +165,7 @@ class _ChatAIScreenState extends State<ChatAIScreen> {
                 Expanded(
                   child: TextField(
                     controller: _messageController,
+                    
                     decoration: InputDecoration(
                       hintText: 'Type your message...',
                       border: OutlineInputBorder(),
@@ -166,6 +186,7 @@ class _ChatAIScreenState extends State<ChatAIScreen> {
   }
 }
 
+
 class ChatMessage {
   final String text;
   final bool isUserMessage;
@@ -178,6 +199,11 @@ class ChatMessage {
   Content toContent() {
     return isUserMessage
         ? Content.text(text)
-        : Content.model([TextPart(text)]);
+        : Content.model(
+          [TextPart(text)],
+          
+      
+           
+          );
   }
 }

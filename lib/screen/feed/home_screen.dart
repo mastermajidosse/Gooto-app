@@ -111,12 +111,12 @@ class _HomeScreenState extends State<HomeScreen> {
 child:  Container(
               margin: EdgeInsets.all(8),
               width: double.infinity,
-              height: 200,
+              height: 230,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 image: DecorationImage(
                   image: AssetImage(
-                    "assets/AI.png",
+                    "assets/ai.jpg",
                   ),
                   fit: BoxFit.cover,
                 ),
@@ -149,7 +149,7 @@ child:  Container(
             ),
           
             Container(
-              height: 340.h,
+              height: 330.h,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 5,

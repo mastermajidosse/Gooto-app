@@ -35,12 +35,13 @@ class _BottomTabBarrState extends State<BottomTabBarr> {
 
   static List _widgetOptions = [
     HomeScreen(),
-    VideosScreen(),
+    CameraScreen(),
+    //VideosScreen(),
     PodcastDiscoveryScreen(),
     //ImageScreen(),
     ExplloreScreen(),
     ChatAIScreen(),
-    //CameraScreen(),
+    
   ];
   var provider;
 
@@ -65,7 +66,7 @@ class _BottomTabBarrState extends State<BottomTabBarr> {
                 costumcollum("assets/icons/audio.png", "assets/icons/audio.png", 2),
                 costumcollum("assets/icons/news.png", "assets/icons/news.png", 3),
                 costumcollum("assets/icons/news.png", "assets/icons/news.png", 4),
-               // costumcollum("assets/icons/audio.png", "assets/icons/audio.png", 5),
+                // costumcollum("assets/icons/audio.png", "assets/icons/audio.png", 5),
                 // costumcollum(Icons.person, Icons.person_outline, 4),
               ],
             ),
