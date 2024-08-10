@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:gooto/main_dev.dart';
 import 'package:markdown_widget/widget/all.dart';
@@ -76,7 +77,8 @@ class _CameraScreenState extends State<CameraScreen> {
     // const prompt = 'describe this picture';
     // final prompt = TextPart("Describe this picture");
     final prompt = TextPart(
-        "Describe this monument historique from moroco tell all info builder and Year of construction and  inside this picture in your answer just give me 500 character");
+        "Describe this monument historique from moroco tell all info builder and Year of construction and  inside this picture ");
+        //in your answer just give me 500 character
     // final content = [Content.text(prompt)];
     // final response = await model.generateContent(content);
     // try {
@@ -110,7 +112,7 @@ class _CameraScreenState extends State<CameraScreen> {
     }
   } finally {
     // Dispose the CameraController when done
-    await _controller?.dispose();
+   // await _controller?.dispose();
   }
     // await _initializeControllerFuture;
     // final image = await _controller.takePicture();
@@ -164,13 +166,47 @@ class _CameraScreenState extends State<CameraScreen> {
                   padding: const EdgeInsets.all(20),
                   decoration:
                       BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20)),
-                  child: Container(
-                    child: Text(
-                      'Markdown Content',
-                      style: const TextStyle(color: Colors.black),
-                    ),
-                    //MarkdownWidget(data: res)
-                  ))
+                  child: 
+                   GestureDetector(
+    onTap: () {
+
+      showModalBottomSheet(
+        
+        context: context,
+        isScrollControlled: true,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(20),
+          ),
+        ),
+        builder: (BuildContext context) {
+          return Container(
+          height: 500.h,
+            child:  Padding(
+            padding: MediaQuery.of(context).viewInsets,
+            child: Container(
+              padding: const EdgeInsets.all(20),
+              child: MarkdownWidget(data: res),
+            ),
+          ) ,
+          );
+        
+        },
+      );
+    },
+    child: const Text(
+      'Show description for this Monument ',
+      style: TextStyle(color: Colors.black),
+    ),
+                  // Container(
+                  //   child: Text(
+                  //     'Markdown Content',
+                  //     style: const TextStyle(color: Colors.black),
+                  //   ),
+                  //   //MarkdownWidget(data: res)
+                  // )
+                  )
+              )
           //   ValueListenableBuilder<bool>(
           //   valueListenable: _actionNotifier,
           //   builder: (context, value, child) {
