@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:gooto/main_production.dart';
 import 'package:gooto/screen/app_start_screen.dart';
 import 'package:gooto/screen/auth/login_screen.dart';
+import 'package:gooto/screen/auth/onboarding_screen.dart';
 import 'package:gooto/screen/auth/register_screen.dart';
 import 'package:gooto/screen/auth/splash_screen.dart';
 import 'package:gooto/screen/bottom_tab.dart';
 import 'package:gooto/screen/profile/setting_screen.dart';
 
+// String initialRoute = initScreen == 0 ? OnboardingScreen.routeName : SplashScreen.routeName;
 String initialRoute = SplashScreen.routeName;
-// String initialRoute = AppStartScreen.routeName;
 
 class RoutGenerator {
   static Route<dynamic> generateRout(RouteSettings settings) {
     switch (settings.name) {
       case BottomTabBarr.routeName:
         return MaterialPageRoute(builder: (_) => BottomAppBar());
+      case OnboardingScreen.routeName:
+        return MaterialPageRoute(builder: (_) => OnboardingScreen());
       case RegisterScreen.routeName:
         return MaterialPageRoute(builder: (_) => RegisterScreen());
       case LoginPage.routeName:
@@ -66,10 +70,8 @@ class SlideRightRoute extends PageRouteBuilder {
               Animation<double> secondaryAnimation) {
             return widget;
           },
-          transitionsBuilder: (BuildContext context,
-              Animation<double> animation,
-              Animation<double> secondaryAnimation,
-              Widget child) {
+          transitionsBuilder: (BuildContext context, Animation<double> animation,
+              Animation<double> secondaryAnimation, Widget child) {
             return new SlideTransition(
               position: new Tween<Offset>(
                 begin: const Offset(1.0, 0.0),

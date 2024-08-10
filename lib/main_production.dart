@@ -5,6 +5,13 @@ import 'main.dart';
 import 'package:flutter/services.dart';
 import 'dart:io';
 
+import 'package:camera/camera.dart';
+import 'package:google_generative_ai/google_generative_ai.dart';
+
+late List<CameraDescription> cameras;
+late final GenerativeModel model;
+late dynamic response;
+// int? initScreen;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -14,6 +21,8 @@ void main() async {
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
   AppConfig.env = Environment.PROD;
+
+  // firsttime();
 
   runApp(MyApp("prod"));
 }
@@ -25,3 +34,9 @@ class MyHttpOverrides extends HttpOverrides {
       ..badCertificateCallback = (X509Certificate cert, String host, int port) => true;
   }
 }
+
+// firsttime() async {
+//   SharedPreferences prefs = await SharedPreferences.getInstance();
+//   initScreen = await prefs.getInt("initScreen") ?? 0;
+//   await prefs.setInt("initScreen", 1);
+// }

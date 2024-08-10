@@ -51,9 +51,9 @@ class _MyAppState extends State<MyApp> {
               primaryColor: MyStyle.primarycolo,
             ),
             debugShowCheckedModeBanner: false,
-            // onGenerateRoute: router.RoutGenerator.generateRout,
-            // initialRoute: router.initialRoute,
-            home: OnboardingScreen(),
+            onGenerateRoute: router.RoutGenerator.generateRout,
+            initialRoute: router.initialRoute,
+            // home: OnboardingScreen(),
           );
         },
       ),
