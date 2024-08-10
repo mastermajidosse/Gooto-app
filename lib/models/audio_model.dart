@@ -76,7 +76,11 @@ List<AudioModel> audio = [
       id: 1,
       logo: "assets/popular/rabat.jpeg",
       name: "Rabat\nCapital History",
-      photos: ["assets/rabat.jpeg", "assets/rabat2.jpg", "assets/rabat3.jpg"]),
+      photos: [
+        "assets/popular/rabat.jpeg",
+        "assets/popular/rabat2.jpg",
+        "assets/popular/rabat3.jpg"
+      ]),
   AudioModel(
       color: Color(0xFF9d8191),
       imagecover: 'assets/agadircover.png',
