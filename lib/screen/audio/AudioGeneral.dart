@@ -402,12 +402,12 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                 crossAxisCount: 2,
                 crossAxisSpacing: 16.0,
                 mainAxisSpacing: 16.0,
-                childAspectRatio: 1.0, // Adjust the aspect ratio as needed
+                childAspectRatio: 80.h / 100.w, // Adjust the aspect ratio as needed
               ),
               itemCount: _filteredItems.length,
               itemBuilder: (context, index) {
                 final AudioModel card = _filteredItems[index];
-                return InkWell(  
+                return InkWell(
                   onTap: () {
                     Navigator.push(
                       context,
@@ -424,14 +424,14 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                         width: double.infinity,
                         height: 110,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(20.r),
                           image: DecorationImage(
                             image: AssetImage(card.logo),
                             fit: BoxFit.cover,
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 10.h),
                       Expanded(
                         child: Text(
                           card.name,
@@ -439,7 +439,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                             color: Colors.grey[600],
                             fontFamily: 'Arial',
                             fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                            fontSize: 17.sp,
                           ),
                           textAlign: TextAlign.left,
                           maxLines: 2,

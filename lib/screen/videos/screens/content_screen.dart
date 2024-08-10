@@ -78,7 +78,7 @@ class _ContentScreenState extends State<ContentScreen> {
                     child: VideoPlayer(_controller),
                   ),
                 )
-              : Container(),
+              : CircularProgressIndicator(color: Colors.white,),
         ),
         if (_liked)
           Center(

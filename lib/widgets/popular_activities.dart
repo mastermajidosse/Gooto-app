@@ -31,8 +31,7 @@ class PopularActivities extends StatelessWidget {
       desc:
           """<p style="color: #444;text-align:justify">Experience the Moroccan Sahara Desert on a 3-day safari tour from Marrakech to Merzouga. Spend the night at a Bedouin camp in the Erg Chebbi dunes. Ride a camel to watch the sunset and sunrise. See the Kasbah of Ouarzazate, and much more.</p>
           """,
-      imgurl:
-          'https://media.tacdn.com/media/attractions-splice-spp-674x446/0e/de/95/2a.jpg',
+      imgurl: 'https://media.tacdn.com/media/attractions-splice-spp-674x446/0e/de/95/2a.jpg',
     ),
   ];
 
@@ -63,23 +62,22 @@ class ActivityCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 
-    Container(
-      // height: 300,
-      width: double.infinity,
-      child: Card(
-        elevation: 0,
-        margin: EdgeInsets.all(10),
+    return Card(
+      elevation: 2,
+      color: Colors.white,
+      margin: EdgeInsets.all(10),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 18.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(5),
               child: Image.network(activity.imgurl.toString(),
-                  width: double.infinity, height: 280.h, fit: BoxFit.cover),
+                  width: double.infinity, height: 200.h, fit: BoxFit.cover),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               child: Text(
                 activity.title.toString(),
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -88,15 +86,6 @@ class ActivityCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Text(activity.price.toString()),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              // child: ElevatedButton(
-              //   onPressed: () {
-              //     // Handle booking
-              //   },
-              //   child: Text('Book Now'),
-              // ),
             ),
           ],
         ),

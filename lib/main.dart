@@ -5,6 +5,7 @@ import 'package:gooto/bloc/bproviders.dart';
 import 'package:gooto/config/save.dart';
 import 'package:gooto/models/blog_model.dart';
 import 'package:gooto/models/post_model.dart';
+import 'package:gooto/screen/auth/onboarding_screen.dart';
 import 'package:gooto/utils/MyStyle.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'screen/feed/home_screen.dart';
@@ -52,8 +53,7 @@ class _MyAppState extends State<MyApp> {
             debugShowCheckedModeBanner: false,
             onGenerateRoute: router.RoutGenerator.generateRout,
             initialRoute: router.initialRoute,
-            // home: MoreScreen(),
-            // home: FullScreenPop(),
+            // home: OnboardingScreen(),
           );
         },
       ),

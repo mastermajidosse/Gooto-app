@@ -75,7 +75,8 @@ class _ExplloreScreenState extends State<ExplloreScreen> {
         builder: (context, state) {
           return state.loading == false
               ? ListView.builder(
-                  itemCount: state.stories!.length,
+                  itemCount: 
+                  state.stories!.length,
                   scrollDirection: Axis.vertical,
                   padding: EdgeInsets.symmetric(vertical: 18),
                   shrinkWrap: true,
@@ -84,6 +85,7 @@ class _ExplloreScreenState extends State<ExplloreScreen> {
                       margin: EdgeInsets.symmetric(vertical: 12),
                       child: InkWell(
                         onTap: () {
+                          print("goto");
                           Navigator.push(
                             context,
                             MaterialPageRoute(
