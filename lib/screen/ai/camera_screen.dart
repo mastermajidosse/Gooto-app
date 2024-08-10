@@ -38,46 +38,44 @@ final ValueNotifier<bool> _actionNotifier = ValueNotifier<bool>(true);
   // })
   //      );
   //   }
-   void _showModal() {
- showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(20),
-        ),
-      ),
-      builder: (BuildContext context) {
-        return Padding(
-          padding: MediaQuery.of(context).viewInsets,
-          child: Container(
-            padding: const EdgeInsets.all(20),
-            child: MarkdownWidget(data: res),
-          ),
-        );
-      },
-    );
-  }
-     void _handleActionChange() {
-    if (_actionNotifier.value == false) {
-      _showModal();
-    }
-  }
  
+ 
+//  final cameras = await availableCameras();
+//   final firstCamera = cameras.first;
+
+//     _controller = CameraController(
+//       firstCamera,
+//       ResolutionPreset.high,
+//     );
+//     _initializeControllerFuture = _controller.initialize();
+
+    // loadit();
+    //gobro();
+    _initializeCamera();
+  }
+ Future<void> _initializeCamera() async {
+    final cameras = await availableCameras();
+    final firstCamera = cameras.first;
 
     _controller = CameraController(
-      cameras[0],
+      firstCamera,
       ResolutionPreset.high,
     );
     _initializeControllerFuture = _controller.initialize();
-
-    // loadit();
+    await _initializeControllerFuture;
+     _performAsyncWork();
     gobro();
   }
+
+Future<void> _performAsyncWork() async {
+    // Perform any asynchronous work here
+    await Future.delayed(Duration(seconds: 2)); // Example of asynchronous work
+  }
+
   gobro() {
     Timer.periodic(const Duration(seconds: 10), (timer) {
       print(timer.tick);
-timer.cancel;
+//timer.cancel;
       loadit();
     });
   }
