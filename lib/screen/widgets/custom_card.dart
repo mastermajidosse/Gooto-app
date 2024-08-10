@@ -70,18 +70,13 @@ class CustomCard extends StatelessWidget {
                 // 'Akchour',
                 card.productName,
                 style: MyStyle.buttwhtieTextStyle,
-
-                // style: MyStyle.blackalarmTextStyle,
               ),
-              // Gap(15),
-              // Text(
-              //   "200\$",
-              //   style: MyStyle.buttwhtieTextStyle,
-              // ),
             ],
           ),
         ),
-       SizedBox(height: 10,),
+        SizedBox(
+          height: 10,
+        ),
         Padding(
           padding: const EdgeInsets.only(left: 22.0),
           child: Row(
@@ -95,19 +90,15 @@ class CustomCard extends StatelessWidget {
                   Image.asset(
                     'assets/images/location.png',
                   ),
-                 SizedBox(height: 6,),
+                  SizedBox(
+                    height: 6,
+                  ),
                   Text(
                     'Morocco',
                     style: MyStyle.regular12TextStyle,
-                    // style: MyStyle.blackalarmTextStyle,
                   ),
                 ],
               ),
-              // Gap(15),
-              // Text(
-              //   "/person",
-              //   style: MyStyle.regular12TextStyle,
-              // ),
             ],
           ),
         ),

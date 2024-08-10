@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:gooto/screen/videos/screens/shakewidget.dart';
+
 class OptionsScreen extends StatelessWidget {
   final String titles;
-  OptionsScreen( {required this.titles});
-      Widget modeText({required String title}) => Text(
+  OptionsScreen({required this.titles});
+  Widget modeText({required String title}) => Text(
         title,
         style: TextStyle(
-    fontWeight: FontWeight.w700,
-    fontSize: 10,
-    fontFamily: "Urbanist",
-    color: Colors.white,
-    fontStyle: FontStyle.normal,
-    height: 0.8,
-  ),
+          fontWeight: FontWeight.w700,
+          fontSize: 10,
+          fontFamily: "Urbanist",
+          color: Colors.white,
+          fontStyle: FontStyle.normal,
+          height: 0.8,
+        ),
         overflow: TextOverflow.ellipsis,
       );
   @override
@@ -31,36 +32,17 @@ class OptionsScreen extends StatelessWidget {
                   SizedBox(height: 150),
                   //SizedBox(height: 90),
 
-                   Text(titles,style:TextStyle(
-    fontWeight: FontWeight.w700,
-    fontSize: 12,
-    fontFamily: "Urbanist",
-    color: Colors.white,
-    fontStyle: FontStyle.normal,
-    height: 0.8,
-  ),
-   ),
-                  //       Container(
-                  //   alignment: Alignment.center,
-                  //   color: Colors.transparent,
-                  //   height: 45,
-                  //   width: double.infinity,
-                  //   child: ShakeWidget(
-                  //     child: Row(
-                        
-                  //       children: [
-                  //        modeText(title:''),
-                  //         modeText(
-                  //             title:
-                              
-                  //             '🌟${titles}🌟',
-                  //             ),
-                  //       ],
-                  //     ),
-                  //   ),
-                  // ),
-                  
-              
+                  Text(
+                    titles,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 12,
+                      fontFamily: "Urbanist",
+                      color: Colors.white,
+                      fontStyle: FontStyle.normal,
+                      height: 0.8,
+                    ),
+                  ),
                 ],
               ),
             ],

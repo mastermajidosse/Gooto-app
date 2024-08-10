@@ -19,7 +19,8 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController controller;
   late Animation<double> animation_rotation;
   late Animation<double> animation_radius_in;
@@ -35,20 +36,14 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     dotRadius = widget.dotRadius;
 
     if (widget.radius != 50.5)
-      Future.delayed(Duration(seconds: 5)).then((_) async{
-          await availableCameras().then((value){cameras = value;
-         Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => BottomTabBarr()),
-        );
+      Future.delayed(Duration(seconds: 5)).then((_) async {
+        await availableCameras().then((value) {
+          cameras = value;
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => BottomTabBarr()),
+          );
         });
-        // Navigator.pushReplacementNamed(context, LoginPage.routeName);
-        // Navigator.pushReplacementNamed(context, BottomTabBarr.routeName);
-
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(builder: (context) => BottomTabBarr()),
-        // );
       });
 
     controller = AnimationController(
@@ -274,46 +269,6 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                         radius * sin(0.0 + 7.6 * pi / 4),
                       ),
                     ),
-                    // Transform.translate(
-                    //   child: Dot(
-                    //     radius: dotRadius,
-                    //     color: Colors.redAccent,
-                    //   ),
-                    //   offset: Offset(
-                    //     radius * cos(0.0 + 4 * pi / 4),
-                    //     radius * sin(0.0 + 4 * pi / 4),
-                    //   ),
-                    // ),
-                    // Transform.translate(
-                    //   child: Dot(
-                    //     radius: dotRadius,
-                    //     color: Colors.lightGreen,
-                    //   ),
-                    //   offset: Offset(
-                    //     radius * cos(0.0 + 5 * pi / 4),
-                    //     radius * sin(0.0 + 5 * pi / 4),
-                    //   ),
-                    // ),
-                    // Transform.translate(
-                    //   child: Dot(
-                    //     radius: dotRadius,
-                    //     color: Colors.orangeAccent,
-                    //   ),
-                    //   offset: Offset(
-                    //     radius * cos(0.0 + 6 * pi / 4),
-                    //     radius * sin(0.0 + 6 * pi / 4),
-                    //   ),
-                    // ),
-                    // Transform.translate(
-                    //   child: Dot(
-                    //     radius: dotRadius,
-                    //     color: Colors.blueAccent,
-                    //   ),
-                    //   offset: Offset(
-                    //     radius * cos(0.0 + 7 * pi / 4),
-                    //     radius * sin(0.0 + 7 * pi / 4),
-                    //   ),
-                    // ),
                   ],
                 ),
               ),

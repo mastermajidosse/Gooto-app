@@ -30,14 +30,4 @@ class AuthApi {
 
     return response == 401 ? false : true;
   }
-
-  // Future<dynamic> logout() async {
-  //   return await api.httpPost(jsonEncode({}));
-  // }
-
-  // Future<dynamic> recoverPassword(String email) async {
-  //   print("{'email': email}");
-  //   print({'email': email});
-  //   return await api.httpPost(jsonEncode({'email': email}));
-  // }
 }

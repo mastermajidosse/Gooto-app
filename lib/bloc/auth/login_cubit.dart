@@ -17,9 +17,8 @@ class LoginCubit extends Cubit<LoginState> {
     emit(LoginLoading());
 
     try {
-      var response = await userRepository.login(UserModel(email: email, password: pass));
-      // await BlocProvider.of<AuthCubit>(context)
-      //   ..checkAuth();
+      var response =
+          await userRepository.login(UserModel(email: email, password: pass));
 
       emit(LoginSuccess(userdata));
     } catch (e) {

@@ -4,15 +4,13 @@ import 'package:gooto/utils/mystyle.dart';
 import 'package:readmore/readmore.dart';
 
 class MoreScreen extends StatefulWidget {
-  // final BlogModel post;
-  // const MoreScreen(this.post, {super.key});
-
   @override
   State<MoreScreen> createState() => _MoreScreenState();
 }
 
 class _MoreScreenState extends State<MoreScreen> {
-  String audioUrl = "https://example.com/audio.mp3"; // Replace with your audio URL
+  String audioUrl =
+      "https://example.com/audio.mp3"; // Replace with your audio URL
   String overviewText =
       "Scattered along Scotland's west coast, this chain of isles is one of the country's most beautiful places to visit. Think shimmering white-sand beaches, sparkling seas and crowd-free hinterlands – it's one of the UK's last remaining secrets, and for good reason.";
   @override
@@ -65,7 +63,9 @@ class _MoreScreenState extends State<MoreScreen> {
                       ],
                     ),
                     // Gap(20),
-                    SizedBox(height: 20,),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -74,7 +74,9 @@ class _MoreScreenState extends State<MoreScreen> {
                       ],
                     ),
                     // Gap(30),
-                    SizedBox(height: 20,),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -125,7 +127,9 @@ class _MoreScreenState extends State<MoreScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 30,),
+                    SizedBox(
+                      height: 30,
+                    ),
                     Row(
                       children: [
                         Text(
@@ -138,7 +142,9 @@ class _MoreScreenState extends State<MoreScreen> {
                         ),
                       ],
                     ),
-                  SizedBox(height: 20,),
+                    SizedBox(
+                      height: 20,
+                    ),
                     ReadMoreText(
                       overviewText,
                       trimMode: TrimMode.Line,
@@ -152,7 +158,9 @@ class _MoreScreenState extends State<MoreScreen> {
                         color: MyStyle.primarycolo,
                       ),
                     ),
-                   SizedBox(height: 30,),
+                    SizedBox(
+                      height: 30,
+                    ),
                   ],
                 ),
               ),

@@ -77,68 +77,7 @@ class _VideosScreenState extends State<VideosScreen> {
                 ),
               ],
             ),
-          )
-          // ----------- for firebase store --------------
-          // body: StreamBuilder<List<VideoModel>>(
-          //   stream: _firestoreService.getVideos(),
-          //   builder: (context, snapshot) {
-          //     if (snapshot.hasError) {
-          //       print("#############|ERROR->|##");
-          //       return Center(child: Text('Error: ${snapshot.error}'));
-          //     }
-          //     if (snapshot.connectionState == ConnectionState.waiting) {
-          //       return Center(child: CircularProgressIndicator());
-          //     }
-
-          //     final videos = snapshot.data ?? [];
-
-          //     return Container(
-          //       child: Stack(
-          //         children: [
-          //           SizedBox(height: 12.h),
-          //           //We need swiper for every content
-
-          //           Swiper(
-          //             itemBuilder: (BuildContext context, int index) {
-          //               return videos.isEmpty
-          //                   ? CircularProgressIndicator()
-          //                   // : VideoApp(url: videos.first.url!);
-          //                   : ContentScreen(
-          //                       src: videos[index].url!,
-          //                       slide: videos[index].name,
-          //                     );
-          //             },
-          //             itemCount: videos.length,
-          //             scrollDirection: Axis.vertical,
-          //           ),
-          //         ],
-          //       ),
-          //     );
-          //   },
-          // ),
-
-          // Padding(
-          //   padding: EdgeInsets.symmetric(horizontal: 16),
-          //   child: Text(
-          //     "المغرب",
-          //     style: MyStyle.dash13TextStyle,
-          //   ),
-          // ),
-          // VideoDetails(),
-          // ListView.builder(
-          //   physics: NeverScrollableScrollPhysics(),
-          //   shrinkWrap: true,
-          //   primary: true,
-          //   itemCount: videos!.length,
-          //   itemBuilder: (BuildContext context, int index) {
-          //     return OneVid(videos![index]);
-          //   },
-          // ),
-          //SizedBox(height: 16),
-          //HomePage()
-
-          // ),
-          ),
+          )),
     );
   }
 }

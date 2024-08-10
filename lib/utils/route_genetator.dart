@@ -8,7 +8,6 @@ import 'package:gooto/screen/auth/splash_screen.dart';
 import 'package:gooto/screen/bottom_tab.dart';
 import 'package:gooto/screen/profile/setting_screen.dart';
 
-// String initialRoute = initScreen == 0 ? OnboardingScreen.routeName : SplashScreen.routeName;
 String initialRoute = SplashScreen.routeName;
 
 class RoutGenerator {
@@ -28,21 +27,6 @@ class RoutGenerator {
         return MaterialPageRoute(builder: (_) => SplashScreen());
       case SettingScreen.routeName:
         return MaterialPageRoute(builder: (_) => SettingScreen());
-      // case MoreScreen.routeName:
-      //   return MaterialPageRoute(builder: (_) => MoreScreen());
-      // case EditProfileScreen.routeName:
-      //   return MaterialPageRoute(builder: (_) => EditProfileScreen(UserModel()));
-      // case AppStartScreen.routeName:
-      //   return MaterialPageRoute(builder: (_) => AppStartScreen());
-      // case "homeslide":
-      //   return SlideRightRoute(BottomTabBarr(
-      //     widgetoutside: DashBoardScreen(),
-      //   ));
-      // case "Alarm_screen":
-      //   return SlideRightRoute(BottomTabBarr(
-      //     widgetoutside: AlarmScreen(),
-      //   ));
-////
       default:
         return _errorRoute();
     }

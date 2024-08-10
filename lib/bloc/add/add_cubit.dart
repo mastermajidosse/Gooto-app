@@ -18,7 +18,6 @@ class AddCubit extends Cubit<AddState> {
 
   Future submitPost(BuildContext context, sc, BlogModel myvid) async {
     emit(AddarticleLoading());
-    print("------submit post----");
 
     try {
       await postsRepo.addVideo(myvid);
@@ -26,14 +25,13 @@ class AddCubit extends Cubit<AddState> {
       emit(Addarticledone());
       Navigator.pushNamed(context, BottomTabBarr.routeName);
     } catch (e) {
-      // MyStyle.err(sc, e.toString());
       emit(AddarticleError(e.toString()));
     }
   }
 
-  Future submitPostArticles(BuildContext context, sc, BlogModel myarticle) async {
+  Future submitPostArticles(
+      BuildContext context, sc, BlogModel myarticle) async {
     emit(AddarticleLoading());
-    print("------submit myarticle----");
 
     try {
       await postsRepo.addArticle(myarticle);

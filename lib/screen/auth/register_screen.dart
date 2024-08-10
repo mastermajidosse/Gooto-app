@@ -15,8 +15,6 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  //final _scaffoldKey = GlobalKey<ScaffoldState>();
-
   final _formKey = GlobalKey<FormState>();
 
   final email = TextEditingController();
@@ -36,7 +34,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _passwordVisible = false;
   }
@@ -104,7 +101,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   }
                                   return null;
                                 },
-                                decoration: MyStyle.inputregular("Full name").copyWith(
+                                decoration:
+                                    MyStyle.inputregular("Full name").copyWith(
                                   labelStyle: TextStyle(
                                     fontSize: 15.sp,
                                     color: MyStyle.primarycolo,
@@ -149,11 +147,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   }
                                   return null;
                                 },
-                                decoration: MyStyle.inputregular("Password").copyWith(
+                                decoration:
+                                    MyStyle.inputregular("Password").copyWith(
                                   suffixIcon: IconButton(
                                     icon: Icon(
-                                      _passwordVisible ? Icons.visibility : Icons.visibility_off,
-                                      color: _passwordVisible ? Colors.black : Colors.grey,
+                                      _passwordVisible
+                                          ? Icons.visibility
+                                          : Icons.visibility_off,
+                                      color: _passwordVisible
+                                          ? Colors.black
+                                          : Colors.grey,
                                     ),
                                     onPressed: () {
                                       setState(() {
@@ -181,8 +184,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                             child: Text(
                               "Register",
-                              style: MyStyle.subtitleTextStyle
-                                  .copyWith(fontSize: 18.sp, color: Colors.white),
+                              style: MyStyle.subtitleTextStyle.copyWith(
+                                  fontSize: 18.sp, color: Colors.white),
                               textAlign: TextAlign.center,
                             ),
                             onPressed: () {
@@ -193,7 +196,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   password: pass.text,
                                   firstname: username.text,
                                 );
-                                context.read<SignupCubit>().registerNew(newUserModel, context);
+                                context
+                                    .read<SignupCubit>()
+                                    .registerNew(newUserModel, context);
                               }
                             },
                           ),
@@ -215,18 +220,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Icon(Icons.arrow_back, color: MyStyle.primarycolo),
+                              Icon(Icons.arrow_back,
+                                  color: MyStyle.primarycolo),
                               SizedBox(width: 10.w),
                               Text(
                                 "Back to login",
-                                style: MyStyle.subtitleTextStyle
-                                    .copyWith(fontSize: 18.sp, color: MyStyle.primarycolo),
+                                style: MyStyle.subtitleTextStyle.copyWith(
+                                    fontSize: 18.sp,
+                                    color: MyStyle.primarycolo),
                                 textAlign: TextAlign.center,
                               ),
                             ],
                           ),
                           onPressed: () {
-                            Navigator.pushReplacementNamed(context, LoginPage.routeName);
+                            Navigator.pushReplacementNamed(
+                                context, LoginPage.routeName);
                           },
                         ),
                       ),
