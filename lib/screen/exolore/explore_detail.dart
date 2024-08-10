@@ -104,7 +104,10 @@ class _DetailsExploreState extends State<DetailsExplore> {
                           color: Colors.grey.withOpacity(.1),
                           borderRadius: BorderRadius.circular(10.r)),
                       child: Row(
-                        children: [Icon(Icons.star, color: Colors.amber), Text("4.2")],
+                        children: [
+                          Icon(Icons.star, color: Colors.amber),
+                          Text(blogModel.rate.toString())
+                        ],
                       ),
                     ),
                   ],

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 class BlogModel {
   int? id;
-  int? rate;
+  double? rate;
   String? title;
   String? imgurl;
   String? desc;
@@ -45,10 +45,12 @@ class BlogModel {
       });
       title = json['title'];
       desc = json['content'];
+      rate = json['rate'];
       imgurl = json['image'];
     } else {
       title = json['title'];
       desc = json['content'];
+      rate = json['rate'];
       imgurl = json['image'];
       comments = <Comments>[];
       previewImgs = json['previewImgs'];

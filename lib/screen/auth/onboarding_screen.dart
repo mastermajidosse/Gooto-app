@@ -20,31 +20,31 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   List onBoardingData = [
     OnBoardingData(
       firsttitle: "Welcome to Gooto",
-      title: "Discover Morocco Like Never Before🌟",
+      title: "Discover the Magic of travel 🌐",
       desc:
           "Experience the rich culture and stunning landscapes of Morocco with Gooto. Our app provides personalized travel recommendations to help you explore the best attractions, restaurants, and accommodations.",
-      imageAssetsPath: "assets/goal1.png",
+      imageAssetsPath: "assets/onboarding/goal1.png",
     ),
     OnBoardingData(
-      firsttitle: "Personalized Recommendations",
-      title: "⚔️ Tailored Just for You ⚔️",
+      firsttitle: "Recommendations",
+      title: "Tailored Just for You ⚔️",
       desc:
-          "Gooto uses advanced AI to understand your preferences and interests. Receive customized suggestions for destinations and activities that match your unique travel style.",
-      imageAssetsPath: "assets/goal2.png",
+          "Gooto uses advanced AI with to understand your preferences and interests. Receive customized suggestions for destinations and activities that match your unique travel style.",
+      imageAssetsPath: "assets/onboarding/goal2.png",
     ),
     OnBoardingData(
       firsttitle: "Immersive Experiences",
-      title: "🌐 Dive into Morocco's Heritage 🌐",
+      title: "Dive into Morocco's Heritage 🇲🇦",
       desc:
-          "Learn about Morocco's history and culture through detailed insights and stories. Gooto brings each location to life, offering a deeper connection to the places you visit.",
-      imageAssetsPath: "assets/goal3.png",
+          "At first Gooto is just about Morocco's lean about history and culture through detailed insights and stories. we brings each location to life, offering a deeper connection to the places you visit.",
+      imageAssetsPath: "assets/onboarding/goal3.png",
     ),
     OnBoardingData(
       firsttitle: "Audio Stories",
-      title: "🙏 Your Ultimate Travel Companion  🙏",
+      title: "Ultimate Travel Companion 🎧",
       desc:
-          "Discover Morocco through engaging audio-generated stories that bring each location to life. Immerse yourself in the rich history and culture as Gooto narrates fascinating tales and insights about the places you visit. Get ready for a seamless and enjoyable journey!",
-      imageAssetsPath: "assets/goal4.png",
+          "Discover Morocco through engaging audio-generated stories that bring each location to life. Get ready for a seamless and enjoyable journey!",
+      imageAssetsPath: "assets/onboarding/goal4.png",
     ),
   ];
 
@@ -76,10 +76,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        SizedBox(height: 25.h),
+                        SizedBox(height: 20.h),
                         Container(
                           // height: 38.h,
-                          width: 150,
+                          // width: 150,
+
                           padding: EdgeInsets.only(bottom: 8),
                           decoration: BoxDecoration(
                             // border: Border.all (color: Colors.red, width: 2),
@@ -97,12 +98,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               fontSize: 26,
                               fontWeight: FontWeight.bold,
                             ),
+                            maxLines: 1,
                           ),
                         ),
-                        SizedBox(height: 50.h),
+                        SizedBox(height: 20.h),
                         Container(
                           height: 300.h,
-                          width: _deviceWidth - 50,
+                          width: _deviceWidth,
                           alignment: Alignment.center,
                           child: Image.asset(
                             '${onBoardingData[index].imageAssetsPath}',
@@ -123,7 +125,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             textAlign: TextAlign.center,
                           ),
                         ),
-                        SizedBox(height: 55.h),
+                        SizedBox(height: 35.h),
                         Container(
                           padding: EdgeInsets.symmetric(horizontal: 16.0),
                           child: Text(
