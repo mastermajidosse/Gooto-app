@@ -58,10 +58,23 @@ class PopularDetailsScreen extends StatelessWidget {
                       Icons.location_on_sharp,
                       color: Colors.lightBlue,
                     ),
-                    Text(
-                      place.location.toString(),
-                      style: TextStyle(color: Colors.grey),
-                    )
+                       Padding(
+            padding: EdgeInsets.symmetric(horizontal: 0),
+            child: Text(
+              place.location.toString(),
+              style: TextStyle(
+                fontSize: 14.sp,
+                color: Colors.grey,
+                height: 1.5,
+              ),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+                    // Text(
+                      
+                    //   style: TextStyle(color: Colors.grey),
+                    // )
                   ],
                 ),
                 SizedBox(height: 30.h),

@@ -1,6 +1,8 @@
 import 'dart:math';
 
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:gooto/main_dev.dart';
 import 'package:gooto/screen/auth/login_screen.dart';
 import 'package:gooto/utils/MyStyle.dart';
 import 'package:gooto/screen/bottom_tab.dart';
@@ -33,14 +35,20 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     dotRadius = widget.dotRadius;
 
     if (widget.radius != 50.5)
-      Future.delayed(Duration(seconds: 5)).then((_) {
-        // Navigator.pushReplacementNamed(context, LoginPage.routeName);
-        // Navigator.pushReplacementNamed(context, BottomTabBarr.routeName);
-
-        Navigator.push(
+      Future.delayed(Duration(seconds: 5)).then((_) async{
+          await availableCameras().then((value){cameras = value;
+         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => BottomTabBarr()),
         );
+        });
+        // Navigator.pushReplacementNamed(context, LoginPage.routeName);
+        // Navigator.pushReplacementNamed(context, BottomTabBarr.routeName);
+
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(builder: (context) => BottomTabBarr()),
+        // );
       });
 
     controller = AnimationController(

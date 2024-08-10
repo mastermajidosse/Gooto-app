@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gooto/screen/ai/camera_screen.dart';
+import 'package:gooto/screen/ai/chatai.dart';
 import 'package:gooto/screen/audio/AudioGeneral.dart';
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gooto/screen/feed/home_screen.dart';
@@ -33,10 +35,10 @@ class _BottomTabBarrState extends State<BottomTabBarr> {
 
   static List _widgetOptions = [
     HomeScreen(),
-    VideosScreen(),
     PodcastDiscoveryScreen(),
-    //ImageScreen(),
+    CameraScreen(),
     ExplloreScreen(),
+    ChatAIScreen(),
   ];
   var provider;
 
@@ -57,9 +59,11 @@ class _BottomTabBarrState extends State<BottomTabBarr> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 costumcollum("assets/icons/home.png", "assets/icons/home.png", 0),
-                costumcollum("assets/icons/reels.png", "assets/icons/reels.png", 1),
-                costumcollum("assets/icons/audio.png", "assets/icons/audio.png", 2),
+                costumcollum("assets/icons/audio.png", "assets/icons/audio.png", 1),
+                costumcollum("assets/icons/cameraai.png", "assets/icons/cameraai.png", 2),
                 costumcollum("assets/icons/news.png", "assets/icons/news.png", 3),
+                costumcollum("assets/icons/geminig.png", "assets/icons/geminig.png", 4),
+                // costumcollum("assets/icons/audio.png", "assets/icons/audio.png", 5),
                 // costumcollum(Icons.person, Icons.person_outline, 4),
               ],
             ),

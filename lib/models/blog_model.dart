@@ -2,26 +2,32 @@ import 'dart:convert';
 
 class BlogModel {
   int? id;
+  double? rate;
   String? title;
   String? imgurl;
   String? desc;
   String? price;
   List<Comments>? comments;
+  List<String>? previewImgs;
   // String? desc;
 
   BlogModel({
     this.desc,
     this.id,
+    this.rate,
     this.title,
     this.price,
     this.imgurl,
     this.comments,
+    this.previewImgs,
   });
   BlogModel.fromData(Map<String, dynamic> json) {
     id = json['id'];
     title = json['title'];
     imgurl = json['imgurl'];
     desc = json['desc'];
+    rate = json['rate'];
+    previewImgs = json['previewImgs'];
   }
   // if (json['comments'] != null) {
   //   comments = <Comments>[];
@@ -39,12 +45,15 @@ class BlogModel {
       });
       title = json['title'];
       desc = json['content'];
+      rate = json['rate'];
       imgurl = json['image'];
     } else {
       title = json['title'];
       desc = json['content'];
+      rate = json['rate'];
       imgurl = json['image'];
       comments = <Comments>[];
+      previewImgs = json['previewImgs'];
     }
   }
 

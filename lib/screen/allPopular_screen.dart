@@ -65,21 +65,18 @@ class _PopularPlacesScreenState extends State<PopularPlacesScreen> {
             padding: const EdgeInsets.all(10),
             child: SearchBox(controller: _searchController),
           ),
-          Padding(
-            padding: const EdgeInsets.all(0),
-            child: MasonryGridView.builder(
-              physics: NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              primary: false,
-              gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-              ),
-              itemCount: _filteredItems.length,
-              itemBuilder: (context, index) {
-                final CardModule card = _filteredItems[index];
-                return PlaceCard(place: card);
-              },
+          MasonryGridView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            primary: false,
+            gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
             ),
+            itemCount: _filteredItems.length,
+            itemBuilder: (context, index) {
+              final CardModule card = _filteredItems[index];
+              return PlaceCard(place: card);
+            },
           )
         ]),
       ),
@@ -127,8 +124,7 @@ class PlaceCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(place.productName,
-                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    Text(place.productName, style: TextStyle(fontWeight: FontWeight.bold)),
                     Text(place.location.toString(), style: TextStyle()),
                   ],
                 ),
