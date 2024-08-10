@@ -197,8 +197,8 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 16.0,
-                mainAxisSpacing: 16.0,
-                childAspectRatio: 80.h / 100.w, // Adjust the aspect ratio as needed
+                mainAxisSpacing: 8.0,
+                childAspectRatio: 90.h / 100.h, // Adjust the aspect ratio as needed
               ),
               itemCount: _filteredItems.length,
               itemBuilder: (context, index) {

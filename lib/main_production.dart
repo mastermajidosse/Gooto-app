@@ -22,6 +22,14 @@ void main() async {
 
   AppConfig.env = Environment.PROD;
 
+  model =
+      GenerativeModel(model: 'gemini-1.5-pro', apiKey: "AIzaSyBg1oUYaYkgffZSZKPCZcrBaL3H0vQkwXc");
+  final content = [
+    Content.text(
+        "you're a moroccan guide, if user asks you about anything related to morocco culture monument or Moroccan food or clothes answer as expert guide for morocco")
+  ];
+  response = await model.generateContent(content);
+
   // firsttime();
 
   runApp(MyApp("prod"));
