@@ -43,30 +43,22 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: Align(
-          alignment: Alignment.topCenter,
-          child: Text(
-            'Audio General',
-            textAlign: TextAlign.center,
+          automaticallyImplyLeading: false,
+          centerTitle: true,
+          title: Text(
+            'Best Audio Stories🎤',
+            style: TextStyle(
+              fontFamily: 'Arial',
+              fontSize: 20.sp,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
           ),
-        )),
+        ),
         body: ListView(
           padding: EdgeInsets.symmetric(horizontal: 10),
           primary: true,
           children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Text(
-                'Best Audio Stories🎤',
-                style: TextStyle(
-                  fontFamily: 'Arial',
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-
             Padding(
               padding: const EdgeInsets.all(20),
               child: TextField(
@@ -84,46 +76,12 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                 ),
               ),
             ),
-
             Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Top Cities 🔥', style: MyStyle.blackalarmTextStyle
-                      //     TextStyle(
-                      //     fontFamily: 'Arial',
-                      // fontSize: 20,
-                      // fontWeight: FontWeight.bold,
-                      // color: Colors.black,
-                      //     ),
-                      ),
-                  Container(),
-
-                  //   InkWell(
-                  //     onTap: () {
-                  //       // Navigator.push(
-                  //       //     context,
-                  //       //     MaterialPageRoute(
-                  //       //         builder: (context) => PopularPlacesScreen()));
-                  //     },
-                  //     child: Text(
-                  //       'View More',
-                  //       style: TextStyle(
-                  //     fontFamily: 'Arial',
-                  // fontSize: 16,
-                  // fontWeight: FontWeight.bold,
-                  // color: Colors.blue,
-                  //     ),
-                  //     ),
-                  // ),
-                ],
-              ),
+              alignment: Alignment.topLeft,
+              child: Text('Top Cities 🔥', style: MyStyle.blackalarmTextStyle),
             ),
-            SizedBox(
-              height: 20,
-            ),
-
+            SizedBox(height: 10),
             Container(
                 width: 400,
                 height: 200,
@@ -144,14 +102,11 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                           child: Row(
                             children: [
                               Column(
-                                // crossAxisAlignment: CrossAxisAlignment.,
                                 children: [
                                   Container(
                                     margin: EdgeInsets.only(left: 12, top: 7),
                                     child: Text(
-                                      Audio.name
-                                      // "Rabat\nCapital History🇲🇦"
-                                      ,
+                                      Audio.name,
                                       style: TextStyle(
                                         fontFamily: 'Arial',
                                         fontSize: 23,
@@ -160,13 +115,8 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                                       ),
                                     ),
                                   ),
-
-                                  // SizedBox(width: 12,),
-
                                   Text(
-                                    Audio.duration
-                                    // "🎙️Audio 2 m 23s"
-                                    ,
+                                    Audio.duration,
                                     style: TextStyle(
                                       fontFamily: 'Arial',
                                       fontSize: 22,
@@ -204,9 +154,6 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                                     borderRadius: BorderRadius.circular(20),
                                     image: DecorationImage(image: AssetImage(Audio.imagecover))),
                               )
-                              // Image.asset(
-                              //
-                              //   Audio.imagecover)
                             ],
                           ),
                         ),
@@ -219,121 +166,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                         },
                       );
                     })),
-
-            //  ),
-            //  )
-            //  ),
-
-            SizedBox(
-              height: 30,
-            ),
-            // Container(
-            //   margin: EdgeInsets.symmetric(horizontal: 10),
-            //   child: Row(
-            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //     children: [
-            //       Text('Cities', style: MyStyle.blackalarmTextStyle
-            //           //     TextStyle(
-            //           //     fontFamily: 'Arial',
-            //           // fontSize: 20,
-            //           // fontWeight: FontWeight.bold,
-            //           // color: Colors.black,
-            //           //     ),
-            //           ),
-            //       Container(),
-            //       //   InkWell(
-            //       //     onTap: () {
-            //       //       // Navigator.push(
-            //       //       //     context,
-            //       //       //     MaterialPageRoute(
-            //       //       //         builder: (context) => PopularPlacesScreen()));
-            //       //     },
-            //       //     child: Text(
-            //       //       'View More',
-            //       //       style: TextStyle(
-            //       //     fontFamily: 'Arial',
-            //       // fontSize: 16,
-            //       // fontWeight: FontWeight.bold,
-            //       // color: Colors.blue,
-            //       //     ),
-            //       //     ),
-            //       //   ),
-            //     ],
-            //   ),
-            // ),
-            // SizedBox(
-            //   height: 10,
-            // ),
-//             Container(
-//                 // color: Colors.red,
-// height: 180.h,
-//                 child: ListView.builder(
-//                     padding: EdgeInsets.symmetric(horizontal: 8.0),
-//                     itemCount: 10,
-//                     scrollDirection: Axis.horizontal,
-//                     itemBuilder: (context, index) {
-//                       final List<CardModule> test = List.from(cardsList.toSet())
-//                         ..shuffle();
-//                       final CardModule card = test[index];
-//                       return InkWell(
-//                           onTap: () {
-//                             // Navigator.push(
-//                             //   context,
-//                             //   MaterialPageRoute(
-//                             //     builder: (_) => DetailsExplore(activity),
-//                             //   ),
-//                             // );
-//                           },
-//                           child: Column(
-//                             children: [
-//                             Container(
-//                               margin: EdgeInsets.all(10),
-//                               width: 150.w,
-//                               height: 100.h,
-//                               decoration: BoxDecoration(
-//                                 //color: Colors.grey,
-//                                 borderRadius: BorderRadius.circular(20),
-//                                 image: DecorationImage(
-//                                   image: AssetImage(card.productImg),
-//                                   fit: BoxFit.cover,
-//                                 ),
-//                               ),
-//                             ),
-//                             SizedBox(
-//                               height: 3,
-//                             ),
-//                             Container(
-//                               margin: EdgeInsets.only(right: 20),
-//                               // alignment: Alignment.,
-//                               child: Text(
-//                                 card.productName,
-//                                 style: TextStyle(
-//                                   color: Colors.grey[600],
-//                                   fontFamily: 'Arial',
-//                                   fontWeight: FontWeight.bold,
-//                                   fontSize: 20,
-//                                 ),
-//                                 textAlign: TextAlign.left,
-//                               ),
-//                             )
-//                           ]));
-//                     }
-
-//                     // Container(
-//                     //   decoration: BoxDecoration(
-//                     //     color: Colors.grey,
-//                     //     borderRadius: BorderRadius.circular(14.r),
-//                     //     image: DecorationImage(
-//                     //       image: NetworkImage(activity.imgurl.toString()),
-//                     //       fit: BoxFit.cover,
-//                     //     ),
-//                     //   ),
-//                     // ),
-//                     )),
-
-            // SizedBox(
-            //   height: 30,
-            // ),
+            SizedBox(height: 30),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
               child: Row(
@@ -349,50 +182,12 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                     ),
                   ),
                   Container(),
-                  //   InkWell(
-                  //     onTap: () {
-                  //       // Navigator.push(
-                  //       //     context,
-                  //       //     MaterialPageRoute(
-                  //       //         builder: (context) => PopularPlacesScreen()));
-                  //     },
-                  //     child: Text(
-                  //       'View More',
-                  //       style: TextStyle(
-                  //     fontFamily: 'Arial',
-                  // fontSize: 16,
-                  // fontWeight: FontWeight.bold,
-                  // color: Colors.blue,
-                  //     ),
-                  //     ),
-                  //   ),
                 ],
               ),
             ),
             SizedBox(
               height: 15,
             ),
-            //PopularActivities(),
-            //         Column(
-            //   children: List.generate(
-            //     audio.length,
-            //     (index) => InkWell(
-            //         onTap: () {
-            //           Navigator.push(
-            //             context,
-            //             MaterialPageRoute(
-            //               builder: (_) =>AudioPlayerScreen(
-            //                                   audio[index].photos,
-            //                                   audio[index].name,
-            //                                   audio[index].audio,
-            //                                   audio[index].desc)
-            //             ),
-            //           );
-            //         },
-            //         child: ActivityCard(activity: audio[index])
-            //         ),
-            //   ),
-            // ),
             GridView.builder(
               primary: true,
               physics: NeverScrollableScrollPhysics(),
@@ -487,15 +282,6 @@ class ActivityCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Text(activity.flagname.toString()),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              // child: ElevatedButton(
-              //   onPressed: () {
-              //     // Handle booking
-              //   },
-              //   child: Text('Book Now'),
-              // ),
             ),
           ],
         ),
