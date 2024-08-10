@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gooto/config/demo.dart';
 import 'package:gooto/models/audio_model.dart';
@@ -43,6 +44,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.white,
           automaticallyImplyLeading: false,
           centerTitle: true,
           title: Text(
@@ -98,14 +100,19 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: Audio.color,
+                            image: DecorationImage(
+                              image: AssetImage(Audio.imagecover),
+                              fit: BoxFit.cover,
+                              alignment: Alignment.bottomCenter,
+                            ),
                           ),
                           child: Row(
                             children: [
-                              Column(
-                                children: [
-                                  Container(
-                                    margin: EdgeInsets.only(left: 12, top: 7),
-                                    child: Text(
+                              Padding(
+                                padding: EdgeInsets.only(left: 16, top: 7),
+                                child: Column(
+                                  children: [
+                                    Text(
                                       Audio.name,
                                       style: TextStyle(
                                         fontFamily: 'Arial',
@@ -114,46 +121,40 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                                         color: Colors.white,
                                       ),
                                     ),
-                                  ),
-                                  Text(
-                                    Audio.duration,
-                                    style: TextStyle(
-                                      fontFamily: 'Arial',
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.w200,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        Icons.play_circle_fill,
-                                        size: 37.sp,
-                                        color: Colors.white,
-                                      ),
-                                      Text(
-                                        "Play now",
+                                    Padding(
+                                      padding: EdgeInsets.only(left: 8.0),
+                                      child: Text(
+                                        Audio.duration,
                                         style: TextStyle(
                                           fontFamily: 'Arial',
-                                          fontSize: 22.sp,
-                                          fontWeight: FontWeight.w300,
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.w200,
                                           color: Colors.white,
                                         ),
                                       ),
-                                    ],
-                                  )
-                                ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.play_circle_fill,
+                                          size: 37.sp,
+                                          color: Colors.white,
+                                        ),
+                                        SizedBox(width: 10),
+                                        Text(
+                                          "Play now",
+                                          style: TextStyle(
+                                            fontFamily: 'Arial',
+                                            fontSize: 22.sp,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
                               ),
-                              SizedBox(
-                                width: 8,
-                              ),
-                              Container(
-                                width: 150.w,
-                                height: 150.h,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    image: DecorationImage(image: AssetImage(Audio.imagecover))),
-                              )
                             ],
                           ),
                         ),

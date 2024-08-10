@@ -84,6 +84,7 @@ class _ChatAIScreenState extends State<ChatAIScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('Morocan AI Guide'),
       ),
       body: Column(

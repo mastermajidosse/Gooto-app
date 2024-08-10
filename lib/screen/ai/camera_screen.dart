@@ -80,20 +80,52 @@ class _CameraScreenState extends State<CameraScreen> {
     // final content = [Content.text(prompt)];
     // final response = await model.generateContent(content);
     // try {
-    await _initializeControllerFuture;
-    final image = await _controller.takePicture();
+    try {
+      await _initializeControllerFuture;
 
-    final imageParts = [
-      DataPart('image/jpeg', await image.readAsBytes()),
-    ];
-    final response = await model.generateContent([
-      Content.multi([prompt, ...imageParts])
-    ]);
-    print("----------> response");
-    print(response.text);
-    setState(() {
-      res = response.text ?? "";
-    });
+      if (_controller != null && _controller!.value.isInitialized) {
+        final image = await _controller!.takePicture();
+
+        final imageParts = [
+          DataPart('image/jpeg', await image.readAsBytes()),
+        ];
+
+        final response = await model.generateContent([
+          Content.multi([prompt, ...imageParts])
+        ]);
+
+        print("----------> response");
+        print(response.text);
+        setState(() {
+          res = response.text ?? "";
+        });
+      }
+    } catch (e) {
+      if (e is CameraException) {
+        // Handle the CameraException
+        print('CameraException: $e');
+      } else {
+        // Handle other exceptions
+        print('Exception: $e');
+      }
+    } finally {
+      // Dispose the CameraController when done
+      await _controller?.dispose();
+    }
+    // await _initializeControllerFuture;
+    // final image = await _controller.takePicture();
+
+    // final imageParts = [
+    //   DataPart('image/jpeg', await image.readAsBytes()),
+    // ];
+    // final response = await model.generateContent([
+    //   Content.multi([prompt, ...imageParts])
+    // ]);
+    // print("----------> response");
+    // print(response.text);
+    // setState(() {
+    //   res = response.text ?? "";
+    // });
   }
 
   @override
@@ -105,7 +137,15 @@ class _CameraScreenState extends State<CameraScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Monument Historique')),
+      appBar: AppBar(
+        title: const Text('Monument Historique'), automaticallyImplyLeading: false,
+        // leading: IconButton(
+        //     icon: Icon(Icons.arrow_back),
+        //     onPressed: () {
+        //       Navigator.of(context).pop();
+        //     },
+        //   ),
+      ),
       body: Stack(
         children: [
           FutureBuilder<void>(
