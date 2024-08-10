@@ -16,7 +16,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.8+8
+version: 1.0.9+9
 
 environment:
   sdk: ">=3.3.4 <4.0.0"
@@ -28,23 +28,30 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  audio_video_progress_bar: ^2.0.3
+  audioplayers: ^6.0.0
+  cached_network_image: ^3.1.0
+  camera: ^0.11.0+2
+  card_swiper: ^3.0.1
+  carousel_slider: ^4.2.1
+  cupertino_icons: ^1.0.6
+  dash_chat_2: ^0.0.21
+  equatable: ^2.0.0
   flutter:
     sdk: flutter
-  # country_icons: ^2.0.2
-
-  audio_video_progress_bar: ^2.0.3
-  cached_network_image: ^3.1.0
-  card_swiper: ^3.0.1
-  cupertino_icons: ^1.0.6
-  equatable: ^2.0.0
   flutter_bloc: ^7.3.1
   flutter_screenutil: ^5.9.3
   flutter_spinkit: ^5.0.0
   flutter_staggered_grid_view: ^0.7.0
   flutter_widget_from_html: ^0.15.1
+  geocoding: ^3.0.0
+  geolocator: ^12.0.0
+  google_generative_ai: ^0.4.4
+  insta_image_viewer: ^1.0.4
   intl: ^0.19.0
   just_audio: ^0.9.38
   just_audio_background: ^0.0.1-beta.12
+  markdown_widget: ^2.3.2+6
   path: ^1.9.0
   photo_view: ^0.14.0
   readmore: ^3.0.0
@@ -52,9 +59,6 @@ dependencies:
   shared_preferences: ^2.0.15
   url_launcher: ^6.3.0
   video_player: ^2.8.3
-  audioplayers: ^6.0.0
-  carousel_slider: ^4.2.1
-  insta_image_viewer: ^1.0.4
 
 dev_dependencies:
   flutter_launcher_icons: "^0.13.1"
@@ -90,6 +94,7 @@ flutter:
     - assets/resto/
     - assets/popular/
     - assets/icons/
+    - assets/onboarding/
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

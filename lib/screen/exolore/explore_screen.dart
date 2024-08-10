@@ -16,21 +16,12 @@ class ExplloreScreen extends StatefulWidget {
 }
 
 class _ExplloreScreenState extends State<ExplloreScreen> {
-  // var scaffoldKey = GlobalKey<ScaffoldState>();
-  // List<BlogModel> blogs = [];
-  // late var data;
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     BlocProvider.of<BlogCubit>(context).initBlog();
-    // blogs =  fetchall();
   }
-
-//  fetchall() async {
-//     blogs = await Getdata().fetchQuestions();
-//   }
 
   String removeHtmlTags(String htmlText) {
     // Regular expression to match HTML tags
@@ -84,6 +75,7 @@ class _ExplloreScreenState extends State<ExplloreScreen> {
                       margin: EdgeInsets.symmetric(vertical: 12),
                       child: InkWell(
                         onTap: () {
+                          print("goto");
                           Navigator.push(
                             context,
                             MaterialPageRoute(
