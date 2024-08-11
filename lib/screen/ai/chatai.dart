@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:google_generative_ai/google_generative_ai.dart';
-import 'package:gooto/main_dev.dart';
+// import 'package:gooto/main_dev.dart';
+import 'package:gooto/main_production.dart';
 import 'package:markdown_widget/widget/markdown_block.dart';
-import 'package:dash_chat_2/dash_chat_2.dart';
 
 class ChatAIScreen extends StatefulWidget {
   @override

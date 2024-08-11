@@ -7,6 +7,7 @@ import 'package:gooto/models/blog_model.dart';
 import 'package:gooto/screen/exolore/explore_detail.dart';
 import 'package:gooto/services/api/getdata.dart';
 import 'package:gooto/utils/mystyle.dart';
+import 'package:gooto/utils/removehtml.dart';
 
 class ExplloreScreen extends StatefulWidget {
   static const routeName = 'Stories';
@@ -21,19 +22,6 @@ class _ExplloreScreenState extends State<ExplloreScreen> {
     // TODO: implement initState
     super.initState();
     BlocProvider.of<BlogCubit>(context).initBlog();
-  }
-
-  String removeHtmlTags(String htmlText) {
-    // Regular expression to match HTML tags
-    RegExp tagExp = RegExp(r"<[^>]*>", multiLine: true, caseSensitive: true);
-
-    // Replace all HTML tags with an empty string
-    String cleanedText = htmlText.replaceAll(tagExp, '');
-
-    // Replace multiple whitespaces with a single space and trim the string
-    cleanedText = cleanedText.replaceAll(RegExp(r'\s+'), ' ').trim();
-
-    return cleanedText.trim();
   }
 
   @override
@@ -140,7 +128,8 @@ class _ExplloreScreenState extends State<ExplloreScreen> {
                               width: ScreenUtil().screenWidth - 50,
                               padding: EdgeInsets.symmetric(horizontal: 16),
                               child: Text(
-                                removeHtmlTags(state.stories![indexx].desc.toString())
+                                RemoveHtmlTags()
+                                    .removeHtmlTags(state.stories![indexx].desc.toString())
                                     .substring(0, 98),
                                 style: TextStyle(
                                   fontSize: 14.sp,

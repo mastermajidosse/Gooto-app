@@ -3,15 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gooto/bloc/bproviders.dart';
 import 'package:gooto/config/save.dart';
-import 'package:gooto/models/blog_model.dart';
-import 'package:gooto/models/post_model.dart';
-import 'package:gooto/screen/auth/onboarding_screen.dart';
 import 'package:gooto/utils/MyStyle.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'screen/feed/home_screen.dart';
-import 'screen/feed/readmore_screen.dart';
-import 'screen/feed/save_screen.dart';
-import 'screen/auth/fullscreenpopup.dart';
+
 import 'utils/route_genetator.dart' as router;
 // import 'package:gooto/screen/auth/login_screen.dart';
 

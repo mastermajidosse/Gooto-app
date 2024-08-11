@@ -15,13 +15,6 @@ late dynamic response;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  HttpOverrides.global = MyHttpOverrides();
-
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-
-  AppConfig.env = Environment.PROD;
-
   model =
       GenerativeModel(model: 'gemini-1.5-pro', apiKey: "AIzaSyBg1oUYaYkgffZSZKPCZcrBaL3H0vQkwXc");
   final content = [
@@ -29,6 +22,14 @@ void main() async {
         "you're a moroccan guide, if user asks you about anything related to morocco culture monument or Moroccan food or clothes answer as expert guide for morocco")
   ];
   response = await model.generateContent(content);
+  print(response.text);
+
+  HttpOverrides.global = MyHttpOverrides();
+
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+
+  AppConfig.env = Environment.PROD;
 
   // firsttime();
 
