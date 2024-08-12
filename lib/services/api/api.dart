@@ -25,7 +25,9 @@ class Api {
   Api._internal();
 
   Future<dynamic> httpPostWithFile(String endPath,
-      {File? file, Map<String, String>? body, String fileType = 'avatar'}) async {
+      {File? file,
+      Map<String, String>? body,
+      String fileType = 'avatar'}) async {
     String fileParam = fileType.toString();
     if (body == null) body = {'key': 'empty'};
 
@@ -47,7 +49,8 @@ class Api {
       if (file != null) {
         var length = await file.length();
         request.files.add(
-          http.MultipartFile('$fileParam', file.openRead(), length, filename: basename(file.path)),
+          http.MultipartFile('$fileParam', file.openRead(), length,
+              filename: basename(file.path)),
         );
       }
       var response = await http.Response.fromStream(await request.send());
@@ -160,7 +163,8 @@ class Api {
     return responseJson;
   }
 
-  Future<dynamic> httpGetNoT(String endPath, {Map<String, String>? query}) async {
+  Future<dynamic> httpGetNoT(String endPath,
+      {Map<String, String>? query}) async {
     Uri uri = Uri.https(url, "$path/$endPath", null);
     if (query != null) {
       uri = Uri.https(url, "$path/$endPath", query);
@@ -206,15 +210,18 @@ class Api {
       case HttpStatus.badRequest:
       case HttpStatus.unprocessableEntity:
         var exception = _parseError(responseJson);
-        throw BadRequestException(exception['message'], exception['code'], exception['lang']);
+        throw BadRequestException(
+            exception['message'], exception['code'], exception['lang']);
       case HttpStatus.unauthorized:
       case HttpStatus.forbidden:
         var exception = _parseError(responseJson);
-        throw UnauthorisedException(exception['message'], exception['code'], exception['lang']);
+        throw UnauthorisedException(
+            exception['message'], exception['code'], exception['lang']);
       case HttpStatus.internalServerError:
       default:
         var exception = _parseError(responseJson);
-        throw FetchDataException(exception['message'], exception['code'], exception['lang']);
+        throw FetchDataException(
+            exception['message'], exception['code'], exception['lang']);
     }
   }
 

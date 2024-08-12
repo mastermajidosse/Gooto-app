@@ -21,13 +21,12 @@ class _DetailsExploreState extends State<DetailsExplore> {
 
   @override
   void initState() {
-    // TODO: implement initState
-    // BlocProvider.of<StoreCubit>(context).getAllProducts();
     super.initState();
   }
 
   String addStyles(String txt) {
-    return txt.replaceAll("<p>", "<p style=\"color: #444; text-align: justify;\">");
+    return txt.replaceAll(
+        "<p>", "<p style=\"color: #444; text-align: justify;\">");
   }
 
   @override
@@ -41,8 +40,9 @@ class _DetailsExploreState extends State<DetailsExplore> {
             child: Container(
               height: 330.h,
               clipBehavior: Clip.hardEdge,
-              decoration:
-                  BoxDecoration(color: Colors.black, borderRadius: BorderRadius.circular(30.r)),
+              decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(30.r)),
               child: CachedNetworkImage(
                 placeholder: (context, url) => Center(
                   child: CircularProgressIndicator(
@@ -99,7 +99,8 @@ class _DetailsExploreState extends State<DetailsExplore> {
                 Row(
                   children: [
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
                       decoration: BoxDecoration(
                           color: Colors.grey.withOpacity(.1),
                           borderRadius: BorderRadius.circular(10.r)),
@@ -130,7 +131,8 @@ class _DetailsExploreState extends State<DetailsExplore> {
                     blogModel.price != null
                         ? Text(
                             blogModel.price.toString(),
-                            style: TextStyle(fontSize: 15.sp, color: Colors.blue),
+                            style:
+                                TextStyle(fontSize: 15.sp, color: Colors.blue),
                           )
                         : Container()
                   ],
@@ -140,7 +142,8 @@ class _DetailsExploreState extends State<DetailsExplore> {
                   children: [
                     Text(
                       "Overview:",
-                      style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
+                      style: TextStyle(
+                          fontSize: 18.sp, fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),
@@ -152,11 +155,6 @@ class _DetailsExploreState extends State<DetailsExplore> {
                   // set the default styling for text
                   textStyle: TextStyle(fontSize: 17.sp, height: 1.3),
                 ),
-                // SizedBox(height: 20.h),
-                // Text(
-                //   "Preview",
-                //   style: TextStyle(fontSize: 18.sp),
-                // ),
                 SizedBox(height: 30.h),
                 Container(
                   // color: Colors.red,
@@ -178,23 +176,13 @@ class _DetailsExploreState extends State<DetailsExplore> {
                               ),
                             ),
                             decoration: BoxDecoration(
-                                color: Colors.grey[300], borderRadius: BorderRadius.circular(10.r)),
+                                color: Colors.grey[300],
+                                borderRadius: BorderRadius.circular(10.r)),
                           )),
                 ),
                 SizedBox(height: 40.h),
               ],
             ),
-            //  child : Text(blog.desc.toString()),
-            // child: Text(
-            //   // blogModel.desc.toString(),
-            //   "Located in the south of Morocco, Dakhla is a small part of paradise, lost between the waters of the Atlantic and the sands of the Sahara. It gives you a complete change of scenery. Kilometres of beaches expand from one side of the town to the other : an opportunity to relax, and indulge in all kinds of water activities.These shores are one of the most beautiful ones in Morocco. These pearls are an absolute haven of peace ; an ideal place to bask in the 25-degree sun all year round.In the surroundings, the PK25 and Foum El Bouir beaches are particularly famous. While PK25 is a perfect place for relaxation, where to swim quietly in the calm and crystalline waters of the lagoon, the atmosphere of Foum El Bouir is more lively.Being the perfect places for sliding sports : Surfers, kitesurfers and windsurfers, whether amateurs or professionals, meet here to experience thrilling challenges with waves and winds. « Pointe de Dragon » is another internationally renowned spot : waves are impressive and the most famous surfers have come in droves to these spectacular tubes that run for hundreds of metres.Leading to sub-Saharan Africa, Dakhla is a gateway to a never-ending array of thrilling and exciting activities ! ",
-            //   style: TextStyle(
-            //       fontSize: 19.sp,
-            //       height: 1.3,
-            //       color: Colors.black.withOpacity(.7)),
-            //   textAlign: TextAlign.justify,
-            //   // style: Mystyle.blackCatTextStyle,
-            // ),
           ),
         ],
       ),

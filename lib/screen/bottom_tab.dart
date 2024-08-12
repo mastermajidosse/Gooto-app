@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gooto/screen/ai/camera_screen.dart';
 import 'package:gooto/screen/ai/chatai.dart';
 import 'package:gooto/screen/audio/AudioGeneral.dart';
-// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gooto/screen/feed/home_screen.dart';
 import 'package:gooto/screen/feed/save_screen.dart';
 import 'package:gooto/screen/others/image_screen.dart';
@@ -51,7 +50,6 @@ class _BottomTabBarrState extends State<BottomTabBarr> {
           height: 50.w,
           width: double.infinity,
           child: BottomAppBar(
-            // notchMargin: 4.0,
             color: widget.widgetoutside == 1 ? Colors.black : Colors.white,
             elevation: 0,
             child: Row(
@@ -63,8 +61,7 @@ class _BottomTabBarrState extends State<BottomTabBarr> {
                 costumcollum("assets/icons/cameraai.png", "assets/icons/cameraai.png", 2),
                 costumcollum("assets/icons/news.png", "assets/icons/news.png", 3),
                 costumcollum("assets/icons/geminig.png", "assets/icons/geminig.png", 4),
-                // costumcollum("assets/icons/audio.png", "assets/icons/audio.png", 5),
-                // costumcollum(Icons.person, Icons.person_outline, 4),
+                
               ],
             ),
           ),
@@ -80,9 +77,7 @@ class _BottomTabBarrState extends State<BottomTabBarr> {
       highlightColor: Colors.transparent,
       splashColor: Colors.transparent,
       child: Container(
-        // width: ScreenUtil().screenWidth / 3,
         child: Image.asset(
-          // _selectedIndex == numb ? img : txt,
           img,
           width: _selectedIndex == numb ? 28 : 23,
           color: _selectedIndex == numb ? MyStyle.primarycolo : Colors.black54,

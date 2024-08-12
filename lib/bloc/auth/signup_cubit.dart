@@ -13,7 +13,6 @@ class SignupCubit extends Cubit<SignupState> {
   registerNew(UserModel new_user, context) async {
     emit(SignupLoading());
     try {
-      print("SignupLoading");
       var response = await userRepository.register(new_user);
       UserRepository().saveToken(response);
       userdata = UserModel.fromJson(response);

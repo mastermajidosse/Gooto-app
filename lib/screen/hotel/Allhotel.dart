@@ -55,10 +55,6 @@ class _AllHotelScreenState extends State<AllHotelScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        // leading: IconButton(
-        //   icon: Icon(Icons.arrow_back, color: Colors.black),
-        //   onPressed: () {},
-        // ),
         title: Text("Hotel Destination"),
       ),
       body: SingleChildScrollView(
@@ -101,8 +97,8 @@ class PlaceCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (_) => FullScreenPop(hotel: place,
-              
+            builder: (_) => FullScreenPop(
+              hotel: place,
             ),
           ),
         );

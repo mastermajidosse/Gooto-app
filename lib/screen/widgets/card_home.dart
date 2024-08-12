@@ -22,7 +22,8 @@ class CardHome extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 12),
       child: InkWell(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (_) => MoreScreen()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (_) => MoreScreen()));
         },
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 16),
@@ -75,12 +76,6 @@ class CardHome extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
               SizedBox(height: 6.h),
-              // Text(
-              //   PostModel().parseHtmlString(post.desc.toString()),
-              //   style: MyStyle.dash10TextStyle,
-              //   maxLines: 2,
-              //   overflow: TextOverflow.ellipsis,
-              // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,

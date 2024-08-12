@@ -4,11 +4,8 @@ import 'dart:typed_data';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:flutter_email_sender/flutter_email_sender.dart';
-// import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gooto/bloc/profile/profile_cubit.dart';
-import 'package:gooto/screen/profile/edit_profile_screen.dart';
 import 'package:gooto/screen/profile/signup_profile_screen.dart';
 import 'package:gooto/services/app_config.dart';
 import 'package:gooto/services/service/auth_service.dart';
@@ -26,8 +23,10 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
-  var image = "https://i0.wp.com/rouelibrenmaine.fr/wp-content/uploads/2018/10/empty-avatar.png";
-  String sh = "مرحبا بكم في تطبيق التراس حيت نشارك جميع معلومات وقصص واخبار اللتراس المغرب ";
+  var image =
+      "https://i0.wp.com/rouelibrenmaine.fr/wp-content/uploads/2018/10/empty-avatar.png";
+  String sh =
+      "مرحبا بكم في تطبيق التراس حيت نشارك جميع معلومات وقصص واخبار اللتراس المغرب ";
   Future<bool> csac() async {
     return false;
   }
@@ -63,14 +62,16 @@ class _SettingScreenState extends State<SettingScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               mainAxisSize: MainAxisSize.max,
               children: [
-                Icon(Icons.favorite_outline, color: Colors.transparent, size: 46),
+                Icon(Icons.favorite_outline,
+                    color: Colors.transparent, size: 46),
                 //Image.memory(widget.imageBytes!),
                 UserImageWidget(
                   // AppConfig.defaultImg,
                   "https://media.licdn.com/dms/image/D4E03AQFxhq6guuqHHw/profile-displayphoto-shrink_800_800/0/1719602654033?e=1725494400&v=beta&t=c3aLOv9EwGUhG30Y9IkZxwQdNF8c_zGEb79G-E4IXuk",
                   ScreenUtil().setHeight(110),
                 ),
-                Icon(Icons.favorite_outline, color: Colors.transparent, size: 46),
+                Icon(Icons.favorite_outline,
+                    color: Colors.transparent, size: 46),
               ],
             ),
           ),
@@ -85,26 +86,7 @@ class _SettingScreenState extends State<SettingScreen> {
           ),
 
           SizedBox(height: 18.h),
-
-          // InkWell(
-          //   onTap: () {
-          //     // Navigator.pushNamed(context, );
-          //     // Navigator.push(context,
-          //     //     MaterialPageRoute(builder: (_) => EditProfileScreen(state.myuser)));
-          //   },
-          //   child: Container(
-          //     decoration: MyStyle.cardhome(),
-          //     // width: ,
-          //     height: 47,
-          //     alignment: Alignment.center,
-          //     child: Text(
-          //       "Edit Profile",
-          //       style: MyStyle.dash13TextStyle,
-          //     ),
-          //   ),
-          // ),
           SizedBox(height: 55.h),
-
           Container(
             decoration: BoxDecoration(
               border: Border(
@@ -168,18 +150,7 @@ class _SettingScreenState extends State<SettingScreen> {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: ListTile(
-                onTap: () async {
-                  // Navigator.of(context).push(MaterialPageRoute(
-                  //     builder: (_) => RulesScreen()));
-                  // final Email email = Email(
-                  //   body: "",
-                  //   subject: '',
-                  //   recipients: ['mastermajidosse@gmail.com'],
-                  //   isHTML: false,
-                  // );
-
-                  // await FlutterEmailSender.send(email);
-                },
+                onTap: () async {},
                 title: Padding(
                   padding: EdgeInsets.only(left: 16),
                   child: Text(
@@ -203,12 +174,7 @@ class _SettingScreenState extends State<SettingScreen> {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: ListTile(
-                onTap: () {
-                  // ProfileCubit().
-                  // UserRepository().signOut().then((value) {
-                  //   Phoenix.rebirth(context);
-                  // });
-                },
+                onTap: () {},
                 title: Padding(
                   padding: EdgeInsets.only(left: 16),
                   child: Text(

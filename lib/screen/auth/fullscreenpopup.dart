@@ -26,183 +26,104 @@ class FullScreenPop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: Stack(
-    children: [
-      Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: NetworkImage(hotel.img),
-            fit: BoxFit.cover,
-          ),
-        ),
-        height: double.infinity,
-        width: double.infinity,
-      ),
-      Positioned(
-        top: 50,
-        left: 20,
-        child: InkWell(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Container(
-            padding: EdgeInsets.all(8.0),
+        children: [
+          Container(
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.5),
-              shape: BoxShape.circle,
+              image: DecorationImage(
+                image: NetworkImage(hotel.img),
+                fit: BoxFit.cover,
+              ),
             ),
-            child: Icon(
-              Icons.arrow_back,
-              color: Colors.black,
+            height: double.infinity,
+            width: double.infinity,
+          ),
+          Positioned(
+            top: 50,
+            left: 20,
+            child: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Container(
+                padding: EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.5),
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(
+                  Icons.arrow_back,
+                  color: Colors.black,
+                ),
+              ),
             ),
           ),
-        ),
-      ),
-      Positioned(
-        bottom: 0,
-        left: 0,
-        right: 0,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 26.0),
-              child: Text(
-                "Amazing Hotel",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 23,
-                ),
-              ),
-            ),
-            SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.only(left: 26.0),
-              child: Text(
-                hotel.title,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 36,
-                ),
-              ),
-            ),
-            SizedBox(height: 50),
-            Center(
-              child: InkWell(
-                onTap: () async {
-                  if (!await launchUrl(Uri.parse(hotel.url))) {
-                    throw Exception('Could not launch ${hotel.url}');
-                  }
-                },
-                splashColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: getColor(),
-                  ),
-                  width: 350,
-                  height: 45,
-                  alignment: Alignment.center,
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 26.0),
                   child: Text(
-                    "Book Now",
+                    "Amazing Hotel",
                     style: TextStyle(
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
+                      fontWeight: FontWeight.normal,
+                      fontSize: 23,
                     ),
                   ),
                 ),
-              ),
+                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.only(left: 26.0),
+                  child: Text(
+                    hotel.title,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 36,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 50),
+                Center(
+                  child: InkWell(
+                    onTap: () async {
+                      if (!await launchUrl(Uri.parse(hotel.url))) {
+                        throw Exception('Could not launch ${hotel.url}');
+                      }
+                    },
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: getColor(),
+                      ),
+                      width: 350,
+                      height: 45,
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Book Now",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 38),
+              ],
             ),
-            SizedBox(height: 38),
-          ],
-        ),
+          ),
+        ],
       ),
-    ],
-  ),
-);
-      // Container(
-      //   decoration: BoxDecoration(
-      //     image: DecorationImage(
-      //       image: NetworkImage(hotel.img),
-      //       fit: BoxFit.cover,
-      //     ),
-      //   ),
-      //   height: double.infinity,
-      //   width: double.infinity,
-        
-      //   child: Column(
-      //     mainAxisAlignment: MainAxisAlignment.end,
-      //     crossAxisAlignment: CrossAxisAlignment.start,
-      //     children: [
-      //       Padding(
-      //         padding: const EdgeInsets.only(left: 26.0),
-      //         child: Text(
-      //           "Amazing Hotel",
-      //           style: TextStyle(
-      //             color: Colors.white,
-      //             fontWeight: FontWeight.normal,
-      //             fontSize: 23,
-      //           ),
-      //         ),
-      //       ),
-      //       SizedBox(height: 10),
-      //       Padding(
-      //         padding: const EdgeInsets.only(left: 26.0),
-      //         child: Text(
-      //           hotel.title,
-      //           style: TextStyle(
-      //             color: Colors.white,
-      //             fontWeight: FontWeight.bold,
-      //             fontSize: 36,
-      //           ),
-      //         ),
-      //       ),
-      //       SizedBox(height: 50),
-      //       Center(
-      //         child: InkWell(
-      //           onTap: () async {
-      //             if (!await launchUrl(Uri.parse(hotel.url))) {
-      //               throw Exception('Could not launch ${hotel.url}');
-      //             }
-      //           },
-      //           splashColor: Colors.transparent,
-      //           highlightColor: Colors.transparent,
-      //           child: Container(
-      //             decoration: BoxDecoration(
-      //               borderRadius: BorderRadius.circular(15),
-      //               color: getColor(),
-      //             ),
-      //             width: 350,
-      //             height: 45,
-      //             alignment: Alignment.center,
-      //             child: Text(
-      //               "Book Now",
-      //               style: TextStyle(
-      //                 color: Colors.white,
-      //                 fontWeight: FontWeight.bold,
-      //                 fontSize: 16,
-      //               ),
-      //             ),
-      //           ),
-      //         ),
-      //       ),
-      //       SizedBox(height: 38),
-      //     ],
-      //   ),
-      // ),
-   // );
+    );
   }
 }
-// appBar: AppBar(
-      //   title: Align(
-      //     alignment: Alignment.center,
-      //     child: 
-      //   Text(hotel.title,textAlign: TextAlign.center,),)
-        
-      // ),
