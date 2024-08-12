@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:gooto/screen/auth/splash_screen.dart';
-//import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:gooto/utils/mystyle.dart';
 import 'package:http/http.dart' as http;
 import 'package:geolocator/geolocator.dart';
