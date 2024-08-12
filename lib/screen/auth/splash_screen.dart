@@ -33,8 +33,8 @@ class _SplashScreenState extends State<SplashScreen>
   late double dotRadius;
   void initializegemini()async{
  model = GenerativeModel(
-      model: 'gemini-1.5-pro',
-      apiKey: "AIzaSyBg1oUYaYkgffZSZKPCZcrBaL3H0vQkwXc");
+      model: 'gemini-1.5-flash',
+      apiKey: "AIzaSyCFvdhfzTCJ3khYfDOdROPAi8ehuTOQ72o");
   final content = [
     Content.text(
         "you're a moroccan guide, if user asks you about anything related to morocco culture monument or Moroccan food or clothes answer as expert guide for morocco")
