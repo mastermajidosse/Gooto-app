@@ -19,8 +19,8 @@ class _CameraScreenState extends State<CameraScreen> {
   late Future<void> _initializeControllerFuture;
   final ValueNotifier<bool> _actionNotifier = ValueNotifier<bool>(true);
   final model = GenerativeModel(
-    model: 'gemini-1.5-pro',
-    apiKey: "AIzaSyDHRCG6Ig1LIn28lfRljDrdNZIHvF5a908",
+    model: 'gemini-1.5-flash',
+    apiKey: "AIzaSyBUePPrLujsYnIt4_6G9TYCQEL2YxrX2kg",
   );
 
   String res = "";

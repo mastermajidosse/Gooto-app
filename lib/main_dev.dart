@@ -14,7 +14,7 @@ late dynamic response;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   model =
-      GenerativeModel(model: 'gemini-1.5-pro', apiKey: "AIzaSyBg1oUYaYkgffZSZKPCZcrBaL3H0vQkwXc");
+      GenerativeModel(model: 'gemini-1.5-flash', apiKey: "AIzaSyBUePPrLujsYnIt4_6G9TYCQEL2YxrX2kg");
   final content = [
     Content.text(
         "you're a moroccan guide, if user asks you about anything related to morocco culture monument or Moroccan food or clothes answer as expert guide for morocco")
