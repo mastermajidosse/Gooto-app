@@ -8,9 +8,9 @@ import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 
-late List<CameraDescription> cameras;
-late final GenerativeModel model;
-late dynamic response;
+//late List<CameraDescription> cameras;
+//late final GenerativeModel model;
+//late dynamic response;
 // int? initScreen;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

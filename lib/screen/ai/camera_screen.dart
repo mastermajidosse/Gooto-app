@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:gooto/main_dev.dart';
+import 'package:gooto/screen/auth/splash_screen.dart';
 import 'package:markdown_widget/widget/all.dart';
 
 class CameraScreen extends StatefulWidget {
