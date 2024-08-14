@@ -15,8 +15,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  // //final _scaffoldKey = GlobalKey<ScaffoldState>();
-
   final _formKey = GlobalKey<FormState>();
 
   final _usernameController = TextEditingController();
@@ -151,19 +149,9 @@ class _LoginPageState extends State<LoginPage> {
                             textAlign: TextAlign.center,
                           ),
                           onPressed: () {
-                            // if (_formKey.currentState!.validate()) {
-                            //   FocusScope.of(context).requestFocus(FocusNode());
-                            //   context.read<LoginCubit>().login(context,
-                            //       _usernameController.text.trim(), _passwordController.text.trim());
-                            // }
-                            // FocusScope.of(context).requestFocus(FocusNode());
-                            // if (_formKey.currentState!.validate()) {
-                            //   context.read<LoginCubit>().login(context,
-                            //       _usernameController.text.trim(), _passwordController.text.trim());
-                            // }
-                            //
                             Future.delayed(Duration(seconds: 5)).then((_) {
-                              Navigator.pushReplacementNamed(context, AppStartScreen.routeName);
+                              Navigator.pushReplacementNamed(
+                                  context, AppStartScreen.routeName);
                             });
                           },
                         ),
@@ -181,7 +169,8 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         InkWell(
                           onTap: () {
-                            Navigator.pushNamed(context, RegisterScreen.routeName);
+                            Navigator.pushNamed(
+                                context, RegisterScreen.routeName);
                           },
                           borderRadius: BorderRadius.circular(4.0),
                           child: Padding(
@@ -198,7 +187,8 @@ class _LoginPageState extends State<LoginPage> {
                     Center(
                       child: InkWell(
                         onTap: () {
-                          Navigator.pushReplacementNamed(context, BottomTabBarr.routeName);
+                          Navigator.pushReplacementNamed(
+                              context, BottomTabBarr.routeName);
                         },
                         child: Container(
                           child: Text(

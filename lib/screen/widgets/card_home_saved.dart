@@ -16,12 +16,7 @@ class CardHomeSaved extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 12),
       child: InkWell(
-        onTap: () {
-          // BlocProvider.of<FeedCubit>(context).getpost(post.title).then((value) {
-          //   Navigator.push(
-          //       context, MaterialPageRoute(builder: (_) => MoreScreen(value)));
-          // });
-        },
+        onTap: () {},
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 16),
           width: double.infinity,

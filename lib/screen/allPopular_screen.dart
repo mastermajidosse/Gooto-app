@@ -53,10 +53,6 @@ class _PopularPlacesScreenState extends State<PopularPlacesScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        // leading: IconButton(
-        //   icon: Icon(Icons.arrow_back, color: Colors.black),
-        //   onPressed: () {},
-        // ),
         title: Text("Popular Destination"),
       ),
       body: SingleChildScrollView(
@@ -124,7 +120,8 @@ class PlaceCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(place.productName, style: TextStyle(fontWeight: FontWeight.bold)),
+                    Text(place.productName,
+                        style: TextStyle(fontWeight: FontWeight.bold)),
                     Text(place.location.toString(), style: TextStyle()),
                   ],
                 ),

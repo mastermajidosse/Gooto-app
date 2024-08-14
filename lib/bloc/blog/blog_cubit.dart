@@ -21,15 +21,4 @@ class BlogCubit extends Cubit<BlogState> {
       emit(BlogState(loading: false, errorMessage: e.toString()));
     }
   }
-  // initBlog() async {
-  //   emit(BlogState(loading: true));
-  //   try {
-  //     blogModels = await PostsRepo().getarticle();
-  //     print("titke :  " + blogModels.first.title!);
-  //     emit(BlogState(loading: false, stories: blogModels));
-  //   } catch (e) {
-  //     print(e);
-  //     emit(BlogState(loading: false, errorMessage: e.toString()));
-  //   }
-  // }
 }

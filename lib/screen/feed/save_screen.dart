@@ -75,25 +75,21 @@ class _SaveScreenState extends State<SaveScreen> {
                 ],
               ),
             ),
-           SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Container(
               height: 45,
               width: 322,
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(60)),
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(60)),
               child: TextFormField(
                 onFieldSubmitted: (v) {
                   print(v);
                 },
                 decoration: InputDecoration(
                   prefixIcon: InkWell(
-                    onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => const SearchScreen(),
-                      //   ),
-                      // );
-                    },
+                    onTap: () {},
                     child: Image.asset(
                       'assets/images/search.png',
                       height: 24,
@@ -119,7 +115,9 @@ class _SaveScreenState extends State<SaveScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 30,),
+            SizedBox(
+              height: 30,
+            ),
             Column(
               children: [
                 Container(

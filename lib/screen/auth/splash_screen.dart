@@ -2,12 +2,15 @@ import 'dart:math';
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:gooto/main_dev.dart';
 import 'package:gooto/screen/auth/login_screen.dart';
 import 'package:gooto/utils/MyStyle.dart';
 import 'package:gooto/screen/bottom_tab.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+late final GenerativeModel model;
+late dynamic response;
+late List<CameraDescription> cameras;
 class SplashScreen extends StatefulWidget {
   static const routeName = 'SplashScreen';
 
@@ -19,7 +22,8 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController controller;
   late Animation<double> animation_rotation;
   late Animation<double> animation_radius_in;
@@ -27,28 +31,34 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
   late double radius;
   late double dotRadius;
+  void initializegemini()async{
+ model = GenerativeModel(
+      model: 'gemini-1.5-flash',
+      apiKey: "AIzaSyCFvdhfzTCJ3khYfDOdROPAi8ehuTOQ72o");
+  final content = [
+    Content.text(
+        "you're a moroccan guide, if user asks you about anything related to morocco culture monument or Moroccan food or clothes answer as expert guide for morocco")
+  ];
+  response = await model.generateContent(content);
+  }
 
   @override
   void initState() {
+    
     super.initState();
     radius = widget.radius;
     dotRadius = widget.dotRadius;
 
     if (widget.radius != 50.5)
-      Future.delayed(Duration(seconds: 5)).then((_) async{
-          await availableCameras().then((value){cameras = value;
-         Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => BottomTabBarr()),
-        );
+      Future.delayed(Duration(seconds: 5)).then((_) async {
+        await availableCameras().then((value) {
+          initializegemini();
+          cameras = value;
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => BottomTabBarr()),
+          );
         });
-        // Navigator.pushReplacementNamed(context, LoginPage.routeName);
-        // Navigator.pushReplacementNamed(context, BottomTabBarr.routeName);
-
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(builder: (context) => BottomTabBarr()),
-        // );
       });
 
     controller = AnimationController(
@@ -274,46 +284,6 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                         radius * sin(0.0 + 7.6 * pi / 4),
                       ),
                     ),
-                    // Transform.translate(
-                    //   child: Dot(
-                    //     radius: dotRadius,
-                    //     color: Colors.redAccent,
-                    //   ),
-                    //   offset: Offset(
-                    //     radius * cos(0.0 + 4 * pi / 4),
-                    //     radius * sin(0.0 + 4 * pi / 4),
-                    //   ),
-                    // ),
-                    // Transform.translate(
-                    //   child: Dot(
-                    //     radius: dotRadius,
-                    //     color: Colors.lightGreen,
-                    //   ),
-                    //   offset: Offset(
-                    //     radius * cos(0.0 + 5 * pi / 4),
-                    //     radius * sin(0.0 + 5 * pi / 4),
-                    //   ),
-                    // ),
-                    // Transform.translate(
-                    //   child: Dot(
-                    //     radius: dotRadius,
-                    //     color: Colors.orangeAccent,
-                    //   ),
-                    //   offset: Offset(
-                    //     radius * cos(0.0 + 6 * pi / 4),
-                    //     radius * sin(0.0 + 6 * pi / 4),
-                    //   ),
-                    // ),
-                    // Transform.translate(
-                    //   child: Dot(
-                    //     radius: dotRadius,
-                    //     color: Colors.blueAccent,
-                    //   ),
-                    //   offset: Offset(
-                    //     radius * cos(0.0 + 7 * pi / 4),
-                    //     radius * sin(0.0 + 7 * pi / 4),
-                    //   ),
-                    // ),
                   ],
                 ),
               ),

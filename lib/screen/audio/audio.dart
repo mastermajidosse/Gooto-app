@@ -1,12 +1,8 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
-
 import 'package:audioplayers/audioplayers.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-// import 'package:just_audio/just_audio.dart';
-// import 'package:assets_audio_player/assets_audio_player.dart';
 
 class AudioPlayerScreen extends StatefulWidget {
   List<String> listphoto;
@@ -21,7 +17,6 @@ class AudioPlayerScreen extends StatefulWidget {
 class _AudioPlayerScreenState extends State<AudioPlayerScreen> {
   final audioPlayer = AudioPlayer();
   bool isPlaying = false;
-  // List<String> listphoto=["assets/sTaiwnMc.jpeg","assets/icone.png","assets/sTaiwnMc.jpeg"];
   Duration duration = Duration.zero;
   Duration position = Duration.zero;
   String FormatTime(Duration d) {
@@ -69,33 +64,7 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen> {
       url.path,
     );
   }
-//  void _setupAudio() {
-//   _assetsAudioPlayer.open(
-//     Audio("assets/audio/keep_connected.mp3"),
-//     autoStart: false,
-//     showNotification: true,
-//   );
 
-//   _assetsAudioPlayer.currentPosition.listen((position) {
-//     setState(() {
-//       _currentAudioPosition = position.inSeconds;
-//     });
-//   });
-
-//   _assetsAudioPlayer.current.listen((current) {
-//     setState(() {
-//       _currentAudioDuration = current?.value?.audio.duration?.inSeconds ?? 0;
-//     });
-//   });
-// }
-
-//   void _playPause() {
-//     if (_assetsAudioPlayer.isPlaying.value) {
-//       _assetsAudioPlayer.pause();
-//     } else {
-//       _assetsAudioPlayer.play();
-//     }
-//   }
   Widget PlaceCard(String img) {
     return Card(
       elevation: 10,
@@ -178,38 +147,7 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen> {
                     autoPlayAnimationDuration: Duration(milliseconds: 800),
                     viewportFraction: 0.8,
                   ),
-                )
-                //   CarouselSlider(
-
-                //     items: [1,2,3,4].map((e){
-                //       return  ClipRRect(
-                //   borderRadius: BorderRadius.circular(20),
-                //   child: Image.asset("assets/sTaiwnMc.jpeg"
-                //   ,width: double.infinity,
-                //   height: 350,
-                //   fit: BoxFit.cover,),
-                // );
-
-                //     }).toList(),
-                //     options:
-                //      CarouselOptions(height: 200),
-                //   )
-                //  MasonryGridView.builder(
-                //   physics: NeverScrollableScrollPhysics(),
-                //   shrinkWrap: true,
-                //   primary: false,
-                //    // scrollDirection: Axis.horizontal,
-                //   gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(
-                //     crossAxisCount: 1,
-                //   ),
-                //   itemCount: listphoto.length,
-                //   itemBuilder: (context, index) {
-                //     final img=listphoto[index];
-                //     //final CardModule card = _filteredItems[index];
-                //     return PlaceCard(img);
-                //   },
-                // ),
-                ),
+                )),
             SizedBox(
               height: 10,
             ),
@@ -246,16 +184,12 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen> {
                           child: Text(
                             e,
                             style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
                             textAlign: TextAlign.center,
                           ),
                         ),
-                        // Image.asset(
-                        //   e,
-                        //   width: double.infinity,
-                        //   height: 350,
-                        //   fit: BoxFit.cover,
-                        // ),
                         Positioned.fill(
                           child: Container(
                             decoration: BoxDecoration(
@@ -293,7 +227,8 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen> {
                 max: duration.inSeconds.toDouble(),
                 value: position.inSeconds.toDouble(),
                 activeColor: Colors.black, // Set the active color
-                inactiveColor: Colors.grey.withOpacity(0.5), // Set the inactive color
+                inactiveColor:
+                    Colors.grey.withOpacity(0.5), // Set the inactive color
                 thumbColor: Colors.black,
                 onChanged: (value) async {
                   final postion = Duration(seconds: value.toInt());
@@ -328,115 +263,98 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen> {
               //color: Colors.black,
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16),
-                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.transparent,
-                    radius: 25,
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.repeat_outlined,
-                        color: Colors.black,
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Colors.transparent,
+                        radius: 25,
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.repeat_outlined,
+                            color: Colors.black,
+                          ),
+                          iconSize: 30,
+                          onPressed: () async {},
+                        ),
                       ),
-                      iconSize: 30,
-                      onPressed: () async {
-                        //       final newDuration = duration + Duration(seconds: 10);
-                        //       final newpostion =position+Duration(seconds: 10);
-                        // setState(() {
-                        //   duration = newDuration;
-                        //   position=newpostion;
-
-                        // });
-                        // await audioPlayer.seek(position);
-                        // await audioPlayer.resume();
-                        //await audioPlayer.seek(newDuration);
-                      },
-                    ),
-                  ),
-                  CircleAvatar(
-                    backgroundColor: Colors.transparent,
-                    radius: 25,
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.forward_10,
-                        color: Colors.black,
+                      CircleAvatar(
+                        backgroundColor: Colors.transparent,
+                        radius: 25,
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.forward_10,
+                            color: Colors.black,
+                          ),
+                          iconSize: 30,
+                          onPressed: () async {
+                            final newDuration =
+                                duration + Duration(seconds: 10);
+                            final newpostion = position + Duration(seconds: 10);
+                            setState(() {
+                              duration = newDuration;
+                              position = newpostion;
+                            });
+                            await audioPlayer.seek(position);
+                            await audioPlayer.resume();
+                          },
+                        ),
                       ),
-                      iconSize: 30,
-                      onPressed: () async {
-                        final newDuration = duration + Duration(seconds: 10);
-                        final newpostion = position + Duration(seconds: 10);
-                        setState(() {
-                          duration = newDuration;
-                          position = newpostion;
-                        });
-                        await audioPlayer.seek(position);
-                        await audioPlayer.resume();
-                        //await audioPlayer.seek(newDuration);
-                      },
-                    ),
-                  ),
-                  CircleAvatar(
-                    backgroundColor: Colors.transparent,
-                    radius: 25,
-                    child: IconButton(
-                      icon: Icon(
-                        isPlaying ? Icons.pause_circle_outline : Icons.play_arrow_outlined,
-                        color: Colors.black,
+                      CircleAvatar(
+                        backgroundColor: Colors.transparent,
+                        radius: 25,
+                        child: IconButton(
+                          icon: Icon(
+                            isPlaying
+                                ? Icons.pause_circle_outline
+                                : Icons.play_arrow_outlined,
+                            color: Colors.black,
+                          ),
+                          iconSize: 30,
+                          onPressed: () async {
+                            if (isPlaying) {
+                              await audioPlayer.pause();
+                            } else {
+                              await audioPlayer.resume();
+                            }
+                          },
+                        ),
                       ),
-                      iconSize: 30,
-                      onPressed: () async {
-                        if (isPlaying) {
-                          await audioPlayer.pause();
-                        } else {
-                          await audioPlayer.resume();
-                        }
-                      },
-                    ),
-                  ),
-                  CircleAvatar(
-                    radius: 25,
-                    backgroundColor: Colors.transparent,
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.replay_10,
-                        color: Colors.black,
+                      CircleAvatar(
+                        radius: 25,
+                        backgroundColor: Colors.transparent,
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.replay_10,
+                            color: Colors.black,
+                          ),
+                          iconSize: 30,
+                          onPressed: () async {
+                            final newDuration =
+                                duration - Duration(seconds: 10);
+                            final newpostion = position - Duration(seconds: 10);
+                            setState(() {
+                              duration = newDuration;
+                              position = newpostion;
+                            });
+                            await audioPlayer.seek(position);
+                            await audioPlayer.resume();
+                          },
+                        ),
                       ),
-                      iconSize: 30,
-                      onPressed: () async {
-                        final newDuration = duration - Duration(seconds: 10);
-                        final newpostion = position - Duration(seconds: 10);
-                        setState(() {
-                          duration = newDuration;
-                          position = newpostion;
-                        });
-                        await audioPlayer.seek(position);
-                        await audioPlayer.resume();
-                      },
-                    ),
-                  ),
-                  CircleAvatar(
-                    backgroundColor: Colors.transparent,
-                    radius: 25,
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.brightness_2,
-                        color: Colors.black,
-                      ),
-                      iconSize: 30,
-                      onPressed: () async {
-                        //       final newDuration = duration + Duration(seconds: 10);
-                        //       final newpostion =position+Duration(seconds: 10);
-                        // setState(() {
-                        //   duration = newDuration;
-                        //   position=newpostion;
-
-                        // });
-                        // await audioPlayer.seek(position);
-                        // await audioPlayer.resume();
-                        //await audioPlayer.seek(newDuration);
-                      },
-                    ),
-                  )
-                ]),
+                      CircleAvatar(
+                        backgroundColor: Colors.transparent,
+                        radius: 25,
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.brightness_2,
+                            color: Colors.black,
+                          ),
+                          iconSize: 30,
+                          onPressed: () async {},
+                        ),
+                      )
+                    ]),
               ),
             )
           ],

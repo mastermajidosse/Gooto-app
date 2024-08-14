@@ -13,10 +13,6 @@ class PostApi {
 
   PostApi._internal();
 
-  // Future<dynamic> getPosts() async {
-  //   return await api.httpGet("blog");
-  // }
-
   Future<dynamic> getPostsByCat(String cat) async {
     return await api.httpGet("blog", query: {"category": cat});
   }
@@ -26,7 +22,8 @@ class PostApi {
   }
 
   Future<dynamic> getAllPosts() async {
-    return await api.httpGet("blog/lastnews"); // http://localhost:5000/api/v1/articles
+    return await api
+        .httpGet("blog/lastnews"); // http://localhost:5000/api/v1/articles
   }
 
   Future<dynamic> getarticles() async {
@@ -45,13 +42,6 @@ class PostApi {
     return await api.httpPost("v1/users/register", user.registertoJson());
   }
 
-  // Future<dynamic> getPostStatus(String status) async {
-  //   return await api.httpGet();
-  // }
-
-  // Future<dynamic> logout() async {
-  //   return await api.httpPost(jsonEncode({}));
-  // }
   Future<dynamic> postVideo(BlogModel video) async {
     return await api.httpPostar("youtube", video.toJsonVideo());
   }
@@ -59,10 +49,4 @@ class PostApi {
   Future<dynamic> postarticle(BlogModel articleall) async {
     return await api.httpPostar("blog", articleall.toJsonarticleall());
   }
-
-  // Future<dynamic> recoverPassword(String email) async {
-  //   print("{'email': email}");
-  //   print({'email': email});
-  //   return await api.httpPost(jsonEncode({'email': email}));
-  // }
 }

@@ -156,7 +156,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         margin: EdgeInsets.symmetric(horizontal: 4),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(50),
-                          color: index == currentIndex ? Colors.blue : Colors.black12,
+                          color: index == currentIndex
+                              ? Colors.blue
+                              : Colors.black12,
                         ),
                       );
                     }),
@@ -172,13 +174,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             builder: (context) => SplashScreen(),
                           ),
                         );
-
-                        // Navigator.pushReplacement(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => AppStartScreen(),
-                        //   ),
-                        // );
                       } else {
                         controller.nextPage(
                           duration: Duration(
@@ -189,9 +184,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       }
                     },
                     onLongPress: () {
-                      // Phoenix.rebirth(context);
                       Navigator.pushReplacement(
-                          context, MaterialPageRoute(builder: (context) => SplashScreen()));
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SplashScreen()));
                     },
                     child: Container(
                       height: 80.h,
@@ -200,7 +196,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       alignment: Alignment.centerRight,
                       color: Colors.transparent,
                       child: Text(
-                        currentIndex == onBoardingData.length - 1 ? "Start" : 'Next',
+                        currentIndex == onBoardingData.length - 1
+                            ? "Start"
+                            : 'Next',
                         style: TextStyle(
                           color: Colors.grey,
                           fontWeight: FontWeight.w700,
