@@ -36,7 +36,7 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
   // }
 
   String apiKey = 'AIzaSyAvQpJOpHxD5akNd5nIMvVKvSR2OKrLlKk';
-  int radius = 1000;
+  int radius = 100;
   static const type = 'restaurant';
   String? contributorUrl;
   late bool serviceEnabled;
@@ -66,7 +66,7 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
 
   void resto() async {
     const apiKey = 'AIzaSyAvQpJOpHxD5akNd5nIMvVKvSR2OKrLlKk';
-    const radius = 1000;
+    const radius = 800;
     const type = 'restaurant';
     bool serviceEnabled;
     LocationPermission permission;
@@ -148,25 +148,26 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
 
   @override
   Widget build(BuildContext context) {
+    final reversedRestaurants = restaurantse.reversed.toList();
     return Scaffold(
         appBar: AppBar(
             title: Align(
           alignment: Alignment.center,
           child: Text(
-            "Suggestion Ai",
+            "Places Near Me",
             textAlign: TextAlign.center,
           ),
         )),
-        body: restaurantse.isEmpty
+        body: reversedRestaurants.isEmpty
             ? SplashScreen(radius: 50.5)
             : Container(
                 //height: 310.h,
                 // color: Colors.green,
                 child: ListView.builder(
                   scrollDirection: Axis.vertical,
-                  itemCount: restaurantse.length,
+                  itemCount: reversedRestaurants.length,
                   itemBuilder: (context, index) {
-                    final restaurant = restaurantse[index];
+                    final restaurant = reversedRestaurants[index];
                     // return CustomCard(card: card);
                     return GestureDetector(
                       onTap: () async {
@@ -216,6 +217,7 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
+                                
                                 Text(
                                   restaurant['name'],
                                   style: TextStyle(fontSize: 17.sp, fontWeight: FontWeight.w600),

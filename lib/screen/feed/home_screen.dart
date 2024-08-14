@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
               alignment: Alignment.bottomLeft,
               margin: EdgeInsets.symmetric(horizontal: 8),
               child: Text(
-                'Suggestion Ai',
+                'Places Near Me',
                 style: MyStyle.blackalarmTextStyle,
               ),
             ),
