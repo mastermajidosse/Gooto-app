@@ -65,7 +65,9 @@ BlogModel city = BlogModel(
               alignment: Alignment.bottomLeft,
               margin: EdgeInsets.symmetric(horizontal: 8),
               child: Text(
-                'City of the month',
+
+                'Places Near Me',
+
                 style: MyStyle.blackalarmTextStyle,
               ),
             ),

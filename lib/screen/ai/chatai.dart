@@ -14,17 +14,23 @@ class ChatAIScreen extends StatefulWidget {
 class _ChatAIScreenState extends State<ChatAIScreen> {
   final TextEditingController _messageController = TextEditingController();
   final List<ChatMessage> _messages = [];
-    bool isLoading = false;
-  ScrollController _scrollController = ScrollController();
+
+     bool isLoading = false;
+   ScrollController _scrollController = ScrollController();
+
+ 
 
   @override
   void initState() {
     super.initState();
 
     _startChat();
-      setState(() {
-      isLoading = true;
-    });
+
+        setState(() {
+          isLoading = true;
+          });
+
+    
   }
 
   @override
@@ -52,13 +58,16 @@ class _ChatAIScreenState extends State<ChatAIScreen> {
     _messageController.clear();
     setState(() {
       _messages.add(message);
-      isLoading = false;
-    });
-      _scrollController.animateTo(
+
+        isLoading = false;
+          _scrollController.animateTo(
       _scrollController.position.maxScrollExtent,
       duration: Duration(seconds: 1),
       curve: Curves.fastOutSlowIn,
     );
+
+    });
+   
   }
 
   void _sendMessage() async {
@@ -71,11 +80,11 @@ class _ChatAIScreenState extends State<ChatAIScreen> {
         ),
       );
 
-      // final chat = model.startChat(
-      //     history: _messages.map((m) => m.toContent()).toList());
-            final chat = model.startChat(
-          history: _messages.map((m) => m.toContent()).toList());
+      final chat = model.startChat(history: _messages.map((m) => m.toContent()).toList());
+   
+
       setState(() {
+
         isLoading = true;
       });
       final response = await chat.sendMessage(Content.text(text));
