@@ -66,8 +66,13 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
 
   void resto() async {
     const apiKey = 'AIzaSyAvQpJOpHxD5akNd5nIMvVKvSR2OKrLlKk';
-    const radius = 800;
+    //'AIzaSyAPXJNjuouO7RO0i6z6HZG4tsTCO_AXMhE';
+    //'AIzaSyAvQpJOpHxD5akNd5nIMvVKvSR2OKrLlKk';
+    //AIzaSyAPXJNjuouO7RO0i6z6HZG4tsTCO_AXMhE;
+    const radius = 1000;
     const type = 'restaurant';
+    //'';
+    //'';
     bool serviceEnabled;
     LocationPermission permission;
 
@@ -125,7 +130,7 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
       }).toList();
 
       // if (restaurants.isNotEmpty) {
-      int random = Random().nextInt(restaurants.length);
+    //  int random = Random().nextInt(restaurants.length);
       // _startNotificationScheduler(restaurants[random]['name']);
       // Notififcation(restaurants[random]['name']);
       //}
