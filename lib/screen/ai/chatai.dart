@@ -105,6 +105,7 @@ class _ChatAIScreenState extends State<ChatAIScreen> {
         children: [
           Expanded(
             child: ListView.builder(
+              controller: _scrollController,
               itemCount: _messages.length,
               itemBuilder: (context, index) {
                 final message = _messages[index];
