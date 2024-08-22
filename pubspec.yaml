@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   dash_chat_2: ^0.0.21
   equatable: ^2.0.0
+  firebase_core: ^3.3.0
   flutter:
     sdk: flutter
   flutter_bloc: ^7.3.1
@@ -59,8 +60,6 @@ dependencies:
   shared_preferences: ^2.0.15
   url_launcher: ^6.3.0
   video_player: ^2.8.3
-  # ar_flutter_plugin: 0.7.3 
-  # arcore_flutter_plugin: ^0.1.0
 
 dev_dependencies:
   flutter_launcher_icons: "^0.13.1"

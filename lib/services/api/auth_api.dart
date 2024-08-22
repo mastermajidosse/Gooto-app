@@ -20,6 +20,10 @@ class AuthApi {
     print("registerapi");
     return await api.httpPost("v1/users/register", user.registertoJson());
   }
+  Future<dynamic> registerwithfireb(UserModel user)async{
+  
+
+  }
 
   Future<dynamic> getUserProfile() async {
     return await api.httpGet('v1/users/profile');

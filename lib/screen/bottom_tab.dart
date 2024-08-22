@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gooto/screen/ai/camera_screen.dart';
 import 'package:gooto/screen/ai/chatai.dart';
 import 'package:gooto/screen/audio/AudioGeneral.dart';
+import 'package:gooto/screen/auth/login_screen.dart';
+import 'package:gooto/screen/auth/register_screen.dart';
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gooto/screen/feed/home_screen.dart';
 import 'package:gooto/screen/feed/save_screen.dart';
@@ -39,6 +41,7 @@ class _BottomTabBarrState extends State<BottomTabBarr> {
     CameraScreen(),
     ExplloreScreen(),
     ChatAIScreen(),
+    RegisterScreen(),
   ];
   var provider;
 
@@ -63,6 +66,7 @@ class _BottomTabBarrState extends State<BottomTabBarr> {
                 costumcollum("assets/icons/cameraai.png", "assets/icons/cameraai.png", 2),
                 costumcollum("assets/icons/news.png", "assets/icons/news.png", 3),
                 costumcollum("assets/icons/geminig.png", "assets/icons/geminig.png", 4),
+                 costumcollum("assets/icons/geminig.png", "assets/icons/geminig.png", 5),
                 // costumcollum("assets/icons/audio.png", "assets/icons/audio.png", 5),
                 // costumcollum(Icons.person, Icons.person_outline, 4),
               ],

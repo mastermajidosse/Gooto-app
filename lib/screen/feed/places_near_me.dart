@@ -69,8 +69,11 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
     //'AIzaSyAPXJNjuouO7RO0i6z6HZG4tsTCO_AXMhE';
     //'AIzaSyAvQpJOpHxD5akNd5nIMvVKvSR2OKrLlKk';
     //AIzaSyAPXJNjuouO7RO0i6z6HZG4tsTCO_AXMhE;
-    const radius = 10000;
-    const type = 'hospital';
+    const radius = 2000;
+    const type = 'Coffe';
+    //'clinics';
+    //hospitals
+    //'hospital';
     //'';
     //'';
     bool serviceEnabled;
@@ -120,9 +123,15 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
             'lat': place['geometry']['location']['lat'],
             'lng': place['geometry']['location']['lng'],
           },
-         // 'photo': place['photos'][0]['photo_reference'],
+          'photo': place['photos'] !=null 
+          //place[0]['photo_reference'],
+           ?place['photos'][0]['photo_reference']
+          :null,
           'rating': place['rating'],
-        //  'Link': place['photos'][0]['html_attributions'],
+           'Link': place['photos'] != null && place['photos'].isNotEmpty
+        ? place['photos'][0]['html_attributions']
+        : null,
+         // 'Link': place['photos'](0)['html_attributions'],
 //           'opening_hours':
 //  place['opening_hours']
           'opening_hours': place['opening_hours']
@@ -209,16 +218,16 @@ class _PlacesNearMeState extends State<PlacesNearMe> {
                         ),
                         child: Column(
                           children: [
-                            // Container(
-                            //   height: 200.h,
-                            //   decoration: BoxDecoration(
-                            //       color: Colors.grey[300],
-                            //       borderRadius: BorderRadius.circular(22.r),
-                            //       image: DecorationImage(
-                            //           fit: BoxFit.cover,
-                            //           image: NetworkImage(
-                            //               'https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=${restaurant['photo']}&key=$apiKey'))),
-                            // ),
+                            Container(
+                              height: 200.h,
+                              decoration: BoxDecoration(
+                                  color: Colors.grey[300],
+                                  borderRadius: BorderRadius.circular(22.r),
+                                  image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: NetworkImage(
+                                          'https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=${restaurant['photo']}&key=$apiKey'))),
+                            ),
                             SizedBox(height: 10.h),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
