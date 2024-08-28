@@ -15,17 +15,19 @@ class UserRepository {
   Future register(UserModel newuser) async {
     print("register serv");
 
-    return await auth.register(newuser);
+    return await auth.registerwithfireb(newuser);
   }
+  
+
 
   Future login(UserModel newuser) async {
     print("login serv");
 
-    var response = await api.httpPost("v1/users/login", newuser.logintoJson());
+    //var response = await api.httpPost("v1/users/login", newuser.logintoJson());
     // var response = login()
-    UserRepository().saveToken(response);
-
-    return response;
+   // UserRepository().saveToken(response);
+return await auth.loginwithfireb(newuser);
+    //return response;
   }
 
   Future<bool> issigned() async {

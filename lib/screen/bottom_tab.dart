@@ -28,7 +28,7 @@ class BottomTabBarr extends StatefulWidget {
 
 class _BottomTabBarrState extends State<BottomTabBarr> {
   int _selectedIndex = 0;
-
+final _scaffoldKey = GlobalKey<ScaffoldState>();
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -41,14 +41,19 @@ class _BottomTabBarrState extends State<BottomTabBarr> {
     CameraScreen(),
     ExplloreScreen(),
     ChatAIScreen(),
-    RegisterScreen(),
+    LoginPage(),
+    //RegisterScreen(),
   ];
   var provider;
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+   //Scaffold.geometryOf(context);
+    return 
+    SafeArea(
+      child:
+       Scaffold(
+        key: _scaffoldKey,
         body: widget.widgetoutside ?? _widgetOptions.elementAt(_selectedIndex),
         bottomNavigationBar: Container(
           height: 50.w,

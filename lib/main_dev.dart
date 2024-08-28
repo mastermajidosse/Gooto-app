@@ -13,8 +13,7 @@ late List<CameraDescription> cameras;
 late final GenerativeModel model;
 late dynamic response;
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  
   model =
       GenerativeModel(model: 'gemini-1.5-pro', apiKey: "AIzaSyBg1oUYaYkgffZSZKPCZcrBaL3H0vQkwXc");
   final content = [

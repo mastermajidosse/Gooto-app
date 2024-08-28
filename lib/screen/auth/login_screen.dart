@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gooto/bloc/auth/login_cubit.dart';
+import 'package:gooto/models/user_model.dart';
 import 'package:gooto/screen/app_start_screen.dart';
 import 'package:gooto/screen/auth/register_screen.dart';
 import 'package:gooto/screen/bottom_tab.dart';
@@ -35,10 +36,12 @@ class _LoginPageState extends State<LoginPage> {
       body: BlocConsumer<LoginCubit, LoginState>(
         listener: (context, state) {
           if (state is LoginError) {
+             print("LoginError");
             // return MyStyle.err(ScaffoldMessenger.of(context).showSnackBar, state.message);
           } else if (state is LoginSuccess) {
             print("brace you gonna login");
-            Navigator.pushReplacementNamed(context, AppStartScreen.routeName);
+             Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomTabBarr()));
+           // Navigator.pushReplacementNamed(context, AppStartScreen.routeName);
           }
         },
         builder: (context, state) {
@@ -151,6 +154,18 @@ class _LoginPageState extends State<LoginPage> {
                             textAlign: TextAlign.center,
                           ),
                           onPressed: () {
+                                 if (_formKey.currentState!.validate()) {
+                                  FocusScope.of(context).requestFocus(FocusNode());
+                                UserModel newUserModel = UserModel(
+                                  email: _usernameController.text,
+                                  password: _passwordController.text,
+                                  //firstname: username.text,
+                                );
+                                  context.read<LoginCubit>().login(context,newUserModel);
+                               // context.read<SignupCubit>().registerNew(newUserModel, context);
+                               // Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomTabBarr()));
+                              }
+                          
                             // if (_formKey.currentState!.validate()) {
                             //   FocusScope.of(context).requestFocus(FocusNode());
                             //   context.read<LoginCubit>().login(context,
@@ -162,9 +177,9 @@ class _LoginPageState extends State<LoginPage> {
                             //       _usernameController.text.trim(), _passwordController.text.trim());
                             // }
                             //
-                            Future.delayed(Duration(seconds: 5)).then((_) {
-                              Navigator.pushReplacementNamed(context, AppStartScreen.routeName);
-                            });
+                            // Future.delayed(Duration(seconds: 5)).then((_) {
+                            //   Navigator.pushReplacementNamed(context, AppStartScreen.routeName);
+                            // });
                           },
                         ),
                       ),

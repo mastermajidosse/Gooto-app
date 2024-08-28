@@ -1,8 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:gooto/models/user_model.dart';
 import 'package:gooto/services/api/api.dart';
 
 class AuthApi {
   Api api = Api();
+  final FirebaseFirestore _firestore= FirebaseFirestore.instance;
+  final FirebaseAuth _auth= FirebaseAuth.instance;
 
   static final AuthApi _authApi = AuthApi._internal();
 
@@ -20,10 +24,48 @@ class AuthApi {
     print("registerapi");
     return await api.httpPost("v1/users/register", user.registertoJson());
   }
-  Future<dynamic> registerwithfireb(UserModel user)async{
-  
-
+  Future<String> registerwithfireb(UserModel user)async{
+  String res="Some error Occured";
+  try{
+    UserCredential _credential = await _auth.createUserWithEmailAndPassword(
+      email: user.email!,
+       password: user.password!
+       
+       );
+       await _firestore.collection("users").doc(_credential.user!.uid).set({
+        'name':user.firstname,
+        "email":user.email,
+        'uid':_credential.user!.uid,
+       });
+       
+res="Successfulley";
+  }catch(e){
+print(e.toString());
   }
+  return res;
+  }
+  Future<String> loginwithfireb(UserModel user)async{
+  String res="Some error Occured";
+  try{
+    // UserCredential _credential =
+     await _auth.signInWithEmailAndPassword(
+      email: user.email!,
+       password: user.password!
+       
+       );
+      //  await _firestore.collection("users").doc(_credential.user!.uid).set({
+      //   'name':user.firstname,
+      //   "email":user.email,
+      //   'uid':_credential.user!.uid,
+      //  });
+       
+res="Successfulley";
+  }catch(e){
+print(e.toString());
+  }
+  return res;
+  }
+
 
   Future<dynamic> getUserProfile() async {
     return await api.httpGet('v1/users/profile');

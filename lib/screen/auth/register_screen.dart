@@ -5,6 +5,7 @@ import 'package:gooto/bloc/auth/signup_cubit.dart';
 import 'package:gooto/models/user_model.dart';
 import 'package:gooto/screen/app_start_screen.dart';
 import 'package:gooto/screen/auth/login_screen.dart';
+import 'package:gooto/screen/bottom_tab.dart';
 import 'package:gooto/utils/mystyle.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -15,7 +16,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  //final _scaffoldKey = GlobalKey<ScaffoldState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -49,7 +50,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     //Grab a refernce to the bloc using bloc provider
 
     return Scaffold(
-        // key: _scaffoldKey,
+         key: _scaffoldKey,
         backgroundColor: Colors.white,
         body: BlocConsumer<SignupCubit, SignupState>(
           listener: (context, state) {
@@ -57,7 +58,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
               // return MyStyle.err(ScaffoldMessenger.of(context).showSnackBar, state.message);
             } else if (state is SignupSuccess) {
               print("brace you gonna login");
-              Navigator.pushReplacementNamed(context, AppStartScreen.routeName);
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomTabBarr()));
+            //  Navigator.pushReplacementNamed(context, AppStartScreen.routeName);
             }
           },
           builder: (context, state) {
@@ -186,7 +188,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               textAlign: TextAlign.center,
                             ),
                             onPressed: () {
-                              FocusScope.of(context).requestFocus(FocusNode());
+                             // FocusScope.of(context).requestFocus(FocusNode());
                               if (_formKey.currentState!.validate()) {
                                 UserModel newUserModel = UserModel(
                                   email: email.text,
@@ -194,6 +196,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   firstname: username.text,
                                 );
                                 context.read<SignupCubit>().registerNew(newUserModel, context);
+                               // Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomTabBarr()));
                               }
                             },
                           ),

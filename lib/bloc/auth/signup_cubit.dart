@@ -15,8 +15,8 @@ class SignupCubit extends Cubit<SignupState> {
     try {
       print("SignupLoading");
       var response = await userRepository.register(new_user);
-      UserRepository().saveToken(response);
-      userdata = UserModel.fromJson(response);
+      // UserRepository().saveToken(response);
+      // userdata = UserModel.fromJson(response);
 
       // print(myuserModel.email);
       emit(SignupSuccess(userdata));

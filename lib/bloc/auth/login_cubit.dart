@@ -13,11 +13,13 @@ class LoginCubit extends Cubit<LoginState> {
 
   UserModel userdata = UserModel();
 
-  login(context, String email, String pass) async {
+  login(context,UserModel user
+ // String email, String pass
+  ) async {
     emit(LoginLoading());
 
     try {
-      var response = await userRepository.login(UserModel(email: email, password: pass));
+      var response = await userRepository.login(user);
       // await BlocProvider.of<AuthCubit>(context)
       //   ..checkAuth();
 
@@ -26,4 +28,5 @@ class LoginCubit extends Cubit<LoginState> {
       emit(LoginError("Couldn't Login : " + e.toString()));
     }
   }
+
 }

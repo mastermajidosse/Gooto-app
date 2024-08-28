@@ -24,7 +24,7 @@ class _AppStartScreenState extends State<AppStartScreen> {
     //     Navigator.pushReplacementNamed(context, BottomTabBarr.routeName);
     //   });
 
-    Future.delayed(Duration(seconds: 7)).then((value) {
+    Future.delayed(Duration(seconds: 5)).then((value) {
       Navigator.pushReplacementNamed(context, BottomTabBarr.routeName);
     });
   }
