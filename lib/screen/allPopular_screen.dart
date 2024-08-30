@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gooto/config/demo.dart';
 import 'package:gooto/models/card.dart';
@@ -57,7 +58,7 @@ class _PopularPlacesScreenState extends State<PopularPlacesScreen> {
         //   icon: Icon(Icons.arrow_back, color: Colors.black),
         //   onPressed: () {},
         // ),
-        title: Text("Popular Destination"),
+        title: Text("Popular Destination".tr()),
       ),
       body: SingleChildScrollView(
         child: Column(children: [
@@ -124,8 +125,8 @@ class PlaceCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(place.productName, style: TextStyle(fontWeight: FontWeight.bold)),
-                    Text(place.location.toString(), style: TextStyle()),
+                    Text(place.productName.tr(), style: TextStyle(fontWeight: FontWeight.bold)),
+                    Text(place.location.toString().tr(), style: TextStyle()),
                   ],
                 ),
               ),

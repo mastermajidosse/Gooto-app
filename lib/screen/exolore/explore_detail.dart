@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,6 +29,7 @@ class _DetailsExploreState extends State<DetailsExplore> {
 
   String addStyles(String txt) {
     return txt.replaceAll("<p>", "<p style=\"color: #444; text-align: justify;\">");
+    
   }
 
   @override
@@ -116,7 +118,7 @@ class _DetailsExploreState extends State<DetailsExplore> {
                 Padding(
                     padding: const EdgeInsets.all(0),
                     child: Text(
-                      blogModel.title.toString(),
+                      blogModel.title.toString().tr(),
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: ScreenUtil().setSp(30),
@@ -129,7 +131,7 @@ class _DetailsExploreState extends State<DetailsExplore> {
                   children: [
                     blogModel.price != null
                         ? Text(
-                            blogModel.price.toString(),
+                            blogModel.price.toString().tr(),
                             style: TextStyle(fontSize: 15.sp, color: Colors.blue),
                           )
                         : Container()
@@ -139,14 +141,14 @@ class _DetailsExploreState extends State<DetailsExplore> {
                 Row(
                   children: [
                     Text(
-                      "Overview:",
+                      "Overview".tr(),
                       style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),
                 SizedBox(height: 10.h),
                 HtmlWidget(
-                  addStyles(blogModel.desc.toString()),
+                  addStyles(blogModel.desc.toString()).tr(),
                   renderMode: RenderMode.column,
 
                   // set the default styling for text

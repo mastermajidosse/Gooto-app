@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -32,9 +33,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
+   
     // TODO: implement initState
     super.initState();
     _loadCities();
+  }
+   static changeLanguge(BuildContext context) {
+    Locale? currentLocal = EasyLocalization.of(context)!.currentLocale;
+    if (currentLocal == const Locale('en', 'US')) {
+      EasyLocalization.of(context)!.setLocale(const Locale('ar', 'AE'));
+    } else {
+      EasyLocalization.of(context)!.setLocale(const Locale('en', 'US'));
+    }
   }
 
   Future<void> _loadCities() async {
@@ -47,16 +57,22 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           children: [
+            IconButton(
+                  onPressed: () {
+                   changeLanguge(context);
+                  },
+                  icon: const Icon(Icons.language)),
             const SizedBox(height: 10),
             Container(
               alignment: Alignment.bottomLeft,
               margin: EdgeInsets.symmetric(horizontal: 8),
               child: Text(
-                'Places Near Me',
+                'Places Near Me'.tr(),
                 style: MyStyle.blackalarmTextStyle,
               ),
             ),
@@ -87,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Popular Places',
+                    'Popular Places'.tr(),
                     style: MyStyle.blackalarmTextStyle,
                   ),
                   Container(),
@@ -97,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           context, MaterialPageRoute(builder: (context) => PopularPlacesScreen()));
                     },
                     child: Text(
-                      'View More',
+                      'View More'.tr(),
                       style: MyStyle.buttTextStyle,
                     ),
                   ),
@@ -124,10 +140,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     },
                     child: CustomCards(
-                      cities.contains(card.productName),
+                      cities.contains(card.productName.tr()),
                       imageUrl: card.productImg,
-                      title: card.productName,
-                      description: card.location.toString(),
+                      title: card.productName.tr(),
+                      description: card.location.toString().tr(),
                       onTap: () {
                         Navigator.push(
                           context,
@@ -150,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Best Hotels', style: MyStyle.blackalarmTextStyle),
+                    Text('Best Hotels'.tr(), style: MyStyle.blackalarmTextStyle),
                     Container(),
                     InkWell(
                       onTap: () {
@@ -158,7 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             context, MaterialPageRoute(builder: (context) => AllHotelScreen()));
                       },
                       child: Text(
-                        'View More',
+                        'View More'.tr(),
                         style: MyStyle.buttTextStyle,
                       ),
                     ),
@@ -224,7 +240,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Container(
                                     width: 170.w,
                                     child: Text(
-                                      hotel.location,
+                                      hotel.location.tr(),
                                       style: TextStyle(color: Colors.grey, fontSize: 12.sp),
                                     ),
                                   )
@@ -255,7 +271,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Best activities',
+                    'Best activities'.tr(),
                     style: MyStyle.blackalarmTextStyle,
                   ),
                 ],
@@ -270,7 +286,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     context, MaterialPageRoute(builder: (context) => AllActivitiesScreen()));
               },
               child: Text(
-                'View More',
+                'View More'.tr(),
                 style: MyStyle.buttTextStyle,
               ),
             ),

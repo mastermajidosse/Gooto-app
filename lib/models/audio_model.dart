@@ -222,7 +222,7 @@ List<AudioModel> audio = [
       ],
       id: 1,
       logo: "assets/popular/jdida1.jpeg",
-      name: "El Jadida",
+      name: "ElJadida",
       photos: [
         "assets/popular/jdida1.jpeg",
         "assets/popular/jdida2.jpeg",

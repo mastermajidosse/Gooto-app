@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:camera/camera.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
@@ -13,7 +14,7 @@ late List<CameraDescription> cameras;
 late final GenerativeModel model;
 late dynamic response;
 void main() async {
-  
+   await EasyLocalization.ensureInitialized();
   model =
       GenerativeModel(model: 'gemini-1.5-pro', apiKey: "AIzaSyBg1oUYaYkgffZSZKPCZcrBaL3H0vQkwXc");
   final content = [

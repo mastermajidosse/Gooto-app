@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gooto/models/blog_model.dart';
 import 'package:gooto/screen/exolore/explore_detail.dart';
@@ -12,12 +13,14 @@ class PopularActivities extends StatelessWidget {
 <body>
     <div class="container">
         <div class="header">
-            <h1 >Surf Lessons for Beginners</h1>
+            <h1 >${'Surf Lessons for Beginners'.tr()}</h1>
         </div>
         <div class="content">
-            <p style="color: #444;text-align:justify">Surf lessons are a great way for beginners to learn the basics of surfing and improve their skills. Most surf lessons include both on-land and on-water instruction, and will cover topics such as surfboard and wetsuit selection, wave theory, paddling technique, and standing up on the board.</p>
-            <p style="color: #444;text-align:justify">If you’re a complete beginner, it’s generally recommended to start with a beginner lesson in order to discover surfing, which will cover the basics of the sport and give you a good foundation to build on. Once you have a solid understanding of the basics, you can then progress to intermediate lessons to continue improving your skills.</p>
-            <p style="color: #444;text-align:justify">Surf lessons can be a fun and rewarding way to learn a new sport, and can provide a sense of accomplishment and enjoyment for people of all ages and abilities.</p>
+            <p style="color: #444;text-align:justify">${'Surf lessons are a great way for beginners to learn the basics of surfing and improve their skills. Most surf lessons include both on-land and on-water instruction, and will cover topics such as surfboard and wetsuit selection, wave theory, paddling technique, and standing up on the board.'.tr()}</p>
+            <p style="color: #444;text-align:justify">
+            ${'If you’re a complete beginner, it’s generally recommended to start with a beginner lesson in order to discover surfing, which will cover the basics of the sport and give you a good foundation to build on. Once you have a solid understanding of the basics, you can then progress to intermediate lessons to continue improving your skills.'.tr()}</p>
+            <p style="color: #444;text-align:justify">
+            ${'Surf lessons can be a fun and rewarding way to learn a new sport, and can provide a sense of accomplishment and enjoyment for people of all ages and abilities.'.tr()}</p>
         </div>
     </div>
 </body>
@@ -79,13 +82,13 @@ class ActivityCard extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
-                activity.title.toString(),
+                activity.title.toString().tr(),
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Text(activity.price.toString()),
+              child: Text(activity.price.toString().tr()),
             ),
           ],
         ),

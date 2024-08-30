@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -48,7 +49,7 @@ class PopularDetailsScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 30.h),
                 Text(
-                  place.productName,
+                  place.productName.tr(),
                   style: TextStyle(fontSize: 18.sp),
                 ),
                 SizedBox(height: 10.h),
@@ -61,7 +62,7 @@ class PopularDetailsScreen extends StatelessWidget {
                        Padding(
             padding: EdgeInsets.symmetric(horizontal: 0),
             child: Text(
-              place.location.toString(),
+              place.location.toString().tr(),
               style: TextStyle(
                 fontSize: 14.sp,
                 color: Colors.grey,
@@ -79,17 +80,17 @@ class PopularDetailsScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 30.h),
                 Text(
-                  "Description",
+                  "Description".tr(),
                   style: TextStyle(fontSize: 18.sp),
                 ),
                 SizedBox(height: 10.h),
                 ReadMoreText(
-                  place.description,
+                  place.description.tr(),
                   trimMode: TrimMode.Line,
                   trimLines: 2,
                   colorClickableText: Colors.blue,
-                  trimCollapsedText: 'Show more',
-                  trimExpandedText: 'Show less',
+                  trimCollapsedText: 'Show more'.tr(),
+                  trimExpandedText: 'Show less'.tr(),
                   style: TextStyle(color: Colors.grey),
                   moreStyle: TextStyle(
                       // fontSize: 12.sp,

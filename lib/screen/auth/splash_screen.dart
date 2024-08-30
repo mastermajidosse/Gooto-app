@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
     if (widget.radius != 50.5)
       Future.delayed(Duration(seconds: 5)).then((_) async{
-          await availableCameras().then((value){cameras = value;
+          await availableCameras().then( (value){cameras = value;
          Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => BottomTabBarr()),

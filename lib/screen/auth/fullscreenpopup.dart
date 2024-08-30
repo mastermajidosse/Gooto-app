@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gooto/models/hotel_model.dart';
 import 'package:gooto/utils/mystyle.dart';
@@ -70,7 +71,7 @@ class FullScreenPop extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 26.0),
               child: Text(
-                "Amazing Hotel",
+                "Amazing Hotel".tr(),
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.normal,
@@ -109,7 +110,7 @@ class FullScreenPop extends StatelessWidget {
                   height: 45,
                   alignment: Alignment.center,
                   child: Text(
-                    "Book Now",
+                    "Book Now".tr(),
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,

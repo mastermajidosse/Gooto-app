@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class SearchBox extends StatelessWidget {
     return TextField(
       controller: _controller,
       decoration: InputDecoration(
-        hintText: 'Search',
+        hintText: 'Search'.tr(),
         prefixIcon: Icon(Icons.search),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(50.0),

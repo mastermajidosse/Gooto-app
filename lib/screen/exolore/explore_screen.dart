@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,7 +34,7 @@ class _ExplloreScreenState extends State<ExplloreScreen> {
     // Replace multiple whitespaces with a single space and trim the string
     cleanedText = cleanedText.replaceAll(RegExp(r'\s+'), ' ').trim();
 
-    return cleanedText.trim();
+    return cleanedText.trim().tr();
   }
 
   @override

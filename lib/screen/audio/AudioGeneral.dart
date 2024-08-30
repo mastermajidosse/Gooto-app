@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -48,7 +49,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
           automaticallyImplyLeading: false,
           centerTitle: true,
           title: Text(
-            'Best Audio Stories🎤',
+            'Best Audio Stories🎤'.tr(),
             style: TextStyle(
               fontFamily: 'Arial',
               fontSize: 20.sp,
@@ -66,7 +67,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
               child: TextField(
                 controller: _searchController,
                 decoration: InputDecoration(
-                  hintText: 'Search',
+                  hintText: 'Search'.tr(),
                   prefixIcon: Icon(Icons.search),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(50.0),
@@ -81,7 +82,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
             Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
               alignment: Alignment.topLeft,
-              child: Text('Top Cities 🔥', style: MyStyle.blackalarmTextStyle),
+              child: Text('Top Cities 🔥'.tr(), style: MyStyle.blackalarmTextStyle),
             ),
             SizedBox(height: 10),
             Container(
@@ -113,7 +114,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                                 child: Column(
                                   children: [
                                     Text(
-                                      Audio.name,
+                                      Audio.name.tr(),
                                       style: TextStyle(
                                         fontFamily: 'Arial',
                                         fontSize: 23,
@@ -142,7 +143,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                                         ),
                                         SizedBox(width: 10),
                                         Text(
-                                          "Play now",
+                                          "Play now".tr(),
                                           style: TextStyle(
                                             fontFamily: 'Arial',
                                             fontSize: 22.sp,
@@ -174,7 +175,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'All Audio',
+                    'All Audio'.tr(),
                     style: TextStyle(
                       fontFamily: 'Arial',
                       fontSize: 20,
@@ -230,7 +231,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                       SizedBox(height: 10.h),
                       Expanded(
                         child: Text(
-                          card.name,
+                          card.name.tr(),
                           style: TextStyle(
                             color: Colors.grey[600],
                             fontFamily: 'Arial',

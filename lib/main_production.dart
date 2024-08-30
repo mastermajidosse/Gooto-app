@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:gooto/services/app_config.dart';
@@ -15,7 +16,7 @@ late dynamic response;
 // int? initScreen;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+   await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp();
   HttpOverrides.global = MyHttpOverrides();
 
@@ -30,11 +31,19 @@ void main() async {
     Content.text(
         "you're a moroccan guide, if user asks you about anything related to morocco culture monument or Moroccan food or clothes answer as expert guide for morocco")
   ];
-  response = await model.generateContent(content);
+  //response = await model.generateContent(content);
 
   // firsttime();
 
-  runApp(MyApp("prod"));
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [Locale('en', 'US'), Locale('ar', 'AE')],
+      path: 'assets/translations',
+      fallbackLocale: const Locale('en', 'US'),
+   
+   child: MyApp("prod")
+    )
+  );
 }
 
 class MyHttpOverrides extends HttpOverrides {

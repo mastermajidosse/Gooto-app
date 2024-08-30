@@ -50,8 +50,7 @@ print(e.toString());
     // UserCredential _credential =
      await _auth.signInWithEmailAndPassword(
       email: user.email!,
-       password: user.password!
-       
+       password: user.password! 
        );
       //  await _firestore.collection("users").doc(_credential.user!.uid).set({
       //   'name':user.firstname,
