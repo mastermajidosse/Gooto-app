@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class TopSearchScreen extends StatelessWidget {
+class Together extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

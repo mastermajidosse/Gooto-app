@@ -84,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => TopSearchScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Together()));
               },
               child: Container(
                 margin: EdgeInsets.all(8),
