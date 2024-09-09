@@ -205,7 +205,7 @@ class _PostWidgetState extends State<PostWidget> {
                 child: SizedBox(
                   width: 35.w,
                   height: 35.h,
-                  child: Image.asset("assets/AI.png"),
+                  child: Image.asset("assets/ai.jpg"),
                 ),
               ),
               title: Text(
