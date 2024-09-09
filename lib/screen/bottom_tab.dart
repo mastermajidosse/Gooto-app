@@ -39,9 +39,10 @@ final _scaffoldKey = GlobalKey<ScaffoldState>();
     HomeScreen(),
     PodcastDiscoveryScreen(),
     CameraScreen(),
-    ExplloreScreen(),
+    PostWidget(),
+    // ExplloreScreen(),
     ChatAIScreen(),
-    LoginPage(),
+    //LoginPage(),
     //RegisterScreen(),
   ];
   var provider;
@@ -71,7 +72,7 @@ final _scaffoldKey = GlobalKey<ScaffoldState>();
                 costumcollum("assets/icons/cameraai.png", "assets/icons/cameraai.png", 2),
                 costumcollum("assets/icons/news.png", "assets/icons/news.png", 3),
                 costumcollum("assets/icons/geminig.png", "assets/icons/geminig.png", 4),
-                 costumcollum("assets/icons/geminig.png", "assets/icons/geminig.png", 5),
+                //// costumcollum("assets/icons/geminig.png", "assets/icons/geminig.png", 5),
                 // costumcollum("assets/icons/audio.png", "assets/icons/audio.png", 5),
                 // costumcollum(Icons.person, Icons.person_outline, 4),
               ],

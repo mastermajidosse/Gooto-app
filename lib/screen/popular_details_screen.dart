@@ -3,12 +3,24 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gooto/models/card.dart';
+import 'package:gooto/widgets/BottomChatField.dart';
 import 'package:readmore/readmore.dart';
 import 'package:insta_image_viewer/insta_image_viewer.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 class PopularDetailsScreen extends StatelessWidget {
+  TextEditingController _messageController=TextEditingController();
+  final ScrollController messageContoller = ScrollController();
+  DateTime createdAt = DateTime.now();
+   late final String timeAgo;
+
   final CardModule place;
-  PopularDetailsScreen({super.key, required this.place});
+  PopularDetailsScreen({super.key, required this.place}){
+timeAgo = timeago.format(createdAt); 
+ 
+  }
+  
+
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +30,7 @@ class PopularDetailsScreen extends StatelessWidget {
             ),
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            padding: EdgeInsets.symmetric(horizontal: 20.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -98,38 +110,122 @@ class PopularDetailsScreen extends StatelessWidget {
                       color: Colors.blue),
                 ),
                 SizedBox(height: 30.h),
-                // Text(
-                //   "Preview",
-                //   style: TextStyle(fontSize: 18.sp),
-                // ),
-                // SizedBox(height: 10.h),
-                // Container(
-                //   // color: Colors.red,
-                //   height: 100.h,
-                //   child: ListView.builder(
-                //       scrollDirection: Axis.horizontal,
-                //       itemCount: place.previewImgs.length,
-                //       itemBuilder: (context, i) => Container(
-                //             margin: EdgeInsets.only(right: 10.w),
-                //             height: 100.h,
-                //             // width: 180.w,
-                //             clipBehavior: Clip.hardEdge,
-                //             child: InstaImageViewer(
-                //               child: Image(
-                //                 image: AssetImage(
-                //                   place.previewImgs[i],
-                //                 ),
-                //                 // fit: BoxFit.cover,
-                //               ),
-                //             ),
-                //             decoration: BoxDecoration(
-                //                 color: Colors.grey[300], borderRadius: BorderRadius.circular(10.r)),
-                //           )),
-                // ),
+                Text(
+                  "Preview",
+                  style: TextStyle(fontSize: 18.sp),
+                ),
+                SizedBox(height: 10.h),
+                Container(
+                  // color: Colors.red,
+                  height: 100.h,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: place.previewImgs.length,
+                      itemBuilder: (context, i) => Container(
+                            margin: EdgeInsets.only(right: 10.w),
+                            height: 100.h,
+                            // width: 180.w,
+                            clipBehavior: Clip.hardEdge,
+                            child: InstaImageViewer(
+                              child: Image(
+                                image: AssetImage(
+                                  place.previewImgs[i],
+                                ),
+                                // fit: BoxFit.cover,
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                                color: Colors.grey[300], borderRadius: BorderRadius.circular(10.r)),
+                          )),
+                ),
                 SizedBox(height: 40.h),
+              Text(
+                  "Comments",
+                  style: TextStyle(fontSize: 18.sp),
+                ),    
+                SizedBox(height: 10.h),
+                Column(
+                              children:[
+                                Container(
+                                  padding: EdgeInsets.only(bottom: 90),
+                                  //margin: EdgeInsets.only(bottom: 100.h),
+                                  height: 400.h,
+                               // color: Color(0xFFF5F5F4),
+                                child: ListView.builder(
+                                  controller: messageContoller,
+                                  itemCount:place.listcoments.length,
+                                   reverse: true,
+                                  itemBuilder: (context, index) {
+                                    // var commentIndex = commentLength - 1 - index; // Update the comment index
+                                 
+                                    return ListTile(
+                                      leading: CircleAvatar(
+                                        backgroundColor: Colors.grey,
+                                        backgroundImage: AssetImage("assets/ai.jpg"),
+                                      ),
+                                      title: Text(
+                                        place.listcoments[index].name!
+                                       // commnt.user.username.toString(),
+                                        // style: Style.commentusernameTextStyle,
+                                      ),
+                                      subtitle: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Flexible(
+                                            child: Text(
+                                              // commnt.content.toString(),
+                                               place.listcoments[index].comment!,
+                                              overflow: TextOverflow.clip,
+                                              softWrap: true,
+                                              // style: Style.commentTextStyle,
+                                            ),
+                                          ),
+                                          Center(
+                                            child: Container(
+                                              child: Text(
+                                               // "ana hna"
+                                                 place.listcoments[index].timestamp!.toIso8601String(),
+                                                // style: Style.commentTextStyle,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+
+  SingleChildScrollView(
+                              child: BottomChatField(
+                               // postId: postId,
+                                onSend: () async {
+                                  final comment = _messageController.text.trim();
+                                  if (comment.isNotEmpty) {
+                                    // context
+                                    //     .read<s1.CommentBloc>()
+                                    //     .add(s1.AddCommentEvent(comment, postId));
+                                    _messageController.clear();
+                                    await messageContoller.animateTo(
+                                      0.0,
+                                      duration: Duration(milliseconds: 300),
+                                      curve: Curves.easeOut,
+                                    );
+                                  }
+                                 // postsService.FetchPosts();
+                                },
+                                messageController: _messageController,
+                              ),
+                            ),
+                             ]
+               ),
+
+              
+
               ],
             ),
           ),
-        ));
+        )
+        );
   }
 }

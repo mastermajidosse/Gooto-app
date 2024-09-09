@@ -13,6 +13,7 @@ import 'package:gooto/screen/auth/fullscreenpopup.dart';
 import 'package:gooto/screen/feed/places_near_me.dart';
 import 'package:gooto/screen/hotel/Allhotel.dart';
 import 'package:gooto/screen/popular_details_screen.dart';
+import 'package:gooto/screen/together.dart';
 import 'package:gooto/widgets/all_activities_screen.dart';
 import 'package:gooto/widgets/custm_card.dart';
 import 'package:gooto/widgets/popular_activities.dart';
@@ -42,9 +43,13 @@ class _HomeScreenState extends State<HomeScreen> {
     Locale? currentLocal = EasyLocalization.of(context)!.currentLocale;
     if (currentLocal == const Locale('en', 'US')) {
       EasyLocalization.of(context)!.setLocale(const Locale('ar', 'AE'));
-    } else {
+    } else if(currentLocal == const Locale('ar', 'AE')) {
+      EasyLocalization.of(context)!.setLocale(const Locale('fr', 'FR'));
+    }else{
       EasyLocalization.of(context)!.setLocale(const Locale('en', 'US'));
     }
+
+
   }
 
   Future<void> _loadCities() async {
@@ -56,7 +61,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return 
+    Scaffold(
       
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -78,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => PlacesNearMe()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => TopSearchScreen()));
               },
               child: Container(
                 margin: EdgeInsets.all(8),

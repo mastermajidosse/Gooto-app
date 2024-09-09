@@ -2,11 +2,14 @@ import 'dart:math';
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:gooto/main_dev.dart';
 import 'package:gooto/screen/auth/login_screen.dart';
 import 'package:gooto/utils/MyStyle.dart';
 import 'package:gooto/screen/bottom_tab.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+late final GenerativeModel model;
+late dynamic response;
 
 class SplashScreen extends StatefulWidget {
   static const routeName = 'SplashScreen';
@@ -27,9 +30,20 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
   late double radius;
   late double dotRadius;
+    void initializegemini()async{
+//  model = GenerativeModel(
+//       model: 'gemini-1.5-flash',
+//       apiKey: "AIzaSyCFvdhfzTCJ3khYfDOdROPAi8ehuTOQ72o");
+//   final content = [
+//     Content.text(
+//         "you're a moroccan guide, if user asks you about anything related to morocco culture monument or Moroccan food or clothes answer as expert guide for morocco")
+//   ];
+//   response = await model.generateContent(content);
+  }
 
   @override
   void initState() {
+    initializegemini();
     super.initState();
     radius = widget.radius;
     dotRadius = widget.dotRadius;

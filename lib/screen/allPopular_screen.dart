@@ -98,7 +98,9 @@ class PlaceCard extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (_) => PopularDetailsScreen(
+            
               place: place,
+             
             ),
           ),
         );

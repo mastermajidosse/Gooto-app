@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:gooto/models/comments.dart';
 import 'package:gooto/models/hotel_model.dart';
 
 import '../models/card.dart';
@@ -40,7 +41,155 @@ List<HotelModel> hotels = [
       url: "https://www.booking.com/hotel/ma/hivernage-spa.en-gb.html"),
 ];
 
-List<CardModule> cardsList = const [
+List<CardModule> cardsList =  [
+   CardModule(
+      id: 1,
+      price: 30,
+      location: 'Rmilat',
+      productImg: 'assets/popular/rmilat.jpeg',
+      productName: 'Tanger,Rmilat',
+      rating: "4.8",
+      description:
+          "The Perdicaris Park, also known as the Rmilat Forest and formerly as Villa Aidonia or Place of the Nightingales, is a public park covering 70 hectares in the Rmilat neighborhood of Tangier, Morocco. It is located on the northern slopes of the Jebel Kebir hill facing the Strait of Gibraltar, between the Cape Spartel reserve to its west and the Jebel Kebir Royal Palace to its east. It is named after Greek-American notable Ion Hanford Perdicaris, who created it in the 1870s and was kidnapped there in the mid-1904",
+      previewImgs: [
+        "assets/popular/rmilat1.jpeg",
+        "assets/popular/rmilat2.jpeg",
+        "assets/popular/rmilat3.jpeg",
+        "assets/popular/rmilat4.jpeg",
+        "assets/popular/rmilat5.jpeg",
+        "assets/popular/rmilat6.jpeg",
+        
+      ],
+       listcoments: [Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg"),Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg"),Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg")]
+       ),
+   CardModule(
+      id: 1,
+      price: 30,
+      location: 'jebha',
+      productImg: 'assets/popular/jebha.jpeg',
+      productName: 'Tetoune,jebha',
+      rating: "4.8",
+      description:
+          "El Jebha is a little port town in the northern part of Morocco. This Mediterranean coastal place is situated in the Rif Mountains, and across the route that takes traffic from the Northwestern part to the Northeastern part of Morocco.[1] El Jebha, is the capital of the district (cercle) Mtiwa, which is part of Chefchaouen Province in the region of Tanger-Tetouan-Al Hoceima.",
+      previewImgs: [
+        "assets/popular/jebha1.jpeg",
+        "assets/popular/jebha2.jpeg",
+        "assets/popular/jebha3.jpeg",
+        "assets/popular/jebha4.jpeg",
+        "assets/popular/jebha5.jpeg",
+        "assets/popular/jebha6.jpeg"
+      ],
+       listcoments: [Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg"),Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg"),Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg")]
+       ),
+    CardModule(
+      id: 1,
+      price: 30,
+      location: 'oum rabia',
+      productImg: 'assets/popular/oumrabia5.jpeg',
+      productName: 'Khenifra,oum rabia',
+      rating: "4.8",
+      description:
+          "Which means The Green Lake in Berber, is a landlocked natural lake occupying a depressed area with a depth of 26m, it is surrounded by limestone reliefs, covered with a forest predominantly cedars and oaks, its location in the heart of Middle Atlas cedar gives it a marvelous beauty.",
+      previewImgs: [
+        "assets/popular/oumrabia1.jpeg",
+        "assets/popular/oumrabia2.jpeg",
+        "assets/popular/oumrabia3.jpeg",
+        "assets/popular/oumrabia4.jpeg",
+        "assets/popular/oumrabia.jpeg"
+      ],
+       listcoments: [Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg"),Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg"),Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg")]
+       ),
+  CardModule(
+      id: 1,
+      price: 30,
+      location: 'Aguelmam Azigza',
+      productImg: 'assets/popular/Aguelmam.jpeg',
+      productName: 'Khenifra,Aguelmam Azigza',
+      rating: "4.8",
+      description:
+          "Which means The Green Lake in Berber, is a landlocked natural lake occupying a depressed area with a depth of 26m, it is surrounded by limestone reliefs, covered with a forest predominantly cedars and oaks, its location in the heart of Middle Atlas cedar gives it a marvelous beauty.",
+      previewImgs: [
+        "assets/popular/Aguelmam5.jpeg",
+        "assets/popular/Aguelmam1.jpeg",
+        "assets/popular/Aguelmam4.jpeg",
+        "assets/popular/Aguelmam3.jpeg",
+        "assets/popular/Aguelmam6.jpeg"
+      ],
+       listcoments: [Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg"),Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg"),Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg")]
+       ),
+
+     CardModule(
+      id: 1,
+      price: 30,
+      location: 'Arougou',
+      productImg: 'assets/popular/jbeldahdouh.jpeg',
+      productName: 'Khenifra,Arougou',
+      rating: "4.8",
+      description:
+          "The mountainous commune of Aguelmam Azegza, in the province of Khénifra, is home to an exceptional tourist site called Arougou, well protected between the cedars and holm oaks of the Atlas, a few steps from Lake Aguelmam Azegza.The road to Arougou is truly charming, passing through natural landscapes that extend into vast areas along the Oum Errabia River, offering picturesque beauty. It is surrounded by lakes and dense forests, its ease of access throughout the year, both in summer and in winter, makes it a privileged destination.",
+      previewImgs: [
+        "assets/popular/jbeldahdouh6.jpeg",
+        "assets/popular/jbeldahdouh1.jpeg",
+        "assets/popular/jbeldahdouh3.jpeg",
+        "assets/popular/jbeldahdouh4.jpeg",
+        "assets/popular/jbeldahdouh5.jpeg"
+      ],
+       listcoments: [Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg"),Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg"),Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg")]
+       ),
+    CardModule(
+      id: 1,
+      price: 30,
+      location: 'Mountain Dahdouh',
+      productImg: 'assets/popular/jbeldahdouh.jpeg',
+      productName: 'Youssoufia,Mountain Dahdouh',
+      rating: "4.8",
+      description:
+          "The Rif — in Rif: ⴰⵔⵔⵉⴼ, Arrif (“shore, edge”), is the northern region of Morocco, bordered by the Mediterranean Sea to the north, Algeria to the east, the plains separating it from the Middle Atlas to the south and the Atlantic Ocean to the west. Made up of mountains and plains, the Rif extends over nearly 500 km from Tangier to Moulouya.",
+      previewImgs: [
+        "assets/popular/jbeldahdouh6.jpeg",
+        "assets/popular/jbeldahdouh1.jpeg",
+        "assets/popular/jbeldahdouh3.jpeg",
+        "assets/popular/jbeldahdouh4.jpeg",
+        "assets/popular/jbeldahdouh5.jpeg"
+      ],
+       listcoments: [Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg"),Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg"),Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg")]
+       ),
+  CardModule(
+      id: 1,
+      price: 30,
+      location: 'Mountain Irhoud',
+      productImg: 'assets/popular/jbelrhoud.jpeg',
+      productName: 'Youssoufia,Mountain Irhoud',
+      rating: "4.8",
+      description:
+          "Jebel Irhoud or Adrar n Ighoud (Standard Moroccan Tamazight: ⴰⴷⵔⴰⵔ ⵏ ⵉⵖⵓⴷ, romanized: Adrar n Iɣud; Arabic: جبل إيغود, Moroccan Arabic: žbəl iġud), is an archaeological site located just north of the town of Tlet Ighoud in Youssoufia Province, approximately 50 km (30 mi) south-east of the city of Safi in Morocco. It is noted for the hominin fossils that have been found there since the discovery of the site in 1960. Originally thought to be Neanderthals, the specimens have since been assigned to Homo sapiens and, as reported in 2017, have been dated to roughly 300,000 years ago (286±32 ka for the Irhoud 3 mandible, 315±34 ka based on other fossils and the flint artefacts found nearby)",
+      previewImgs: [
+        "assets/popular/jbelrhoud2.jpeg",
+        "assets/popular/jbelrhoud3.jpeg",
+        "assets/popular/jbelrhoud4.jpeg",
+        "assets/popular/jbelrhoud5.jpeg",
+        "assets/popular/jbelrhoud6.jpeg"
+      ],
+       listcoments: [Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg"),Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg"),Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg")]
+       ),
+    CardModule(
+      id: 1,
+      price: 30,
+      location: 'Moroccan Sahara',
+      productImg: 'assets/popular/Sahara.jpeg',
+      productName: 'Sahara',
+      rating: "5",
+      description:
+          "The Moroccan Sahara: A Treasure of Beauty and Culture The Moroccan Sahara is a stunning expanse of desert that captures the imagination of visitors from around the world. Spanning a vast area, this region is not only a geographical marvel but also a cultural treasure that embodies the spirit of Morocco.",
+      previewImgs: [
+        "assets/popular/sahara2.jpeg",
+        "assets/popular/Sahara.jpeg",
+        "assets/popular/sahara1.jpeg",
+        "assets/popular/Sahara4.jpeg",
+        "assets/popular/Sahara3.jpeg"
+      ],
+       listcoments: []),
+    
   CardModule(
       id: 1,
       price: 30,
@@ -53,7 +202,9 @@ List<CardModule> cardsList = const [
       previewImgs: [
         "assets/popular/akchour2.jpeg",
         "assets/popular/akchour1.png"
-      ]),
+      ],
+      listcoments: []
+      ),
   CardModule(
       id: 2,
       price: 4.50,
@@ -66,7 +217,9 @@ List<CardModule> cardsList = const [
       previewImgs: [
         "assets/popular/akchour2.jpeg",
         "assets/popular/akchour1.png"
-      ]),
+      ],
+      listcoments: []
+      ),
   CardModule(
     id: 3,
     price: 5.00,
@@ -80,6 +233,7 @@ List<CardModule> cardsList = const [
       "assets/popular/akchour2.jpeg",
       "assets/popular/akchour1.png"
     ],
+    listcoments: []
   ),
   CardModule(
       id: 4,
@@ -93,7 +247,9 @@ List<CardModule> cardsList = const [
       previewImgs: [
         "assets/popular/akchour2.jpeg",
         "assets/popular/akchour1.png"
-      ]),
+      ],
+      listcoments: []
+      ),
   CardModule(
       id: 5,
       price: 10.00,
@@ -106,7 +262,8 @@ List<CardModule> cardsList = const [
       previewImgs: [
         "assets/popular/akchour2.jpeg",
         "assets/popular/akchour1.png"
-      ]),
+      ],
+      listcoments: []),
   CardModule(
       id: 6,
       price: 20.00,
@@ -119,7 +276,9 @@ List<CardModule> cardsList = const [
       previewImgs: [
         "assets/popular/akchour2.jpeg",
         "assets/popular/akchour1.png"
-      ]),
+      ],
+      listcoments: []
+      ),
   CardModule(
       id: 7,
       price: 7.00,
@@ -132,7 +291,9 @@ List<CardModule> cardsList = const [
       previewImgs: [
         "assets/popular/akchour2.jpeg",
         "assets/popular/akchour1.png"
-      ]),
+      ],
+      listcoments: []
+      ),
   CardModule(
       id: 8,
       price: 15.00,
@@ -145,7 +306,9 @@ List<CardModule> cardsList = const [
       previewImgs: [
         "assets/popular/akchour2.jpeg",
         "assets/popular/akchour1.png"
-      ]),
+      ],
+      listcoments: []
+      ),
   CardModule(
       id: 9,
       price: 25.00,
@@ -158,7 +321,8 @@ List<CardModule> cardsList = const [
       previewImgs: [
         "assets/popular/akchour2.jpeg",
         "assets/popular/akchour1.png"
-      ]),
+      ],
+      listcoments: []),
   CardModule(
       id: 11,
       price: 8.00,
@@ -171,7 +335,8 @@ List<CardModule> cardsList = const [
       previewImgs: [
         "assets/popular/akchour2.jpeg",
         "assets/popular/akchour1.png"
-      ]),
+      ],
+      listcoments: []),
   CardModule(
       id: 12,
       price: 5.00,
@@ -184,7 +349,8 @@ List<CardModule> cardsList = const [
       previewImgs: [
         "assets/popular/akchour2.jpeg",
         "assets/popular/akchour1.png"
-      ]),
+      ],
+      listcoments: []),
   CardModule(
       id: 14,
       price: 6.00,
@@ -197,7 +363,8 @@ List<CardModule> cardsList = const [
       previewImgs: [
         "assets/popular/akchour2.jpeg",
         "assets/popular/akchour1.png"
-      ]),
+      ],
+      listcoments: []),
   CardModule(
       id: 17,
       price: 11.00,
@@ -210,7 +377,8 @@ List<CardModule> cardsList = const [
       previewImgs: [
         "assets/popular/akchour2.jpeg",
         "assets/popular/akchour1.png"
-      ]),
+      ],
+      listcoments: []),
   CardModule(
       id: 18,
       price: 20.00,
@@ -223,7 +391,8 @@ List<CardModule> cardsList = const [
       previewImgs: [
         "assets/popular/akchour2.jpeg",
         "assets/popular/akchour1.png"
-      ]),
+      ],
+      listcoments: []),
   CardModule(
       id: 19,
       price: 8.00,
@@ -236,7 +405,8 @@ List<CardModule> cardsList = const [
       previewImgs: [
         "assets/popular/akchour2.jpeg",
         "assets/popular/akchour1.png"
-      ]),
+      ],
+      listcoments: []),
   CardModule(
       id: 20,
       price: 13.00,
@@ -249,7 +419,8 @@ List<CardModule> cardsList = const [
       previewImgs: [
         "assets/popular/akchour2.jpeg",
         "assets/popular/akchour1.png"
-      ]),
+      ],
+      listcoments: []),
   CardModule(
       id: 21,
       price: 16.00,
@@ -262,7 +433,8 @@ List<CardModule> cardsList = const [
       previewImgs: [
         "assets/popular/akchour2.jpeg",
         "assets/popular/akchour1.png"
-      ]),
+      ],
+      listcoments: []),
   CardModule(
       id: 22,
       price: 10.00,
@@ -275,7 +447,8 @@ List<CardModule> cardsList = const [
       previewImgs: [
         "assets/popular/akchour2.jpeg",
         "assets/popular/akchour1.png"
-      ]),
+      ],
+      listcoments: []),
   CardModule(
       id: 23,
       price: 12.00,
@@ -288,7 +461,8 @@ List<CardModule> cardsList = const [
       previewImgs: [
         "assets/popular/akchour2.jpeg",
         "assets/popular/akchour1.png"
-      ]),
+      ],
+      listcoments: []),
   CardModule(
       id: 24,
       price: 15.00,
@@ -301,5 +475,6 @@ List<CardModule> cardsList = const [
       previewImgs: [
         "assets/popular/akchour2.jpeg",
         "assets/popular/akchour1.png"
-      ]),
+      ],
+      listcoments: []),
 ];

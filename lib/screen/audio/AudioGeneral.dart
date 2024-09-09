@@ -119,7 +119,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                                         fontFamily: 'Arial',
                                         fontSize: 23,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.white,
+                                        color: Colors.black,
                                       ),
                                     ),
                                     Padding(
@@ -129,8 +129,8 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                                         style: TextStyle(
                                           fontFamily: 'Arial',
                                           fontSize: 22,
-                                          fontWeight: FontWeight.w200,
-                                          color: Colors.white,
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.black,
                                         ),
                                       ),
                                     ),
@@ -139,7 +139,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                                         Icon(
                                           Icons.play_circle_fill,
                                           size: 37.sp,
-                                          color: Colors.white,
+                                          color: Colors.black,
                                         ),
                                         SizedBox(width: 10),
                                         Text(
@@ -148,7 +148,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                                             fontFamily: 'Arial',
                                             fontSize: 22.sp,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.white,
+                                            color: Colors.black,
                                           ),
                                         ),
                                       ],

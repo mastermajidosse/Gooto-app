@@ -11,8 +11,8 @@ import 'package:camera/camera.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 
 late List<CameraDescription> cameras;
-late final GenerativeModel model;
-late dynamic response;
+// late final GenerativeModel model;
+// late dynamic response;
 // int? initScreen;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,19 +25,27 @@ void main() async {
 
   AppConfig.env = Environment.PROD;
 
-  model =
-      GenerativeModel(model: 'gemini-1.5-pro', apiKey: "AIzaSyBg1oUYaYkgffZSZKPCZcrBaL3H0vQkwXc");
-  final content = [
-    Content.text(
-        "you're a moroccan guide, if user asks you about anything related to morocco culture monument or Moroccan food or clothes answer as expert guide for morocco")
-  ];
+  // model =
+  //     GenerativeModel(model: 'gemini-1.5-pro', apiKey: "AIzaSyBg1oUYaYkgffZSZKPCZcrBaL3H0vQkwXc");
+  // final content = [
+  //   Content.text(
+  //       "you're a moroccan guide, if user asks you about anything related to morocco culture monument or Moroccan food or clothes answer as expert guide for morocco")
+  // ];
+  // //  response = await model.generateContent(content);
+  //   model =
+  //     GenerativeModel(model: 'gemini-1.5-pro', apiKey: "AIzaSyBg1oUYaYkgffZSZKPCZcrBaL3H0vQkwXc");
+  // final content = [
+  //   Content.text(
+  //       "you're a moroccan guide, if user asks you about anything related to morocco culture monument or Moroccan food or clothes answer as expert guide for morocco")
+  // ];
+  // response = await model.generateContent(content);
   //response = await model.generateContent(content);
-
+//print(response);
   // firsttime();
 
   runApp(
     EasyLocalization(
-      supportedLocales: const [Locale('en', 'US'), Locale('ar', 'AE')],
+      supportedLocales: const [Locale('en', 'US'), Locale('ar', 'AE'),Locale('fr','FR')],
       path: 'assets/translations',
       fallbackLocale: const Locale('en', 'US'),
    

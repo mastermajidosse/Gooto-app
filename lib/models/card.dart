@@ -1,3 +1,5 @@
+import 'package:gooto/models/comments.dart';
+
 class CardModule {
   final int id;
   final double price;
@@ -7,6 +9,7 @@ class CardModule {
   final String productName;
   final List<String> previewImgs;
   final String description;
+  final List<Comments> listcoments;
   const CardModule({
     required this.id,
     required this.price,
@@ -16,6 +19,7 @@ class CardModule {
     required this.productName,
     required this.previewImgs,
     required this.description,
+    required this.listcoments
   });
 
   CardModule copyWith(double newPrice) {
@@ -28,6 +32,7 @@ class CardModule {
       productName: this.productName,
       previewImgs: this.previewImgs,
       description: this.description,
+      listcoments: this.listcoments
     );
   }
 }
