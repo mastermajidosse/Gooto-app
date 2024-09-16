@@ -29,6 +29,7 @@ class _SplashScreenState extends State<SplashScreenafterauth> with SingleTickerP
 
   late double radius;
   late double dotRadius;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
  
 
   @override
@@ -101,9 +102,14 @@ class _SplashScreenState extends State<SplashScreenafterauth> with SingleTickerP
 
   @override
   Widget build(BuildContext context) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+    final geometry = Scaffold.geometryOf(context);
+    // Use the geometry here
+  });
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
+      key: _scaffoldKey,
         body: Container(
       height: height,
       width: width,

@@ -38,18 +38,20 @@ class _LoginPageState extends State<LoginPage> {
         listener: (context, state) {
           if (state is LoginError) {
              print(state.message);
-             return MyStyle.err(ScaffoldMessenger.of(context).showSnackBar, state.message);
+            //MyStyle.err(ScaffoldMessenger.of(context).showSnackBar, state.message);
+               return WidgetsBinding.instance.addPostFrameCallback((_) {
+        MyStyle.err(ScaffoldMessenger.of(context).showSnackBar, state.message);
+      });
           } else if (state is LoginSuccess) {
             print("brace you gonna login");
                     //  Future.delayed(Duration(seconds: 5)).then((_) {
-                    //                   Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomTabBarr()));
-                    //                 //  SplashScreenafterauth
-                    //           //Navigator.pushReplacementNamed(context, AppStartScreen.routeName);
+   
                     //         });
-             //Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomTabBarr()));
-               WidgetsBinding.instance.addPostFrameCallback((_) {
+                                   WidgetsBinding.instance.addPostFrameCallback((_) {
         Navigator.pushReplacementNamed(context, AppStartScreen.routeName);
       });
+             //Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomTabBarr()));
+     
           }
         },
         builder: (context, state) {

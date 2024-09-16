@@ -84,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Together()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => PopularPlacesScreen()));
               },
               child: Container(
                 margin: EdgeInsets.all(8),
@@ -94,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   borderRadius: BorderRadius.circular(15),
                   image: DecorationImage(
                     image: AssetImage(
-                      "assets/ai.jpg",
+                      "assets/popular/Essouira.jpeg",
                     ),
                     fit: BoxFit.fitWidth,
                     alignment: Alignment(0.0, -0.38),
