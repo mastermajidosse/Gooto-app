@@ -14,7 +14,9 @@ late List<CameraDescription> cameras;
 // late final GenerativeModel model;
 late dynamic response;
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
    await EasyLocalization.ensureInitialized();
+  
   // model =
   //     GenerativeModel(model: 'gemini-1.5-pro', apiKey: "AIzaSyBg1oUYaYkgffZSZKPCZcrBaL3H0vQkwXc");
   // final content = [
@@ -31,7 +33,17 @@ void main() async {
 
   AppConfig.env = Environment.DEV;
 
-  runApp(MyApp("dev"));
+  runApp(
+      EasyLocalization(
+      supportedLocales: const [Locale('en', 'US'), Locale('ar', 'AE'),Locale('fr','FR')],
+      path: 'assets/translations',
+      fallbackLocale: const Locale('en', 'US'),
+   
+   child:  MyApp("dev")
+
+    )
+   
+    );
 }
 
 class MyHttpOverrides extends HttpOverrides {

@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
               alignment: Alignment.bottomLeft,
               margin: EdgeInsets.symmetric(horizontal: 8),
               child: Text(
-                'Places Near Me'.tr(),
+                'Together'.tr(),
                 style: MyStyle.blackalarmTextStyle,
               ),
             ),
@@ -130,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 350.h,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 5,
+                itemCount: 6,
                 itemBuilder: (context, index) {
                   final CardModule card = cardsList[index];
 

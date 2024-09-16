@@ -1,4 +1,6 @@
+// import 'dart:convert';
 // import 'dart:io';
+// import 'dart:typed_data';
 
 // import 'package:cached_network_image/cached_network_image.dart';
 // import 'package:flutter/material.dart';
@@ -7,6 +9,7 @@
 // import 'package:gooto/bloc/profile/profile_cubit.dart';
 // import 'package:gooto/models/user_model.dart';
 // import 'package:gooto/utils/MyStyle.dart';
+// import 'package:image_picker/image_picker.dart';
 // // import 'package:image_picker/image_picker.dart';
 
 // class EditProfileScreen extends StatefulWidget {
@@ -22,6 +25,9 @@
 //   final TextEditingController mycountry = TextEditingController();
 //   final TextEditingController mail = TextEditingController();
 //   final _formKey = GlobalKey<FormState>();
+//   XFile? _image;
+//   File? selectedIMage;
+//   String? base64string;
 
 //   @override
 //   void initState() {
@@ -30,8 +36,45 @@
 //     initname = "${widget.userModel.firstname}";
 //     mycountry.text = widget.userModel.country.toString();
 //     initmycountry = widget.userModel.country.toString();
+//     base64string=widget.userModel!.imgurl;
 //     mail.text = widget.userModel.email ?? "";
 //     initinsta = widget.userModel.email ?? "";
+//   }
+//   //gallery
+//   Future _pickImageFromGallery() async {
+//      _image =
+//         await ImagePicker().pickImage(source: ImageSource.gallery);
+//     if (_image == null){
+// setState(() {
+      
+//       selectedIMage = File(_image!.path);
+//       //_image = File(returnImage.path).readAsBytesSync();
+     
+//     });
+//     }
+    
+    
+//     //  List<int> imageByte=File(returnImage.path).readAsBytesSync();
+//     //   base64string=base64Encode(imageByte);
+//     //   debugPrint(base64string);
+//     // Navigator.of(context).pop(); 
+//   }
+// // camera
+//     Future _pickImageFromCamera() async {
+//      _image =
+//         await ImagePicker().pickImage(source: ImageSource.camera);
+//     if (_image == null) {
+//   setState(() {
+//       selectedIMage = File(_image!.path);
+//       // _image = File(returnImage.path).readAsBytesSync();
+      
+//     });
+//     }
+  
+//     List<int> imageByte=File(_image!.path).readAsBytesSync();
+//       base64string=base64Encode(imageByte);
+ 
+//     Navigator.of(context).pop();
 //   }
 
 //   String? initname;
@@ -76,20 +119,20 @@
 //                       highlightColor: Colors.transparent,
 //                     ),
 //                   ),
-//                   Padding(
-//                     padding: EdgeInsets.symmetric(vertical: 12),
-//                     child: Text(
-//                       "تعديل المعلومات",
-//                       style: MyStyle.dashTextStyle,
-//                     ),
-//                   ),
 //                   // Padding(
 //                   //   padding: EdgeInsets.symmetric(vertical: 12),
 //                   //   child: Text(
-//                   //     "Edit Profile",
+//                   //     "تعديل المعلومات",
 //                   //     style: MyStyle.dashTextStyle,
 //                   //   ),
 //                   // ),
+//                   Padding(
+//                     padding: EdgeInsets.symmetric(vertical: 12),
+//                     child: Text(
+//                       "Edit Profile",
+//                       style: MyStyle.dashTextStyle,
+//                     ),
+//                   ),
 //                   InkWell(
 //                     customBorder: CircleBorder(),
 //                     onTap: () {
@@ -102,7 +145,7 @@
 //                       height: 56.h,
 //                       alignment: Alignment.center,
 //                       child: Text(
-//                         "تغيير",
+//                         "change",
 //                         style: MyStyle.buttTextStyle,
 //                       ),
 //                     ),
@@ -133,14 +176,14 @@
 //                         alignment: Alignment.center,
 //                         child: Column(
 //                           children: [
-//                             Text(
-//                               "تغيير صورة المستخدم",
-//                               style: MyStyle.regularTextStyle,
-//                             ),
 //                             // Text(
-//                             //   "Change profile photo",
+//                             //   "تغيير صورة المستخدم",
 //                             //   style: MyStyle.regularTextStyle,
 //                             // ),
+//                             Text(
+//                               "Change profile photo",
+//                               style: MyStyle.regularTextStyle,
+//                             ),
 //                             SizedBox(height: 16.w),
 //                             InkWell(
 //                               onTap: () async {
@@ -159,29 +202,32 @@
 //                                               dense: true,
 //                                               onTap: () async {
 //                                                 Navigator.pop(context);
-
-//                                                 setState(() async {
-//                                                   // newimage =
-//                                                   //     await _picker.pickImage(
-//                                                   //         source: ImageSource
-//                                                   //             .camera);
-//                                                 });
+//  _pickImageFromCamera();
+//                                                 // setState(() async {
+                                                 
+//                                                 //   // newimage =
+//                                                 //   //     await _picker.pickImage(
+//                                                 //   //         source: ImageSource
+//                                                 //   //             .camera);
+//                                                 // });
 //                                               },
-//                                               title: Text("من الكاميرا"),
+//                                               title: Text("camera"),
 //                                             ),
 //                                             Divider(color: Colors.black),
 //                                             ListTile(
 //                                               dense: true,
 //                                               onTap: () async {
 //                                                 Navigator.pop(context);
-//                                                 setState(() async {
-//                                                   // newimage =
-//                                                   //     await _picker.pickImage(
-//                                                   //         source: ImageSource
-//                                                   //             .gallery);
-//                                                 });
+//                                                     _pickImageFromGallery();
+//                                                 // setState(()  {
+                                              
+//                                                 //   // newimage =
+//                                                 //   //     await _picker.pickImage(
+//                                                 //   //         source: ImageSource
+//                                                 //   //             .gallery);
+//                                                 // });
 //                                               },
-//                                               title: Text("من الصور"),
+//                                               title: Text("gallery"),
 //                                             ),
 //                                             SizedBox(height: 6),
 
@@ -191,7 +237,8 @@
 //                                       );
 //                                     });
 //                               },
-//                               child: CachedNetworkImage(
+//                               child: 
+//                               CachedNetworkImage(
 //                                   height: ScreenUtil().setHeight(200.w),
 //                                   width: ScreenUtil().setHeight(200.w),
 //                                   placeholder: (context, url) => Center(
@@ -200,52 +247,56 @@
 //                                         ),
 //                                       ),
 //                                   errorWidget: (context, url, error) =>
-//                                       // Container(
-//                                       //   width: double.infinity,
-//                                       //   height: ScreenUtil().setHeight(300),
-//                                       //   decoration: BoxDecoration(
-//                                       //     borderRadius:
-//                                       //         BorderRadius.circular(100),
-//                                       //     border: Border.all(
-//                                       //         color: Colors.black54, width: 2),
-//                                       //     image: newimage == null
-//                                       //         ? DecorationImage(
-//                                       //             image: NetworkImage(
-//                                       //               "https://i0.wp.com/rouelibrenmaine.fr/wp-content/uploads/2018/10/empty-avatar.png",
-//                                       //             ),
-//                                       //             fit: BoxFit.cover,
-//                                       //           )
-//                                       //         : DecorationImage(
-//                                       //             image: Image.file(
-//                                       //                     File(newimage!.path))
-//                                       //                 .image,
-//                                       //             fit: BoxFit.cover,
-//                                       //           ),
-//                                       //   ),
-//                                       // ),
-//                                   //imageUrl: widget.userModel.imgurl.toString(),
-//                                   //imageBuilder: (context, imageProvider) =>
-//                                       // Container(
-//                                       //   width: double.infinity,
-//                                       //   height: ScreenUtil().setHeight(300),
-//                                       //   decoration: BoxDecoration(
-//                                       //     borderRadius:
-//                                       //         BorderRadius.circular(300),
-//                                       //   / image: newimage == null
-//                                       //         ? DecorationImage(
-//                                       //             image: NetworkImage(
-//                                       //               "https://i0.wp.com/rouelibrenmaine.fr/wp-content/uploads/2018/10/empty-avatar.png",
-//                                       //             ),
-//                                       //             fit: BoxFit.cover,
-//                                       //           )
-//                                       //         : DecorationImage(
-//                                       //             image: Image.file(
-//                                       //                     File(newimage!.path))
-//                                       //                 .image,
-//                                       //             fit: BoxFit.cover,
-//                                       //           ),
-//                                       //   ),
-//                                       // )),
+//                                       Container(
+//                                         width: double.infinity,
+//                                         height: ScreenUtil().setHeight(300),
+//                                         decoration: BoxDecoration(
+//                                           borderRadius:
+//                                               BorderRadius.circular(100),
+//                                           border: Border.all(
+//                                               color: Colors.black54, width: 2),
+//                                           image: 
+//                                          selectedIMage == null
+//                                               ? 
+//                                               DecorationImage(
+//                                                   image: NetworkImage(
+//                                                     "https://i0.wp.com/rouelibrenmaine.fr/wp-content/uploads/2018/10/empty-avatar.png",
+//                                                   ),
+//                                                   fit: BoxFit.cover,
+//                                                 )
+//                                               : DecorationImage(
+//                                                   image: Image.file(
+//                                                           File(selectedIMage!.path))
+//                                                       .image,
+//                                                   fit: BoxFit.cover,
+//                                                 ),
+//                                         ),
+//                                       ),
+//                                   imageUrl: widget.userModel.imgurl.toString(),
+//                                   imageBuilder: (context, imageProvider) =>
+//                                       Container(
+//                                         width: double.infinity,
+//                                         height: ScreenUtil().setHeight(300),
+//                                         decoration: BoxDecoration(
+//                                           borderRadius:
+//                                               BorderRadius.circular(300),
+//                                          image: 
+//                                          selectedIMage == null
+//                                               ? 
+//                                               DecorationImage(
+//                                                   image: NetworkImage(
+//                                                     "https://i0.wp.com/rouelibrenmaine.fr/wp-content/uploads/2018/10/empty-avatar.png",
+//                                                   ),
+//                                                   fit: BoxFit.cover,
+//                                                 )
+//                                               : DecorationImage(
+//                                                   image: Image.file(
+//                                                           File(selectedIMage!.path))
+//                                                       .image,
+//                                                   fit: BoxFit.cover,
+//                                                 ),
+//                                         ),
+//                                       )),
 //                             ),
 //                           ],
 //                         ),
@@ -269,14 +320,14 @@
 //                               ),
 //                             ),
 //                             SizedBox(height: 12.w),
-//                             Text(
-//                               "الاسم",
-//                               style: MyStyle.regulargreyTextStyle,
-//                             ),
 //                             // Text(
-//                             //   "Username",
+//                             //   "الاسم",
 //                             //   style: MyStyle.regulargreyTextStyle,
 //                             // ),
+//                             Text(
+//                               "Username",
+//                               style: MyStyle.regulargreyTextStyle,
+//                             ),
 //                             SizedBox(height: 6.w),
 //                             TextFormField(
 //                               cursorColor: Colors.blueGrey,
@@ -295,14 +346,14 @@
 //                               textInputAction: TextInputAction.done,
 //                             ),
 //                             SizedBox(height: ScreenUtil().setHeight(20)),
-//                             Text(
-//                               "الايميل",
-//                               style: MyStyle.regulargreyTextStyle,
-//                             ),
 //                             // Text(
-//                             //   "Email",
+//                             //   "الايميل",
 //                             //   style: MyStyle.regulargreyTextStyle,
 //                             // ),
+//                             Text(
+//                               "Email",
+//                               style: MyStyle.regulargreyTextStyle,
+//                             ),
 //                             TextFormField(
 //                               cursorColor: Colors.blueGrey,
 //                               initialValue: widget.userModel.email,
@@ -386,3 +437,356 @@
 // //             instagram: mail.text,
 // //             moto: mycountry.text,
 // //           ),
+// import 'dart:convert';
+// import 'dart:io';
+// import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter_bloc/flutter_bloc.dart';
+// import 'package:flutter_screenutil/flutter_screenutil.dart';
+// import 'package:gooto/bloc/profile/profile_cubit.dart';
+// import 'package:gooto/models/user_model.dart';
+// import 'package:gooto/utils/MyStyle.dart';
+// import 'package:image_picker/image_picker.dart';
+
+// class EditProfileScreen extends StatefulWidget {
+//   static const routeName = 'EditProfileScreen';
+//   final UserModel userModel;
+
+//   EditProfileScreen(this.userModel);
+
+//   @override
+//   _EditProfileScreenState createState() => _EditProfileScreenState();
+// }
+
+// class _EditProfileScreenState extends State<EditProfileScreen> {
+//   final TextEditingController name = TextEditingController();
+//   final TextEditingController mycountry = TextEditingController();
+//   final TextEditingController mail = TextEditingController();
+//   final _formKey = GlobalKey<FormState>();
+//   XFile? _image;
+//   File? selectedImage;  // Fixed variable name
+//   String? base64string;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     name.text = widget.userModel.firstname ?? "";
+//     mycountry.text = widget.userModel.country ?? "";
+//     base64string = widget.userModel.imgurl;
+//     mail.text = widget.userModel.email ?? "";
+//   }
+
+//   Future<void> _pickImageFromGallery() async {
+//     _image = await ImagePicker().pickImage(source: ImageSource.gallery);
+//     if (_image != null) {
+//       setState(() {
+//         selectedImage = File(_image!.path);  // Update the selected image here
+//       });
+//     }
+//   }
+
+//   Future<void> _pickImageFromCamera() async {
+//     _image = await ImagePicker().pickImage(source: ImageSource.camera);
+//     if (_image != null) {
+//       setState(() {
+//         selectedImage = File(_image!.path);  // Update the selected image here
+//       });
+//     }
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return SafeArea(
+//       child: Scaffold(
+//         backgroundColor: Colors.white,
+//         appBar: AppBar(
+//           title: Text("Edit Profile"),
+//           leading: IconButton(
+//             icon: Icon(Icons.arrow_back),
+//             onPressed: () => Navigator.pop(context),
+//           ),
+//           actions: [
+//             TextButton(
+//               onPressed: save,
+//               child: Text("Change", style: MyStyle.buttTextStyle),
+//             ),
+//           ],
+//         ),
+//         body: Form(
+//           key: _formKey,
+//           child: ListView(
+//             children: [
+//               Container(
+//                 padding: EdgeInsets.symmetric(
+//                   horizontal: ScreenUtil().setWidth(36),
+//                   vertical: ScreenUtil().setWidth(15),
+//                 ),
+//                 child: Column(
+//                   children: [
+//                     Text("Change profile photo", style: MyStyle.regularTextStyle),
+//                     SizedBox(height: 16.w),
+//                     InkWell(
+//                       onTap: () {
+//                         showModalBottomSheet(
+//                           context: context,
+//                           builder: (context) {
+//                             return Column(
+//                               mainAxisSize: MainAxisSize.min,
+//                               children: [
+//                                 ListTile(
+//                                   title: Text("Camera"),
+//                                   onTap: () {
+//                                     Navigator.pop(context);
+//                                     _pickImageFromCamera();
+//                                   },
+//                                 ),
+//                                 ListTile(
+//                                   title: Text("Gallery"),
+//                                   onTap: () {
+//                                     Navigator.pop(context);
+//                                     _pickImageFromGallery();
+//                                   },
+//                                 ),
+//                               ],
+//                             );
+//                           },
+//                         );
+//                       },
+//                       child: Container(
+//                         height: ScreenUtil().setHeight(200),
+//                         width: ScreenUtil().setHeight(200),
+//                         decoration: BoxDecoration(
+//                           borderRadius: BorderRadius.circular(100),
+//                           image: DecorationImage(
+//                             image: selectedImage != null
+//                                 ? FileImage(selectedImage!) as ImageProvider<Object> 
+//                                 : NetworkImage(widget.userModel.imgurl.toString())as ImageProvider<Object> ,
+//                             fit: BoxFit.cover,
+//                           ),
+//                         ),
+//                         child: selectedImage == null
+//                             ? CachedNetworkImage(
+//                                 imageUrl: widget.userModel.imgurl.toString(),
+//                                 placeholder: (context, url) => Center(child: CircularProgressIndicator()),
+//                                 errorWidget: (context, url, error) => Icon(Icons.error),
+//                               )
+//                             : null,
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//               // Other form fields...
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+
+//   Future<void> save() async {
+//     if (_formKey.currentState!.validate()) {
+//       if (name.text != widget.userModel.firstname) {
+//         widget.userModel.firstname = name.text;
+//         await BlocProvider.of<ProfileCubit>(context).editprofile(widget.userModel, context);
+//       }
+//       Navigator.of(context).pop();
+//     }
+//   }
+// }
+import 'dart:convert';
+import 'dart:io';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gooto/bloc/profile/profile_cubit.dart';
+import 'package:gooto/models/user_model.dart';
+import 'package:gooto/utils/MyStyle.dart';
+import 'package:image_picker/image_picker.dart';
+
+class EditProfileScreen extends StatefulWidget {
+  static const routeName = 'EditProfileScreen';
+  final UserModel userModel;
+
+  EditProfileScreen(this.userModel);
+
+  @override
+  _EditProfileScreenState createState() => _EditProfileScreenState();
+}
+
+class _EditProfileScreenState extends State<EditProfileScreen> {
+  final TextEditingController name = TextEditingController();
+  final TextEditingController mycountry = TextEditingController();
+  final TextEditingController mail = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  XFile? _image;
+  File? selectedImage;
+  String? base64string;
+
+  @override
+  void initState() {
+    super.initState();
+
+    name.text = widget.userModel.firstname ?? "";
+    mycountry.text = widget.userModel.country ?? "";
+    //selectedImage = widget.userModel.imgurl.toString();
+    mail.text = widget.userModel.email ?? "";
+  }
+
+  Future<void> _pickImageFromGallery() async {
+    _image = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (_image != null) {
+      setState(() {
+        selectedImage = File(_image!.path);
+      });
+          List<int> imageByte=File(_image!.path).readAsBytesSync();
+      base64string=base64Encode(imageByte);
+     
+    }
+  }
+
+  Future<void> _pickImageFromCamera() async {
+    _image = await ImagePicker().pickImage(source: ImageSource.camera);
+    if (_image != null) {
+      setState(() {
+        selectedImage = File(_image!.path);
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: Text("Edit Profile"),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () => Navigator.pop(context),
+          ),
+          actions: [
+            TextButton(
+              onPressed: save,
+              child: Text("Change", style: MyStyle.buttTextStyle),
+            ),
+          ],
+        ),
+        body: Form(
+          key: _formKey,
+          child: ListView(
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: ScreenUtil().setWidth(36),
+                  vertical: ScreenUtil().setWidth(15),
+                ),
+                child: Column(
+                  children: [
+                    Text("Change profile photo", style: MyStyle.regularTextStyle),
+                    SizedBox(height: 16.w),
+                    InkWell(
+                      onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          builder: (context) {
+                            return Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                ListTile(
+                                  title: Text("Camera"),
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                    _pickImageFromCamera();
+                                  },
+                                ),
+                                ListTile(
+                                  title: Text("Gallery"),
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                    _pickImageFromGallery();
+                                  },
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      },
+                      child: Container(
+                        height: ScreenUtil().setHeight(200),
+                        width: ScreenUtil().setHeight(200),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(100),
+                          image: DecorationImage(
+                            image: selectedImage != null
+                                ? FileImage(selectedImage!) as ImageProvider<Object>
+                                : NetworkImage("https://i0.wp.com/rouelibrenmaine.fr/wp-content/uploads/2018/10/empty-avatar.png") as ImageProvider<Object>,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        child: selectedImage == null
+                            ? CachedNetworkImage(
+                                imageUrl: "https://i0.wp.com/rouelibrenmaine.fr/wp-content/uploads/2018/10/empty-avatar.png",
+                                placeholder: (context, url) => Center(child: CircularProgressIndicator()),
+                                errorWidget: (context, url, error) => Icon(Icons.error),
+                              )
+                            : null,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              // Other form fields...
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 36.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Username", style: MyStyle.regulargreyTextStyle),
+                    SizedBox(height: 6.w),
+                    TextFormField(
+                      cursorColor: Colors.blueGrey,
+                      controller: name,
+                      decoration: MyStyle.inputregulare('الاسم*'),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Empty username';
+                        } else if (value.length < 4) {
+                          return 'Valid name is more than 4 characters';
+                        }
+                        return null;
+                      },
+                      textInputAction: TextInputAction.done,
+                    ),
+                    SizedBox(height: ScreenUtil().setHeight(20)),
+                    Text("Email", style: MyStyle.regulargreyTextStyle),
+                    TextFormField(
+                      cursorColor: Colors.blueGrey,
+                      controller: mail,
+                      enabled: false,
+                      textInputAction: TextInputAction.done,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Future<void> save() async {
+    if (_formKey.currentState!.validate()) {
+      if (name.text != widget.userModel.firstname) {
+        widget.userModel.firstname = name.text;
+        widget.userModel.imgurl= selectedImage.toString();
+        await BlocProvider.of<ProfileCubit>(context).editprofile(widget.userModel, context);
+      }else{
+Navigator.of(context).pop();
+      }
+      
+    }
+  }
+}

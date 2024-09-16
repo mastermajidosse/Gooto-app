@@ -224,7 +224,28 @@ class MyStyle {
   //     ],
   //   );
   // }
-
+ static void err(sc, String text, {color = Colors.red}) {
+    return sc(
+      SnackBar(
+        content: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Flexible(
+              child: Text(
+                text,
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+                maxLines: 2,
+              ),
+            ),
+            Icon(Icons.error)
+          ],
+        ),
+        backgroundColor: color,
+      ),
+    );
+  }
   static InputDecoration inputregular(String hint, {Icon? icon, Icon? oneicon}) {
     return InputDecoration(
       hintText: hint,

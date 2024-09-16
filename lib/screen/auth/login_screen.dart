@@ -6,6 +6,7 @@ import 'package:gooto/models/user_model.dart';
 import 'package:gooto/screen/app_start_screen.dart';
 import 'package:gooto/screen/auth/register_screen.dart';
 import 'package:gooto/screen/bottom_tab.dart';
+import 'package:gooto/screen/profile/setting_screen.dart';
 import 'package:gooto/utils/mystyle.dart';
 
 class LoginPage extends StatefulWidget {
@@ -36,12 +37,19 @@ class _LoginPageState extends State<LoginPage> {
       body: BlocConsumer<LoginCubit, LoginState>(
         listener: (context, state) {
           if (state is LoginError) {
-             print("LoginError");
-            // return MyStyle.err(ScaffoldMessenger.of(context).showSnackBar, state.message);
+             print(state.message);
+             return MyStyle.err(ScaffoldMessenger.of(context).showSnackBar, state.message);
           } else if (state is LoginSuccess) {
             print("brace you gonna login");
-             Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomTabBarr()));
-           // Navigator.pushReplacementNamed(context, AppStartScreen.routeName);
+                    //  Future.delayed(Duration(seconds: 5)).then((_) {
+                    //                   Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomTabBarr()));
+                    //                 //  SplashScreenafterauth
+                    //           //Navigator.pushReplacementNamed(context, AppStartScreen.routeName);
+                    //         });
+             //Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomTabBarr()));
+               WidgetsBinding.instance.addPostFrameCallback((_) {
+        Navigator.pushReplacementNamed(context, AppStartScreen.routeName);
+      });
           }
         },
         builder: (context, state) {
@@ -161,9 +169,11 @@ class _LoginPageState extends State<LoginPage> {
                                   password: _passwordController.text,
                                   //firstname: username.text,
                                 );
-                                  context.read<LoginCubit>().login(context,newUserModel);
+                                  context.read<LoginCubit>().login(context, newUserModel );
+
+                           
                                // context.read<SignupCubit>().registerNew(newUserModel, context);
-                               // Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomTabBarr()));
+                               
                               }
                           
                             // if (_formKey.currentState!.validate()) {
@@ -177,9 +187,7 @@ class _LoginPageState extends State<LoginPage> {
                             //       _usernameController.text.trim(), _passwordController.text.trim());
                             // }
                             //
-                            // Future.delayed(Duration(seconds: 5)).then((_) {
-                            //   Navigator.pushReplacementNamed(context, AppStartScreen.routeName);
-                            // });
+                          
                           },
                         ),
                       ),

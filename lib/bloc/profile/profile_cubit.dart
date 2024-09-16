@@ -21,7 +21,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     try {
       user = await profileRepository.getprofile();
 
-      debugPrint("UserModel user " + user!.firstname.toString());
+      //debugPrint("UserModel user " + user!.firstname.toString());
       emit(ProfileLoaded(user!));
     } catch (e) {
       emit(ProfileError("Couldn't get Profile."));
@@ -42,7 +42,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     try {
       user = await userRepository.edi_profile(usernew);
 
-      debugPrint("UserModel user " + user!.firstname.toString());
+     // debugPrint("UserModel user " + user!.firstname.toString());
       emit(ProfileLoaded(user!));
       Navigator.push(
         context,

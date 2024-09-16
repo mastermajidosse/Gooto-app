@@ -12,10 +12,10 @@ class AuthCubit extends Cubit<AuthState> {
   checkAuth(context) async {
     try {
       String sign = await userRepository.getTokenFromPreferences();
-      // print(sign);
+       print(sign);
       bool response = await userRepository.issigned();
-
-      // print("isSignedIn :" + response.toString());
+print(response);
+       print("isSignedIn :" + response.toString());
       if (response) {
         print("Authenticated");
         BlocProvider.of<ProfileCubit>(context).profile();

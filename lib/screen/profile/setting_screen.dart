@@ -2,21 +2,32 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 // import 'package:flutter_email_sender/flutter_email_sender.dart';
 // import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gooto/bloc/auth/signup_cubit.dart';
 import 'package:gooto/bloc/profile/profile_cubit.dart';
+import 'package:gooto/models/user_model.dart';
+import 'package:gooto/screen/about/rules_screen.dart';
 import 'package:gooto/screen/profile/edit_profile_screen.dart';
 import 'package:gooto/screen/profile/signup_profile_screen.dart';
 import 'package:gooto/services/app_config.dart';
+import 'package:gooto/services/service/auth_service.dart';
+import 'package:gooto/services/service/auth_service.dart';
 import 'package:gooto/services/service/auth_service.dart';
 import 'package:gooto/utils/imageWidget.dart';
 import 'package:gooto/utils/img_bigger.dart';
 import 'package:gooto/utils/MyStyle.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share/share.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
+
+import '../../services/service/auth_service.dart';
 
 class SettingScreen extends StatefulWidget {
   static const routeName = 'setting';
@@ -27,7 +38,7 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
   var image = "https://i0.wp.com/rouelibrenmaine.fr/wp-content/uploads/2018/10/empty-avatar.png";
-  String sh = "مرحبا بكم في تطبيق التراس حيت نشارك جميع معلومات وقصص واخبار اللتراس المغرب ";
+  String sh = "Hey, i'm using Gooto.\nIt's an app to you travel to the best places in the world.\nI invited you to join. Check it out";
   Future<bool> csac() async {
     return false;
   }
@@ -35,13 +46,24 @@ class _SettingScreenState extends State<SettingScreen> {
   @override
   void initState() {
     // TODO: implement initState
+    BlocProvider.of<ProfileCubit>(context).profile();
     super.initState();
   }
+  void _launchURL(String url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
 
   var scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BlocBuilder<ProfileCubit, ProfileState>(
+        builder: (context, state) {
+          return state is ProfileLoaded
+    ?Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
@@ -66,8 +88,8 @@ class _SettingScreenState extends State<SettingScreen> {
                 Icon(Icons.favorite_outline, color: Colors.transparent, size: 46),
                 //Image.memory(widget.imageBytes!),
                 UserImageWidget(
-                  // AppConfig.defaultImg,
-                  "https://media.licdn.com/dms/image/D4E03AQFxhq6guuqHHw/profile-displayphoto-shrink_800_800/0/1719602654033?e=1725494400&v=beta&t=c3aLOv9EwGUhG30Y9IkZxwQdNF8c_zGEb79G-E4IXuk",
+                   state.myuser.imgurl!,
+        //'assets/AI.png',
                   ScreenUtil().setHeight(110),
                 ),
                 Icon(Icons.favorite_outline, color: Colors.transparent, size: 46),
@@ -79,7 +101,7 @@ class _SettingScreenState extends State<SettingScreen> {
           // username
           Center(
             child: Text(
-              'Othman el majid',
+              state.myuser.firstname!,
               style: MyStyle.dashTextStyle,
             ),
           ),
@@ -89,8 +111,8 @@ class _SettingScreenState extends State<SettingScreen> {
           // InkWell(
           //   onTap: () {
           //     // Navigator.pushNamed(context, );
-          //     // Navigator.push(context,
-          //     //     MaterialPageRoute(builder: (_) => EditProfileScreen(state.myuser)));
+          //     Navigator.push(context,
+          //         MaterialPageRoute(builder: (_) => EditProfileScreen(UserModel())));
           //   },
           //   child: Container(
           //     decoration: MyStyle.cardhome(),
@@ -118,7 +140,8 @@ class _SettingScreenState extends State<SettingScreen> {
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: ListTile(
                   onTap: () {
-                    Share.share(sh);
+                    Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => EditProfileScreen(state.myuser)));
                   },
                   title: Padding(
                     padding: EdgeInsets.only(left: 16),
@@ -169,6 +192,7 @@ class _SettingScreenState extends State<SettingScreen> {
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: ListTile(
                 onTap: () async {
+launchUrlString("https://gooto.app");
                   // Navigator.of(context).push(MaterialPageRoute(
                   //     builder: (_) => RulesScreen()));
                   // final Email email = Email(
@@ -204,10 +228,13 @@ class _SettingScreenState extends State<SettingScreen> {
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: ListTile(
                 onTap: () {
-                  // ProfileCubit().
-                  // UserRepository().signOut().then((value) {
-                  //   Phoenix.rebirth(context);
-                  // });
+                 // UserRepository user=UserRepository();
+                  context.read<SignupCubit>().socialSignOut(context);
+                  Navigator.of(context).pop(context);
+                //  ProfileCubit().
+                //   user?.signOut().then((value) {
+                //     Phoenix.rebirth(context);
+                //   });
                 },
                 title: Padding(
                   padding: EdgeInsets.only(left: 16),
@@ -250,6 +277,12 @@ class _SettingScreenState extends State<SettingScreen> {
           SizedBox(height: ScreenUtil().setHeight(25)),
         ],
       ),
+    )
+    :Center(
+      child:CircularProgressIndicator() ,
+    );
+    
+        }
     );
   }
 }

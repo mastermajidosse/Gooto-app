@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:gooto/models/comments.dart';
 import 'package:gooto/models/hotel_model.dart';
+import 'package:gooto/models/posts.model.dart';
 
 import '../models/card.dart';
 
@@ -40,13 +41,126 @@ List<HotelModel> hotels = [
       location: "Rue Des Temples, Hivernage",
       url: "https://www.booking.com/hotel/ma/hivernage-spa.en-gb.html"),
 ];
+List<Posts> Listposts=[
+  Posts(name: "Amine Banmoussa",
+   image: "assets/posts/amine.jpeg",
+    imageprofile: "assets/posts/amine3.png", 
+    local: "Oued kanare",
+    comments: [
+     // Comments(name: name, comment: comment, photoprofil: photoprofil)
+      ],
+    Like: 6, 
+    description: 'oued knare best place for travel'
+    ),
+      Posts(
+        name: "omar",
+   image: "assets/posts/jbalebayda.jpeg",
+    imageprofile: "assets/posts/park1.jpeg", 
+    local: "khnifra",
+    comments:[] ,
+    Like: 3, 
+    description: 'climbing with good teams🔥'
+    ),
+      Posts(
+        name: "yassine",
+   image:"assets/posts/yassine.png" ,
+    imageprofile: "assets/posts/yassine1.png", 
+    local: "Hociema",
+    comments: [],
+    Like: 1,
+    description: "the best place in north Morroco"
+    ),
+  //     Posts(name: name,
+  //  image: image,
+  //   imageprofile: imageprofile, 
+  //   local: local,
+  //   comments: comments,
+  //   Like: Like
+  //   ),
+  //     Posts(name: name,
+  //  image: image,
+  //   imageprofile: imageprofile, 
+  //   local: local,
+  //   comments: comments,
+  //   Like: Like
+  //   ),
+  //     Posts(name: name,
+  //  image: image,
+  //   imageprofile: imageprofile, 
+  //   local: local,
+  //   comments: comments,
+  //   Like: Like
+  //   ),
+  //     Posts(name: name,
+  //  image: image,
+  //   imageprofile: imageprofile, 
+  //   local: local,
+  //   comments: comments,
+  //   Like: Like
+  //   ),
+  //     Posts(name: name,
+  //  image: image,
+  //   imageprofile: imageprofile, 
+  //   local: local,
+  //   comments: comments,
+  //   Like: Like
+  //   ),
+  
+];
 
 List<CardModule> cardsList =  [
    CardModule(
       id: 1,
       price: 30,
+      location: 'Moroccan Sahara',
+      productImg: 'assets/popular/Sahara.jpeg',
+      productName: 'Sahara',
+      rating: "5",
+      description:
+          "The Moroccan Sahara: A Treasure of Beauty and Culture The Moroccan Sahara is a stunning expanse of desert that captures the imagination of visitors from around the world. Spanning a vast area, this region is not only a geographical marvel but also a cultural treasure that embodies the spirit of Morocco.",
+      previewImgs: [
+        "assets/popular/sahara2.jpeg",
+        "assets/popular/Sahara.jpeg",
+        "assets/popular/sahara1.jpeg",
+        "assets/popular/Sahara4.jpeg",
+        "assets/popular/Sahara3.jpeg"
+      ],
+       listcoments: []),
+    CardModule(
+    id: 3,
+    price: 5.00,
+    location: 'Located 28 km from Azilal',
+    productImg: 'assets/popular/BinelOuidane.jpg',
+    productName: 'Bin el Ouidane lake',
+    rating: "4.8",
+    description:
+        "Lake Bin el Ouidane is a stunning artificial lake nestled in the heart of the Atlas Mountains, Morocco. Created by the Bin el Ouidane Dam, the lake is a popular destination for those seeking tranquility and natural beauty.Surrounded by lush greenery and with the majestic mountains as a backdrop, the lake offers a peaceful escape from the bustling city. Visitors can enjoy various water activities such as swimming, boating, and fishing. The lake is particularly famous for its large carp population, making it a dream spot for anglers.Beyond the lake, the surrounding area provides opportunities for hiking and exploring Berber villages, offering a glimpse into traditional Moroccan life. Bin el Ouidane is a perfect destination for those who appreciate nature, outdoor activities, and cultural experiences.",
+    previewImgs: [
+      "assets/popular/akchour2.jpeg",
+      "assets/popular/akchour1.png"
+    ],
+    listcoments: []
+  ),
+  CardModule(
+      id: 21,
+      price: 16.00,
+      location: 'Sidi Kaouki, Essaouira Province',
+      productImg: 'assets/popular/sidikaouki.jpg',
+      productName: 'Sidi Kaouki',
+      rating: "4.8",
+      description:
+          """Sidi Kaouki is a charming coastal village located just south of Essaouira, renowned for its stunning beaches and world-class surf breaks. This laid-back destination offers a perfect escape from the hustle and bustle of city life.With its consistent waves and pristine coastline, Sidi Kaouki has become a favorite among surfers from around the globe. However, the village also caters to those seeking relaxation and natural beauty. Sunbathing, swimming, and long walks on the beach are popular activities.""",
+      previewImgs: [
+        "assets/popular/sidikaouki1.jpeg",
+        "assets/popular/sidikaouki2.jpeg",
+        "assets/popular/sidikaouki3.jpeg",
+      ],
+      listcoments: []),
+   CardModule(
+      id: 1,
+      price: 30,
       location: 'Rmilat',
-      productImg: 'assets/popular/rmilat.jpeg',
+      productImg: 'assets/popular/rmilat3.jpeg',
       productName: 'Tanger,Rmilat',
       rating: "4.8",
       description:
@@ -54,7 +168,7 @@ List<CardModule> cardsList =  [
       previewImgs: [
         "assets/popular/rmilat1.jpeg",
         "assets/popular/rmilat2.jpeg",
-        "assets/popular/rmilat3.jpeg",
+        "assets/popular/rmilat.jpeg",
         "assets/popular/rmilat4.jpeg",
         "assets/popular/rmilat5.jpeg",
         "assets/popular/rmilat6.jpeg",
@@ -81,6 +195,26 @@ List<CardModule> cardsList =  [
       ],
        listcoments: [Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg"),Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg"),Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg")]
        ),
+        CardModule(
+      id: 1,
+      price: 30,
+      location: 'Mountain Irhoud',
+      productImg: 'assets/popular/jbelrhoud.jpeg',
+      productName: 'Youssoufia,Mountain Irhoud',
+      rating: "4.8",
+      description:
+          "Jebel Irhoud or Adrar n Ighoud (Standard Moroccan Tamazight: ⴰⴷⵔⴰⵔ ⵏ ⵉⵖⵓⴷ, romanized: Adrar n Iɣud; Arabic: جبل إيغود, Moroccan Arabic: žbəl iġud), is an archaeological site located just north of the town of Tlet Ighoud in Youssoufia Province, approximately 50 km (30 mi) south-east of the city of Safi in Morocco. It is noted for the hominin fossils that have been found there since the discovery of the site in 1960. Originally thought to be Neanderthals, the specimens have since been assigned to Homo sapiens and, as reported in 2017, have been dated to roughly 300,000 years ago (286±32 ka for the Irhoud 3 mandible, 315±34 ka based on other fossils and the flint artefacts found nearby)",
+      previewImgs: [
+        "assets/popular/jbelrhoud2.jpeg",
+        "assets/popular/jbelrhoud3.jpeg",
+        "assets/popular/jbelrhoud4.jpeg",
+        "assets/popular/jbelrhoud5.jpeg",
+        "assets/popular/jbelrhoud6.jpeg"
+      ],
+       listcoments: [Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg"),Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg"),Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg")]
+       ),
+
+   
     CardModule(
       id: 1,
       price: 30,
@@ -154,41 +288,7 @@ List<CardModule> cardsList =  [
       ],
        listcoments: [Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg"),Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg"),Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg")]
        ),
-  CardModule(
-      id: 1,
-      price: 30,
-      location: 'Mountain Irhoud',
-      productImg: 'assets/popular/jbelrhoud.jpeg',
-      productName: 'Youssoufia,Mountain Irhoud',
-      rating: "4.8",
-      description:
-          "Jebel Irhoud or Adrar n Ighoud (Standard Moroccan Tamazight: ⴰⴷⵔⴰⵔ ⵏ ⵉⵖⵓⴷ, romanized: Adrar n Iɣud; Arabic: جبل إيغود, Moroccan Arabic: žbəl iġud), is an archaeological site located just north of the town of Tlet Ighoud in Youssoufia Province, approximately 50 km (30 mi) south-east of the city of Safi in Morocco. It is noted for the hominin fossils that have been found there since the discovery of the site in 1960. Originally thought to be Neanderthals, the specimens have since been assigned to Homo sapiens and, as reported in 2017, have been dated to roughly 300,000 years ago (286±32 ka for the Irhoud 3 mandible, 315±34 ka based on other fossils and the flint artefacts found nearby)",
-      previewImgs: [
-        "assets/popular/jbelrhoud2.jpeg",
-        "assets/popular/jbelrhoud3.jpeg",
-        "assets/popular/jbelrhoud4.jpeg",
-        "assets/popular/jbelrhoud5.jpeg",
-        "assets/popular/jbelrhoud6.jpeg"
-      ],
-       listcoments: [Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg"),Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg"),Comments(name: "Zaroual Omar", comment: "wow this place is Amazing is real this place in Morroco??", photoprofil: "assets/ai.jpg")]
-       ),
-    CardModule(
-      id: 1,
-      price: 30,
-      location: 'Moroccan Sahara',
-      productImg: 'assets/popular/Sahara.jpeg',
-      productName: 'Sahara',
-      rating: "5",
-      description:
-          "The Moroccan Sahara: A Treasure of Beauty and Culture The Moroccan Sahara is a stunning expanse of desert that captures the imagination of visitors from around the world. Spanning a vast area, this region is not only a geographical marvel but also a cultural treasure that embodies the spirit of Morocco.",
-      previewImgs: [
-        "assets/popular/sahara2.jpeg",
-        "assets/popular/Sahara.jpeg",
-        "assets/popular/sahara1.jpeg",
-        "assets/popular/Sahara4.jpeg",
-        "assets/popular/Sahara3.jpeg"
-      ],
-       listcoments: []),
+ 
     
   CardModule(
       id: 1,
@@ -220,21 +320,7 @@ List<CardModule> cardsList =  [
       ],
       listcoments: []
       ),
-  CardModule(
-    id: 3,
-    price: 5.00,
-    location: 'Located 28 km from Azilal',
-    productImg: 'assets/popular/BinelOuidane.jpg',
-    productName: 'Bin el Ouidane lake',
-    rating: "4.8",
-    description:
-        "Lake Bin el Ouidane is a stunning artificial lake nestled in the heart of the Atlas Mountains, Morocco. Created by the Bin el Ouidane Dam, the lake is a popular destination for those seeking tranquility and natural beauty.Surrounded by lush greenery and with the majestic mountains as a backdrop, the lake offers a peaceful escape from the bustling city. Visitors can enjoy various water activities such as swimming, boating, and fishing. The lake is particularly famous for its large carp population, making it a dream spot for anglers.Beyond the lake, the surrounding area provides opportunities for hiking and exploring Berber villages, offering a glimpse into traditional Moroccan life. Bin el Ouidane is a perfect destination for those who appreciate nature, outdoor activities, and cultural experiences.",
-    previewImgs: [
-      "assets/popular/akchour2.jpeg",
-      "assets/popular/akchour1.png"
-    ],
-    listcoments: []
-  ),
+
   CardModule(
       id: 4,
       price: 5.00,
@@ -421,20 +507,7 @@ List<CardModule> cardsList =  [
         "assets/popular/akchour1.png"
       ],
       listcoments: []),
-  CardModule(
-      id: 21,
-      price: 16.00,
-      location: 'Sidi Kaouki, Essaouira Province',
-      productImg: 'assets/popular/sidikaouki.jpg',
-      productName: 'Sidi Kaouki',
-      rating: "4.8",
-      description:
-          """Sidi Kaouki is a charming coastal village located just south of Essaouira, renowned for its stunning beaches and world-class surf breaks. This laid-back destination offers a perfect escape from the hustle and bustle of city life.With its consistent waves and pristine coastline, Sidi Kaouki has become a favorite among surfers from around the globe. However, the village also caters to those seeking relaxation and natural beauty. Sunbathing, swimming, and long walks on the beach are popular activities.""",
-      previewImgs: [
-        "assets/popular/akchour2.jpeg",
-        "assets/popular/akchour1.png"
-      ],
-      listcoments: []),
+  
   CardModule(
       id: 22,
       price: 10.00,

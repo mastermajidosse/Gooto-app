@@ -55,11 +55,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
         body: BlocConsumer<SignupCubit, SignupState>(
           listener: (context, state) {
             if (state is SignupError) {
-              // return MyStyle.err(ScaffoldMessenger.of(context).showSnackBar, state.message);
+               return MyStyle.err(ScaffoldMessenger.of(context).showSnackBar, state.message);
             } else if (state is SignupSuccess) {
               print("brace you gonna login");
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomTabBarr()));
-            //  Navigator.pushReplacementNamed(context, AppStartScreen.routeName);
+              //Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomTabBarr()));
+             Navigator.pushReplacementNamed(context, AppStartScreen.routeName);
             }
           },
           builder: (context, state) {
@@ -193,9 +193,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 UserModel newUserModel = UserModel(
                                   email: email.text,
                                   password: pass.text,
-                                  firstname: username.text,
+                                   firstname: username.text,
                                 );
-                                context.read<SignupCubit>().registerNew(newUserModel, context);
+                                context.read<SignupCubit>().registerNewuser(newUserModel, context);
                                // Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomTabBarr()));
                               }
                             },

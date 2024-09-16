@@ -15,7 +15,7 @@ class UserRepository {
   Future register(UserModel newuser) async {
     print("register serv");
 
-    return await auth.registerwithfireb(newuser);
+    return await auth.register(newuser);
   }
   
 
@@ -23,11 +23,22 @@ class UserRepository {
   Future login(UserModel newuser) async {
     print("login serv");
 
-    //var response = await api.httpPost("v1/users/login", newuser.logintoJson());
+    var response = await api.httpPost("v1/users/login", newuser.logintoJson());
+    print('wpwpwp${response}');
     // var response = login()
-   // UserRepository().saveToken(response);
-return await auth.loginwithfireb(newuser);
-    //return response;
+   //UserRepository().saveToken(responses);
+//return await auth.loginwithfireb(newuser);
+  return response;
+  }
+
+
+
+   Future loginserver(UserModel newuser) async {
+    print("login serv");
+    var response = await api.httpPost("v1/users/login", newuser.logintoJson());
+    UserRepository().saveToken(response);
+     print("login serc${response}");
+    return UserRepository().saveToken(response);
   }
 
   Future<bool> issigned() async {
@@ -58,7 +69,7 @@ return await auth.loginwithfireb(newuser);
 
   Future<bool> signOut() async {
     final prefs = await SharedPreferences.getInstance();
-
+prefs.clear();
     prefs.remove("access_token");
     return true;
   }

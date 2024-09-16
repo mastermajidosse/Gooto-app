@@ -180,15 +180,15 @@ timeAgo = timeago.format(createdAt);
                                               // style: Style.commentTextStyle,
                                             ),
                                           ),
-                                          Center(
-                                            child: Container(
-                                              child: Text(
-                                               // "ana hna"
-                                                 place.listcoments[index].timestamp!.toIso8601String(),
-                                                // style: Style.commentTextStyle,
-                                              ),
-                                            ),
-                                          ),
+                                          // Center(
+                                          //   child: Container(
+                                          //     child: Text(
+                                          //      // "ana hna"
+                                          //        place.listcoments[index].timestamp!.toIso8601String(),
+                                          //       // style: Style.commentTextStyle,
+                                          //     ),
+                                          //   ),
+                                          // ),
                                         ],
                                       ),
                                     );

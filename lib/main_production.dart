@@ -17,7 +17,7 @@ late List<CameraDescription> cameras;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
    await EasyLocalization.ensureInitialized();
-  await Firebase.initializeApp();
+  // await Firebase.initializeApp();
   HttpOverrides.global = MyHttpOverrides();
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
@@ -44,13 +44,8 @@ void main() async {
   // firsttime();
 
   runApp(
-    EasyLocalization(
-      supportedLocales: const [Locale('en', 'US'), Locale('ar', 'AE'),Locale('fr','FR')],
-      path: 'assets/translations',
-      fallbackLocale: const Locale('en', 'US'),
-   
-   child: MyApp("prod")
-    )
+  
+       MyApp("prod")
   );
 }
 

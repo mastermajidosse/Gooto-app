@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gooto/bloc/blog/blog_cubit.dart';
+import 'package:gooto/config/demo.dart';
 import 'package:gooto/models/blog_model.dart';
+import 'package:gooto/models/posts.model.dart';
 import 'package:gooto/screen/exolore/explore_detail.dart';
 import 'package:gooto/services/api/getdata.dart';
 import 'package:gooto/utils/mystyle.dart';
@@ -184,6 +186,8 @@ class _PostWidgetState extends State<PostWidget> {
   @override
   bool isAnimating = false;
   String user = '';
+  Color iconColor = Colors.black54;
+  int numberlikes=0;
  // final FirebaseAuth _auth = FirebaseAuth.instance;
   @override
   void initState() {
@@ -191,10 +195,55 @@ class _PostWidgetState extends State<PostWidget> {
     super.initState();
    // user = _auth.currentUser!.uid;
   }
-
+   Posts? currentlyLikedPost; // Track the currently liked post
+  void _toggleLike(Posts post) {
+    setState(() {
+      // Toggle the like state for the current post
+      if (post.iconColor == Colors.black54) {
+        post.Like += 1; // Increment likes
+        post.iconColor = Colors.blue; // Change icon color to blue
+      } else {
+        post.Like -= 1; // Decrement likes
+        post.iconColor = Colors.black54; // Reset icon color to black
+      }
+    }
+    );
+  }
   Widget build(BuildContext context) {
-    return Column(
+    return Scaffold(
+      appBar:AppBar(
+   actions: [
+          IconButton(
+            icon: Icon(Icons.add), // Notification icon
+            onPressed: () {
+              // Handle notification icon press
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text('')),
+              );
+            },
+          ),
+        ],
+centerTitle: true,
+        title: Text("Share experience"),
+      ) ,
+   body:  SingleChildScrollView(
+   child:Container(
+    height: 700.h,
+ // children: [
+  child:  ListView.builder(
+    scrollDirection: Axis.vertical,
+    itemCount: Listposts.length,
+    itemBuilder: (context,index){
+      Posts post=Listposts[index];
+      numberlikes=post.Like!;
+return Column(
       children: [
+        // ListView.builder(
+        //   scrollDirection: Axis.horizontal,
+        //   itemCount: 6,
+        //   itemBuilder: (context, index) {
+
+       
         Container(
           width: 375.w,
           height: 54.h,
@@ -205,15 +254,15 @@ class _PostWidgetState extends State<PostWidget> {
                 child: SizedBox(
                   width: 35.w,
                   height: 35.h,
-                  child: Image.asset("assets/ai.jpg"),
+                  child: Image.asset(post.imageprofile!),
                 ),
               ),
               title: Text(
-               "simo",
+               post.name!,
                 style: TextStyle(fontSize: 13.sp),
               ),
               subtitle: Text(
-                "Imswane",
+                post.local!,
                 style: TextStyle(fontSize: 11.sp),
               ),
               trailing: const Icon(Icons.more_horiz),
@@ -238,17 +287,24 @@ class _PostWidgetState extends State<PostWidget> {
                 width: 375.w,
                 height: 375.h,
                 child: 
-              Image.asset("assets/AI.png")
+              Image.asset(post.image!,fit: BoxFit.cover,)
               ),
               AnimatedOpacity(
                 duration: Duration(milliseconds: 200),
                 opacity: isAnimating ? 1 : 0,
                 child: LikeAnimation(
-                  child: Icon(
-                    Icons.favorite,
-                    size: 100.w,
-                    color: Colors.red,
-                  ),
+                  child: 
+                   Image.asset(
+          // _selectedIndex == numb ? img : txt,
+         "assets/icons/like1.png",
+          width:  120.w,
+          color:  Colors.blue,
+        ),
+                  // Icon(
+                  //   Icons.favorite,
+                  //   size: 100.w,
+                  //   color: Colors.red,
+                  // ),
                   isAnimating: isAnimating,
                   duration: Duration(milliseconds: 400),
                   iconlike: false,
@@ -272,30 +328,43 @@ class _PostWidgetState extends State<PostWidget> {
               Row(
                 children: [
                   SizedBox(width: 14.w),
-                  LikeAnimation(
-                    child: IconButton(
-                      onPressed: () {
-                        // Firebase_Firestor().like(
-                        //     like: widget.snapshot['like'],
-                        //     type: 'posts',
-                        //     uid: user,
-                        //     postId: widget.snapshot['postId']);
-                      },
-                      icon: Icon(
-                        true
-                       // widget.snapshot['like'].contains(user)
-                            ? Icons.favorite
-                            : Icons.favorite_border,
-                        color: false
-                        //widget.snapshot['like'].contains(user)
-                            ? Colors.red
-                            : Colors.black,
-                        size: 24.w,
-                      ),
-                    ),
+                  GestureDetector(
+                      onTap: (){_toggleLike(post);},
+                      
+             child:
+             LikeAnimation(
+                    
+                  child:   Image.asset(
+          // _selectedIndex == numb ? img : txt,
+         "assets/icons/like1.png",
+          width:  50.w,
+          color:  post.iconColor,
+        ),
+                 
+                    // IconButton(
+                    //   onPressed: () {
+                    //     // Firebase_Firestor().like(
+                    //     //     like: widget.snapshot['like'],
+                    //     //     type: 'posts',
+                    //     //     uid: user,
+                    //     //     postId: widget.snapshot['postId']);
+                    //   },
+                    //   icon: Icon(
+                    //     true
+                    //    // widget.snapshot['like'].contains(user)
+                    //         ? Icons.favorite
+                    //         : Icons.favorite_border,
+                    //     color: false
+                    //     //widget.snapshot['like'].contains(user)
+                    //         ? Colors.red
+                    //         : Colors.black,
+                    //     size: 24.w,
+                    //   ),
+                    // ),
                     isAnimating: true
                     //widget.snapshot['like'].contains(user),
                   ),
+                   ),
                   SizedBox(width: 17.w),
                   GestureDetector(
                     onTap: () {
@@ -348,7 +417,7 @@ class _PostWidgetState extends State<PostWidget> {
                   bottom: 8.h,
                 ),
                 child: Text(
-                "10",
+                numberlikes.toString(),
                   style: TextStyle(
                     fontSize: 13.sp,
                     fontWeight: FontWeight.w500,
@@ -361,8 +430,8 @@ class _PostWidgetState extends State<PostWidget> {
                   children: [
                     Expanded(
                       child: Text(
-                       "simo" +
-                         " wwwwww",
+                       post.name! +
+                         " ${post.description}",
                         style: TextStyle(
                           fontSize: 13.sp,
                           fontWeight: FontWeight.w500,
@@ -375,17 +444,26 @@ class _PostWidgetState extends State<PostWidget> {
               Padding(
                 padding: EdgeInsets.only(left: 15.w, top: 20.h, bottom: 8.h),
                 child: Text(
-                  "2035,07,76",
+                  "",
                   // formatDate(widget.snapshot['time'].toDate(),
                   //     [yyyy, '-', mm, '-', dd]),
                   style: TextStyle(fontSize: 11.sp, color: Colors.grey),
                 ),
               ),
             ],
-          ),
-        ),
-      ],
+          )
+        )
+      ]
+);
+    }
+   )
+  //]
+        )
+       //  })
+  
+   )
     );
+ 
   }
 }
 class LikeAnimation extends StatefulWidget {
@@ -499,11 +577,11 @@ class _CommentState extends State<Comment> {
                   child: ListView.builder(
                     itemBuilder: (context, index) {
                     
-                        return CircularProgressIndicator();
+                        return Center(child: Text("No comments"));
                       
                       //return comment_item("dbkdjwebk");
                     },
-                    itemCount:10
+                    itemCount:1
                         //snapshot.data == null ? 0 : snapshot.data!.docs.length,
                   ),
                 ),

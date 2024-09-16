@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gooto/bloc/profile/profile_cubit.dart';
 
 class Together extends StatelessWidget {
   @override
@@ -6,8 +9,18 @@ class Together extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       
-      home: Scaffold(
+      home:BlocBuilder<ProfileCubit, ProfileState>(
+        builder: (context, state) {
+          return state is ProfileLoaded
+       ?Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text("Together"),
+          elevation: 0,
+          ),
+          
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
+
        
         body: 
     
@@ -22,12 +35,12 @@ class Together extends StatelessWidget {
             children: [
               CircleAvatar(
                                         backgroundColor: Colors.grey,
-                                        backgroundImage: AssetImage("assets/ai.jpg"),
+                                        backgroundImage: NetworkImage(state.myuser.imgurl!),
                                       ),
                                       Container(
                                         margin: EdgeInsets.only(right: 40),
                                         child:      Text(
-            'Hello, Sourany!',
+            state.myuser.firstname!,
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
@@ -73,10 +86,23 @@ class Together extends StatelessWidget {
               ),
             ),
           ),
+          SizedBox(height: 20.h),
+          Center(
+            child: Text("No article for the Moment"),
+          )
         ],
       ),
     ),
+      )
+      :Scaffold(
+        body:  Center(
+        child:Text("Create account") ,
       ),
+      );
+    
+
+        }
+      )
     );
 
   }

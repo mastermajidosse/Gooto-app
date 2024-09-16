@@ -4,13 +4,14 @@ class AppConfig {
   // static const String baseUrllocal = '10.0.2.2:5000'; //
   // static const String baseUrllocal = 'localhost:5000'; //
   static const String defaultImg = "assets/images/user.png";
-  static const String baseUrl = '';
+  //static const String baseUrl = '';
   static const String path = 'api';
   static const String appName = 'Gooto';
   static const int appVersionCode = 1;
   static bool debugMode = false;
   static bool adsMode = false;
   static Environment env = Environment.DEV;
+  static String baseUrl() => env == Environment.DEV ? 'api.ultrasx.com' : 'api.ultrasx.com'; //
 }
 
 enum Environment { DEV, PROD, STAG }
