@@ -96,6 +96,7 @@ class _ChatAIScreenState extends State<ChatAIScreen> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text('Morocan AI Guide'),
+        centerTitle: true,
       ),
       body: Column(
         children: [
