@@ -38,7 +38,8 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     _loadCities();
   }
-BlogModel city = BlogModel(
+
+  BlogModel city = BlogModel(
       id: 8,
       rate: 4.8,
       title: "Essaouira",
@@ -65,9 +66,7 @@ BlogModel city = BlogModel(
               alignment: Alignment.bottomLeft,
               margin: EdgeInsets.symmetric(horizontal: 8),
               child: Text(
-
-                'Places Near Me',
-
+                'City of the month',
                 style: MyStyle.blackalarmTextStyle,
               ),
             ),
@@ -91,76 +90,74 @@ BlogModel city = BlogModel(
             //     ),
             //   ),
             // ),
-             Container(
-              margin: EdgeInsets.symmetric(vertical: 12),
-              child: InkWell(
-                onTap: () {
-                  print("goto");
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => DetailsExplore(city),
-                    ),
-                  );
-                },
-                child:  Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Container(
-                      height: 200.h,
-                      width: ScreenUtil().screenWidth - 50,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.3),
-                            spreadRadius: 0,
-                            blurRadius: 10,
-                            offset: Offset(0, 3),
-                          ),
-                        ],
-                        image: DecorationImage(
-                          image: NetworkImage(city.imgurl.toString()),
-                          fit: BoxFit.cover,
-                        ),
+            Container(
+                margin: EdgeInsets.symmetric(vertical: 12),
+                child: InkWell(
+                  onTap: () {
+                    print("goto");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => DetailsExplore(city),
                       ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
-                        child: Container(
-                          alignment: Alignment.bottomCenter,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: Alignment.bottomCenter,
-                              end: Alignment.topCenter,
-                              colors: [
-                                Colors.black,
-                                Colors.black.withOpacity(.3),
-                                Colors.black.withOpacity(.1),
-                                Colors.transparent,
-                              ],
+                    );
+                  },
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Container(
+                        height: 200.h,
+                        width: ScreenUtil().screenWidth - 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.3),
+                              spreadRadius: 0,
+                              blurRadius: 10,
+                              offset: Offset(0, 3),
                             ),
+                          ],
+                          image: DecorationImage(
+                            image: NetworkImage(city.imgurl.toString()),
+                            fit: BoxFit.cover,
                           ),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(16),
                           child: Container(
-                            width: ScreenUtil().screenWidth - 50,
-                            padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-                            child: Text(
-                              city.title.toString(),
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18.sp,
-                                color: Colors.white,
-                                height: 1.2,
+                            alignment: Alignment.bottomCenter,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                begin: Alignment.bottomCenter,
+                                end: Alignment.topCenter,
+                                colors: [
+                                  Colors.black,
+                                  Colors.black.withOpacity(.3),
+                                  Colors.black.withOpacity(.1),
+                                  Colors.transparent,
+                                ],
+                              ),
+                            ),
+                            child: Container(
+                              width: ScreenUtil().screenWidth - 50,
+                              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                              child: Text(
+                                city.title.toString(),
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18.sp,
+                                  color: Colors.white,
+                                  height: 1.2,
+                                ),
                               ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                )
-                
-                ),
+                    ],
+                  ),
+                )),
             SizedBox(height: 10),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 10),

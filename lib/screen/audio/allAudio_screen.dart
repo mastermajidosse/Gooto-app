@@ -1,18 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gooto/config/demo.dart';
 import 'package:gooto/models/audio_model.dart';
-import 'package:gooto/models/card.dart';
-import 'package:gooto/screen/app_start_screen.dart';
 import 'package:gooto/screen/audio/audio.dart';
-import 'package:gooto/screen/auth/login_screen.dart';
-import 'package:gooto/screen/auth/register_screen.dart';
-import 'package:gooto/screen/auth/splash_screen.dart';
-import 'package:gooto/screen/bottom_tab.dart';
-import 'package:gooto/screen/profile/setting_screen.dart';
-import 'package:gooto/widgets/all_activities_screen.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gooto/widgets/custm_card.dart';
 
 class AllaudioScreen extends StatefulWidget {
   const AllaudioScreen({super.key});
@@ -107,8 +97,8 @@ class PlaceCard extends StatelessWidget {
       onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => AudioPlayerScreen(
-                  audio.photos, audio.name, audio.audio, audio.desc))),
+              builder: (context) =>
+                  AudioPlayerScreen(audio.photos, audio.name, audio.audio, audio.desc))),
       child: Card(
         elevation: 10,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -131,8 +121,7 @@ class PlaceCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(audio.name,
-                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    Text(audio.name, style: TextStyle(fontWeight: FontWeight.bold)),
                     // Text(place.location.toString(), style: TextStyle()),
                   ],
                 ),

@@ -48,7 +48,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
           automaticallyImplyLeading: false,
           centerTitle: true,
           title: Text(
-            'Best Audio Stories🎤',
+            '  Best Audio Stories 🎤',
             style: TextStyle(
               fontFamily: 'Arial',
               fontSize: 20.sp,
@@ -86,7 +86,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
             SizedBox(height: 10),
             Container(
                 width: 400,
-                height: 200,
+                height: 380 * 0.6,
                 child: ListView.builder(
                     itemCount: 3,
                     scrollDirection: Axis.horizontal,
@@ -96,7 +96,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                         child: Container(
                           margin: EdgeInsets.all(10),
                           width: 380,
-                          height: 180,
+                          height: 380 * 0.55,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: Audio.color,
@@ -109,7 +109,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                           child: Row(
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(left: 16, top: 7),
+                                padding: EdgeInsets.only(left: 18, top: 7, bottom: 15),
                                 child: Column(
                                   children: [
                                     Text(
@@ -121,18 +121,16 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                                         color: Colors.white,
                                       ),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.only(left: 8.0),
-                                      child: Text(
-                                        Audio.duration,
-                                        style: TextStyle(
-                                          fontFamily: 'Arial',
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.w200,
-                                          color: Colors.white,
-                                        ),
+                                    Text(
+                                      Audio.duration,
+                                      style: TextStyle(
+                                        fontFamily: 'Arial',
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.w200,
+                                        color: Colors.white,
                                       ),
                                     ),
+                                    Spacer(),
                                     Row(
                                       children: [
                                         Icon(
@@ -151,7 +149,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                                           ),
                                         ),
                                       ],
-                                    )
+                                    ),
                                   ],
                                 ),
                               ),
@@ -167,7 +165,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                         },
                       );
                     })),
-            SizedBox(height: 30),
+            SizedBox(height: 15),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
               child: Row(
@@ -185,9 +183,6 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                   Container(),
                 ],
               ),
-            ),
-            SizedBox(
-              height: 15,
             ),
             GridView.builder(
               primary: true,

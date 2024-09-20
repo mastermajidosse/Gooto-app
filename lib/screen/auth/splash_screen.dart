@@ -8,9 +8,11 @@ import 'package:gooto/screen/auth/login_screen.dart';
 import 'package:gooto/utils/MyStyle.dart';
 import 'package:gooto/screen/bottom_tab.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 late final GenerativeModel model;
 late dynamic response;
 late List<CameraDescription> cameras;
+
 class SplashScreen extends StatefulWidget {
   static const routeName = 'SplashScreen';
 
@@ -22,8 +24,7 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
-    with SingleTickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
   late AnimationController controller;
   late Animation<double> animation_rotation;
   late Animation<double> animation_radius_in;
@@ -31,20 +32,20 @@ class _SplashScreenState extends State<SplashScreen>
 
   late double radius;
   late double dotRadius;
-  void initializegemini()async{
- model = GenerativeModel(
+  void initializegemini() async {
+    model = GenerativeModel(
       model: 'gemini-1.5-flash',
-      apiKey: "AIzaSyCFvdhfzTCJ3khYfDOdROPAi8ehuTOQ72o");
-  final content = [
-    Content.text(
-        "you're a moroccan guide, if user asks you about anything related to morocco culture monument or Moroccan food or clothes answer as expert guide for morocco")
-  ];
-  response = await model.generateContent(content);
+      apiKey: "AIzaSyBUePPrLujsYnIt4_6G9TYCQEL2YxrX2kg",
+    );
+    final content = [
+      Content.text(
+          "you're a moroccan guide, if user asks you about anything related to morocco culture monument or Moroccan food or clothes answer as expert guide for morocco")
+    ];
+    response = await model.generateContent(content);
   }
 
   @override
   void initState() {
-    
     super.initState();
     radius = widget.radius;
     dotRadius = widget.dotRadius;
