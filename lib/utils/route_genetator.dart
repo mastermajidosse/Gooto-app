@@ -15,6 +15,8 @@ class RoutGenerator {
     switch (settings.name) {
       case BottomTabBarr.routeName:
         return MaterialPageRoute(builder: (_) => BottomAppBar());
+        // case LoginPage.routeName:
+        //     return MaterialPageRoute(builder: (_)=> LoginPage());
       case OnboardingScreen.routeName:
         return MaterialPageRoute(builder: (_) => OnboardingScreen());
       case RegisterScreen.routeName:

@@ -13,11 +13,11 @@ import '../helpers/exceptions/UnauthorisedException.dart';
 class Api {
   static final Api _api = Api._internal();
 
-  final String url = AppConfig.baseUrl;
+  final String url = AppConfig.baseUrl();
   // AppConfig.env == Environment.DEV ? AppConfig.baseUrllocal : AppConfig.baseUrl;
   final String path = AppConfig.path;
 
-  String token = "";
+  String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZGVlZDhiZTZiOGY5YTViODhkYzEyOCIsImlhdCI6MTcyNTkwMjU2OSwiZXhwIjoxNzI4NDk0NTY5fQ.BAhnEOV4_mgSKRmbk0QxBtNu1taGJ8-vgq_gaNQKEjw";
   factory Api() {
     return _api;
   }
@@ -66,7 +66,7 @@ class Api {
     print(endPath);
 
     Uri uri = Uri.https(url, "$path/$endPath", null);
-    var responseJson;
+    //var responseJson;
     print(uri);
     print("token :: " + token);
     final response = await http.post(uri, body: body, headers: {
@@ -75,8 +75,9 @@ class Api {
       'Accept': '*/*',
     });
     print("response after post" + response.statusCode.toString());
-    responseJson = _returnResponse(response);
-
+    print("wowowowowowo");
+    var responseJson = _returnResponse(response);
+    print(responseJson);
     return responseJson;
   }
 
@@ -194,7 +195,7 @@ class Api {
         'Content-type': 'application/json',
       },
     );
-
+print("get${response.statusCode}");
     return response.statusCode;
   }
 

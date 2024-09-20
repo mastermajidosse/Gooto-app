@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gooto/config/demo.dart';
 import 'package:gooto/models/card.dart';
@@ -55,7 +56,11 @@ class _AllHotelScreenState extends State<AllHotelScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text("Hotel Destination"),
+        // leading: IconButton(
+        //   icon: Icon(Icons.arrow_back, color: Colors.black),
+        //   onPressed: () {},
+        // ),
+        title: Text("Hotel Destination".tr()),
       ),
       body: SingleChildScrollView(
         child: Column(children: [
@@ -125,9 +130,8 @@ class PlaceCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(place.title,
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                    Text(place.location.toString(), style: TextStyle()),
+                    Text(place.title.tr(), style: TextStyle(fontWeight: FontWeight.bold)),
+                    Text(place.location.toString().tr(), style: TextStyle()),
                   ],
                 ),
               ),

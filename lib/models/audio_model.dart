@@ -53,6 +53,41 @@ class AudioModel {
 List<AudioModel> audio = [
   AudioModel(
       color: Color(0xFFFF914D),
+      imagecover: 'assets/popular/Sahara.jpeg',
+      duration: "Audio 2 m 23s 🎙️",
+      audio: 'Rabat.mp3',
+      flagname: "Create By GooTo",
+      desc: [
+        "The Moroccan Sahara is a stunning expanse of desert that captures the imagination of visitors from around the world. Spanning a vast area,",
+        "It is important to recognize that the Moroccan Sahara is an integral part of Morocco's identity. The region's rich history, cultural heritage, and economic potential reinforce its status as Moroccan territory.",
+        "The commitment to developing the Sahara while respecting its unique characteristics reflects Morocco's dedication to unity and progress."
+        "this region is not only a geographical marvel but also a cultural treasure that embodies the spirit of Morocco.",
+        " The Sahara's landscapes are mesmerizing, featuring golden sand dunes, dramatic rocky outcrops, and breathtaking sunsets that paint the sky in vibrant hues.",
+        "The Erg Chebbi dunes, for instance, rise majestically and shift with the winds, creating a dynamic environment that is both serene and awe-inspiring. ",
+        " The unique flora and fauna adapted to this arid climate, such as the resilient acacia trees and hardy desert wildlife, further enrich the ecosystem",
+        "The Moroccan Sahara is home to diverse communities, each with its own traditions and customs. The Berbers, known for their hospitality and rich cultural heritage,",
+        " have lived in harmony with this land for centuries. Their vibrant crafts, music, and storytelling reflect a deep connection to the desert. Visitors can engage with local artisans,",
+        "enjoy traditional meals, and experience the warmth of Moroccan hospitality.",
+        "Tourism in the Moroccan Sahara is flourishing, attracting adventurers and nature lovers alike. Activities such as camel trekking, dune bashing,",
+        " and stargazing provide unforgettable experiences. The annual Festival of the Sahara in Merzouga celebrates local culture through music,",
+        " dance, and traditional sports, drawing visitors from around the globe and showcasing the region's vibrant heritage.",
+        " The Moroccan Sahara is more than just a desert; it is a vibrant tapestry of natural beauty, cultural richness, and economic opportunity. ",
+        " Embracing the Sahara not only enhances Morocco's identity but also invites the world to appreciate the wonders of this remarkable region.",
+        
+      ],
+      id: 1,
+      logo: "assets/popular/Sahara4.jpeg",
+      name: "Morrocan Sahara",
+      photos: [
+        "assets/popular/sahara2.jpeg",
+        "assets/popular/Sahara4.jpeg",
+        'assets/popular/Sahara.jpeg',
+        "assets/popular/sahara1.jpeg",
+        "assets/popular/Sahara3.jpeg"
+      ]),
+
+  AudioModel(
+      color: Color(0xFFFF914D),
       imagecover: 'assets/popular/rabat.jpeg',
       duration: "Audio 2 m 23s 🎙️",
       audio: 'Rabat.mp3',
@@ -222,7 +257,7 @@ List<AudioModel> audio = [
       ],
       id: 1,
       logo: "assets/popular/jdida1.jpeg",
-      name: "El Jadida",
+      name: "ElJadida",
       photos: [
         "assets/popular/jdida1.jpeg",
         "assets/popular/jdida2.jpeg",

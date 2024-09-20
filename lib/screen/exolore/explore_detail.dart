@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,8 +26,7 @@ class _DetailsExploreState extends State<DetailsExplore> {
   }
 
   String addStyles(String txt) {
-    return txt.replaceAll(
-        "<p>", "<p style=\"color: #444; text-align: justify;\">");
+    return txt.replaceAll("<p>", "<p style=\"color: #444; text-align: justify;\">");
   }
 
   @override
@@ -40,9 +40,8 @@ class _DetailsExploreState extends State<DetailsExplore> {
             child: Container(
               height: 330.h,
               clipBehavior: Clip.hardEdge,
-              decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(30.r)),
+              decoration:
+                  BoxDecoration(color: Colors.black, borderRadius: BorderRadius.circular(30.r)),
               child: CachedNetworkImage(
                 placeholder: (context, url) => Center(
                   child: CircularProgressIndicator(
@@ -99,8 +98,7 @@ class _DetailsExploreState extends State<DetailsExplore> {
                 Row(
                   children: [
                     Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+                      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
                       decoration: BoxDecoration(
                           color: Colors.grey.withOpacity(.1),
                           borderRadius: BorderRadius.circular(10.r)),
@@ -117,7 +115,7 @@ class _DetailsExploreState extends State<DetailsExplore> {
                 Padding(
                     padding: const EdgeInsets.all(0),
                     child: Text(
-                      blogModel.title.toString(),
+                      blogModel.title.toString().tr(),
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: ScreenUtil().setSp(30),
@@ -130,9 +128,8 @@ class _DetailsExploreState extends State<DetailsExplore> {
                   children: [
                     blogModel.price != null
                         ? Text(
-                            blogModel.price.toString(),
-                            style:
-                                TextStyle(fontSize: 15.sp, color: Colors.blue),
+                            blogModel.price.toString().tr(),
+                            style: TextStyle(fontSize: 15.sp, color: Colors.blue),
                           )
                         : Container()
                   ],
@@ -141,15 +138,14 @@ class _DetailsExploreState extends State<DetailsExplore> {
                 Row(
                   children: [
                     Text(
-                      "Overview:",
-                      style: TextStyle(
-                          fontSize: 18.sp, fontWeight: FontWeight.w600),
+                      "Overview".tr(),
+                      style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),
                 SizedBox(height: 10.h),
                 HtmlWidget(
-                  addStyles(blogModel.desc.toString()),
+                  addStyles(blogModel.desc.toString()).tr(),
                   renderMode: RenderMode.column,
 
                   // set the default styling for text
@@ -176,8 +172,7 @@ class _DetailsExploreState extends State<DetailsExplore> {
                               ),
                             ),
                             decoration: BoxDecoration(
-                                color: Colors.grey[300],
-                                borderRadius: BorderRadius.circular(10.r)),
+                                color: Colors.grey[300], borderRadius: BorderRadius.circular(10.r)),
                           )),
                 ),
                 SizedBox(height: 40.h),

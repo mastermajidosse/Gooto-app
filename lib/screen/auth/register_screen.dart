@@ -5,6 +5,7 @@ import 'package:gooto/bloc/auth/signup_cubit.dart';
 import 'package:gooto/models/user_model.dart';
 import 'package:gooto/screen/app_start_screen.dart';
 import 'package:gooto/screen/auth/login_screen.dart';
+import 'package:gooto/screen/bottom_tab.dart';
 import 'package:gooto/utils/mystyle.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -15,6 +16,8 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
   final _formKey = GlobalKey<FormState>();
 
   final email = TextEditingController();
@@ -46,14 +49,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
     //Grab a refernce to the bloc using bloc provider
 
     return Scaffold(
-        // key: _scaffoldKey,
+        key: _scaffoldKey,
         backgroundColor: Colors.white,
         body: BlocConsumer<SignupCubit, SignupState>(
           listener: (context, state) {
             if (state is SignupError) {
-              // return MyStyle.err(ScaffoldMessenger.of(context).showSnackBar, state.message);
+              return MyStyle.err(ScaffoldMessenger.of(context).showSnackBar, state.message);
             } else if (state is SignupSuccess) {
               print("brace you gonna login");
+              //Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomTabBarr()));
               Navigator.pushReplacementNamed(context, AppStartScreen.routeName);
             }
           },
@@ -101,8 +105,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   }
                                   return null;
                                 },
-                                decoration:
-                                    MyStyle.inputregular("Full name").copyWith(
+                                decoration: MyStyle.inputregular("Full name").copyWith(
                                   labelStyle: TextStyle(
                                     fontSize: 15.sp,
                                     color: MyStyle.primarycolo,
@@ -147,16 +150,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   }
                                   return null;
                                 },
-                                decoration:
-                                    MyStyle.inputregular("Password").copyWith(
+                                decoration: MyStyle.inputregular("Password").copyWith(
                                   suffixIcon: IconButton(
                                     icon: Icon(
-                                      _passwordVisible
-                                          ? Icons.visibility
-                                          : Icons.visibility_off,
-                                      color: _passwordVisible
-                                          ? Colors.black
-                                          : Colors.grey,
+                                      _passwordVisible ? Icons.visibility : Icons.visibility_off,
+                                      color: _passwordVisible ? Colors.black : Colors.grey,
                                     ),
                                     onPressed: () {
                                       setState(() {
@@ -184,21 +182,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                             child: Text(
                               "Register",
-                              style: MyStyle.subtitleTextStyle.copyWith(
-                                  fontSize: 18.sp, color: Colors.white),
+                              style: MyStyle.subtitleTextStyle
+                                  .copyWith(fontSize: 18.sp, color: Colors.white),
                               textAlign: TextAlign.center,
                             ),
                             onPressed: () {
-                              FocusScope.of(context).requestFocus(FocusNode());
+                              // FocusScope.of(context).requestFocus(FocusNode());
                               if (_formKey.currentState!.validate()) {
                                 UserModel newUserModel = UserModel(
                                   email: email.text,
                                   password: pass.text,
                                   firstname: username.text,
                                 );
-                                context
-                                    .read<SignupCubit>()
-                                    .registerNew(newUserModel, context);
+                                context.read<SignupCubit>().registerNewuser(newUserModel, context);
+                                // Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomTabBarr()));
                               }
                             },
                           ),
@@ -220,21 +217,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Icon(Icons.arrow_back,
-                                  color: MyStyle.primarycolo),
+                              Icon(Icons.arrow_back, color: MyStyle.primarycolo),
                               SizedBox(width: 10.w),
                               Text(
                                 "Back to login",
-                                style: MyStyle.subtitleTextStyle.copyWith(
-                                    fontSize: 18.sp,
-                                    color: MyStyle.primarycolo),
+                                style: MyStyle.subtitleTextStyle
+                                    .copyWith(fontSize: 18.sp, color: MyStyle.primarycolo),
                                 textAlign: TextAlign.center,
                               ),
                             ],
                           ),
                           onPressed: () {
-                            Navigator.pushReplacementNamed(
-                                context, LoginPage.routeName);
+                            Navigator.pushReplacementNamed(context, LoginPage.routeName);
                           },
                         ),
                       ),

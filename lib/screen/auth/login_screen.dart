@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gooto/bloc/auth/login_cubit.dart';
+import 'package:gooto/models/user_model.dart';
 import 'package:gooto/screen/app_start_screen.dart';
 import 'package:gooto/screen/auth/register_screen.dart';
 import 'package:gooto/screen/bottom_tab.dart';
+import 'package:gooto/screen/profile/setting_screen.dart';
 import 'package:gooto/utils/mystyle.dart';
 
 class LoginPage extends StatefulWidget {
@@ -33,10 +35,20 @@ class _LoginPageState extends State<LoginPage> {
       body: BlocConsumer<LoginCubit, LoginState>(
         listener: (context, state) {
           if (state is LoginError) {
-            // return MyStyle.err(ScaffoldMessenger.of(context).showSnackBar, state.message);
+            print(state.message);
+            //MyStyle.err(ScaffoldMessenger.of(context).showSnackBar, state.message);
+            return WidgetsBinding.instance.addPostFrameCallback((_) {
+              MyStyle.err(ScaffoldMessenger.of(context).showSnackBar, state.message);
+            });
           } else if (state is LoginSuccess) {
             print("brace you gonna login");
-            Navigator.pushReplacementNamed(context, AppStartScreen.routeName);
+            //  Future.delayed(Duration(seconds: 5)).then((_) {
+
+            //         });
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              Navigator.pushReplacementNamed(context, AppStartScreen.routeName);
+            });
+            //Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomTabBarr()));
           }
         },
         builder: (context, state) {
@@ -149,10 +161,29 @@ class _LoginPageState extends State<LoginPage> {
                             textAlign: TextAlign.center,
                           ),
                           onPressed: () {
-                            Future.delayed(Duration(seconds: 5)).then((_) {
-                              Navigator.pushReplacementNamed(
-                                  context, AppStartScreen.routeName);
-                            });
+                            if (_formKey.currentState!.validate()) {
+                              FocusScope.of(context).requestFocus(FocusNode());
+                              UserModel newUserModel = UserModel(
+                                email: _usernameController.text,
+                                password: _passwordController.text,
+                                //firstname: username.text,
+                              );
+                              context.read<LoginCubit>().login(context, newUserModel);
+
+                              // context.read<SignupCubit>().registerNew(newUserModel, context);
+                            }
+
+                            // if (_formKey.currentState!.validate()) {
+                            //   FocusScope.of(context).requestFocus(FocusNode());
+                            //   context.read<LoginCubit>().login(context,
+                            //       _usernameController.text.trim(), _passwordController.text.trim());
+                            // }
+                            // FocusScope.of(context).requestFocus(FocusNode());
+                            // if (_formKey.currentState!.validate()) {
+                            //   context.read<LoginCubit>().login(context,
+                            //       _usernameController.text.trim(), _passwordController.text.trim());
+                            // }
+                            //
                           },
                         ),
                       ),
@@ -169,8 +200,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         InkWell(
                           onTap: () {
-                            Navigator.pushNamed(
-                                context, RegisterScreen.routeName);
+                            Navigator.pushNamed(context, RegisterScreen.routeName);
                           },
                           borderRadius: BorderRadius.circular(4.0),
                           child: Padding(
@@ -187,8 +217,7 @@ class _LoginPageState extends State<LoginPage> {
                     Center(
                       child: InkWell(
                         onTap: () {
-                          Navigator.pushReplacementNamed(
-                              context, BottomTabBarr.routeName);
+                          Navigator.pushReplacementNamed(context, BottomTabBarr.routeName);
                         },
                         child: Container(
                           child: Text(

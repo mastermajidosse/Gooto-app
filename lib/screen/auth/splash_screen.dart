@@ -11,6 +11,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 late final GenerativeModel model;
 late dynamic response;
+
+// late final GenerativeModel model;
+// late dynamic response;
 late List<CameraDescription> cameras;
 
 class SplashScreen extends StatefulWidget {
@@ -34,9 +37,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   late double dotRadius;
   void initializegemini() async {
     model = GenerativeModel(
-      model: 'gemini-1.5-flash',
-      apiKey: "AIzaSyBUePPrLujsYnIt4_6G9TYCQEL2YxrX2kg",
-    );
+        model: 'gemini-1.5-flash', apiKey: "AIzaSyCFvdhfzTCJ3khYfDOdROPAi8ehuTOQ72o");
     final content = [
       Content.text(
           "you're a moroccan guide, if user asks you about anything related to morocco culture monument or Moroccan food or clothes answer as expert guide for morocco")
@@ -46,6 +47,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
   @override
   void initState() {
+    //initializegemini();
     super.initState();
     radius = widget.radius;
     dotRadius = widget.dotRadius;
@@ -53,7 +55,6 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     if (widget.radius != 50.5)
       Future.delayed(Duration(seconds: 5)).then((_) async {
         await availableCameras().then((value) {
-          initializegemini();
           cameras = value;
           Navigator.push(
             context,

@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gooto/models/hotel_model.dart';
 import 'package:gooto/utils/mystyle.dart';
@@ -69,7 +70,7 @@ class FullScreenPop extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 26.0),
                   child: Text(
-                    "Amazing Hotel",
+                    "Amazing Hotel".tr(),
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.normal,
@@ -108,7 +109,7 @@ class FullScreenPop extends StatelessWidget {
                       height: 45,
                       alignment: Alignment.center,
                       child: Text(
-                        "Book Now",
+                        "Book Now".tr(),
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -125,5 +126,83 @@ class FullScreenPop extends StatelessWidget {
         ],
       ),
     );
+    // Container(
+    //   decoration: BoxDecoration(
+    //     image: DecorationImage(
+    //       image: NetworkImage(hotel.img),
+    //       fit: BoxFit.cover,
+    //     ),
+    //   ),
+    //   height: double.infinity,
+    //   width: double.infinity,
+
+    //   child: Column(
+    //     mainAxisAlignment: MainAxisAlignment.end,
+    //     crossAxisAlignment: CrossAxisAlignment.start,
+    //     children: [
+    //       Padding(
+    //         padding: const EdgeInsets.only(left: 26.0),
+    //         child: Text(
+    //           "Amazing Hotel",
+    //           style: TextStyle(
+    //             color: Colors.white,
+    //             fontWeight: FontWeight.normal,
+    //             fontSize: 23,
+    //           ),
+    //         ),
+    //       ),
+    //       SizedBox(height: 10),
+    //       Padding(
+    //         padding: const EdgeInsets.only(left: 26.0),
+    //         child: Text(
+    //           hotel.title,
+    //           style: TextStyle(
+    //             color: Colors.white,
+    //             fontWeight: FontWeight.bold,
+    //             fontSize: 36,
+    //           ),
+    //         ),
+    //       ),
+    //       SizedBox(height: 50),
+    //       Center(
+    //         child: InkWell(
+    //           onTap: () async {
+    //             if (!await launchUrl(Uri.parse(hotel.url))) {
+    //               throw Exception('Could not launch ${hotel.url}');
+    //             }
+    //           },
+    //           splashColor: Colors.transparent,
+    //           highlightColor: Colors.transparent,
+    //           child: Container(
+    //             decoration: BoxDecoration(
+    //               borderRadius: BorderRadius.circular(15),
+    //               color: getColor(),
+    //             ),
+    //             width: 350,
+    //             height: 45,
+    //             alignment: Alignment.center,
+    //             child: Text(
+    //               "Book Now",
+    //               style: TextStyle(
+    //                 color: Colors.white,
+    //                 fontWeight: FontWeight.bold,
+    //                 fontSize: 16,
+    //               ),
+    //             ),
+    //           ),
+    //         ),
+    //       ),
+    //       SizedBox(height: 38),
+    //     ],
+    //   ),
+    // ),
+    // );
   }
 }
+// appBar: AppBar(
+      //   title: Align(
+      //     alignment: Alignment.center,
+      //     child: 
+      //   Text(hotel.title,textAlign: TextAlign.center,),)
+        
+      // ),
