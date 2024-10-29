@@ -5,10 +5,12 @@ import 'package:gooto/bloc/auth/auth_cubit.dart';
 import 'package:gooto/bloc/profile/profile_cubit.dart';
 import 'package:gooto/screen/ai/camera_screen.dart';
 import 'package:gooto/screen/ai/chatai.dart';
+import 'package:gooto/screen/allPopular_screen.dart';
 import 'package:gooto/screen/audio/AudioGeneral.dart';
 import 'package:gooto/screen/auth/login_screen.dart';
 import 'package:gooto/screen/auth/register_screen.dart';
 import 'package:gooto/screen/auth/setting_screen.dart';
+import 'package:gooto/screen/exolore/articles.dart';
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gooto/screen/feed/home_screen.dart';
 import 'package:gooto/screen/feed/save_screen.dart';
@@ -139,14 +141,16 @@ class _BottomTabBarrState extends State<BottomTabBarr> {
     });
   }
 
-  List<Widget> _getWidgetOptions(bool isAuthenticated) {
+  List<Widget> _getWidgetOptions( isAuthenticated) {
     return [
       HomeScreen(),
       PodcastDiscoveryScreen(),
       CameraScreen(),
-      PostWidget(),
+      //PopularPlacesScreen(),
+      ExplloreScreen(),
+      //PostWidget(),
       ChatAIScreen(),
-      isAuthenticated ? SettingScreen() : LoginPage(),
+      //isAuthenticated ? SettingScreen() : LoginPage(),
     ];
   }
 
@@ -155,9 +159,27 @@ class _BottomTabBarrState extends State<BottomTabBarr> {
     return BlocBuilder<AuthCubit, AuthState>(
       builder: (context, state) {
         final isAuthenticated = state is Authenticated;
-        final widgetOptions = _getWidgetOptions(isAuthenticated);
+       
+    //                context.read<AuthCubit>().checkAuth(context);
 
-        return Scaffold(
+    // // Access the current state of the AuthCubit after checkAuth()
+    // final authState = context.read<AuthCubit>().state;
+
+    // if (authState is Authenticated) {
+    //   // If authenticated, create the order
+    //         Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage()));
+    // } else if (authState is Unauthenticated) {
+    //   // If unauthenticated, navigate to the login page or product detail
+    //   Navigator.push(
+    //     context,
+    //     MaterialPageRoute(
+    //       builder: (context) =>SettingScreen (),
+    //     ),
+    //   );
+    // }
+ final widgetOptions = _getWidgetOptions(isAuthenticated);
+        return SafeArea(child: 
+         Scaffold(
           key: _scaffoldKey,
           body: widget.widgetoutside ?? widgetOptions.elementAt(_selectedIndex),
           bottomNavigationBar: Container(
@@ -175,11 +197,12 @@ class _BottomTabBarrState extends State<BottomTabBarr> {
                   costumcollum("assets/icons/cameraai.png", "assets/icons/cameraai.png", 2),
                   costumcollum("assets/icons/news.png", "assets/icons/news.png", 3),
                   costumcollum("assets/icons/geminig.png", "assets/icons/geminig.png", 4),
-                  costumcollum("assets/icons/geminig.png", "assets/icons/geminig.png", 5),
+                  //costumcollum("assets/icons/geminig.png", "assets/icons/geminig.png", 4),
                 ],
               ),
             ),
           ),
+         )
         );
       },
     );

@@ -10,6 +10,7 @@ import 'package:gooto/screen/allPopular_screen.dart';
 import 'package:gooto/screen/audio/allAudio_screen.dart';
 import 'package:gooto/screen/audio/audio.dart';
 import 'package:gooto/screen/auth/fullscreenpopup.dart';
+import 'package:gooto/screen/exolore/explore_screen.dart';
 import 'package:gooto/screen/feed/places_near_me.dart';
 import 'package:gooto/screen/hotel/Allhotel.dart';
 import 'package:gooto/screen/popular_details_screen.dart';
@@ -64,11 +65,11 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            IconButton(
-                onPressed: () {
-                  changeLanguge(context);
-                },
-                icon: const Icon(Icons.language)),
+            // IconButton(
+            //     onPressed: () {
+            //       changeLanguge(context);
+            //     },
+            //     icon: const Icon(Icons.language)),
             const SizedBox(height: 10),
             Container(
               alignment: Alignment.bottomLeft,
@@ -81,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
             GestureDetector(
               onTap: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => PopularPlacesScreen()));
+                    context, MaterialPageRoute(builder: (context) => PostWidget()));
               },
               child: Container(
                 margin: EdgeInsets.all(8),

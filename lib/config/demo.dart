@@ -46,11 +46,14 @@ List<Posts> Listposts=[
    image: "assets/posts/amine.jpeg",
     imageprofile: "assets/posts/amine3.png", 
     local: "Oued kanare",
+    
     comments: [
      // Comments(name: name, comment: comment, photoprofil: photoprofil)
       ],
     Like: 6, 
-    description: 'oued knare best place for travel'
+    description: 'Khalid had great communication leading up to the tour. He was very accommodating and made sure we were comfortable. The drive to and from the falls was beautiful. The falls and God’s Bridge were absolutely breathtaking. It was a wonderful hike. We went at a good pace and Khalid showed us interesting places along the way. I highly recommend having a guide for this trip. We could have easily been lost without a guide. Khalid was awesome!!',
+     Rating: 3, 
+     time: '1 day',
     ),
       Posts(
         name: "omar",
@@ -58,8 +61,9 @@ List<Posts> Listposts=[
     imageprofile: "assets/posts/park1.jpeg", 
     local: "khnifra",
     comments:[] ,
-    Like: 3, 
-    description: 'climbing with good teams🔥'
+    Like: 2, 
+    description: 'climbing with good teams🔥',
+     Rating: 2, time: '3 day'
     ),
       Posts(
         name: "yassine",
@@ -68,8 +72,55 @@ List<Posts> Listposts=[
     local: "Hociema",
     comments: [],
     Like: 1,
-    description: "the best place in north Morroco"
+    description: "the best place in north Morroco", Rating: 4, 
+    time: '5 days'
     ),
+      Posts(
+        name: "Adibaba",
+   image: "assets/posts/amine.jpeg",
+    imageprofile: "assets/posts/travel1.jpg", 
+    local: "Akchour",
+    comments: [
+     // Comments(name: name, comment: comment, photoprofil: photoprofil)
+      ],
+    Like: 3, 
+    description: 'Excellent tracking, beautiful views, multiple small waterfalls, does take two hours going and coming, make sure you have time, would be tricky after dark. Some crossings are slippery. We went in winters did not have any water but still worth it',
+     Rating: 5, time: '1 week'
+    ),
+      Posts(
+        name: "Rébecca",
+   image: "assets/posts/amine.jpeg",
+    imageprofile: "assets/posts/travel2.jpg", 
+    local: "Merzouga",
+    comments: [
+     // Comments(name: name, comment: comment, photoprofil: photoprofil)
+      ],
+    Like: 5, 
+    description: 'As expected lunches were not included and we were brought to lunch buffet costing 120mad per person. Had the option to do atv which was a lot of fun! It was great. If you wanna go see the desert it’s a good affordable option.', Rating: 5, time: '2 week'
+    ),
+      Posts(
+        name: "sienna",
+   image: "assets/posts/amine.jpeg",
+    imageprofile: "assets/posts/travel3.jpg", 
+    local: "fes ",
+    comments: [
+     // Comments(name: name, comment: comment, photoprofil: photoprofil)
+      ],
+    Like: 1, 
+    description: 'We have a great experiencewho took us from the address we were staying and explain everything we need to know about the daily tour. We stopped at a couple of places with an amazing panoramic view during our ride. I reccomended to everyone who is visiting Fes to booked this trip.', Rating: 3, time: '4 week'
+    ),
+       Posts(
+        name: "Wassima",
+   image: "assets/posts/amine.jpeg",
+    imageprofile: "assets/posts/travel4.jpg", 
+    local: "Agadir",
+    comments: [
+     // Comments(name: name, comment: comment, photoprofil: photoprofil)
+      ],
+    Like: 4, 
+    description: 'In the west of the country, bordered by the waves of the Atlantic, Agadir is one of the pearls of Morocco. Whatever the season, the sun pours its rays and the city enjoys a pleasant climate that the trade winds still soften. Above all, its 10-kilometre-long seafront offers tourists magnificent views of the blue ocean and the opportunity to laze', Rating: 2, time: '2024/08/10'
+    ),
+
   //     Posts(name: name,
   //  image: image,
   //   imageprofile: imageprofile, 

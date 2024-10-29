@@ -25,7 +25,7 @@ void main() async {
   // ];
   // response = await model.generateContent(content);
   // print(response.text);
-  // cameras = await availableCameras();
+  cameras = await availableCameras();
   HttpOverrides.global = MyHttpOverrides();
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);

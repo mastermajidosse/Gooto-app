@@ -169,6 +169,7 @@ class _LoginPageState extends State<LoginPage> {
                                 //firstname: username.text,
                               );
                               context.read<LoginCubit>().login(context, newUserModel);
+                              
 
                               // context.read<SignupCubit>().registerNew(newUserModel, context);
                             }
