@@ -137,7 +137,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                                         Icon(
                                           Icons.play_circle_fill,
                                           size: 37.sp,
-                                          color: Colors.black,
+                                          color: Colors.white,
                                         ),
                                         SizedBox(width: 10),
                                         Text(
@@ -146,7 +146,7 @@ class _PodcastDiscoveryScreenState extends State<PodcastDiscoveryScreen> {
                                             fontFamily: 'Arial',
                                             fontSize: 22.sp,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.black,
+                                            color: Colors.white,
                                           ),
                                         ),
                                       ],

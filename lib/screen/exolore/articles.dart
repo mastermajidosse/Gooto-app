@@ -10,6 +10,7 @@ import 'package:gooto/models/posts.model.dart';
 import 'package:gooto/screen/exolore/explore_detail.dart';
 import 'package:gooto/services/api/getdata.dart';
 import 'package:gooto/utils/mystyle.dart';
+
 class ExplloreScreen extends StatefulWidget {
   static const routeName = 'Stories';
 
@@ -54,7 +55,7 @@ class _ExplloreScreenState extends State<ExplloreScreen> {
           width: double.infinity,
           alignment: Alignment.center,
           child: Text(
-            "Explore",
+            "Major Cities",
             style: MyStyle.dashTextStyle.copyWith(
               fontSize: ScreenUtil().setSp(18),
               fontFamily: "arial",

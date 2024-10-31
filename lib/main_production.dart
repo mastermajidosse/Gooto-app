@@ -1,5 +1,4 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:gooto/services/app_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -41,9 +40,15 @@ void main() async {
   // response = await model.generateContent(content);
   //response = await model.generateContent(content);
 //print(response);
+  cameras = await availableCameras();
+
   // firsttime();
 
-  runApp(MyApp("prod"));
+  runApp(EasyLocalization(
+      supportedLocales: const [Locale('en', 'US'), Locale('ar', 'AE'), Locale('fr', 'FR')],
+      path: 'assets/translations',
+      fallbackLocale: const Locale('en', 'US'),
+      child: MyApp("prod")));
 }
 
 class MyHttpOverrides extends HttpOverrides {

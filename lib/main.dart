@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider( 
+    return MultiBlocProvider(
       providers: bproviders,
       child: ScreenUtilInit(
         designSize: Size(375, 812),
@@ -46,9 +46,9 @@ class _MyAppState extends State<MyApp> {
         splitScreenMode: true,
         builder: (context, child) {
           return MaterialApp(
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
             title: 'Gooto',
             theme: ThemeData(
               visualDensity: VisualDensity.adaptivePlatformDensity,
